@@ -1,4 +1,4 @@
-# `@alcs/ui` - Sistema de Diseño y Biblioteca Reutilizable de Componentes React
+# `@alcspower/ui` - Sistema de Diseño y Biblioteca Reutilizable de Componentes React
 
 Biblioteca modular y accesible de componentes de interfaz de usuario para aplicaciones web modernas basadas en React.
 
@@ -9,7 +9,7 @@ Diseñada con **React 18 / React 19**, **TypeScript** en modo estricto, primitiv
 ## 🎨 Sistema de Diseño (Design System)
 
 ### 1. Filosofía y Arquitectura
-`@alcs/ui` separa la semántica del diseño de los valores concretos. El flujo arquitectónico garantiza que un cambio de marca o tema se propague sin necesidad de modificar individualmente cada componente:
+`@alcspower/ui` separa la semántica del diseño de los valores concretos. El flujo arquitectónico garantiza que un cambio de marca o tema se propague sin necesidad de modificar individualmente cada componente:
 
 ```text
 Design Token Semántico
@@ -48,7 +48,7 @@ El sistema cuenta con una escala simétrica entre modo claro y modo oscuro, gara
 | `--mific-ring` | `#004b87` | `#38bdf8` | Anillo visible de foco accesible |
 
 ### 3. Tipografía
-`@alcs/ui` **no impone tipografías globales** a la aplicación consumidora. No modifica `body` ni `html`.
+`@alcspower/ui` **no impone tipografías globales** a la aplicación consumidora. No modifica `body` ni `html`.
 - **Estrategia:** La biblioteca utiliza fuentes relativas (`inherit` o el stack del sistema de la aplicación).
 - **Escala:**
   - `text-2xl font-bold tracking-tight`: Títulos de pantalla o encabezados de sección.
@@ -91,27 +91,27 @@ El desplazamiento (`ring-offset`) se adapta automáticamente al color de superfi
 
 Configura tu `.npmrc`:
 ```ini
-@alcs:registry=https://npm.pkg.github.com
+@alcspower:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
 Instala el paquete:
 ```bash
-pnpm add @alcs/ui
+pnpm add @alcspower/ui
 # o con npm:
-npm install @alcs/ui
+npm install @alcspower/ui
 ```
 
 ### 2. Importación de Estilos y Componentes
 
 En el punto de entrada de la aplicación (`main.tsx` o `App.tsx`):
 ```tsx
-import '@alcs/ui/styles.css';
-import { Button, Card, Dialog } from '@alcs/ui';
+import '@alcspower/ui/styles.css';
+import { Button, Card, Dialog } from '@alcspower/ui';
 ```
 
 > [!NOTE]
-> Los estilos están encapsulados bajo `@layer mific-tokens` y `@layer mific-ui` sin CSS reset global (Preflight). Puedes consumir `@alcs/ui` en proyectos con **Tailwind v3**, **Tailwind v4** o **sin Tailwind**.
+> Los estilos están encapsulados bajo `@layer mific-tokens` y `@layer mific-ui` sin CSS reset global (Preflight). Puedes consumir `@alcspower/ui` en proyectos con **Tailwind v3**, **Tailwind v4** o **sin Tailwind**.
 
 ### 3. Personalización de Tokens
 Cualquier aplicación consumidora puede sobrescribir tokens institucionales en su CSS local:
@@ -177,7 +177,7 @@ pnpm pack
 
 ## 📜 Licencias y Dependencias
 
-Todas las dependencias utilizadas en `@alcs/ui` cuentan con licencias abiertas y permisivas:
+Todas las dependencias utilizadas en `@alcspower/ui` cuentan con licencias abiertas y permisivas:
 - **Radix UI Primitives:** Licencia MIT
 - **class-variance-authority:** Licencia Apache-2.0
 - **clsx / tailwind-merge:** Licencia MIT

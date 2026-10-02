@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { cn } from './utils';
 
-describe('tailwind-merge & cn() resolution with @alcs/ui tokens', () => {
+describe('tailwind-merge & cn() resolution with @alcspower/ui tokens', () => {
   it('resuelve conflictos de fondo (bg): bg-mific-primary vs bg-red-500', () => {
     const result = cn('bg-mific-primary', 'bg-red-500');
     expect(result).toBe('bg-red-500');
