@@ -3,26 +3,26 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const badgeVariants = cva(
-  'inline-flex items-center rounded-full font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-mific-ring focus:ring-offset-2 ring-offset-mific-surface select-none',
+  'inline-flex items-center rounded-full font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-alcspower-ring focus:ring-offset-2 ring-offset-alcspower-surface select-none',
   {
     variants: {
       variant: {
         default:
-          'bg-mific-primary text-mific-primary-foreground',
+          'bg-alcspower-primary text-alcspower-primary-foreground',
         secondary:
-          'bg-mific-secondary text-mific-secondary-foreground border border-mific-border',
+          'bg-alcspower-secondary text-alcspower-secondary-foreground border border-alcspower-border',
         success:
-          'bg-mific-success-subtle text-mific-success border border-mific-success-border',
+          'bg-alcspower-success-subtle text-alcspower-success border border-alcspower-success-border',
         warning:
-          'bg-mific-warning-subtle text-mific-warning border border-mific-warning-border',
+          'bg-alcspower-warning-subtle text-alcspower-warning border border-alcspower-warning-border',
         destructive:
-          'bg-mific-destructive-subtle text-mific-destructive border border-mific-destructive-border',
+          'bg-alcspower-destructive-subtle text-alcspower-destructive border border-alcspower-destructive-border',
         danger:
-          'bg-mific-destructive-subtle text-mific-destructive border border-mific-destructive-border',
+          'bg-alcspower-destructive-subtle text-alcspower-destructive border border-alcspower-destructive-border',
         info:
-          'bg-mific-info-subtle text-mific-info border border-mific-info-border',
+          'bg-alcspower-info-subtle text-alcspower-info border border-alcspower-info-border',
         outline:
-          'border border-mific-border text-mific-foreground bg-transparent'
+          'border border-alcspower-border text-alcspower-foreground bg-transparent'
       },
       size: {
         sm: 'px-2 py-0.5 text-xs',

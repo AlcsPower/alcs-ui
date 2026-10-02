@@ -63,7 +63,7 @@ export const ConEtiquetaYError: Story = {
           <SelectItem value="esteli">Estelí</SelectItem>
         </SelectContent>
       </Select>
-      <span className="text-xs text-mific-danger">Debe seleccionar un departamento válido.</span>
+      <span className="text-xs text-alcspower-danger">Debe seleccionar un departamento válido.</span>
     </div>
   )
 };

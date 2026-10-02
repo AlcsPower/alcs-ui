@@ -25,7 +25,7 @@ export const Default: Story = {
           <CardHeader>
             <CardTitle>Información General del Trámite</CardTitle>
           </CardHeader>
-          <CardContent className="text-sm text-mific-text-secondary">
+          <CardContent className="text-sm text-alcspower-text-secondary">
             Empresa solicitante: Agroindustrias de Nicaragua.<br />
             Representante: Lic. Juan Pérez.
           </CardContent>
@@ -36,7 +36,7 @@ export const Default: Story = {
           <CardHeader>
             <CardTitle>Documentos Adjuntos</CardTitle>
           </CardHeader>
-          <CardContent className="text-sm text-mific-text-secondary">
+          <CardContent className="text-sm text-alcspower-text-secondary">
             - Escritura de constitución (PDF)<br />
             - Cédula RUC (PDF)
           </CardContent>
@@ -47,7 +47,7 @@ export const Default: Story = {
           <CardHeader>
             <CardTitle>Dictamen Técnico</CardTitle>
           </CardHeader>
-          <CardContent className="text-sm text-mific-text-secondary">
+          <CardContent className="text-sm text-alcspower-text-secondary">
             Dictamen favorable emitido el 28 de febrero de 2026.
           </CardContent>
         </Card>

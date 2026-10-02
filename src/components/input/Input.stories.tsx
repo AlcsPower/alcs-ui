@@ -39,7 +39,7 @@ export const ConError: Story = {
         RUC del Contribuyente
       </Label>
       <Input id="ruc" hasError defaultValue="J03100000000" />
-      <span className="text-xs text-mific-danger">El número RUC ingresado no es válido.</span>
+      <span className="text-xs text-alcspower-danger">El número RUC ingresado no es válido.</span>
     </div>
   )
 };

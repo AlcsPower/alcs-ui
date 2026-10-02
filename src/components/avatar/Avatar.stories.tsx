@@ -33,17 +33,17 @@ export const ConFallbackTipografico: Story = {
 export const GrupoDeUsuarios: Story = {
   render: () => (
     <div className="flex items-center -space-x-2">
-      <Avatar className="ring-2 ring-mific-surface">
+      <Avatar className="ring-2 ring-alcspower-surface">
         <AvatarFallback>AA</AvatarFallback>
       </Avatar>
-      <Avatar className="ring-2 ring-mific-surface">
+      <Avatar className="ring-2 ring-alcspower-surface">
         <AvatarFallback>MR</AvatarFallback>
       </Avatar>
-      <Avatar className="ring-2 ring-mific-surface">
+      <Avatar className="ring-2 ring-alcspower-surface">
         <AvatarFallback>LG</AvatarFallback>
       </Avatar>
-      <Avatar className="ring-2 ring-mific-surface bg-mific-primary text-white">
-        <AvatarFallback className="bg-mific-primary text-white">+5</AvatarFallback>
+      <Avatar className="ring-2 ring-alcspower-surface bg-alcspower-primary text-white">
+        <AvatarFallback className="bg-alcspower-primary text-white">+5</AvatarFallback>
       </Avatar>
     </div>
   )

@@ -1,80 +1,80 @@
-@layer mific-tokens, mific-ui;
+@layer alcspower-tokens, alcspower-ui;
 
-@import "./tokens.css" layer(mific-tokens);
+@import "./tokens.css" layer(alcspower-tokens);
 @import "tailwindcss/theme.css";
-@import "tailwindcss/utilities.css" layer(mific-ui);
+@import "tailwindcss/utilities.css" layer(alcspower-ui);
 
 @theme {
   /* Lienzo y Superficies */
-  --color-mific-background: var(--mific-background);
-  --color-mific-foreground: var(--mific-foreground);
-  --color-mific-surface: var(--mific-surface);
-  --color-mific-surface-card: var(--mific-surface-card);
-  --color-mific-surface-muted: var(--mific-surface-muted);
-  --color-mific-surface-subtle: var(--mific-surface-subtle);
+  --color-alcspower-background: var(--alcspower-background);
+  --color-alcspower-foreground: var(--alcspower-foreground);
+  --color-alcspower-surface: var(--alcspower-surface);
+  --color-alcspower-surface-card: var(--alcspower-surface-card);
+  --color-alcspower-surface-muted: var(--alcspower-surface-muted);
+  --color-alcspower-surface-subtle: var(--alcspower-surface-subtle);
 
   /* Marca Principal */
-  --color-mific-primary: var(--mific-primary);
-  --color-mific-primary-hover: var(--mific-primary-hover);
-  --color-mific-primary-active: var(--mific-primary-active);
-  --color-mific-primary-subtle: var(--mific-primary-subtle);
-  --color-mific-primary-foreground: var(--mific-primary-foreground);
+  --color-alcspower-primary: var(--alcspower-primary);
+  --color-alcspower-primary-hover: var(--alcspower-primary-hover);
+  --color-alcspower-primary-active: var(--alcspower-primary-active);
+  --color-alcspower-primary-subtle: var(--alcspower-primary-subtle);
+  --color-alcspower-primary-foreground: var(--alcspower-primary-foreground);
 
   /* Secundario y Acento */
-  --color-mific-secondary: var(--mific-secondary);
-  --color-mific-secondary-hover: var(--mific-secondary-hover);
-  --color-mific-secondary-foreground: var(--mific-secondary-foreground);
-  --color-mific-accent: var(--mific-accent);
-  --color-mific-accent-foreground: var(--mific-accent-foreground);
+  --color-alcspower-secondary: var(--alcspower-secondary);
+  --color-alcspower-secondary-hover: var(--alcspower-secondary-hover);
+  --color-alcspower-secondary-foreground: var(--alcspower-secondary-foreground);
+  --color-alcspower-accent: var(--alcspower-accent);
+  --color-alcspower-accent-foreground: var(--alcspower-accent-foreground);
 
   /* Muted y Textos */
-  --color-mific-muted: var(--mific-muted);
-  --color-mific-muted-foreground: var(--mific-muted-foreground);
+  --color-alcspower-muted: var(--alcspower-muted);
+  --color-alcspower-muted-foreground: var(--alcspower-muted-foreground);
 
   /* Estados Funcionales */
-  --color-mific-destructive: var(--mific-destructive);
-  --color-mific-destructive-hover: var(--mific-destructive-hover);
-  --color-mific-destructive-active: var(--mific-destructive-active);
-  --color-mific-destructive-foreground: var(--mific-destructive-foreground);
-  --color-mific-destructive-subtle: var(--mific-destructive-subtle);
-  --color-mific-destructive-border: var(--mific-destructive-border);
+  --color-alcspower-destructive: var(--alcspower-destructive);
+  --color-alcspower-destructive-hover: var(--alcspower-destructive-hover);
+  --color-alcspower-destructive-active: var(--alcspower-destructive-active);
+  --color-alcspower-destructive-foreground: var(--alcspower-destructive-foreground);
+  --color-alcspower-destructive-subtle: var(--alcspower-destructive-subtle);
+  --color-alcspower-destructive-border: var(--alcspower-destructive-border);
 
-  --color-mific-success: var(--mific-success);
-  --color-mific-success-foreground: var(--mific-success-foreground);
-  --color-mific-success-subtle: var(--mific-success-subtle);
-  --color-mific-success-border: var(--mific-success-border);
+  --color-alcspower-success: var(--alcspower-success);
+  --color-alcspower-success-foreground: var(--alcspower-success-foreground);
+  --color-alcspower-success-subtle: var(--alcspower-success-subtle);
+  --color-alcspower-success-border: var(--alcspower-success-border);
 
-  --color-mific-warning: var(--mific-warning);
-  --color-mific-warning-foreground: var(--mific-warning-foreground);
-  --color-mific-warning-subtle: var(--mific-warning-subtle);
-  --color-mific-warning-border: var(--mific-warning-border);
+  --color-alcspower-warning: var(--alcspower-warning);
+  --color-alcspower-warning-foreground: var(--alcspower-warning-foreground);
+  --color-alcspower-warning-subtle: var(--alcspower-warning-subtle);
+  --color-alcspower-warning-border: var(--alcspower-warning-border);
 
-  --color-mific-info: var(--mific-info);
-  --color-mific-info-foreground: var(--mific-info-foreground);
-  --color-mific-info-subtle: var(--mific-info-subtle);
-  --color-mific-info-border: var(--mific-info-border);
+  --color-alcspower-info: var(--alcspower-info);
+  --color-alcspower-info-foreground: var(--alcspower-info-foreground);
+  --color-alcspower-info-subtle: var(--alcspower-info-subtle);
+  --color-alcspower-info-border: var(--alcspower-info-border);
 
   /* Bordes, Controles y Focus */
-  --color-mific-border: var(--mific-border);
-  --color-mific-border-subtle: var(--mific-border-subtle);
-  --color-mific-input: var(--mific-input);
-  --color-mific-ring: var(--mific-ring);
-  --color-mific-ring-offset: var(--mific-ring-offset);
+  --color-alcspower-border: var(--alcspower-border);
+  --color-alcspower-border-subtle: var(--alcspower-border-subtle);
+  --color-alcspower-input: var(--alcspower-input);
+  --color-alcspower-ring: var(--alcspower-ring);
+  --color-alcspower-ring-offset: var(--alcspower-ring-offset);
 
   /* Nomenclatura Previa para Retrocompatibilidad */
-  --color-mific-canvas: var(--mific-canvas);
-  --color-mific-text-primary: var(--mific-text-primary);
-  --color-mific-text-secondary: var(--mific-text-secondary);
-  --color-mific-text-muted: var(--mific-text-muted);
-  --color-mific-text-inverse: var(--mific-text-inverse);
-  --color-mific-danger: var(--mific-danger);
-  --color-mific-danger-foreground: var(--mific-danger-foreground);
-  --color-mific-danger-subtle: var(--mific-danger-subtle);
-  --color-mific-danger-border: var(--mific-danger-border);
+  --color-alcspower-canvas: var(--alcspower-canvas);
+  --color-alcspower-text-primary: var(--alcspower-text-primary);
+  --color-alcspower-text-secondary: var(--alcspower-text-secondary);
+  --color-alcspower-text-muted: var(--alcspower-text-muted);
+  --color-alcspower-text-inverse: var(--alcspower-text-inverse);
+  --color-alcspower-danger: var(--alcspower-danger);
+  --color-alcspower-danger-foreground: var(--alcspower-danger-foreground);
+  --color-alcspower-danger-subtle: var(--alcspower-danger-subtle);
+  --color-alcspower-danger-border: var(--alcspower-danger-border);
 
   /* Radios */
-  --radius-mific-sm: var(--mific-radius-sm);
-  --radius-mific-md: var(--mific-radius-md);
-  --radius-mific-lg: var(--mific-radius-lg);
-  --radius-mific-full: var(--mific-radius-full);
+  --radius-alcspower-sm: var(--alcspower-radius-sm);
+  --radius-alcspower-md: var(--alcspower-radius-md);
+  --radius-alcspower-lg: var(--alcspower-radius-lg);
+  --radius-alcspower-full: var(--alcspower-radius-full);
 }

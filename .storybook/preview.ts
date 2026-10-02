@@ -15,8 +15,8 @@ const preview: Preview = {
     backgrounds: {
       default: 'canvas',
       values: [
-        { name: 'canvas', value: 'var(--mific-canvas)' },
-        { name: 'surface', value: 'var(--mific-surface)' }
+        { name: 'canvas', value: 'var(--alcspower-canvas)' },
+        { name: 'surface', value: 'var(--alcspower-surface)' }
       ]
     }
   },

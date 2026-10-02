@@ -16,17 +16,17 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="relative flex items-center w-full">
         {leftElement && (
-          <div className="absolute left-3 flex items-center pointer-events-none text-mific-muted-foreground">
+          <div className="absolute left-3 flex items-center pointer-events-none text-alcspower-muted-foreground">
             {leftElement}
           </div>
         )}
         <input
           type={type}
           className={cn(
-            'flex h-10 w-full rounded-md border bg-mific-surface px-3 py-2 text-sm text-mific-foreground transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-mific-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mific-ring focus-visible:ring-offset-2 ring-offset-mific-surface disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-mific-surface-muted',
+            'flex h-10 w-full rounded-md border bg-alcspower-surface px-3 py-2 text-sm text-alcspower-foreground transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-alcspower-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-alcspower-surface-muted',
             hasError
-              ? 'border-mific-destructive focus-visible:ring-mific-destructive'
-              : 'border-mific-input hover:border-mific-border-subtle',
+              ? 'border-alcspower-destructive focus-visible:ring-alcspower-destructive'
+              : 'border-alcspower-input hover:border-alcspower-border-subtle',
             leftElement && 'pl-10',
             rightElement && 'pr-10',
             className
@@ -37,7 +37,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {rightElement && (
-          <div className="absolute right-3 flex items-center text-mific-muted-foreground">
+          <div className="absolute right-3 flex items-center text-alcspower-muted-foreground">
             {rightElement}
           </div>
         )}

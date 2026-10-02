@@ -24,7 +24,7 @@ export const Default: Story = {
         <CardDescription>Registro sanitario de productos de exportación</CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-mific-text-secondary">
+        <p className="text-sm text-alcspower-text-secondary">
           Titular: Lácteos del Norte S.A.<br />
           Fecha de emisión: 15 de marzo de 2026
         </p>

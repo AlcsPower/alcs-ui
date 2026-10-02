@@ -33,7 +33,7 @@ export const Default: Story = {
         <DialogHeader>
           <DialogTitle>Nueva Licencia de Exportación</DialogTitle>
           <DialogDescription>
-            Complete los campos obligatorios para registrar la solicitud en el MIFIC.
+            Complete los campos obligatorios para registrar la solicitud en el AlcsPower.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">

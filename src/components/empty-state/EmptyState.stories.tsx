@@ -71,7 +71,7 @@ export const NoNotifications: Story = {
 
 export const DarkMode: Story = {
   render: () => (
-    <div className="dark bg-mific-surface-card p-6 rounded-lg">
+    <div className="dark bg-alcspower-surface-card p-6 rounded-lg">
       <EmptyState
         title="Sin documentos en archivo"
         description="El repositorio digital de este expediente se encuentra vacío."

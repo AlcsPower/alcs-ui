@@ -9,7 +9,7 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Publicada:** `0.1.0`
+* **Versión:** `0.2.0`
 * **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
 * **Repositorio GitHub:** [https://github.com/AlcsPower/alcs-ui](https://github.com/AlcsPower/alcs-ui)
 * **Licencia del Paquete:** UNLICENSED (código institucional propietario; dependencias externas de código abierto bajo licencias permisivas MIT / Apache-2.0 / ISC)
@@ -26,16 +26,16 @@ React Components (Radix UI Primitives + Lucide + CVA)
                          ↓
            Design Tokens Semánticos
                          ↓
-   CSS Custom Properties de Implementación (--mific-*)
+   CSS Custom Properties de Implementación (--alcspower-*)
                          ↓
-  CSS Precompilado Encapsulado (@layer mific-tokens, mific-ui)
+  CSS Precompilado Encapsulado (@layer alcspower-tokens, alcspower-ui)
                          ↓
    Artefacto Distribuido en GitHub Packages (ESM / CJS / DTS / CSS)
 ```
 
 ### Principios Fundamentales
 1. **Composición sobre Configuración:** Se favorece el uso de subcomponentes declarativos (e.g. `CardHeader`, `CardTitle`, `CardContent`) y el patrón `asChild` para composición polimórfica accesible.
-2. **Cero Resets Globales Destructivos:** Los estilos se empaquetan dentro de `@layer mific-tokens` y `@layer mific-ui`, evitando alterar selectores globales como `body`, `html` o tablas de fuentes.
+2. **Cero Resets Globales Destructivos:** Los estilos se empaquetan dentro de `@layer alcspower-tokens` y `@layer alcspower-ui`, evitando alterar selectores globales como `body`, `html` o tablas de fuentes.
 3. **Distribución Autónoma:** Todo el CSS necesario está empaquetado en `@alcspower/ui/styles.css`. El consumidor no requiere duplicar archivos ni configuraciones internas de Tailwind.
 
 ---
@@ -62,10 +62,10 @@ Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.gith
 
 ```bash
 # Con pnpm (recomendado):
-pnpm add @alcspower/ui@0.1.0
+pnpm add @alcspower/ui@0.2.0
 
 # O con npm:
-npm install @alcspower/ui@0.1.0
+npm install @alcspower/ui@0.2.0
 ```
 
 ---
@@ -416,30 +416,30 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 
 ### 1. Tokens Semánticos de Color
 
-En la versión actual de distribución (`0.1.0`), la hoja de estilos (`src/styles/tokens.css`) implementa 57 variables CSS en `:root` (41 propiedades de color y estados interactivos, 9 alias de compatibilidad, 4 de radio y 3 de sombra). A nivel de consumo público, se estructuran en torno a los 20 conceptos semánticos principales de color:
+En la versión actual de distribución (`0.2.0`), la hoja de estilos (`src/styles/tokens.css`) implementa 57 variables CSS en `:root` (41 propiedades de color y estados interactivos, 9 alias de compatibilidad, 4 de radio y 3 de sombra). A nivel de consumo público, se estructuran en torno a los 20 conceptos semánticos principales de color:
 
 | Concepto Semántico | Variable CSS de Implementación | Modo Claro (`:root`) | Modo Oscuro (`.dark`) | Uso Principal |
 | :--- | :--- | :--- | :--- | :--- |
-| `background` | `--mific-background` | `#f8fafc` (Slate 50) | `#090d16` (Slate 950+) | Lienzo de fondo de la aplicación |
-| `foreground` | `--mific-foreground` | `#0f172a` (Slate 900) | `#f8fafc` (Slate 50) | Color de texto principal |
-| `surface` | `--mific-surface` | `#ffffff` | `#0f172a` (Slate 900) | Superficie de controles, inputs, selects |
-| `surface-card` | `--mific-surface-card` | `#ffffff` | `#131d31` (Azul pizarra) | Superficie para tarjetas y modales |
-| `surface-muted`| `--mific-surface-muted`| `#f1f5f9` (Slate 100) | `#1e293b` (Slate 800) | Fondos de listas, pestañas y contenedores sutiles |
-| `primary` | `--mific-primary` | `#004b87` (Azul Institucional) | `#38bdf8` (Sky 400) | Botones primarios, enlaces activos, foco |
-| `primary-foreground` | `--mific-primary-foreground` | `#ffffff` | `#082f49` (Sky 950) | Texto sobre fondos primarios |
-| `primary-hover`| `--mific-primary-hover` | `#003866` | `#0ea5e9` | Hover de acciones principales |
-| `secondary` | `--mific-secondary` | `#f1f5f9` | `#1e293b` | Acciones secundarias y badges neutrales |
-| `secondary-foreground` | `--mific-secondary-foreground` | `#0f172a` | `#f8fafc` | Texto sobre botón secundario |
-| `muted` | `--mific-muted` | `#f1f5f9` | `#1e293b` | Elementos atenuados |
-| `muted-foreground` | `--mific-muted-foreground` | `#64748b` (Slate 500) | `#94a3b8` (Slate 400) | Texto secundario y placeholders |
-| `destructive` | `--mific-destructive` | `#dc2626` (Red 600) | `#ef4444` (Red 500) | Errores, alertas críticas y peligro |
-| `destructive-foreground` | `--mific-destructive-foreground` | `#ffffff` | `#450a0a` (Red 950) | Texto sobre botón destructivo |
-| `success` | `--mific-success` | `#15803d` (Green 700) | `#4ade80` (Green 400) | Estados completados y confirmación |
-| `warning` | `--mific-warning` | `#b45309` (Amber 700) | `#fbbf24` (Amber 400) | Advertencias y revisiones |
-| `info` | `--mific-info` | `#0369a1` (Sky 700) | `#38bdf8` (Sky 400) | Mensajes y badges informativos |
-| `border` | `--mific-border` | `#e2e8f0` (Slate 200) | `#334155` (Slate 700) | Bordes estructurales y divisores |
-| `input` | `--mific-input` | `#e2e8f0` (Slate 200) | `#334155` (Slate 700) | Bordes de inputs, textareas y selects |
-| `ring` | `--mific-ring` | `#004b87` | `#38bdf8` | Anillo visible de foco accesible |
+| `background` | `--alcspower-background` | `#f8fafc` (Slate 50) | `#090d16` (Slate 950+) | Lienzo de fondo de la aplicación |
+| `foreground` | `--alcspower-foreground` | `#0f172a` (Slate 900) | `#f8fafc` (Slate 50) | Color de texto principal |
+| `surface` | `--alcspower-surface` | `#ffffff` | `#0f172a` (Slate 900) | Superficie de controles, inputs, selects |
+| `surface-card` | `--alcspower-surface-card` | `#ffffff` | `#131d31` (Azul pizarra) | Superficie para tarjetas y modales |
+| `surface-muted`| `--alcspower-surface-muted`| `#f1f5f9` (Slate 100) | `#1e293b` (Slate 800) | Fondos de listas, pestañas y contenedores sutiles |
+| `primary` | `--alcspower-primary` | `#004b87` (Azul Institucional) | `#38bdf8` (Sky 400) | Botones primarios, enlaces activos, foco |
+| `primary-foreground` | `--alcspower-primary-foreground` | `#ffffff` | `#082f49` (Sky 950) | Texto sobre fondos primarios |
+| `primary-hover`| `--alcspower-primary-hover` | `#003866` | `#0ea5e9` | Hover de acciones principales |
+| `secondary` | `--alcspower-secondary` | `#f1f5f9` | `#1e293b` | Acciones secundarias y badges neutrales |
+| `secondary-foreground` | `--alcspower-secondary-foreground` | `#0f172a` | `#f8fafc` | Texto sobre botón secundario |
+| `muted` | `--alcspower-muted` | `#f1f5f9` | `#1e293b` | Elementos atenuados |
+| `muted-foreground` | `--alcspower-muted-foreground` | `#64748b` (Slate 500) | `#94a3b8` (Slate 400) | Texto secundario y placeholders |
+| `destructive` | `--alcspower-destructive` | `#dc2626` (Red 600) | `#ef4444` (Red 500) | Errores, alertas críticas y peligro |
+| `destructive-foreground` | `--alcspower-destructive-foreground` | `#ffffff` | `#450a0a` (Red 950) | Texto sobre botón destructivo |
+| `success` | `--alcspower-success` | `#15803d` (Green 700) | `#4ade80` (Green 400) | Estados completados y confirmación |
+| `warning` | `--alcspower-warning` | `#b45309` (Amber 700) | `#fbbf24` (Amber 400) | Advertencias y revisiones |
+| `info` | `--alcspower-info` | `#0369a1` (Sky 700) | `#38bdf8` (Sky 400) | Mensajes y badges informativos |
+| `border` | `--alcspower-border` | `#e2e8f0` (Slate 200) | `#334155` (Slate 700) | Bordes estructurales y divisores |
+| `input` | `--alcspower-input` | `#e2e8f0` (Slate 200) | `#334155` (Slate 700) | Bordes de inputs, textareas y selects |
+| `ring` | `--alcspower-ring` | `#004b87` | `#38bdf8` | Anillo visible de foco accesible |
 
 ### 2. Escala Geométrica de Radios (Border Radius)
 
@@ -449,7 +449,7 @@ La biblioteca aplica una escala métrica proporcional para mantener consistencia
 * **Grande (`lg`):** `8px` — Tarjetas (`Card`), ventanas modales (`Dialog`), alertas (`Alert`).
 * **Completo (`full`):** `9999px` — Avatares (`Avatar`), conmutadores (`Switch`) e indicadores de píldora.
 
-*(Nota de implementación: Los valores de radio están enlazados internamente a `--mific-radius-*`).*
+*(Nota de implementación: Los valores de radio están enlazados internamente a `--alcspower-radius-*`).*
 
 ### 3. Escala Semántica de Elevación y Sombras (Box Shadow)
 
@@ -457,14 +457,14 @@ La biblioteca aplica una escala métrica proporcional para mantener consistencia
 * **`shadow-md`:** Elevación intermedia para menús flotantes (`DropdownMenu`, `SelectContent`).
 * **`shadow-lg`:** Elevación pronunciada para ventanas modales y diálogos superpuestos (`DialogContent`).
 
-*(Nota de implementación: Los valores de elevación están enlazados internamente a `--mific-shadow-*`).*
+*(Nota de implementación: Los valores de elevación están enlazados internamente a `--alcspower-shadow-*`).*
 
 ### 4. Sobrescritura de Tokens en el Consumidor
 Cualquier aplicación consumidora puede ajustar o redefinir los valores semánticos en su archivo CSS local:
 ```css
 :root {
-  --mific-primary: #005a9c;
-  --mific-radius-md: 0.5rem;
+  --alcspower-primary: #005a9c;
+  --alcspower-radius-md: 0.5rem;
 }
 ```
 
@@ -484,7 +484,7 @@ function toggleTheme() {
 ### Anillo de Foco Accesible (Focus Ring)
 Todos los controles interactivos implementan un anillo de foco visible que adapta automáticamente su contraste y su color de desplazamiento (`ring-offset`):
 ```css
-focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mific-ring focus-visible:ring-offset-2 ring-offset-mific-surface
+focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface
 ```
 
 ---
@@ -566,7 +566,7 @@ Los siguientes scripts corresponden a los comandos reales definidos en `package.
 
 * **Control de Versiones:** La biblioteca utiliza **Changesets** (`@changesets/cli`) para la gestión de versiones semánticas y el registro de cambios.
 * **Flujo de Publicación:** Las versiones se publican exclusivamente mediante el workflow automatizado de GitHub Actions (`.github/workflows/release.yml`) con mínimo privilegio (`contents: read`, `packages: write`) y autenticación de `GITHUB_TOKEN`.
-* **Versión Actual:** `0.1.0`.
+* **Versión Actual:** `0.2.0`.
 
 ---
 

@@ -26,19 +26,19 @@ export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
       <div
         ref={ref}
         className={cn(
-          'flex min-h-[320px] flex-col items-center justify-center rounded-lg border border-dashed border-mific-border p-8 text-center animate-in fade-in-50 bg-mific-surface',
+          'flex min-h-[320px] flex-col items-center justify-center rounded-lg border border-dashed border-alcspower-border p-8 text-center animate-in fade-in-50 bg-alcspower-surface',
           className
         )}
         {...props}
       >
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-mific-surface-muted text-mific-muted-foreground mb-4">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-alcspower-surface-muted text-alcspower-muted-foreground mb-4">
           {icon || <Inbox className="h-6 w-6 stroke-[1.5]" aria-hidden="true" />}
         </div>
-        <h4 className="text-base font-semibold text-mific-foreground">
+        <h4 className="text-base font-semibold text-alcspower-foreground">
           {title}
         </h4>
         {description && (
-          <p className="mt-1 text-sm text-mific-muted-foreground max-w-sm mb-4">
+          <p className="mt-1 text-sm text-alcspower-muted-foreground max-w-sm mb-4">
             {description}
           </p>
         )}

@@ -87,7 +87,7 @@ export const Deshabilitado: Story = {
 
 export const MatrizDeEstados: Story = {
   render: () => (
-    <div className="flex flex-col gap-4 p-4 border rounded-lg bg-mific-surface">
+    <div className="flex flex-col gap-4 p-4 border rounded-lg bg-alcspower-surface">
       <div className="flex items-center gap-3">
         <Button variant="primary">Normal</Button>
         <Button variant="primary" disabled>Disabled</Button>

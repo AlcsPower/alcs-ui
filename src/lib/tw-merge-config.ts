@@ -6,111 +6,111 @@ export const customTwMerge = extendTailwindMerge({
       'bg-color': [
         {
           bg: [
-            'mific-background',
-            'mific-foreground',
-            'mific-surface',
-            'mific-surface-card',
-            'mific-surface-muted',
-            'mific-surface-subtle',
-            'mific-primary',
-            'mific-primary-hover',
-            'mific-primary-active',
-            'mific-primary-subtle',
-            'mific-secondary',
-            'mific-secondary-hover',
-            'mific-accent',
-            'mific-muted',
-            'mific-destructive',
-            'mific-destructive-hover',
-            'mific-destructive-active',
-            'mific-destructive-subtle',
-            'mific-success',
-            'mific-success-subtle',
-            'mific-warning',
-            'mific-warning-subtle',
-            'mific-info',
-            'mific-info-subtle',
+            'alcspower-background',
+            'alcspower-foreground',
+            'alcspower-surface',
+            'alcspower-surface-card',
+            'alcspower-surface-muted',
+            'alcspower-surface-subtle',
+            'alcspower-primary',
+            'alcspower-primary-hover',
+            'alcspower-primary-active',
+            'alcspower-primary-subtle',
+            'alcspower-secondary',
+            'alcspower-secondary-hover',
+            'alcspower-accent',
+            'alcspower-muted',
+            'alcspower-destructive',
+            'alcspower-destructive-hover',
+            'alcspower-destructive-active',
+            'alcspower-destructive-subtle',
+            'alcspower-success',
+            'alcspower-success-subtle',
+            'alcspower-warning',
+            'alcspower-warning-subtle',
+            'alcspower-info',
+            'alcspower-info-subtle',
             // Clases de compatibilidad previa
-            'mific-canvas',
-            'mific-danger',
-            'mific-danger-subtle'
+            'alcspower-canvas',
+            'alcspower-danger',
+            'alcspower-danger-subtle'
           ]
         }
       ],
       'text-color': [
         {
           text: [
-            'mific-foreground',
-            'mific-background',
-            'mific-primary',
-            'mific-primary-foreground',
-            'mific-secondary-foreground',
-            'mific-accent-foreground',
-            'mific-muted-foreground',
-            'mific-destructive',
-            'mific-destructive-foreground',
-            'mific-success',
-            'mific-success-foreground',
-            'mific-warning',
-            'mific-warning-foreground',
-            'mific-info',
-            'mific-info-foreground',
+            'alcspower-foreground',
+            'alcspower-background',
+            'alcspower-primary',
+            'alcspower-primary-foreground',
+            'alcspower-secondary-foreground',
+            'alcspower-accent-foreground',
+            'alcspower-muted-foreground',
+            'alcspower-destructive',
+            'alcspower-destructive-foreground',
+            'alcspower-success',
+            'alcspower-success-foreground',
+            'alcspower-warning',
+            'alcspower-warning-foreground',
+            'alcspower-info',
+            'alcspower-info-foreground',
             // Clases de compatibilidad previa
-            'mific-text-primary',
-            'mific-text-secondary',
-            'mific-text-muted',
-            'mific-text-inverse',
-            'mific-danger',
-            'mific-danger-foreground'
+            'alcspower-text-primary',
+            'alcspower-text-secondary',
+            'alcspower-text-muted',
+            'alcspower-text-inverse',
+            'alcspower-danger',
+            'alcspower-danger-foreground'
           ]
         }
       ],
       'border-color': [
         {
           border: [
-            'mific-border',
-            'mific-border-subtle',
-            'mific-input',
-            'mific-primary',
-            'mific-destructive',
-            'mific-destructive-border',
-            'mific-success-border',
-            'mific-warning-border',
-            'mific-info-border',
+            'alcspower-border',
+            'alcspower-border-subtle',
+            'alcspower-input',
+            'alcspower-primary',
+            'alcspower-destructive',
+            'alcspower-destructive-border',
+            'alcspower-success-border',
+            'alcspower-warning-border',
+            'alcspower-info-border',
             // Clases de compatibilidad previa
-            'mific-danger',
-            'mific-danger-border'
+            'alcspower-danger',
+            'alcspower-danger-border'
           ]
         }
       ],
       'ring-color': [
         {
           ring: [
-            'mific-ring',
-            'mific-destructive',
-            'mific-danger',
-            'mific-primary'
+            'alcspower-ring',
+            'alcspower-destructive',
+            'alcspower-danger',
+            'alcspower-primary'
           ]
         }
       ],
       'ring-offset-color': [
         {
           'ring-offset': [
-            'mific-ring-offset',
-            'mific-surface',
-            'mific-surface-card',
-            'mific-background',
-            'mific-canvas'
+            'alcspower-ring-offset',
+            'alcspower-surface',
+            'alcspower-surface-card',
+            'alcspower-background',
+            'alcspower-canvas'
           ]
         }
       ],
       rounded: [
         {
           rounded: [
-            'mific-sm',
-            'mific-md',
-            'mific-lg',
-            'mific-full'
+            'alcspower-sm',
+            'alcspower-md',
+            'alcspower-lg',
+            'alcspower-full'
           ]
         }
       ]

@@ -8,11 +8,11 @@ export const alertVariants = cva(
   {
     variants: {
       variant: {
-        info: 'bg-mific-info-subtle border-mific-info-border text-mific-info [&>svg]:text-mific-info',
-        success: 'bg-mific-success-subtle border-mific-success-border text-mific-success [&>svg]:text-mific-success',
-        warning: 'bg-mific-warning-subtle border-mific-warning-border text-mific-warning [&>svg]:text-mific-warning',
-        destructive: 'bg-mific-destructive-subtle border-mific-destructive-border text-mific-destructive [&>svg]:text-mific-destructive',
-        danger: 'bg-mific-destructive-subtle border-mific-destructive-border text-mific-destructive [&>svg]:text-mific-destructive'
+        info: 'bg-alcspower-info-subtle border-alcspower-info-border text-alcspower-info [&>svg]:text-alcspower-info',
+        success: 'bg-alcspower-success-subtle border-alcspower-success-border text-alcspower-success [&>svg]:text-alcspower-success',
+        warning: 'bg-alcspower-warning-subtle border-alcspower-warning-border text-alcspower-warning [&>svg]:text-alcspower-warning',
+        destructive: 'bg-alcspower-destructive-subtle border-alcspower-destructive-border text-alcspower-destructive [&>svg]:text-alcspower-destructive',
+        danger: 'bg-alcspower-destructive-subtle border-alcspower-destructive-border text-alcspower-destructive [&>svg]:text-alcspower-destructive'
       }
     },
     defaultVariants: {

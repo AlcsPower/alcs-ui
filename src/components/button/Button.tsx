@@ -5,22 +5,22 @@ import { cn } from '../../lib/utils';
 import { Spinner } from '../spinner';
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mific-ring focus-visible:ring-offset-2 ring-offset-mific-surface disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed select-none',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed select-none',
   {
     variants: {
       variant: {
         primary:
-          'bg-mific-primary text-mific-primary-foreground hover:bg-mific-primary-hover active:bg-mific-primary-active shadow-sm',
+          'bg-alcspower-primary text-alcspower-primary-foreground hover:bg-alcspower-primary-hover active:bg-alcspower-primary-active shadow-sm',
         secondary:
-          'bg-mific-secondary text-mific-secondary-foreground hover:bg-mific-secondary-hover border border-mific-border shadow-sm',
+          'bg-alcspower-secondary text-alcspower-secondary-foreground hover:bg-alcspower-secondary-hover border border-alcspower-border shadow-sm',
         outline:
-          'border border-mific-border bg-transparent hover:bg-mific-surface-muted text-mific-foreground',
+          'border border-alcspower-border bg-transparent hover:bg-alcspower-surface-muted text-alcspower-foreground',
         ghost:
-          'hover:bg-mific-surface-muted text-mific-foreground',
+          'hover:bg-alcspower-surface-muted text-alcspower-foreground',
         danger:
-          'bg-mific-destructive text-mific-destructive-foreground hover:bg-mific-destructive-hover active:bg-mific-destructive-active shadow-sm focus-visible:ring-mific-destructive',
+          'bg-alcspower-destructive text-alcspower-destructive-foreground hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active shadow-sm focus-visible:ring-alcspower-destructive',
         link:
-          'text-mific-primary underline-offset-4 hover:underline p-0 h-auto'
+          'text-alcspower-primary underline-offset-4 hover:underline p-0 h-auto'
       },
       size: {
         sm: 'h-8 px-3 text-xs',

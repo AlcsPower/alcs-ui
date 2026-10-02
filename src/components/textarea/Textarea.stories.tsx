@@ -41,7 +41,7 @@ export const ConError: Story = {
     <div className="grid w-96 gap-1.5">
       <Label htmlFor="observaciones" required>Observaciones Técnicas</Label>
       <Textarea id="observaciones" hasError defaultValue="Texto insuficiente" rows={3} />
-      <span className="text-xs text-mific-danger">Debe ingresar al menos 50 caracteres para la justificación.</span>
+      <span className="text-xs text-alcspower-danger">Debe ingresar al menos 50 caracteres para la justificación.</span>
     </div>
   )
 };

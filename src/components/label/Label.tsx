@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const labelVariants = cva(
-  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-mific-foreground select-none'
+  'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-alcspower-foreground select-none'
 );
 
 export interface LabelProps
@@ -24,7 +24,7 @@ export const Label = React.forwardRef<
   >
     {children}
     {required && (
-      <span className="ml-1 text-mific-destructive" aria-hidden="true">
+      <span className="ml-1 text-alcspower-destructive" aria-hidden="true">
         *
       </span>
     )}

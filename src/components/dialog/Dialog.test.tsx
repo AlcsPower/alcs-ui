@@ -24,7 +24,7 @@ describe('Dialog Component', () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Confirmación de Solicitud</DialogTitle>
-            <DialogDescription>¿Desea enviar este formulario al MIFIC?</DialogDescription>
+            <DialogDescription>¿Desea enviar este formulario al AlcsPower?</DialogDescription>
           </DialogHeader>
           <DialogClose asChild>
             <Button variant="secondary">Cancelar</Button>
@@ -39,7 +39,7 @@ describe('Dialog Component', () => {
     // Clic en trigger
     await user.click(screen.getByRole('button', { name: /abrir modal/i }));
     expect(screen.getByText(/confirmación de solicitud/i)).toBeInTheDocument();
-    expect(screen.getByText(/¿desea enviar este formulario al mific\?/i)).toBeInTheDocument();
+    expect(screen.getByText(/¿desea enviar este formulario al alcspower\?/i)).toBeInTheDocument();
 
     // Clic en cancelar
     await user.click(screen.getByRole('button', { name: /cancelar/i }));

@@ -45,7 +45,7 @@ export const Default: Story = {
           <Download className="mr-2 h-4 w-4" /> Descargar Constancia
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-mific-danger focus:bg-mific-danger-subtle focus:text-mific-danger">
+        <DropdownMenuItem className="text-alcspower-danger focus:bg-alcspower-danger-subtle focus:text-alcspower-danger">
           <Trash2 className="mr-2 h-4 w-4" /> Anular Solicitud
         </DropdownMenuItem>
       </DropdownMenuContent>
