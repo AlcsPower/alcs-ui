@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
@@ -31,6 +32,21 @@ describe('Card Component', () => {
     expect(screen.getByText(/expediente #1024/i)).toBeInTheDocument();
     expect(screen.getByText(/trámite de registro de marca/i)).toBeInTheDocument();
     expect(screen.getByText(/estado actual: en revisión técnica\./i)).toBeInTheDocument();
+  });
+
+  it('soporta ref de tipo HTMLHeadingElement en CardTitle (BUG-02)', () => {
+    const cardTitleRef = React.createRef<HTMLHeadingElement>();
+
+    render(
+      <Card>
+        <CardHeader>
+          <CardTitle ref={cardTitleRef}>Título de Tarjeta</CardTitle>
+        </CardHeader>
+      </Card>
+    );
+
+    expect(cardTitleRef.current).toBeInstanceOf(HTMLHeadingElement);
+    expect(cardTitleRef.current?.tagName).toBe('H3');
   });
 
   it('no presenta violaciones de accesibilidad (axe)', async () => {

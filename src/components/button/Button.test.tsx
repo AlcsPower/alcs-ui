@@ -48,6 +48,31 @@ describe('Button Component', () => {
     expect(link).toHaveAttribute('href', '/portal');
   });
 
+  it('soporta asChild en combinación con isLoading sin lanzar excepción (BUG-01)', () => {
+    expect(() => {
+      render(
+        <Button asChild isLoading loadingText="Cargando enlace...">
+          <a href="/portal">Ir al Portal</a>
+        </Button>
+      );
+    }).not.toThrow();
+
+    const link = screen.getByRole('link', { name: /cargando enlace\.\.\./i });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('aria-busy', 'true');
+    expect(link.querySelector('svg')).toBeInTheDocument();
+  });
+
+  it('soporta variant="destructive" con paridad respecto a "danger"', () => {
+    const { container: c1 } = render(<Button variant="destructive">Eliminar</Button>);
+    const { container: c2 } = render(<Button variant="danger">Eliminar</Button>);
+
+    const btnDestructive = c1.querySelector('button');
+    const btnDanger = c2.querySelector('button');
+    expect(btnDestructive?.className).toBe(btnDanger?.className);
+    expect(btnDestructive?.className).toContain('bg-alcspower-destructive');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(<Button variant="primary">Botón Accesible</Button>);
     const results = await axe(container);

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -7,6 +8,7 @@ import {
   DialogTrigger,
   DialogContent,
   DialogHeader,
+  DialogFooter,
   DialogTitle,
   DialogDescription,
   DialogClose
@@ -44,6 +46,27 @@ describe('Dialog Component', () => {
     // Clic en cancelar
     await user.click(screen.getByRole('button', { name: /cancelar/i }));
     expect(screen.queryByText(/confirmación de solicitud/i)).not.toBeInTheDocument();
+  });
+
+  it('admite ref en DialogHeader y DialogFooter con React.forwardRef (CONSISTENCY)', () => {
+    const headerRef = React.createRef<HTMLDivElement>();
+    const footerRef = React.createRef<HTMLDivElement>();
+
+    render(
+      <Dialog defaultOpen>
+        <DialogContent>
+          <DialogHeader ref={headerRef}>
+            <DialogTitle>Encabezado</DialogTitle>
+          </DialogHeader>
+          <DialogFooter ref={footerRef}>
+            <Button>Aceptar</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    );
+
+    expect(headerRef.current).toBeInstanceOf(HTMLDivElement);
+    expect(footerRef.current).toBeInstanceOf(HTMLDivElement);
   });
 
   it('no presenta violaciones de accesibilidad cuando está abierto', async () => {

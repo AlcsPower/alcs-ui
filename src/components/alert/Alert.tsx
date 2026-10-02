@@ -38,13 +38,14 @@ export interface AlertProps
 
 export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   ({ className, variant = 'info', hideIcon = false, children, ...props }, ref) => {
-    const IconComponent = defaultIcons[variant || 'info'];
+    const safeVariant = (variant && variant in defaultIcons) ? variant : 'info';
+    const IconComponent = defaultIcons[safeVariant];
 
     return (
       <div
         ref={ref}
         role="alert"
-        className={cn(alertVariants({ variant }), className)}
+        className={cn(alertVariants({ variant: safeVariant }), className)}
         {...props}
       >
         {!hideIcon && <IconComponent className="h-5 w-5" aria-hidden="true" />}
@@ -56,7 +57,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
 Alert.displayName = 'Alert';
 
 export const AlertTitle = React.forwardRef<
-  HTMLParagraphElement,
+  HTMLHeadingElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
   <h5
@@ -68,8 +69,8 @@ export const AlertTitle = React.forwardRef<
 AlertTitle.displayName = 'AlertTitle';
 
 export const AlertDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}

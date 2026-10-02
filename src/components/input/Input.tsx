@@ -9,12 +9,26 @@ export interface InputProps
   leftElement?: React.ReactNode;
   /** Icono o elemento interactivo/decorativo en el lado derecho */
   rightElement?: React.ReactNode;
+  /** Clases CSS adicionales para el contenedor exterior */
+  containerClassName?: string;
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = 'text', hasError = false, leftElement, rightElement, disabled, ...props }, ref) => {
+  (
+    {
+      className,
+      type = 'text',
+      hasError = false,
+      leftElement,
+      rightElement,
+      disabled,
+      containerClassName,
+      ...props
+    },
+    ref
+  ) => {
     return (
-      <div className="relative flex items-center w-full">
+      <div className={cn('relative flex items-center w-full', containerClassName)}>
         {leftElement && (
           <div className="absolute left-3 flex items-center pointer-events-none text-alcspower-muted-foreground">
             {leftElement}

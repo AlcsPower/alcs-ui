@@ -9,6 +9,17 @@ describe('Badge Component', () => {
     expect(screen.getByText(/aprobado/i)).toBeInTheDocument();
   });
 
+  it('admite variant="primary" como alias idéntico de variant="default" (CONSISTENCY)', () => {
+    const { container: c1 } = render(<Badge variant="primary">Activo</Badge>);
+    const { container: c2 } = render(<Badge variant="default">Activo</Badge>);
+
+    const badgePrimary = c1.querySelector('div');
+    const badgeDefault = c2.querySelector('div');
+
+    expect(badgePrimary?.className).toBe(badgeDefault?.className);
+    expect(badgePrimary?.className).toContain('bg-alcspower-primary');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(<Badge variant="default">Pendiente</Badge>);
     const results = await axe(container);

@@ -17,6 +17,8 @@ export const buttonVariants = cva(
           'border border-alcspower-border bg-transparent hover:bg-alcspower-surface-muted text-alcspower-foreground',
         ghost:
           'hover:bg-alcspower-surface-muted text-alcspower-foreground',
+        destructive:
+          'bg-alcspower-destructive text-alcspower-destructive-foreground hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active shadow-sm focus-visible:ring-alcspower-destructive',
         danger:
           'bg-alcspower-destructive text-alcspower-destructive-foreground hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active shadow-sm focus-visible:ring-alcspower-destructive',
         link:
@@ -64,6 +66,26 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const Comp = asChild ? Slot : 'button';
 
+    let content = children;
+    if (isLoading) {
+      if (asChild && React.isValidElement(children)) {
+        const childElement = children as React.ReactElement<any>;
+        content = React.cloneElement(
+          childElement,
+          undefined,
+          <Spinner size="sm" className="mr-2" />,
+          loadingText || childElement.props.children
+        );
+      } else {
+        content = (
+          <>
+            <Spinner size="sm" className="mr-2" />
+            {loadingText || children}
+          </>
+        );
+      }
+    }
+
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
@@ -72,14 +94,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-busy={isLoading}
         {...props}
       >
-        {isLoading ? (
-          <>
-            <Spinner size="sm" className="mr-2" />
-            {loadingText || children}
-          </>
-        ) : (
-          children
-        )}
+        {content}
       </Comp>
     );
   }

@@ -9,6 +9,8 @@ export const badgeVariants = cva(
       variant: {
         default:
           'bg-alcspower-primary text-alcspower-primary-foreground',
+        primary:
+          'bg-alcspower-primary text-alcspower-primary-foreground',
         secondary:
           'bg-alcspower-secondary text-alcspower-secondary-foreground border border-alcspower-border',
         success:

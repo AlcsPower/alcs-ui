@@ -25,6 +25,25 @@ describe('Input Component', () => {
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
+  it('aplica containerClassName en el wrapper exterior (API-02)', () => {
+    const { container } = render(
+      <Input
+        placeholder="Buscar..."
+        className="text-center"
+        containerClassName="max-w-xs shadow-md"
+      />
+    );
+
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper).toHaveClass('max-w-xs');
+    expect(wrapper).toHaveClass('shadow-md');
+    expect(wrapper).toHaveClass('relative');
+    expect(wrapper).toHaveClass('flex');
+
+    const input = screen.getByPlaceholderText(/buscar\.\.\./i);
+    expect(input).toHaveClass('text-center');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <label htmlFor="test-input">
