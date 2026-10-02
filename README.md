@@ -1,15 +1,15 @@
-# `@mific/ui` - Sistema de Diseño y Biblioteca Oficial de Componentes React
+# `@alcs/ui` - Sistema de Diseño y Biblioteca Reutilizable de Componentes React
 
-Biblioteca oficial de componentes de interfaz de usuario para aplicaciones web del **Ministerio de Fomento, Industria y Comercio (MIFIC)**.
+Biblioteca modular y accesible de componentes de interfaz de usuario para aplicaciones web modernas basadas en React.
 
-Diseñada con **React 18 / React 19**, **TypeScript** en modo estricto, primitivas accesibles de **Radix UI**, tokens semánticos institucionales y compatibilidad total con proyectos que utilicen **Tailwind CSS v3**, **Tailwind CSS v4** o **ningún framework CSS**.
+Diseñada con **React 18 / React 19**, **TypeScript** en modo estricto, primitivas accesibles de **Radix UI**, tokens semánticos de diseño y compatibilidad total con proyectos que utilicen **Tailwind CSS v3**, **Tailwind CSS v4** o **ningún framework CSS**.
 
 ---
 
-## 🎨 Sistema de Diseño Institucional (Design System)
+## 🎨 Sistema de Diseño (Design System)
 
 ### 1. Filosofía y Arquitectura
-`@mific/ui` separa la semántica del diseño de los valores concretos. El flujo arquitectónico garantiza que un cambio de marca o tema se propague sin necesidad de modificar individualmente cada componente:
+`@alcs/ui` separa la semántica del diseño de los valores concretos. El flujo arquitectónico garantiza que un cambio de marca o tema se propague sin necesidad de modificar individualmente cada componente:
 
 ```text
 Design Token Semántico
@@ -48,7 +48,7 @@ El sistema cuenta con una escala simétrica entre modo claro y modo oscuro, gara
 | `--mific-ring` | `#004b87` | `#38bdf8` | Anillo visible de foco accesible |
 
 ### 3. Tipografía
-`@mific/ui` **no impone tipografías globales** a la aplicación consumidora. No modifica `body` ni `html`.
+`@alcs/ui` **no impone tipografías globales** a la aplicación consumidora. No modifica `body` ni `html`.
 - **Estrategia:** La biblioteca utiliza fuentes relativas (`inherit` o el stack del sistema de la aplicación).
 - **Escala:**
   - `text-2xl font-bold tracking-tight`: Títulos de pantalla o encabezados de sección.
@@ -89,28 +89,29 @@ El desplazamiento (`ring-offset`) se adapta automáticamente al color de superfi
 
 ### 1. Instalación desde GitHub Packages
 
-Configura tu `.npmrc` institucional:
+Configura tu `.npmrc`:
 ```ini
-@mific:registry=https://npm.pkg.github.com
+@alcs:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
 Instala el paquete:
 ```bash
-pnpm add @mific/ui
+pnpm add @alcs/ui
 # o con npm:
-npm install @mific/ui
+npm install @alcs/ui
 ```
 
-### 2. Importación de Estilos
+### 2. Importación de Estilos y Componentes
 
 En el punto de entrada de la aplicación (`main.tsx` o `App.tsx`):
 ```tsx
-import '@mific/ui/styles.css';
+import '@alcs/ui/styles.css';
+import { Button, Card, Dialog } from '@alcs/ui';
 ```
 
 > [!NOTE]
-> Los estilos están encapsulados bajo `@layer mific-tokens` y `@layer mific-ui` sin CSS reset global (Preflight). Puedes consumir `@mific/ui` en proyectos con **Tailwind v3**, **Tailwind v4** o **sin Tailwind**.
+> Los estilos están encapsulados bajo `@layer mific-tokens` y `@layer mific-ui` sin CSS reset global (Preflight). Puedes consumir `@alcs/ui` en proyectos con **Tailwind v3**, **Tailwind v4** o **sin Tailwind**.
 
 ### 3. Personalización de Tokens
 Cualquier aplicación consumidora puede sobrescribir tokens institucionales en su CSS local:
@@ -176,7 +177,7 @@ pnpm pack
 
 ## 📜 Licencias y Dependencias
 
-Todas las dependencias utilizadas en `@mific/ui` cuentan con licencias abiertas y permisivas compatibles con uso institucional del sector público:
+Todas las dependencias utilizadas en `@alcs/ui` cuentan con licencias abiertas y permisivas:
 - **Radix UI Primitives:** Licencia MIT
 - **class-variance-authority:** Licencia Apache-2.0
 - **clsx / tailwind-merge:** Licencia MIT

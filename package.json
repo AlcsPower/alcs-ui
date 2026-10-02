@@ -1,22 +1,22 @@
 {
-  "name": "@mific/ui",
+  "name": "@alcs/ui",
   "version": "0.1.0",
-  "description": "Biblioteca oficial de componentes React reutilizables para el Ministerio de Fomento, Industria y Comercio (MIFIC)",
-  "author": "Ministerio de Fomento, Industria y Comercio (MIFIC)",
+  "description": "Biblioteca de componentes React accesibles y reutilizables basada en Radix UI y Tailwind CSS",
+  "author": "AlcsPower",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mific-gob-ni/mific-ui.git"
+    "url": "https://github.com/AlcsPower/alcs-ui.git"
   },
-  "homepage": "https://github.com/mific-gob-ni/mific-ui#readme",
+  "homepage": "https://github.com/AlcsPower/alcs-ui#readme",
   "bugs": {
-    "url": "https://github.com/mific-gob-ni/mific-ui/issues"
+    "url": "https://github.com/AlcsPower/alcs-ui/issues"
   },
   "keywords": [
     "react",
     "components",
     "design-system",
-    "mific",
+    "alcs",
     "radix-ui",
     "tailwind"
   ],
