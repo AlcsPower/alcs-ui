@@ -1,0 +1,80 @@
+@layer mific-tokens, mific-ui;
+
+@import "./tokens.css" layer(mific-tokens);
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css" layer(mific-ui);
+
+@theme {
+  /* Lienzo y Superficies */
+  --color-mific-background: var(--mific-background);
+  --color-mific-foreground: var(--mific-foreground);
+  --color-mific-surface: var(--mific-surface);
+  --color-mific-surface-card: var(--mific-surface-card);
+  --color-mific-surface-muted: var(--mific-surface-muted);
+  --color-mific-surface-subtle: var(--mific-surface-subtle);
+
+  /* Marca Principal */
+  --color-mific-primary: var(--mific-primary);
+  --color-mific-primary-hover: var(--mific-primary-hover);
+  --color-mific-primary-active: var(--mific-primary-active);
+  --color-mific-primary-subtle: var(--mific-primary-subtle);
+  --color-mific-primary-foreground: var(--mific-primary-foreground);
+
+  /* Secundario y Acento */
+  --color-mific-secondary: var(--mific-secondary);
+  --color-mific-secondary-hover: var(--mific-secondary-hover);
+  --color-mific-secondary-foreground: var(--mific-secondary-foreground);
+  --color-mific-accent: var(--mific-accent);
+  --color-mific-accent-foreground: var(--mific-accent-foreground);
+
+  /* Muted y Textos */
+  --color-mific-muted: var(--mific-muted);
+  --color-mific-muted-foreground: var(--mific-muted-foreground);
+
+  /* Estados Funcionales */
+  --color-mific-destructive: var(--mific-destructive);
+  --color-mific-destructive-hover: var(--mific-destructive-hover);
+  --color-mific-destructive-active: var(--mific-destructive-active);
+  --color-mific-destructive-foreground: var(--mific-destructive-foreground);
+  --color-mific-destructive-subtle: var(--mific-destructive-subtle);
+  --color-mific-destructive-border: var(--mific-destructive-border);
+
+  --color-mific-success: var(--mific-success);
+  --color-mific-success-foreground: var(--mific-success-foreground);
+  --color-mific-success-subtle: var(--mific-success-subtle);
+  --color-mific-success-border: var(--mific-success-border);
+
+  --color-mific-warning: var(--mific-warning);
+  --color-mific-warning-foreground: var(--mific-warning-foreground);
+  --color-mific-warning-subtle: var(--mific-warning-subtle);
+  --color-mific-warning-border: var(--mific-warning-border);
+
+  --color-mific-info: var(--mific-info);
+  --color-mific-info-foreground: var(--mific-info-foreground);
+  --color-mific-info-subtle: var(--mific-info-subtle);
+  --color-mific-info-border: var(--mific-info-border);
+
+  /* Bordes, Controles y Focus */
+  --color-mific-border: var(--mific-border);
+  --color-mific-border-subtle: var(--mific-border-subtle);
+  --color-mific-input: var(--mific-input);
+  --color-mific-ring: var(--mific-ring);
+  --color-mific-ring-offset: var(--mific-ring-offset);
+
+  /* Nomenclatura Previa para Retrocompatibilidad */
+  --color-mific-canvas: var(--mific-canvas);
+  --color-mific-text-primary: var(--mific-text-primary);
+  --color-mific-text-secondary: var(--mific-text-secondary);
+  --color-mific-text-muted: var(--mific-text-muted);
+  --color-mific-text-inverse: var(--mific-text-inverse);
+  --color-mific-danger: var(--mific-danger);
+  --color-mific-danger-foreground: var(--mific-danger-foreground);
+  --color-mific-danger-subtle: var(--mific-danger-subtle);
+  --color-mific-danger-border: var(--mific-danger-border);
+
+  /* Radios */
+  --radius-mific-sm: var(--mific-radius-sm);
+  --radius-mific-md: var(--mific-radius-md);
+  --radius-mific-lg: var(--mific-radius-lg);
+  --radius-mific-full: var(--mific-radius-full);
+}

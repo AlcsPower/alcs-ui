@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-storybook
+coverage
+.turbo
+*.log
+.DS_Store
+Thumbs.db
+
+# Secrets & Environment
+.env
+.env.*
+.npmrc
+
+# Build archives
+*.tgz

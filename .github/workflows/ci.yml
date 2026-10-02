@@ -1,0 +1,44 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Lint, Test & Build Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify TypeScript types
+        run: pnpm typecheck
+
+      - name: Run Unit & Accessibility Tests
+        run: pnpm test
+
+      - name: Build Library Bundle
+        run: pnpm build
+
+      - name: Build Storybook Documentation
+        run: pnpm build-storybook
+
+      - name: Verify Package Tarball
+        run: pnpm pack

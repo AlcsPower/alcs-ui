@@ -1,0 +1,7 @@
+# Enforce LF line endings for Linux/Docker container compatibility
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary

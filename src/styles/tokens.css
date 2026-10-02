@@ -1,0 +1,178 @@
+/**
+ * Design Tokens Institucionales - MIFIC (@mific/ui)
+ * Basado en CSS Custom Properties con soporte dinámico para Modo Claro y Modo Oscuro.
+ * Cumplimiento estricto de accesibilidad WCAG 2.1 AA (contraste >= 4.5:1 texto, >= 3:1 componentes).
+ */
+
+:root {
+  /* ==========================================================================
+     1. COLORES SEMÁNTICOS - MODO CLARO
+     ========================================================================== */
+
+  /* Lienzo y Superficies */
+  --mific-background: #f8fafc;         /* Slate 50 */
+  --mific-foreground: #0f172a;         /* Slate 900 - Contraste 16.5:1 */
+  --mific-surface: #ffffff;            /* Superficie base blanca */
+  --mific-surface-card: #ffffff;       /* Tarjetas y modales */
+  --mific-surface-muted: #f1f5f9;      /* Slate 100 - Contenedores sutiles */
+  --mific-surface-subtle: #f8fafc;     /* Slate 50 */
+
+  /* Marca Principal Institucional MIFIC */
+  --mific-primary: #004b87;            /* Azul MIFIC Institucional */
+  --mific-primary-hover: #003866;      /* Azul profundo hover */
+  --mific-primary-active: #002d52;     /* Azul profundo active */
+  --mific-primary-foreground: #ffffff; /* Texto sobre primario - Contraste 8.5:1 (AAA) */
+  --mific-primary-subtle: #f0f6fb;     /* Fondo sutil azul institucional */
+
+  /* Superficies y Acciones Secundarias */
+  --mific-secondary: #f1f5f9;          /* Slate 100 */
+  --mific-secondary-hover: #e2e8f0;    /* Slate 200 */
+  --mific-secondary-foreground: #0f172a; /* Slate 900 */
+
+  /* Acentos e Interacción */
+  --mific-accent: #f1f5f9;             /* Slate 100 */
+  --mific-accent-foreground: #0f172a;  /* Slate 900 */
+
+  /* Estados Muted / Texto Secundario */
+  --mific-muted: #f1f5f9;              /* Slate 100 */
+  --mific-muted-foreground: #64748b;   /* Slate 500 - Contraste 4.6:1 (AA) */
+
+  /* Estados Funcionales (Feedback) */
+  --mific-destructive: #dc2626;        /* Red 600 */
+  --mific-destructive-hover: #b91c1c;  /* Red 700 */
+  --mific-destructive-active: #991b1b; /* Red 800 */
+  --mific-destructive-foreground: #ffffff; /* Contraste 4.7:1 (AA) */
+  --mific-destructive-subtle: #fef2f2; /* Red 50 */
+  --mific-destructive-border: #fecaca; /* Red 200 */
+
+  --mific-success: #15803d;            /* Green 700 - Contraste 5.1:1 (AA) */
+  --mific-success-foreground: #ffffff;
+  --mific-success-subtle: #f0fdf4;     /* Green 50 */
+  --mific-success-border: #bbf7d0;     /* Green 200 */
+
+  --mific-warning: #b45309;            /* Amber 700 - Contraste 4.8:1 (AA) */
+  --mific-warning-foreground: #ffffff;
+  --mific-warning-subtle: #fffbeb;     /* Amber 50 */
+  --mific-warning-border: #fde68a;     /* Amber 200 */
+
+  --mific-info: #0369a1;               /* Sky 700 - Contraste 5.2:1 (AA) */
+  --mific-info-foreground: #ffffff;
+  --mific-info-subtle: #f0f9ff;        /* Sky 50 */
+  --mific-info-border: #bae6fd;        /* Sky 200 */
+
+  /* Bordes, Controles y Focus Ring */
+  --mific-border: #e2e8f0;             /* Slate 200 */
+  --mific-border-subtle: #cbd5e1;      /* Slate 300 */
+  --mific-input: #e2e8f0;              /* Borde de inputs y selects */
+  --mific-ring: #004b87;               /* Anillo de foco institucional */
+  --mific-ring-offset: #ffffff;        /* Desplazamiento de foco sobre blanco */
+
+  /* Compatibilidad con Nomenclatura Previa */
+  --mific-canvas: var(--mific-background);
+  --mific-text-primary: var(--mific-foreground);
+  --mific-text-secondary: #334155;     /* Slate 700 */
+  --mific-text-muted: var(--mific-muted-foreground);
+  --mific-text-inverse: #ffffff;
+  --mific-danger: var(--mific-destructive);
+  --mific-danger-foreground: var(--mific-destructive-foreground);
+  --mific-danger-subtle: var(--mific-destructive-subtle);
+  --mific-danger-border: var(--mific-destructive-border);
+
+  /* ==========================================================================
+     2. RADIOS DE BORDE (BORDER RADIUS)
+     ========================================================================== */
+  --mific-radius-sm: 0.25rem;          /* 4px - Badges pequeños, tags */
+  --mific-radius-md: 0.375rem;         /* 6px - Botones, inputs, selects, tabs */
+  --mific-radius-lg: 0.5rem;           /* 8px - Tarjetas, diálogos, overlays */
+  --mific-radius-full: 9999px;         /* Avatares, switches circulares, pills */
+
+  /* ==========================================================================
+     3. SOMBRAS Y ELEVACIÓN (ELEVATION SHADOWS)
+     ========================================================================== */
+  --mific-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --mific-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --mific-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* ==========================================================================
+   4. COLORES SEMÁNTICOS - MODO OSCURO
+   Jerarquía visual propia: fondos profundos, superficies elevadas contrastantes
+   y texto de alto contraste sin fatiga visual.
+   ========================================================================== */
+
+.dark,
+[data-theme="dark"] {
+  /* Lienzo y Superficies */
+  --mific-background: #090d16;         /* Slate 950 enriquecido */
+  --mific-foreground: #f8fafc;         /* Slate 50 - Contraste 18:1 (AAA) */
+  --mific-surface: #0f172a;            /* Slate 900 - Superficie principal */
+  --mific-surface-card: #131d31;       /* Superficie elevada para tarjetas/modales */
+  --mific-surface-muted: #1e293b;      /* Slate 800 - Superficie de controles */
+  --mific-surface-subtle: #1e293b;
+
+  /* Marca Principal Institucional MIFIC (Modo Oscuro) */
+  --mific-primary: #38bdf8;            /* Sky 400 - Alta legibilidad en fondo oscuro */
+  --mific-primary-hover: #0ea5e9;      /* Sky 500 */
+  --mific-primary-active: #0284c7;     /* Sky 600 */
+  --mific-primary-foreground: #082f49; /* Sky 950 - Contraste 8.2:1 (AAA) */
+  --mific-primary-subtle: #082f49;     /* Fondo azul tenue */
+
+  /* Superficies y Acciones Secundarias */
+  --mific-secondary: #1e293b;          /* Slate 800 */
+  --mific-secondary-hover: #334155;    /* Slate 700 */
+  --mific-secondary-foreground: #f8fafc;
+
+  /* Acentos e Interacción */
+  --mific-accent: #1e293b;
+  --mific-accent-foreground: #f8fafc;
+
+  /* Estados Muted / Texto Secundario */
+  --mific-muted: #1e293b;
+  --mific-muted-foreground: #94a3b8;   /* Slate 400 - Contraste 5.4:1 (AA) */
+
+  /* Estados Funcionales (Feedback) */
+  --mific-destructive: #ef4444;        /* Red 500 */
+  --mific-destructive-hover: #f87171;  /* Red 400 */
+  --mific-destructive-active: #dc2626; /* Red 600 */
+  --mific-destructive-foreground: #450a0a; /* Red 950 - Contraste 7.2:1 (AAA) */
+  --mific-destructive-subtle: #450a0a;
+  --mific-destructive-border: #7f1d1d;
+
+  --mific-success: #4ade80;            /* Green 400 */
+  --mific-success-foreground: #052e16; /* Green 950 - Contraste 9.3:1 (AAA) */
+  --mific-success-subtle: #052e16;
+  --mific-success-border: #14532d;
+
+  --mific-warning: #fbbf24;            /* Amber 400 */
+  --mific-warning-foreground: #451a03; /* Amber 950 - Contraste 9.8:1 (AAA) */
+  --mific-warning-subtle: #451a03;
+  --mific-warning-border: #78350f;
+
+  --mific-info: #38bdf8;               /* Sky 400 */
+  --mific-info-foreground: #082f49;    /* Sky 950 - Contraste 8.2:1 (AAA) */
+  --mific-info-subtle: #082f49;
+  --mific-info-border: #075985;
+
+  /* Bordes, Controles y Focus Ring */
+  --mific-border: #334155;            /* Slate 700 */
+  --mific-border-subtle: #475569;     /* Slate 600 */
+  --mific-input: #334155;             /* Borde de inputs y selects */
+  --mific-ring: #38bdf8;              /* Anillo de foco accesible */
+  --mific-ring-offset: #0f172a;       /* Desplazamiento sobre superficie oscura */
+
+  /* Compatibilidad con Nomenclatura Previa */
+  --mific-canvas: var(--mific-background);
+  --mific-text-primary: var(--mific-foreground);
+  --mific-text-secondary: #cbd5e1;    /* Slate 300 */
+  --mific-text-muted: var(--mific-muted-foreground);
+  --mific-text-inverse: #0f172a;
+  --mific-danger: var(--mific-destructive);
+  --mific-danger-foreground: var(--mific-destructive-foreground);
+  --mific-danger-subtle: var(--mific-destructive-subtle);
+  --mific-danger-border: var(--mific-destructive-border);
+
+  /* Sombras atenuadas para modo oscuro */
+  --mific-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --mific-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --mific-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+}

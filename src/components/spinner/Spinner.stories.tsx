@@ -1,0 +1,92 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Spinner } from './Spinner';
+import { Button } from '../button/Button';
+
+const meta: Meta<typeof Spinner> = {
+  title: 'Feedback/Spinner',
+  component: Spinner,
+  tags: ['autodocs'],
+  argTypes: {
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'xl'],
+      description: 'Tamaño del spinner'
+    },
+    label: {
+      control: 'text',
+      description: 'Texto accesible para lectores de pantalla (sr-only)'
+    }
+  }
+};
+
+export default meta;
+type Story = StoryObj<typeof Spinner>;
+
+export const Default: Story = {
+  args: {
+    size: 'md',
+    label: 'Cargando información...'
+  }
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex items-center gap-6 text-mific-primary">
+      <div className="text-center">
+        <Spinner size="sm" />
+        <p className="text-xs text-mific-text-muted mt-2">sm (16px)</p>
+      </div>
+      <div className="text-center">
+        <Spinner size="md" />
+        <p className="text-xs text-mific-text-muted mt-2">md (20px)</p>
+      </div>
+      <div className="text-center">
+        <Spinner size="lg" />
+        <p className="text-xs text-mific-text-muted mt-2">lg (24px)</p>
+      </div>
+      <div className="text-center">
+        <Spinner size="xl" />
+        <p className="text-xs text-mific-text-muted mt-2">xl (32px)</p>
+      </div>
+    </div>
+  )
+};
+
+export const InsideButton: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <Button disabled>
+        <Spinner size="sm" className="mr-2" />
+        Guardando...
+      </Button>
+      <Button variant="secondary" disabled>
+        <Spinner size="sm" className="mr-2" />
+        Procesando trámite
+      </Button>
+      <Button variant="outline" disabled>
+        <Spinner size="sm" className="mr-2 text-mific-primary" />
+        Verificando estado
+      </Button>
+    </div>
+  )
+};
+
+export const CustomColors: Story = {
+  render: () => (
+    <div className="flex items-center gap-6">
+      <Spinner size="lg" className="text-mific-primary" />
+      <Spinner size="lg" className="text-emerald-600" />
+      <Spinner size="lg" className="text-amber-500" />
+      <Spinner size="lg" className="text-mific-destructive" />
+    </div>
+  )
+};
+
+export const DarkMode: Story = {
+  render: () => (
+    <div className="dark bg-mific-surface-card p-6 rounded-lg flex items-center gap-4 text-mific-text-primary">
+      <Spinner size="md" className="text-mific-primary" />
+      <span className="text-sm">Cargando datos institucionales en modo oscuro...</span>
+    </div>
+  )
+};

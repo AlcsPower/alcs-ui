@@ -1,0 +1,110 @@
+{
+  "name": "@mific/ui",
+  "version": "0.1.0",
+  "description": "Biblioteca oficial de componentes React reutilizables para el Ministerio de Fomento, Industria y Comercio (MIFIC)",
+  "author": "Ministerio de Fomento, Industria y Comercio (MIFIC)",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mific-gob-ni/mific-ui.git"
+  },
+  "homepage": "https://github.com/mific-gob-ni/mific-ui#readme",
+  "bugs": {
+    "url": "https://github.com/mific-gob-ni/mific-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "mific",
+    "radix-ui",
+    "tailwind"
+  ],
+  "sideEffects": [
+    "**/*.css",
+    "./dist/styles.css"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.ts",
+        "require": "./dist/index.d.cts",
+        "default": "./dist/index.d.ts"
+      },
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "pnpm build:css && pnpm build:js",
+    "build:js": "tsup",
+    "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o dist-storybook",
+    "changeset": "changeset"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.3",
+    "@radix-ui/react-checkbox": "^1.1.4",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-select": "^2.1.6",
+    "@radix-ui/react-separator": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-switch": "^1.1.3",
+    "@radix-ui/react-tabs": "^1.1.3",
+    "@radix-ui/react-tooltip": "^1.1.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "tailwind-merge": "^3.0.1"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.12",
+    "@storybook/addon-a11y": "^8.6.18",
+    "@storybook/addon-essentials": "^8.6.18",
+    "@storybook/react": "^8.6.18",
+    "@storybook/react-vite": "^8.6.18",
+    "@tailwindcss/cli": "^4.0.9",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "jsdom": "^26.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "storybook": "^8.6.18",
+    "tailwindcss": "^4.0.9",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5",
+    "vitest-axe": "^0.1.0"
+  }
+}

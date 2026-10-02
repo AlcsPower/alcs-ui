@@ -1,0 +1,53 @@
+name: Release Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_to_registry:
+        description: 'Confirmar publicación a GitHub Packages'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  release:
+    name: Build & Publish to GitHub Packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+
+      - name: Setup Node.js 22 with GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@mific'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run verification checks
+        run: |
+          pnpm typecheck
+          pnpm test
+
+      - name: Build Library Bundle
+        run: pnpm build
+
+      - name: Publish to GitHub Packages
+        if: ${{ inputs.publish_to_registry }}
+        run: pnpm changeset publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
