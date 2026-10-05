@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import * as React from 'react';
 import { Input } from './Input';
 import { Label } from '../label';
-import { Search, Key, Mail, Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Sparkles, ArrowRight } from 'lucide-react';
+import { Search, Key, Mail, Lock, Eye, EyeOff, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 
 const meta: Meta<typeof Input> = {
   title: 'Formularios/Input',

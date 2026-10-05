@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Calendar } from '../components/calendar';
 import { DatePicker } from '../components/date-picker';

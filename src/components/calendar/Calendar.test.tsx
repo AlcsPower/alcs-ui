@@ -27,7 +27,7 @@ describe('Calendar Component', () => {
     );
 
     // Buscar botón con el día 20
-    const day20 = screen.getAllByRole('button', { name: /20/i })[0];
+    const day20 = screen.getAllByRole('button', { name: /20/i })[0]!;
     await user.click(day20);
 
     expect(handleSelect).toHaveBeenCalled();

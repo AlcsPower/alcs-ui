@@ -7,9 +7,9 @@ export const inputVariants = cva(
   {
     variants: {
       size: {
-        sm: 'h-8 px-3 text-xs rounded-sm',
-        md: 'h-10 px-4 py-2 text-sm rounded-md',
-        lg: 'h-12 px-5 py-3 text-base rounded-lg'
+        sm: 'h-8 px-3 py-1 text-xs rounded-sm',
+        md: 'h-10 px-3.5 py-2 text-sm rounded-md',
+        lg: 'h-12 px-4 py-2.5 text-base rounded-lg'
       },
       hasError: {
         true: 'border-alcspower-destructive bg-red-50/40 dark:bg-red-950/20 focus:border-alcspower-destructive focus:ring-alcspower-destructive/15',
