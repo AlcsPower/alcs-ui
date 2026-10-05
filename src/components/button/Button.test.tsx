@@ -73,6 +73,16 @@ describe('Button Component', () => {
     expect(btnDestructive?.className).toContain('bg-alcspower-destructive');
   });
 
+  it('soporta tamaños de icono dedicados (icon, icon-sm, icon-lg)', () => {
+    const { container: c1 } = render(<Button size="icon" aria-label="Icono normal">X</Button>);
+    const { container: c2 } = render(<Button size="icon-sm" aria-label="Icono pequeño">X</Button>);
+    const { container: c3 } = render(<Button size="icon-lg" aria-label="Icono grande">X</Button>);
+
+    expect(c1.querySelector('button')?.className).toContain('h-10 w-10');
+    expect(c2.querySelector('button')?.className).toContain('h-8 w-8');
+    expect(c3.querySelector('button')?.className).toContain('h-12 w-12');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(<Button variant="primary">Botón Accesible</Button>);
     const results = await axe(container);

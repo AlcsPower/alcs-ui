@@ -67,6 +67,13 @@
   --alcspower-ring: #004b87;               /* Anillo de foco institucional */
   --alcspower-ring-offset: #ffffff;        /* Desplazamiento de foco sobre blanco */
 
+  /* Series Cromáticas para Gráficos (Data Visualization) */
+  --alcspower-chart-1: #004b87;            /* Azul institucional (8.5:1) */
+  --alcspower-chart-2: #0284c7;            /* Sky 600 (3.9:1) */
+  --alcspower-chart-3: #059669;            /* Emerald 600 (3.6:1) */
+  --alcspower-chart-4: #d97706;            /* Amber 600 (3.0:1) */
+  --alcspower-chart-5: #4f46e5;            /* Indigo 600 (6.0:1) */
+
   /* Compatibilidad con Nomenclatura Previa */
   --alcspower-canvas: var(--alcspower-background);
   --alcspower-text-primary: var(--alcspower-foreground);
@@ -81,17 +88,17 @@
   /* ==========================================================================
      2. RADIOS DE BORDE (BORDER RADIUS)
      ========================================================================== */
-  --alcspower-radius-sm: 0.25rem;          /* 4px - Badges pequeños, tags */
-  --alcspower-radius-md: 0.375rem;         /* 6px - Botones, inputs, selects, tabs */
-  --alcspower-radius-lg: 0.5rem;           /* 8px - Tarjetas, diálogos, overlays */
+  --alcspower-radius-sm: 0.4375rem;        /* 7px - Badges pequeños, botones sm */
+  --alcspower-radius-md: 0.625rem;         /* 10px - Botones estándar, inputs, selects */
+  --alcspower-radius-lg: 0.75rem;          /* 12px - Botones lg, tarjetas, diálogos */
   --alcspower-radius-full: 9999px;         /* Avatares, switches circulares, pills */
 
   /* ==========================================================================
      3. SOMBRAS Y ELEVACIÓN (ELEVATION SHADOWS)
      ========================================================================== */
-  --alcspower-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --alcspower-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --alcspower-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --alcspower-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --alcspower-shadow-md: 0 2px 8px 0 rgb(0 0 0 / 0.06), 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --alcspower-shadow-lg: 0 4px 16px 0 rgb(0 0 0 / 0.08), 0 2px 4px 0 rgb(0 0 0 / 0.04);
 }
 
 /* ==========================================================================
@@ -159,6 +166,13 @@
   --alcspower-input: #334155;             /* Borde de inputs y selects */
   --alcspower-ring: #38bdf8;              /* Anillo de foco accesible */
   --alcspower-ring-offset: #0f172a;       /* Desplazamiento sobre superficie oscura */
+
+  /* Series Cromáticas para Gráficos (Modo Oscuro) */
+  --alcspower-chart-1: #38bdf8;            /* Sky 400 */
+  --alcspower-chart-2: #60a5fa;            /* Blue 400 */
+  --alcspower-chart-3: #34d399;            /* Emerald 400 */
+  --alcspower-chart-4: #fbbf24;            /* Amber 400 */
+  --alcspower-chart-5: #818cf8;            /* Indigo 400 */
 
   /* Compatibilidad con Nomenclatura Previa */
   --alcspower-canvas: var(--alcspower-background);

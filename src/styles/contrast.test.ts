@@ -136,5 +136,23 @@ describe('Design Tokens WCAG 2.1 Contrast Ratios (I-03)', () => {
     it('Secundario en modo oscuro cumple WCAG AAA (>= 7.0:1)', () => {
       expect(getContrastRatio(dark.secondaryForeground, dark.secondary)).toBeGreaterThanOrEqual(7.0);
     });
+
+    it('Series cromáticas de gráficos en modo oscuro cumplen WCAG 2.1 §1.4.11 (>= 3.0:1) contra fondo oscuro', () => {
+      const darkCharts = ['#38bdf8', '#60a5fa', '#34d399', '#fbbf24', '#818cf8'];
+      for (const color of darkCharts) {
+        expect(getContrastRatio(color, dark.background)).toBeGreaterThanOrEqual(3.0);
+        expect(getContrastRatio(color, dark.surface)).toBeGreaterThanOrEqual(3.0);
+      }
+    });
+  });
+
+  describe('Series Cromáticas de Gráficos (WCAG 2.1 §1.4.11 Non-text Contrast)', () => {
+    it('Todas las series en modo claro cumplen contraste >= 3.0:1 contra fondos y superficies', () => {
+      const lightCharts = ['#004b87', '#0284c7', '#059669', '#d97706', '#4f46e5'];
+      for (const color of lightCharts) {
+        expect(getContrastRatio(color, '#f8fafc')).toBeGreaterThanOrEqual(3.0);
+        expect(getContrastRatio(color, '#ffffff')).toBeGreaterThanOrEqual(3.0);
+      }
+    });
   });
 });

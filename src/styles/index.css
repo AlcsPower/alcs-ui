@@ -65,6 +65,13 @@
   --color-alcspower-ring: var(--alcspower-ring);
   --color-alcspower-ring-offset: var(--alcspower-ring-offset);
 
+  /* Series Cromáticas para Gráficos */
+  --color-alcspower-chart-1: var(--alcspower-chart-1);
+  --color-alcspower-chart-2: var(--alcspower-chart-2);
+  --color-alcspower-chart-3: var(--alcspower-chart-3);
+  --color-alcspower-chart-4: var(--alcspower-chart-4);
+  --color-alcspower-chart-5: var(--alcspower-chart-5);
+
   /* Nomenclatura Previa para Retrocompatibilidad */
   --color-alcspower-canvas: var(--alcspower-canvas);
   --color-alcspower-text-primary: var(--alcspower-text-primary);
@@ -81,6 +88,9 @@
   --radius-alcspower-md: var(--alcspower-radius-md);
   --radius-alcspower-lg: var(--alcspower-radius-lg);
   --radius-alcspower-full: var(--alcspower-radius-full);
+  --radius-sm: var(--alcspower-radius-sm);
+  --radius-md: var(--alcspower-radius-md);
+  --radius-lg: var(--alcspower-radius-lg);
 
   /* Sombras y Elevaciones */
   --shadow-alcspower-sm: var(--alcspower-shadow-sm);

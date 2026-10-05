@@ -1,5 +1,33 @@
 # @alcspower/ui
 
+## 0.7.0
+
+### Minor Changes
+
+- ### Sistema Completo de Gráficos y Métricas (Fase 4)
+
+  - **Infraestructura y Primitivos de Visualización (`src/components/chart`):**
+    - Integración nativa con **Recharts 3.x** compatible al 100% con React 19.
+    - Componente `<ChartContainer>` con inyección dinámica de variables CSS `--color-*`, cálculo responsivo y accesibilidad nativa (`role="img"`, `aria-label`).
+    - Contexto tipado `<ChartContext>` y hook `useChart()` para orquestación de paletas semánticas y etiquetas legibles.
+    - Tooltip interactivo accesible `<ChartTooltip>` y `<ChartTooltipContent>` con soporte para variantes de indicadores visuales (`dot`, `line`, `dashed`), formateadores personalizados de valores y nombres.
+    - Leyenda semántica configurable `<ChartLegend>` y `<ChartLegendContent>`.
+    - Componentes de gráficos de alto nivel listos para producción:
+      - `<BarChart>`: Gráficos de barras verticales y horizontales, con soporte para apilamiento (`stacked`) y agrupamiento.
+      - `<LineChart>`: Gráficos de líneas con curvas suaves (`monotone`, `natural`, `step`), puntos de datos interactivos y grosores de trazo configurables.
+      - `<AreaChart>`: Gráficos de área con gradientes semánticos de opacidad vertical y soporte para áreas apiladas.
+      - `<PieChart>`: Gráficos circulares y de dona (`donut={true}`), con soporte para colores de celdas personalizados.
+    - Re-exportación completa de primitivos Recharts desde `@alcspower/ui` para composición avanzada sin dependencias directas adicionales.
+
+  - **Tarjetas de Métricas y KPIs (`src/components/metrics`):**
+    - `<DeltaIndicator>`: Indicador de variación con soporte para variantes `positive`, `negative` y `neutral`, flechas direccionales (`TrendingUp`, `TrendingDown`, `Minus`), textos accesibles automáticos e inversión semántica (`isPositiveGood={false}`) para métricas como latencia, errores o costos.
+    - `<MetricCard>`: Tarjeta métrica ejecutiva con soporte para títulos, valores destacados, indicadores delta, slots de acciones personalizadas, descripciones secundarias, niveles semánticos de encabezado configurables (`headingLevel`), estado de carga con `<Skeleton>` y estado de error accesible.
+    - `<StatCard>`: Tarjeta estadística compacta con barras de progreso integradas y etiquetas badge para monitoreo de capacidad o hitos.
+
+  - **Tokens Semánticos de Visualización (`src/styles/tokens.css`):**
+    - Se incorporó la escala de color de gráficos `--alcspower-chart-1` a `--alcspower-chart-5` calibrada para modo claro y modo oscuro.
+    - Cumplimiento verificado matemáticamente contra WCAG 2.1 §1.4.11 (contraste no textual >= 3.0:1) en `src/styles/contrast.test.ts`.
+
 ## 0.6.0
 
 ### Minor Changes

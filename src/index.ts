@@ -42,3 +42,10 @@ export * from './components/progress';
 export * from './components/table';
 export * from './components/data-table';
 
+// Visualización y Gráficos
+export * from './components/chart';
+
+// Métricas y Dashboards
+export * from './components/metrics';
+
+
