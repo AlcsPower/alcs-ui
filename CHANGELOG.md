@@ -1,5 +1,41 @@
 # @alcspower/ui
 
+## 0.8.0
+
+### Minor Changes
+
+- ### Sistema de Fechas, Paleta de Comandos y Selección Avanzada (Fase 5)
+
+  - **Primitivo `Popover` (`src/components/popover`):**
+    - Primitiva accesible basada en `@radix-ui/react-popover` con soporte para portales, posicionamiento automático, colisiones de viewport y gestión de foco WAI-ARIA.
+    - Exporta `Popover`, `PopoverTrigger`, `PopoverContent`, `PopoverAnchor`, `PopoverClose`.
+
+  - **Componente `Calendar` (`src/components/calendar`):**
+    - Integración nativa con `react-day-picker` v10 y `date-fns/locale/es`.
+    - Localización en español por defecto con posibilidad de configurar cualquier locale.
+    - Soporte completo para selección simple (`mode="single"`), múltiple (`mode="multiple"`) y por rango (`mode="range"`).
+    - Navegación por teclado accesible con íconos Chevrons de Lucide y estilizado semántico con tokens del sistema de diseño.
+
+  - **Componente `DatePicker` (`src/components/date-picker`):**
+    - Selector de fecha individual con popover interactivo, formateo configurable (`dd/MM/yyyy` por defecto).
+    - Integración nativa con el primitivo `Field` (soporte de `hasError`, `disabled`, `required`).
+    - Botón de limpieza rápida (`clearable`), escala de tamaños (`sm`, `md`, `lg`) y arquitectura de controles no anidados para cumplimiento estricto de WCAG.
+
+  - **Componente `DateRangePicker` (`src/components/date-range-picker`):**
+    - Selector de rangos de fechas (`from` y `to`) con soporte para vista dual mensual (`numberOfMonths={2}`).
+    - Panel lateral de atajos rápidos (Hoy, Ayer, Últimos 7 días, Últimos 30 días, Este mes, Mes anterior).
+    - Limpieza rápida y escala de tamaños (`sm`, `md`, `lg`).
+
+  - **Paleta de Comandos `Command` & `CommandDialog` (`src/components/command`):**
+    - Motor de búsqueda en tiempo real basado en `cmdk` v1 con navegación por teclado fluida.
+    - Diálogo modal con atajo de teclado (`CommandDialog`), grupos de comandos, badges de atajo (`CommandShortcut`), separadores e indicador de búsqueda vacía (`CommandEmpty`).
+
+  - **Selector Avanzado `Combobox` (`src/components/combobox`):**
+    - Selector desplegable con búsqueda interactiva en tiempo real.
+    - Soporte para agrupación de opciones y filtrado instantáneo.
+    - Modo selección simple y modo selección múltiple con chips interactivos (`Badge`) removibles.
+    - Escala de tamaños (`sm`, `md`, `lg`), estado de error e integración con `Field`.
+
 ## 0.7.0
 
 ### Minor Changes

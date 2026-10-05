@@ -24,6 +24,7 @@ export * from './components/dialog';
 export * from './components/alert';
 export * from './components/tooltip';
 export * from './components/dropdown-menu';
+export * from './components/popover';
 
 // Navegación y Estructura
 export * from './components/tabs';
@@ -41,6 +42,15 @@ export * from './components/progress';
 // Data
 export * from './components/table';
 export * from './components/data-table';
+
+// Fechas y Tiempo
+export * from './components/calendar';
+export * from './components/date-picker';
+export * from './components/date-range-picker';
+
+// Comandos y Selección Avanzada
+export * from './components/command';
+export * from './components/combobox';
 
 // Visualización y Gráficos
 export * from './components/chart';

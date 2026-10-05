@@ -5,25 +5,25 @@ import { cn } from '../../lib/utils';
 import { Spinner } from '../spinner';
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center font-semibold whitespace-nowrap transition-all duration-200 ease-out select-none outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-offset-alcspower-surface focus-visible:ring-alcspower-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45 disabled:transform-none disabled:shadow-none aria-busy:opacity-90 motion-reduce:transition-none motion-reduce:transform-none',
+  'inline-flex items-center justify-center font-semibold whitespace-nowrap transition-all duration-200 ease-out select-none outline-none border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-offset-alcspower-surface focus-visible:ring-alcspower-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45 disabled:transform-none disabled:shadow-none aria-busy:opacity-90 motion-reduce:transition-none motion-reduce:transform-none',
   {
     variants: {
       variant: {
         primary:
-          'bg-alcspower-primary text-alcspower-primary-foreground shadow-[0_1px_2px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.15)] hover:bg-alcspower-primary-hover hover:shadow-md hover:-translate-y-0.5 active:bg-alcspower-primary-active active:translate-y-0 active:shadow-sm',
+          'border border-transparent bg-alcspower-primary text-alcspower-primary-foreground shadow-sm hover:bg-alcspower-primary-hover active:bg-alcspower-primary-active',
         secondary:
-          'bg-alcspower-secondary text-alcspower-secondary-foreground border border-alcspower-border shadow-sm hover:bg-alcspower-secondary-hover hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:bg-alcspower-surface-muted',
+          'border border-transparent bg-alcspower-secondary text-alcspower-secondary-foreground shadow-sm hover:bg-alcspower-secondary-hover active:bg-alcspower-surface-muted',
         outline:
-          'border border-alcspower-border-subtle bg-transparent text-alcspower-foreground shadow-sm hover:border-alcspower-border hover:bg-alcspower-surface-subtle hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:bg-alcspower-surface-muted',
+          'border border-alcspower-border-subtle bg-transparent text-alcspower-foreground shadow-sm hover:border-alcspower-border hover:bg-alcspower-surface-subtle active:bg-alcspower-surface-muted',
         ghost:
-          'bg-transparent text-alcspower-muted-foreground hover:text-alcspower-foreground hover:bg-alcspower-surface-muted active:bg-alcspower-secondary active:text-alcspower-foreground',
+          'border border-transparent bg-transparent text-alcspower-muted-foreground hover:text-alcspower-foreground hover:bg-alcspower-surface-muted active:bg-alcspower-secondary active:text-alcspower-foreground',
         destructive:
-          'bg-alcspower-destructive text-alcspower-destructive-foreground shadow-[0_1px_2px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.2)] hover:bg-alcspower-destructive-hover hover:shadow-md hover:-translate-y-0.5 active:bg-alcspower-destructive-active active:translate-y-0 active:shadow-sm focus-visible:ring-alcspower-destructive',
+          'border border-transparent bg-alcspower-destructive text-alcspower-destructive-foreground shadow-sm hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active focus-visible:ring-alcspower-destructive',
         /** @deprecated Alias para 'destructive'. Utilice 'destructive' en su lugar. */
         danger:
-          'bg-alcspower-destructive text-alcspower-destructive-foreground shadow-[0_1px_2px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.2)] hover:bg-alcspower-destructive-hover hover:shadow-md hover:-translate-y-0.5 active:bg-alcspower-destructive-active active:translate-y-0 active:shadow-sm focus-visible:ring-alcspower-destructive',
+          'border border-transparent bg-alcspower-destructive text-alcspower-destructive-foreground shadow-sm hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active focus-visible:ring-alcspower-destructive',
         link:
-          'text-alcspower-primary underline-offset-4 hover:underline p-0 h-auto font-semibold hover:text-alcspower-primary-hover active:opacity-75'
+          'border-0 bg-transparent text-alcspower-primary underline-offset-4 hover:underline p-0 h-auto font-semibold hover:text-alcspower-primary-hover active:opacity-75'
       },
       size: {
         sm: 'h-8 px-3.5 text-xs rounded-sm gap-1.5',

@@ -3,22 +3,27 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const inputVariants = cva(
-  'flex w-full border bg-alcspower-surface text-alcspower-foreground transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-alcspower-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-alcspower-surface-muted',
+  'flex w-full font-medium bg-alcspower-surface text-alcspower-foreground transition-all duration-200 outline-none border-[1.5px] shadow-xs file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-alcspower-muted-foreground placeholder:font-normal focus:outline-none focus:ring-4 disabled:cursor-not-allowed disabled:bg-alcspower-surface-muted disabled:text-alcspower-muted-foreground disabled:shadow-none read-only:bg-alcspower-surface-subtle read-only:cursor-default',
   {
     variants: {
       size: {
-        sm: 'h-8 px-2.5 py-1 text-xs rounded-alcspower-sm',
-        md: 'h-10 px-3 py-2 text-sm rounded-alcspower-md',
-        lg: 'h-12 px-4 py-3 text-base rounded-alcspower-md'
+        sm: 'h-8 px-3 text-xs rounded-sm',
+        md: 'h-10 px-4 py-2 text-sm rounded-md',
+        lg: 'h-12 px-5 py-3 text-base rounded-lg'
       },
       hasError: {
-        true: 'border-alcspower-destructive focus-visible:ring-alcspower-destructive',
-        false: 'border-alcspower-input hover:border-alcspower-border-subtle'
+        true: 'border-alcspower-destructive bg-red-50/40 dark:bg-red-950/20 focus:border-alcspower-destructive focus:ring-alcspower-destructive/15',
+        false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-sm focus:border-alcspower-primary focus:ring-alcspower-primary/15'
+      },
+      hasSuccess: {
+        true: 'border-emerald-600 bg-emerald-50/40 dark:bg-emerald-950/20 focus:border-emerald-600 focus:ring-emerald-600/15',
+        false: ''
       }
     },
     defaultVariants: {
       size: 'md',
-      hasError: false
+      hasError: false,
+      hasSuccess: false
     }
   }
 );
@@ -28,6 +33,8 @@ export interface InputProps
     VariantProps<typeof inputVariants> {
   /** Indica si el campo tiene error de validación */
   hasError?: boolean;
+  /** Indica si el campo es válido (estado de éxito) */
+  hasSuccess?: boolean;
   /** Escala de tamaño del control */
   size?: 'sm' | 'md' | 'lg';
   /** Icono o elemento decorativo en el lado izquierdo */
@@ -45,6 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       type = 'text',
       size = 'md',
       hasError = false,
+      hasSuccess = false,
       leftElement,
       rightElement,
       disabled,
@@ -54,20 +62,29 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const leftPad =
-      size === 'sm' ? 'pl-8' : size === 'lg' ? 'pl-11' : 'pl-10';
+      size === 'sm' ? 'pl-9' : size === 'lg' ? 'pl-12' : 'pl-10';
     const rightPad =
-      size === 'sm' ? 'pr-8' : size === 'lg' ? 'pr-11' : 'pr-10';
+      size === 'sm' ? 'pr-9' : size === 'lg' ? 'pr-12' : 'pr-10';
     const leftPos =
-      size === 'sm' ? 'left-2.5' : size === 'lg' ? 'left-3.5' : 'left-3';
+      size === 'sm' ? 'left-2.5' : size === 'lg' ? 'left-4' : 'left-3';
     const rightPos =
-      size === 'sm' ? 'right-2.5' : size === 'lg' ? 'right-3.5' : 'right-3';
+      size === 'sm' ? 'right-2.5' : size === 'lg' ? 'right-4' : 'right-3';
 
     return (
-      <div className={cn('relative flex items-center w-full', containerClassName)}>
+      <div
+        className={cn(
+          'relative flex items-center w-full group transition-colors',
+          hasError && 'has-error text-alcspower-destructive',
+          hasSuccess && 'has-success text-emerald-600',
+          containerClassName
+        )}
+      >
         {leftElement && (
           <div
             className={cn(
-              'absolute flex items-center pointer-events-none text-alcspower-muted-foreground',
+              'absolute flex items-center pointer-events-none transition-colors text-alcspower-muted-foreground group-focus-within:text-alcspower-primary',
+              hasError && 'group-focus-within:text-alcspower-destructive text-alcspower-destructive',
+              hasSuccess && 'group-focus-within:text-emerald-600 text-emerald-600',
               leftPos
             )}
           >
@@ -77,7 +94,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           type={type}
           className={cn(
-            inputVariants({ size, hasError }),
+            inputVariants({ size, hasError, hasSuccess: !hasError && hasSuccess }),
             leftElement && leftPad,
             rightElement && rightPad,
             className
@@ -90,7 +107,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {rightElement && (
           <div
             className={cn(
-              'absolute flex items-center text-alcspower-muted-foreground',
+              'absolute flex items-center transition-colors text-alcspower-muted-foreground group-focus-within:text-alcspower-primary',
+              hasError && 'group-focus-within:text-alcspower-destructive text-alcspower-destructive',
+              hasSuccess && 'group-focus-within:text-emerald-600 text-emerald-600',
               rightPos
             )}
           >

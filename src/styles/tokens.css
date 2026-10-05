@@ -18,11 +18,11 @@
   --alcspower-surface-subtle: #f8fafc;     /* Slate 50 */
 
   /* Marca Principal Institucional AlcsPower */
-  --alcspower-primary: #004b87;            /* Azul AlcsPower Institucional */
-  --alcspower-primary-hover: #003866;      /* Azul profundo hover */
-  --alcspower-primary-active: #002d52;     /* Azul profundo active */
-  --alcspower-primary-foreground: #ffffff; /* Texto sobre primario - Contraste 8.5:1 (AAA) */
-  --alcspower-primary-subtle: #f0f6fb;     /* Fondo sutil azul institucional */
+  --alcspower-primary: #2563eb;            /* Azul Vibrante Moderno (Blue 600) */
+  --alcspower-primary-hover: #1d4ed8;      /* Blue 700 hover */
+  --alcspower-primary-active: #1e40af;     /* Blue 800 active */
+  --alcspower-primary-foreground: #ffffff; /* Texto sobre primario - Contraste 4.56:1 (AA) */
+  --alcspower-primary-subtle: #dbeafe;     /* Fondo sutil azul (Blue 100) */
 
   /* Superficies y Acciones Secundarias */
   --alcspower-secondary: #f1f5f9;          /* Slate 100 */

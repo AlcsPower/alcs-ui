@@ -27,148 +27,13 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primario: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Guardar Trámite'
-  }
-};
-
-export const Secundario: Story = {
-  args: {
-    variant: 'secondary',
-    children: 'Cancelar'
-  }
-};
-
-export const Outline: Story = {
-  args: {
-    variant: 'outline',
-    children: 'Descargar Constancia'
-  }
-};
-
-export const Destructive: Story = {
-  args: {
-    variant: 'destructive',
-    children: 'Eliminar Registro'
-  }
-};
-
-export const Danger: Story = {
-  args: {
-    variant: 'danger',
-    children: 'Eliminar Registro (Alias)'
-  }
-};
-
-export const Ghost: Story = {
-  args: {
-    variant: 'ghost',
-    children: 'Ver más'
-  }
-};
-
-export const LinkVariant: Story = {
-  args: {
-    variant: 'link',
-    children: 'Consultar portal de trámites'
-  }
-};
-
-export const ConIcono: Story = {
-  render: () => (
-    <div className="flex flex-wrap items-center gap-3">
-      <Button variant="primary">
-        <Mail className="h-4 w-4" /> Enviar Notificación
-      </Button>
-      <Button variant="secondary">
-        <Download className="h-4 w-4" /> Exportar Informe
-      </Button>
-      <Button variant="outline">
-        <Calendar className="h-4 w-4" /> Agendar Cita
-      </Button>
-      <Button variant="destructive">
-        <Trash2 className="h-4 w-4" /> Eliminar Archivo
-      </Button>
-    </div>
-  )
-};
-
-export const BotonesDeIcono: Story = {
-  render: () => (
-    <div className="flex items-center gap-3">
-      <Button variant="primary" size="icon-sm" title="Icono sm">
-        <Calendar className="h-3.5 w-3.5" />
-      </Button>
-      <Button variant="primary" size="icon" title="Icono md">
-        <Calendar className="h-4 w-4" />
-      </Button>
-      <Button variant="primary" size="icon-lg" title="Icono lg">
-        <Calendar className="h-5 w-5" />
-      </Button>
-      <Button variant="secondary" size="icon" title="Secundario">
-        <Download className="h-4 w-4" />
-      </Button>
-      <Button variant="outline" size="icon" title="Outline">
-        <RefreshCw className="h-4 w-4" />
-      </Button>
-      <Button variant="destructive" size="icon" title="Destructive">
-        <Trash2 className="h-4 w-4" />
-      </Button>
-    </div>
-  )
-};
-
-export const Cargando: Story = {
-  args: {
-    variant: 'primary',
-    isLoading: true,
-    loadingText: 'Procesando trámite...'
-  }
-};
-
-export const Deshabilitado: Story = {
-  args: {
-    variant: 'primary',
-    disabled: true,
-    children: 'Acción No Permitida'
-  }
-};
-
-export const MatrizDeEstados: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4 p-6 border border-alcspower-border rounded-lg bg-alcspower-surface max-w-2xl">
-      <div className="flex items-center gap-3">
-        <Button variant="primary">Normal</Button>
-        <Button variant="primary" disabled>Disabled</Button>
-        <Button variant="primary" isLoading loadingText="Cargando">Loading</Button>
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="secondary">Normal</Button>
-        <Button variant="secondary" disabled>Disabled</Button>
-        <Button variant="secondary" isLoading loadingText="Cargando">Loading</Button>
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="outline">Normal</Button>
-        <Button variant="outline" disabled>Disabled</Button>
-        <Button variant="outline" isLoading loadingText="Cargando">Loading</Button>
-      </div>
-      <div className="flex items-center gap-3">
-        <Button variant="destructive">Normal</Button>
-        <Button variant="destructive" disabled>Disabled</Button>
-        <Button variant="destructive" isLoading loadingText="Cargando">Loading</Button>
-      </div>
-    </div>
-  )
-};
-
 /**
  * Showcase Interactivo Completo — Basado en la guía de diseño de alta fidelidad.
  * Demuestra variantes, jerarquía de tamaños, microinteracciones táctiles,
  * simulación de operaciones asíncronas y accesibilidad.
  */
 export const ShowcaseRedesign: Story = {
+  name: '✨ Showcase Redesign',
   render: () => {
     const [loadingStates, setLoadingStates] = React.useState<Record<string, boolean>>({});
     const [feedback, setFeedback] = React.useState<string>('Esperando interacción...');
@@ -390,3 +255,140 @@ export const ShowcaseRedesign: Story = {
     );
   }
 };
+
+export const Primario: Story = {
+  args: {
+    variant: 'primary',
+    children: 'Guardar Trámite'
+  }
+};
+
+export const Secundario: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'Cancelar'
+  }
+};
+
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Descargar Constancia'
+  }
+};
+
+export const Destructive: Story = {
+  args: {
+    variant: 'destructive',
+    children: 'Eliminar Registro'
+  }
+};
+
+export const Danger: Story = {
+  args: {
+    variant: 'danger',
+    children: 'Eliminar Registro (Alias)'
+  }
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Ver más'
+  }
+};
+
+export const LinkVariant: Story = {
+  args: {
+    variant: 'link',
+    children: 'Consultar portal de trámites'
+  }
+};
+
+export const ConIcono: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button variant="primary">
+        <Mail className="h-4 w-4" /> Enviar Notificación
+      </Button>
+      <Button variant="secondary">
+        <Download className="h-4 w-4" /> Exportar Informe
+      </Button>
+      <Button variant="outline">
+        <Calendar className="h-4 w-4" /> Agendar Cita
+      </Button>
+      <Button variant="destructive">
+        <Trash2 className="h-4 w-4" /> Eliminar Archivo
+      </Button>
+    </div>
+  )
+};
+
+export const BotonesDeIcono: Story = {
+  render: () => (
+    <div className="flex items-center gap-3">
+      <Button variant="primary" size="icon-sm" title="Icono sm">
+        <Calendar className="h-3.5 w-3.5" />
+      </Button>
+      <Button variant="primary" size="icon" title="Icono md">
+        <Calendar className="h-4 w-4" />
+      </Button>
+      <Button variant="primary" size="icon-lg" title="Icono lg">
+        <Calendar className="h-5 w-5" />
+      </Button>
+      <Button variant="secondary" size="icon" title="Secundario">
+        <Download className="h-4 w-4" />
+      </Button>
+      <Button variant="outline" size="icon" title="Outline">
+        <RefreshCw className="h-4 w-4" />
+      </Button>
+      <Button variant="destructive" size="icon" title="Destructive">
+        <Trash2 className="h-4 w-4" />
+      </Button>
+    </div>
+  )
+};
+
+export const Cargando: Story = {
+  args: {
+    variant: 'primary',
+    isLoading: true,
+    loadingText: 'Procesando trámite...'
+  }
+};
+
+export const Deshabilitado: Story = {
+  args: {
+    variant: 'primary',
+    disabled: true,
+    children: 'Acción No Permitida'
+  }
+};
+
+export const MatrizDeEstados: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4 p-6 border border-alcspower-border rounded-lg bg-alcspower-surface max-w-2xl">
+      <div className="flex items-center gap-3">
+        <Button variant="primary">Normal</Button>
+        <Button variant="primary" disabled>Disabled</Button>
+        <Button variant="primary" isLoading loadingText="Cargando">Loading</Button>
+      </div>
+      <div className="flex items-center gap-3">
+        <Button variant="secondary">Normal</Button>
+        <Button variant="secondary" disabled>Disabled</Button>
+        <Button variant="secondary" isLoading loadingText="Cargando">Loading</Button>
+      </div>
+      <div className="flex items-center gap-3">
+        <Button variant="outline">Normal</Button>
+        <Button variant="outline" disabled>Disabled</Button>
+        <Button variant="outline" isLoading loadingText="Cargando">Loading</Button>
+      </div>
+      <div className="flex items-center gap-3">
+        <Button variant="destructive">Normal</Button>
+        <Button variant="destructive" disabled>Disabled</Button>
+        <Button variant="destructive" isLoading loadingText="Cargando">Loading</Button>
+      </div>
+    </div>
+  )
+};
+

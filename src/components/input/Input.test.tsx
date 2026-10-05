@@ -25,6 +25,26 @@ describe('Input Component', () => {
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
+  it('aplica clases y estados de éxito con hasSuccess', () => {
+    const { container } = render(<Input hasSuccess placeholder="Validado" />);
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper).toHaveClass('has-success');
+    const input = screen.getByPlaceholderText(/validado/i);
+    expect(input).toHaveClass('border-emerald-600');
+  });
+
+  it('renderiza leftElement y rightElement adecuadamente', () => {
+    render(
+      <Input
+        placeholder="Búsqueda"
+        leftElement={<span data-testid="left-icon">🔍</span>}
+        rightElement={<span data-testid="right-icon">✕</span>}
+      />
+    );
+    expect(screen.getByTestId('left-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('right-icon')).toBeInTheDocument();
+  });
+
   it('aplica containerClassName en el wrapper exterior (API-02)', () => {
     const { container } = render(
       <Input
