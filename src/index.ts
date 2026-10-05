@@ -10,6 +10,7 @@ export * from './components/label';
 
 // Controles
 export * from './components/badge';
+export * from './components/status-badge';
 export * from './components/card';
 export * from './components/avatar';
 export * from './components/checkbox';
@@ -25,8 +26,14 @@ export * from './components/dropdown-menu';
 // Navegación y Estructura
 export * from './components/tabs';
 export * from './components/separator';
+export * from './components/pagination';
 
 // Feedback
 export * from './components/skeleton';
 export * from './components/spinner';
 export * from './components/empty-state';
+export * from './components/progress';
+
+// Data
+export * from './components/table';
+
