@@ -31,9 +31,12 @@ export * from './components/pagination';
 // Feedback
 export * from './components/skeleton';
 export * from './components/spinner';
+export * from './components/loading-overlay';
 export * from './components/empty-state';
+export * from './components/error-state';
 export * from './components/progress';
 
 // Data
 export * from './components/table';
+export * from './components/data-table';
 

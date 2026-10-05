@@ -8,6 +8,21 @@ Roadmap integral para la evolución de `@alcspower/ui` como una librería UI gen
 
 ## 1. Estado actual
 
+### v0.5.0 — Completado
+
+- DataTable sobre TanStack Table v8.21.3 con soporte de modo controlado y no controlado.
+- Column header con ordenamiento interactivo (ascendente/descendente/neutral) con iconos Lucide.
+- Pagination footer integrada con contador de selección de filas y navegación de páginas.
+- Toolbar superior con búsqueda global en tiempo real y menú para alternar visibilidad de columnas.
+- ErrorState como componente de feedback semántico con soporte de acciones de reintento.
+- LoadingOverlay con backdrop blur y spinner para estados interactivos.
+- 27 suites / 157 tests (todos pasando).
+- 0 violaciones detectadas por axe-core (WCAG 2.1 AA).
+- TypeScript sin errores (`tsc --noEmit`).
+- Build ESM/CJS/DTS/CSS verificado.
+- Storybook compilado y verificado.
+- Helpdesk permanece aislado y sin modificaciones.
+
 ### v0.4.0 — Completado
 
 - Table composable primitives (`Table`, `TableHeader`, `TableBody`, `TableFooter`, `TableRow`, `TableHead`, `TableCell`, `TableCaption`).
@@ -252,30 +267,30 @@ Construir `DataTable` sobre TanStack Table v8 como versión dedicada para valida
 
 ## Componentes
 
-- [ ] DataTable
-- [ ] ErrorState
-- [ ] LoadingOverlay
+- [x] DataTable
+- [x] ErrorState
+- [x] LoadingOverlay
 
 ### Funcionalidades iniciales
 
-- [ ] Column definitions
-- [ ] Type-safe rows
-- [ ] Custom cell rendering
-- [ ] Sorting
-- [ ] Multi-column sorting
-- [ ] Filtering
-- [ ] Global search
-- [ ] Pagination
-- [ ] Page size
-- [ ] Row selection
-- [ ] Select all
-- [ ] Column visibility
-- [ ] Empty state
-- [ ] Loading state
-- [ ] Error state
-- [ ] Responsive mode
-- [ ] Keyboard navigation
-- [ ] Accessible labels
+- [x] Column definitions
+- [x] Type-safe rows
+- [x] Custom cell rendering
+- [x] Sorting
+- [x] Multi-column sorting
+- [x] Filtering
+- [x] Global search
+- [x] Pagination
+- [x] Page size
+- [x] Row selection
+- [x] Select all
+- [x] Column visibility
+- [x] Empty state
+- [x] Loading state
+- [x] Error state
+- [x] Responsive mode
+- [x] Keyboard navigation
+- [x] Accessible labels
 
 ### Segunda etapa
 
@@ -1138,7 +1153,7 @@ Data Foundation (Table + Pagination + Progress + StatusBadge) ✅
     │
     ▼
 v0.5.0
-DataTable + ErrorState + LoadingOverlay
+DataTable + ErrorState + LoadingOverlay ✅
     │
     ▼
 v0.6.0
@@ -1324,31 +1339,29 @@ Checklist:
 
 # 31. Próximo milestone recomendado
 
-## v0.5.0 — DataTable
+## v0.6.0 — Chart System
 
-El siguiente trabajo debe concentrarse exclusivamente en la construcción y validación del componente `DataTable`:
+El siguiente trabajo debe concentrarse en construir el sistema de gráficos institucional sobre una abstracción propia reutilizable:
 
 ```text
-DataTable (TanStack Table v8)
-  ├── Sorting (single / multi)
-  ├── Filtering (global / column)
-  ├── Pagination integration (con componente Pagination de v0.4.0)
-  ├── Row Selection (single / multi / all)
-  ├── Column Visibility
-  ├── Controlled & Uncontrolled states
-  ├── LoadingState (con skeletons)
-  ├── ErrorState
-  └── EmptyState
+Chart System (v0.6.0)
+  ├── LineChart
+  ├── AreaChart
+  ├── BarChart
+  ├── PieChart
+  ├── DonutChart
+  ├── ComposedChart
+  └── Infraestructura (ChartContainer, ChartTooltip, ChartLegend, ChartSkeleton)
 ```
 
 Después:
 
 ```text
-v0.5.0 DataTable
-     ↓
 v0.6.0 Chart System
      ↓
 v0.7.0 Dashboard System
+     ↓
+v0.8.0 Advanced Forms
 ```
 
 Esto crea una base coherente para que prácticamente cualquier aplicación administrativa pueda construir sus dashboards sin que `@alcspower/ui` tenga que conocer la lógica de negocio.
