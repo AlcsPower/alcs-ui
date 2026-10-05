@@ -22,6 +22,17 @@ describe('Textarea Component', () => {
     expect(textarea).toHaveClass('border-alcspower-destructive');
   });
 
+  it('aplica las clases de tamaño correspondientes (sm, md, lg)', () => {
+    const { rerender } = render(<Textarea size="sm" placeholder="Texto sm" />);
+    expect(screen.getByPlaceholderText(/texto sm/i)).toHaveClass('min-h-[64px]', 'text-xs');
+
+    rerender(<Textarea size="md" placeholder="Texto md" />);
+    expect(screen.getByPlaceholderText(/texto md/i)).toHaveClass('min-h-[80px]', 'text-sm');
+
+    rerender(<Textarea size="lg" placeholder="Texto lg" />);
+    expect(screen.getByPlaceholderText(/texto lg/i)).toHaveClass('min-h-[110px]', 'text-base');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <label htmlFor="motivo-field">

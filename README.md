@@ -135,29 +135,56 @@ import { Button } from '@alcspower/ui';
 * **Variantes:** `primary`, `secondary`, `destructive`, `outline`, `ghost`, `link`.
 * **Tamaños:** `sm`, `md`, `lg`, `icon`.
 
+#### `Field` (Primitivo Compuesto)
+Contenedor accesible y coordinado para controles de formulario (`Field`, `FieldLabel`, `FieldControl`, `FieldHint`, `FieldError`). Gestiona automáticamente identificadores deterministas (`id`, `htmlFor`), asociaciones ARIA (`aria-describedby`, `aria-invalid`), y sincronización de estados `required` y `disabled`.
+
+```tsx
+import {
+  Field,
+  FieldLabel,
+  FieldControl,
+  FieldHint,
+  FieldError,
+  Input
+} from '@alcspower/ui';
+
+<Field required hasError={Boolean(errors.email)}>
+  <FieldLabel>Correo Institucional</FieldLabel>
+  <FieldControl asChild>
+    <Input type="email" placeholder="usuario@mific.gob.ni" />
+  </FieldControl>
+  <FieldHint>Utilice su cuenta asignada por la institución.</FieldHint>
+  <FieldError>{errors.email?.message}</FieldError>
+</Field>
+```
+
 #### `Input`
-Control de campo de texto para captura de datos, con soporte visual para estados deshabilitado, foco visible unificado y placeholder institucional.
+Control de campo de texto para captura de datos, con soporte para escala métrica de tamaño, estados de error, iconos izquierdo/derecho y accesibilidad completa.
 ```tsx
 import { Input } from '@alcspower/ui';
 
-<Input type="text" placeholder="Número de expediente..." />
+<Input type="text" size="sm" placeholder="Expediente..." />
+<Input type="text" size="md" placeholder="Número de expediente..." />
+<Input type="text" size="lg" placeholder="Búsqueda amplia..." />
 ```
+* **Tamaños:** `sm` (h-8), `md` (h-10, por defecto), `lg` (h-12).
 
 #### `Textarea`
-Área de texto multilínea con bordes estilizados y foco accesible para descripciones extensas.
+Área de texto multilínea con escala de tamaño, bordes estilizados y foco accesible para descripciones extensas.
 ```tsx
 import { Textarea } from '@alcspower/ui';
 
-<Textarea placeholder="Observaciones detalladas del trámite..." rows={4} />
+<Textarea size="md" placeholder="Observaciones detalladas del trámite..." rows={4} />
 ```
+* **Tamaños:** `sm` (min-h-[64px]), `md` (min-h-[80px], por defecto), `lg` (min-h-[110px]).
 
 #### `Label`
-Etiqueta de formulario accesible basada en `@radix-ui/react-label`, asociada a campos de entrada mediante `htmlFor`.
+Etiqueta de formulario accesible basada en `@radix-ui/react-label`, asociada a campos de entrada mediante `htmlFor` con indicador opcional `required`.
 ```tsx
 import { Label, Input } from '@alcspower/ui';
 
 <div className="space-y-1">
-  <Label htmlFor="cedula">Cédula de Identidad</Label>
+  <Label htmlFor="cedula" required>Cédula de Identidad</Label>
   <Input id="cedula" placeholder="001-000000-0000A" />
 </div>
 ```
@@ -192,15 +219,28 @@ import { Card, CardHeader, CardTitle, CardContent } from '@alcspower/ui';
 ```
 
 #### `Avatar`
-Elemento para representación de usuarios con soporte de carga de imagen y fallback automático de iniciales basado en `@radix-ui/react-avatar`.
+Elemento para representación de usuarios con soporte de escala de tamaños, carga de imagen y fallback automático de iniciales basado en `@radix-ui/react-avatar`.
 ```tsx
 import { Avatar, AvatarImage, AvatarFallback } from '@alcspower/ui';
 
-<Avatar>
+<Avatar size="sm">
+  <AvatarFallback>SM</AvatarFallback>
+</Avatar>
+
+<Avatar size="md">
   <AvatarImage src="/avatar.jpg" alt="Foto de perfil" />
   <AvatarFallback>JD</AvatarFallback>
 </Avatar>
+
+<Avatar size="lg">
+  <AvatarFallback>LG</AvatarFallback>
+</Avatar>
+
+<Avatar size="xl">
+  <AvatarFallback>XL</AvatarFallback>
+</Avatar>
 ```
+* **Tamaños:** `sm` (h-8 w-8), `md` (h-10 w-10, por defecto), `lg` (h-12 w-12), `xl` (h-16 w-16).
 
 #### `Checkbox`
 Control interactivo de selección binaria accesible basado en `@radix-ui/react-checkbox`.
@@ -456,6 +496,22 @@ const columns: ColumnDef<Tramite>[] = [
   pagination
   searchKey="nombre"
 />
+```
+
+---
+
+### 7. Accesibilidad y Utilidades
+
+#### `VisuallyHidden`
+Oculta visualmente un elemento pero lo mantiene plenamente disponible para tecnologías de asistencia (lectores de pantalla) según las directrices WCAG. Soporta delegación `asChild` para componer elementos existentes sin nodos DOM adicionales.
+
+```tsx
+import { VisuallyHidden } from '@alcspower/ui';
+
+<button type="button">
+  <VisuallyHidden>Cerrar ventana de diálogo</VisuallyHidden>
+  <span aria-hidden="true">✕</span>
+</button>
 ```
 
 ---

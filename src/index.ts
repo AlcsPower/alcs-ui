@@ -1,12 +1,14 @@
-// Utilidades
+// Utilidades y Accesibilidad
 export * from './lib/utils';
 export * from './lib/tw-merge-config';
+export * from './components/visually-hidden';
 
 // Formularios
 export * from './components/button';
 export * from './components/input';
 export * from './components/textarea';
 export * from './components/label';
+export * from './components/field';
 
 // Controles
 export * from './components/badge';

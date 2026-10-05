@@ -1,33 +1,61 @@
 import * as React from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { Check, ChevronDown } from 'lucide-react';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const Select = SelectPrimitive.Root;
 export const SelectGroup = SelectPrimitive.Group;
 export const SelectValue = SelectPrimitive.Value;
 
+export const selectTriggerVariants = cva(
+  'flex w-full items-center justify-between border bg-alcspower-surface text-alcspower-foreground placeholder:text-alcspower-muted-foreground focus:outline-none focus:ring-2 focus:ring-alcspower-ring focus:ring-offset-2 ring-offset-alcspower-surface disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 transition-colors',
+  {
+    variants: {
+      size: {
+        sm: 'h-8 px-2.5 py-1 text-xs rounded-alcspower-sm',
+        md: 'h-10 px-3 py-2 text-sm rounded-alcspower-md',
+        lg: 'h-12 px-4 py-3 text-base rounded-alcspower-md'
+      },
+      hasError: {
+        true: 'border-alcspower-destructive focus:ring-alcspower-destructive',
+        false: 'border-alcspower-input hover:border-alcspower-border-subtle'
+      }
+    },
+    defaultVariants: {
+      size: 'md',
+      hasError: false
+    }
+  }
+);
+
+export interface SelectTriggerProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
+    VariantProps<typeof selectTriggerVariants> {
+  /** Indica si el campo tiene error de validación */
+  hasError?: boolean;
+  /** Escala de tamaño del selector */
+  size?: 'sm' | 'md' | 'lg';
+}
+
 export const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
-    hasError?: boolean;
-  }
->(({ className, children, hasError = false, ...props }, ref) => (
+  SelectTriggerProps
+>(({ className, children, size = 'md', hasError = false, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     aria-invalid={hasError ? 'true' : undefined}
-    className={cn(
-      'flex h-10 w-full items-center justify-between rounded-alcspower-md border bg-alcspower-surface px-3 py-2 text-sm text-alcspower-foreground placeholder:text-alcspower-muted-foreground focus:outline-none focus:ring-2 focus:ring-alcspower-ring focus:ring-offset-2 ring-offset-alcspower-surface disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 transition-colors',
-      hasError
-        ? 'border-alcspower-destructive focus:ring-alcspower-destructive'
-        : 'border-alcspower-input hover:border-alcspower-border-subtle',
-      className
-    )}
+    className={cn(selectTriggerVariants({ size, hasError }), className)}
     {...props}
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50 transition-transform" />
+      <ChevronDown
+        className={cn(
+          'opacity-50 transition-transform',
+          size === 'sm' ? 'h-3.5 w-3.5' : 'h-4 w-4'
+        )}
+      />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));

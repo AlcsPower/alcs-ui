@@ -41,6 +41,26 @@ describe('Select Component', () => {
     expect(trigger).toHaveAttribute('aria-invalid', 'true');
   });
 
+  it('aplica las clases de tamaño correspondientes en SelectTrigger', () => {
+    const { rerender } = render(
+      <Select>
+        <SelectTrigger size="sm" aria-label="Selector pequeño">
+          <SelectValue placeholder="sm" />
+        </SelectTrigger>
+      </Select>
+    );
+    expect(screen.getByRole('combobox', { name: /selector pequeño/i })).toHaveClass('h-8', 'text-xs');
+
+    rerender(
+      <Select>
+        <SelectTrigger size="lg" aria-label="Selector grande">
+          <SelectValue placeholder="lg" />
+        </SelectTrigger>
+      </Select>
+    );
+    expect(screen.getByRole('combobox', { name: /selector grande/i })).toHaveClass('h-12', 'text-base');
+  });
+
   it('no presenta violaciones de accesibilidad en reposo (axe)', async () => {
     const { container } = render(
       <Select>

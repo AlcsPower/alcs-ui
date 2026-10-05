@@ -44,6 +44,17 @@ describe('Input Component', () => {
     expect(input).toHaveClass('text-center');
   });
 
+  it('aplica las clases de tamaño correspondientes (sm, md, lg)', () => {
+    const { rerender } = render(<Input size="sm" placeholder="Small" />);
+    expect(screen.getByPlaceholderText(/small/i)).toHaveClass('h-8', 'text-xs');
+
+    rerender(<Input size="md" placeholder="Medium" />);
+    expect(screen.getByPlaceholderText(/medium/i)).toHaveClass('h-10', 'text-sm');
+
+    rerender(<Input size="lg" placeholder="Large" />);
+    expect(screen.getByPlaceholderText(/large/i)).toHaveClass('h-12', 'text-base');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <label htmlFor="test-input">

@@ -114,7 +114,7 @@
   --alcspower-primary: #38bdf8;            /* Sky 400 - Alta legibilidad en fondo oscuro */
   --alcspower-primary-hover: #0ea5e9;      /* Sky 500 */
   --alcspower-primary-active: #0284c7;     /* Sky 600 */
-  --alcspower-primary-foreground: #082f49; /* Sky 950 - Contraste 8.2:1 (AAA) */
+  --alcspower-primary-foreground: #082f49; /* Sky 950 - Contraste 6.5:1 (AA) */
   --alcspower-primary-subtle: #082f49;     /* Fondo azul tenue */
 
   /* Superficies y Acciones Secundarias */
@@ -134,7 +134,7 @@
   --alcspower-destructive: #ef4444;        /* Red 500 */
   --alcspower-destructive-hover: #f87171;  /* Red 400 */
   --alcspower-destructive-active: #dc2626; /* Red 600 */
-  --alcspower-destructive-foreground: #450a0a; /* Red 950 - Contraste 7.2:1 (AAA) */
+  --alcspower-destructive-foreground: #1a0202; /* Red 950 profundo - Contraste 5.2:1 (AA) */
   --alcspower-destructive-subtle: #450a0a;
   --alcspower-destructive-border: #7f1d1d;
 
@@ -149,7 +149,7 @@
   --alcspower-warning-border: #78350f;
 
   --alcspower-info: #38bdf8;               /* Sky 400 */
-  --alcspower-info-foreground: #082f49;    /* Sky 950 - Contraste 8.2:1 (AAA) */
+  --alcspower-info-foreground: #082f49;    /* Sky 950 - Contraste 6.5:1 (AA) */
   --alcspower-info-subtle: #082f49;
   --alcspower-info-border: #075985;
 

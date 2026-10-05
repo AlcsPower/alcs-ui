@@ -1,5 +1,39 @@
 # @alcspower/ui
 
+## 0.6.0
+
+### Minor Changes
+
+- ### Nuevas características de Formularios, Escala de Tamaños y Accesibilidad (Fase 3)
+
+  - **Field (Primitivo Compuesto):**
+
+    - Se implementó la familia de componentes `<Field>`, `<FieldLabel>`, `<FieldControl>`, `<FieldHint>` y `<FieldError>`.
+    - Gestión determinista de identificadores únicos mediante `React.useId()` con soporte para IDs personalizados.
+    - Sincronización automática de `htmlFor`, `hasError`, `disabled`, `required` y atributos ARIA (`aria-describedby`, `aria-invalid`).
+    - Soporte de composición polimórfica accesible mediante `asChild` en `FieldControl` para integración transparente con `Input`, `Textarea`, `SelectTrigger` y controles nativos.
+    - Historias interactivas y suite exhaustiva de tests con Axe Core.
+
+  - **Escala de Tamaños (`size: 'sm' | 'md' | 'lg'`):**
+
+    - **Input**: Se incorporó escala métrica de tamaños (`sm: h-8`, `md: h-10` por defecto, `lg: h-12`) con ajuste responsivo de posicionamiento interno para `leftElement` y `rightElement`. Se exportó `inputVariants` vía `cva`.
+    - **Textarea**: Se añadió escala de tamaños (`sm: min-h-[64px]`, `md: min-h-[80px]` por defecto, `lg: min-h-[110px]`). Se exportó `textareaVariants` vía `cva`.
+    - **SelectTrigger**: Se añadió soporte para `size: 'sm' | 'md' | 'lg'` con escalado proporcional del icono indicador `ChevronDown`. Se exportó `selectTriggerVariants` vía `cva`.
+
+  - **Avatar (`size: 'sm' | 'md' | 'lg' | 'xl'`):**
+
+    - Se incorporó escala de tamaños con variantes `sm` (h-8 w-8), `md` (h-10 w-10 por defecto), `lg` (h-12 w-12) y `xl` (h-16 w-16).
+    - Sincronización automática del tamaño de fuente en `AvatarFallback`. Se exportó `avatarVariants` vía `cva`.
+
+  - **VisuallyHidden (Primitivo Accesible):**
+
+    - Se creó y exportó públicamente el componente `VisuallyHidden` para contenido exclusivo de lectores de pantalla.
+    - Soporte para delegación `asChild` mediante Radix Slot para evitar nodos innecesarios en el DOM.
+
+  - **Suite Automatizada de Contraste WCAG 2.1:**
+    - Se incorporó la suite matemática de validación de contraste en `src/styles/contrast.test.ts`.
+    - Se calibró `--alcspower-destructive-foreground` a `#1a0202` en modo oscuro para garantizar cumplimiento estricto de WCAG AA (>= 4.5:1).
+
 ## 0.5.1
 
 ### Patch Changes
