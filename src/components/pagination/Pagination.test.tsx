@@ -12,12 +12,12 @@ import {
 } from './Pagination';
 
 describe('Pagination Component', () => {
-  it('renderiza un elemento nav con role="navigation" y aria-label="pagination"', () => {
+  it('renderiza un elemento nav con role="navigation" y aria-label="Paginación"', () => {
     render(<Pagination />);
-    const nav = screen.getByRole('navigation', { name: /pagination/i });
+    const nav = screen.getByRole('navigation', { name: /paginación/i });
     expect(nav).toBeInTheDocument();
     expect(nav.tagName.toLowerCase()).toBe('nav');
-    expect(nav).toHaveAttribute('aria-label', 'pagination');
+    expect(nav).toHaveAttribute('aria-label', 'Paginación');
   });
 
   it('permite sobrescribir className en Pagination', () => {
@@ -83,13 +83,13 @@ describe('Pagination Component', () => {
     expect(screen.getByText('Next')).toBeInTheDocument();
   });
 
-  it('PaginationEllipsis renderiza con aria-hidden="true" y texto accesible "Más páginas"', () => {
+  it('PaginationEllipsis renderiza con texto accesible "Más páginas" y oculta solo el icono decorativo', () => {
     render(<PaginationEllipsis data-testid="ellipsis" />);
     const ellipsis = screen.getByTestId('ellipsis');
-    expect(ellipsis).toHaveAttribute('aria-hidden', 'true');
+    expect(ellipsis).not.toHaveAttribute('aria-hidden');
     expect(screen.getByText('Más páginas')).toBeInTheDocument();
     expect(screen.getByText('Más páginas')).toHaveClass('sr-only');
-    expect(ellipsis.querySelector('svg')).toBeInTheDocument();
+    expect(ellipsis.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('el botón deshabilitado tiene el atributo disabled y clases de opacidad', () => {

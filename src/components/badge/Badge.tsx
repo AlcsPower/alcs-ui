@@ -7,6 +7,7 @@ export const badgeVariants = cva(
   {
     variants: {
       variant: {
+        /** @deprecated Alias para 'primary'. Utilice 'primary' en su lugar. */
         default:
           'bg-alcspower-primary text-alcspower-primary-foreground',
         primary:
@@ -19,6 +20,7 @@ export const badgeVariants = cva(
           'bg-alcspower-warning-subtle text-alcspower-warning border border-alcspower-warning-border',
         destructive:
           'bg-alcspower-destructive-subtle text-alcspower-destructive border border-alcspower-destructive-border',
+        /** @deprecated Alias para 'destructive'. Utilice 'destructive' en su lugar. */
         danger:
           'bg-alcspower-destructive-subtle text-alcspower-destructive border border-alcspower-destructive-border',
         info:

@@ -394,5 +394,37 @@ describe('DataTable Component', () => {
     expect(DataTableColumnHeader.displayName).toBe('DataTableColumnHeader');
     expect(toolbarRef.current).toBeNull();
   });
+
+  it('calcula visibleColumnsCount y colSpan basado únicamente en columnas visibles cuando hay columnas ocultas', () => {
+    // 3 columnas definidas, pero ocultamos 1 ('role') mediante initial columnVisibility
+    const { container: loadingContainer } = render(
+      <DataTable
+        data={[]}
+        columns={testColumns}
+        isLoading={true}
+        state={{
+          columnVisibility: { role: false },
+        }}
+      />
+    );
+
+    // Debe renderizar 2 celdas por fila de carga (no 3)
+    const firstSkeletonRow = loadingContainer.querySelector('tbody tr');
+    expect(firstSkeletonRow?.children.length).toBe(2);
+
+    // En estado vacío con 1 columna oculta, colSpan debe ser 2 (no 3)
+    const { container: emptyContainer } = render(
+      <DataTable
+        data={[]}
+        columns={testColumns}
+        state={{
+          columnVisibility: { role: false },
+        }}
+      />
+    );
+
+    const emptyCell = emptyContainer.querySelector('tbody td');
+    expect(emptyCell).toHaveAttribute('colspan', '2');
+  });
 });
 

@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Biblioteca de componentes React accesibles y reutilizables basada en Radix UI y Tailwind CSS",
   "author": "AlcsPower",
   "license": "UNLICENSED",
@@ -93,6 +93,7 @@
     "@storybook/react": "^8.6.18",
     "@storybook/react-vite": "^8.6.18",
     "@tailwindcss/cli": "^4.0.9",
+    "@tailwindcss/vite": "^4.3.3",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^14.6.1",

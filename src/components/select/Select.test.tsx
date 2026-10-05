@@ -38,6 +38,7 @@ describe('Select Component', () => {
 
     const trigger = screen.getByRole('combobox', { name: /departamento requerido/i });
     expect(trigger).toHaveClass('border-alcspower-destructive');
+    expect(trigger).toHaveAttribute('aria-invalid', 'true');
   });
 
   it('no presenta violaciones de accesibilidad en reposo (axe)', async () => {

@@ -3,6 +3,10 @@
 @import "./tokens.css" layer(alcspower-tokens);
 @import "tailwindcss/theme.css";
 @import "tailwindcss/utilities.css" layer(alcspower-ui);
+@import "./animations.css" layer(alcspower-ui);
+
+@custom-variant dark (&:where(.dark, [data-theme="dark"], :where(.dark, [data-theme="dark"]) *));
+
 
 @theme {
   /* Lienzo y Superficies */
@@ -77,4 +81,12 @@
   --radius-alcspower-md: var(--alcspower-radius-md);
   --radius-alcspower-lg: var(--alcspower-radius-lg);
   --radius-alcspower-full: var(--alcspower-radius-full);
+
+  /* Sombras y Elevaciones */
+  --shadow-alcspower-sm: var(--alcspower-shadow-sm);
+  --shadow-alcspower-md: var(--alcspower-shadow-md);
+  --shadow-alcspower-lg: var(--alcspower-shadow-lg);
+  --shadow-sm: var(--alcspower-shadow-sm);
+  --shadow-md: var(--alcspower-shadow-md);
+  --shadow-lg: var(--alcspower-shadow-lg);
 }

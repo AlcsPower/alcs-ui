@@ -15,7 +15,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 }) => (
   <nav
     role="navigation"
-    aria-label="pagination"
+    aria-label="Paginación"
     className={cn('mx-auto flex w-full justify-center', className)}
     {...props}
   />
@@ -54,7 +54,7 @@ PaginationItem.displayName = 'PaginationItem';
 /*  PaginationLink (button)                                            */
 /* ------------------------------------------------------------------ */
 
-const paginationLinkVariants = cva(
+export const paginationLinkVariants = cva(
   'inline-flex items-center justify-center rounded-alcspower-md border text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
@@ -141,11 +141,10 @@ export const PaginationEllipsis: React.FC<PaginationEllipsisProps> = ({
   ...props
 }) => (
   <span
-    aria-hidden="true"
     className={cn('flex h-9 w-9 items-center justify-center', className)}
     {...props}
   >
-    <MoreHorizontal className="h-4 w-4 text-alcspower-muted-foreground" />
+    <MoreHorizontal aria-hidden="true" className="h-4 w-4 text-alcspower-muted-foreground" />
     <span className="sr-only">Más páginas</span>
   </span>
 );

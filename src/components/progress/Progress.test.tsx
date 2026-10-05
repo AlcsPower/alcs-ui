@@ -145,10 +145,22 @@ describe('Progress Component', () => {
     expect(results).toHaveNoViolations();
   });
 
-  it('no presenta violaciones de accesibilidad (axe) en estado indeterminado', async () => {
-    const { container } = render(
-      <Progress aria-label="Procesando documento" />
-    );
+  it('asigna aria-label="Progreso" por defecto si no se pasa aria-label ni aria-labelledby', () => {
+    render(<Progress value={40} />);
+    const progressbar = screen.getByRole('progressbar');
+    expect(progressbar).toHaveAttribute('aria-label', 'Progreso');
+  });
+
+  it('conecta aria-labelledby con la etiqueta visible cuando showLabel es true', () => {
+    render(<Progress value={80} showLabel />);
+    const progressbar = screen.getByRole('progressbar');
+    const labelSpan = screen.getByText('80%');
+    expect(labelSpan).toHaveAttribute('id');
+    expect(progressbar).toHaveAttribute('aria-labelledby', labelSpan.getAttribute('id'));
+  });
+
+  it('no presenta violaciones de accesibilidad (axe) cuando se consume sin aria-label manual', async () => {
+    const { container } = render(<Progress value={30} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

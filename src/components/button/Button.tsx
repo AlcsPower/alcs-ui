@@ -19,6 +19,7 @@ export const buttonVariants = cva(
           'hover:bg-alcspower-surface-muted text-alcspower-foreground',
         destructive:
           'bg-alcspower-destructive text-alcspower-destructive-foreground hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active shadow-sm focus-visible:ring-alcspower-destructive',
+        /** @deprecated Alias para 'destructive'. Utilice 'destructive' en su lugar. */
         danger:
           'bg-alcspower-destructive text-alcspower-destructive-foreground hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active shadow-sm focus-visible:ring-alcspower-destructive',
         link:

@@ -12,6 +12,7 @@ export const alertVariants = cva(
         success: 'bg-alcspower-success-subtle border-alcspower-success-border text-alcspower-success [&>svg]:text-alcspower-success',
         warning: 'bg-alcspower-warning-subtle border-alcspower-warning-border text-alcspower-warning [&>svg]:text-alcspower-warning',
         destructive: 'bg-alcspower-destructive-subtle border-alcspower-destructive-border text-alcspower-destructive [&>svg]:text-alcspower-destructive',
+        /** @deprecated Alias para 'destructive'. Utilice 'destructive' en su lugar. */
         danger: 'bg-alcspower-destructive-subtle border-alcspower-destructive-border text-alcspower-destructive [&>svg]:text-alcspower-destructive'
       }
     },

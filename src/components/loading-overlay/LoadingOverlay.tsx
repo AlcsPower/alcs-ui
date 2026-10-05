@@ -52,9 +52,12 @@ export const LoadingOverlay = React.forwardRef<
         )}
         {...props}
       >
-        <Spinner size={spinnerSize} label={label} />
+        <Spinner size={spinnerSize} aria-hidden="true" />
         {label ? (
-          <p className="text-xs font-medium text-alcspower-muted-foreground">
+          <p
+            aria-hidden="true"
+            className="text-xs font-medium text-alcspower-muted-foreground"
+          >
             {label}
           </p>
         ) : null}

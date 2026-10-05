@@ -410,6 +410,56 @@ import { EmptyState, Button } from '@alcspower/ui';
 
 ---
 
+### 6. Datos (Data)
+
+#### `Table`
+Primitivos de tabla HTML estilizados y accesibles para estructurar información tabular (`Table`, `TableHeader`, `TableBody`, `TableFooter`, `TableRow`, `TableHead`, `TableCell`, `TableCaption`).
+```tsx
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@alcspower/ui';
+
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Trámite</TableHead>
+      <TableHead>Estado</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>Registro de Marca</TableCell>
+      <TableCell>Aprobado</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+#### `DataTable`
+Tabla de datos empresarial de alto rendimiento construida sobre `@tanstack/react-table`. Soporta ordenamiento por columnas, paginación cliente/servidor, filtrado dinámico, selección de filas por checkboxes, visibilidad de columnas y estados integrados de carga y error.
+```tsx
+import { DataTable, DataTableColumnHeader } from '@alcspower/ui';
+import type { ColumnDef } from '@alcspower/ui';
+
+const columns: ColumnDef<Tramite>[] = [
+  {
+    accessorKey: 'codigo',
+    header: ({ column }) => <DataTableColumnHeader column={column} title="Código" />
+  },
+  {
+    accessorKey: 'nombre',
+    header: 'Nombre del Trámite'
+  }
+];
+
+<DataTable
+  data={tramites}
+  columns={columns}
+  pagination
+  searchKey="nombre"
+/>
+```
+
+---
+
 ## 🎨 Sistema de Tokens de Diseño
 
 La biblioteca define su sistema visual a partir de **conceptos semánticos** que desacoplan los componentes de valores de color fijos.

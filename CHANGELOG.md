@@ -1,5 +1,35 @@
 # @alcspower/ui
 
+## 0.5.1
+
+### Patch Changes
+
+- ### Correcciones de Pipeline, Accesibilidad y Consistencia de API (Fases 1 y 2)
+
+  - **Pipeline y Build:**
+
+    - Se configuró `@tailwindcss/vite` en Storybook (`.storybook/main.ts`), habilitando la compilación completa de utilidades de Tailwind CSS v4.
+    - Se agregaron keyframes nativos `@keyframes enter`, `@keyframes exit`, `@keyframes progress-indeterminate` y clases utilitarias (`animate-in`, `animate-out`, `fade-in-*`, `fade-out-*`, `zoom-in-*`, `slide-in-*`, `rounded-inherit`) en `src/styles/animations.css`.
+    - Se agregó la directiva `@custom-variant dark` en `src/styles/index.css` para sincronizar las utilidades `dark:` con las clases institucionales `.dark` y atributos `[data-theme="dark"]`.
+    - Se mapearon los tokens de sombras `--shadow-alcspower-*` y `--shadow-*` en el bloque `@theme` de `src/styles/index.css`, garantizando elevación reforzada para modo oscuro.
+
+  - **Accesibilidad y Lógica de Componentes:**
+
+    - **DataTable**: Se corrigió el cálculo de `visibleColumnsCount` para respetar estrictamente las columnas visibles al ocultar columnas, evitando discrepancias en el esqueleto de carga y `colSpan` de filas vacías/error.
+    - **Select**: Se agregó el atributo `aria-invalid` a `SelectTrigger` cuando `hasError={true}`.
+    - **Progress**: Se añadió accesible name (`aria-label="Progreso"`) por defecto, conexión dinámica con `aria-labelledby` cuando `showLabel={true}`, exportación pública de variantes CVA y documentación JSDoc para el estado indeterminado (`value?: number | null`).
+    - **LoadingOverlay**: Se desacoplaron las regiones vivas anidadas evitando anuncios duplicados en lectores de pantalla.
+    - **Pagination**: Se retiró `aria-hidden="true"` del contenedor de `PaginationEllipsis` para exponer la etiqueta accesible de página truncada, se exportó `paginationLinkVariants` y se actualizó el `aria-label` por defecto a español ("Paginación").
+    - **Spinner**: Se incorporó soporte para `motion-reduce:animate-none` y prop decorativa `aria-hidden`.
+
+  - **Consistencia de Tokens y API:**
+    - **Switch**: Se migró el thumb al token semántico `bg-alcspower-surface`.
+    - **Overlays**: Se migraron los radios de borde en `Dialog`, `DropdownMenu`, `Select`, `Tooltip` y `Card` a los tokens institucionales `rounded-alcspower-*`.
+    - **DropdownMenu**: Se agregó la variante `variant="destructive"` a `DropdownMenuItem`.
+    - **Alert, EmptyState y ErrorState**: Se agregaron props configurables `as` y `titleHeadingLevel` para jerarquías semánticas de encabezados válidas, además de la variante `compact` para `EmptyState` y `ErrorState`.
+    - **Deprecaciones**: Se documentó formalmente `@deprecated` en variantes redundantes (`danger` en favor de `destructive`, y `default` en Badge en favor de `primary`).
+    - **Documentación**: Se agregó la sección formal de componentes de Datos (`Table`, `DataTable`) en el `README.md`.
+
 ## 0.5.0
 
 ### Minor Changes

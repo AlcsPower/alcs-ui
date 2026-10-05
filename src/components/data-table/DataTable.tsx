@@ -261,7 +261,6 @@ export const DataTable = React.forwardRef(
 
     const visibleColumnsCount = Math.max(
       table.getVisibleLeafColumns().length,
-      effectiveColumns.length,
       1
     );
 

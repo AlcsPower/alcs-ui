@@ -3,7 +3,7 @@ import * as ProgressPrimitive from '@radix-ui/react-progress';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
-const progressTrackVariants = cva(
+export const progressTrackVariants = cva(
   'relative w-full overflow-hidden rounded-alcspower-full bg-alcspower-surface-muted',
   {
     variants: {
@@ -17,7 +17,7 @@ const progressTrackVariants = cva(
   }
 );
 
-const progressIndicatorVariants = cva(
+export const progressIndicatorVariants = cva(
   'h-full w-full flex-1 rounded-alcspower-full transition-all duration-300 ease-in-out',
   {
     variants: {
@@ -37,9 +37,14 @@ export interface ProgressProps
   extends React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>,
     VariantProps<typeof progressTrackVariants>,
     VariantProps<typeof progressIndicatorVariants> {
-  /** Show percentage label */
+  /**
+   * Valor del progreso entre 0 y 100.
+   * Omitir este valor o pasar `undefined` / `null` activa automáticamente el estado indeterminado animado.
+   */
+  value?: number | null;
+  /** Muestra etiqueta de porcentaje textual junto a la barra */
   showLabel?: boolean;
-  /** Custom label formatter */
+  /** Función personalizada para formatear el texto del porcentaje */
   formatLabel?: (value: number) => string;
 }
 
@@ -55,10 +60,15 @@ export const Progress = React.forwardRef<
       size,
       showLabel,
       formatLabel,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
       ...props
     },
     ref
   ) => {
+    const generatedId = React.useId();
+    const labelId = `progress-label-${generatedId}`;
+
     const isIndeterminate = value === undefined || value === null;
     const clampedValue = isIndeterminate
       ? 0
@@ -68,12 +78,17 @@ export const Progress = React.forwardRef<
       ? (formatLabel ? formatLabel(clampedValue) : `${clampedValue}%`)
       : null;
 
+    const resolvedAriaLabelledBy = ariaLabelledBy || (label && !ariaLabel ? labelId : undefined);
+    const resolvedAriaLabel = ariaLabel || (!resolvedAriaLabelledBy ? 'Progreso' : undefined);
+
     return (
       <div className="flex items-center gap-2 w-full">
         <ProgressPrimitive.Root
           ref={ref}
           className={cn(progressTrackVariants({ size }), className)}
           value={isIndeterminate ? undefined : clampedValue}
+          aria-label={resolvedAriaLabel}
+          aria-labelledby={resolvedAriaLabelledBy}
           {...props}
         >
           <ProgressPrimitive.Indicator
@@ -90,8 +105,8 @@ export const Progress = React.forwardRef<
         </ProgressPrimitive.Root>
         {label && (
           <span
+            id={labelId}
             className="text-xs font-medium text-alcspower-muted-foreground tabular-nums min-w-[3ch] text-right"
-            aria-hidden="true"
           >
             {label}
           </span>

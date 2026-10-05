@@ -39,6 +39,22 @@ describe('DropdownMenu Component', () => {
     expect(disabledItem).toHaveAttribute('data-disabled');
   });
 
+  it('soporta la variante destructiva en DropdownMenuItem', () => {
+    render(
+      <DropdownMenu defaultOpen>
+        <DropdownMenuTrigger asChild>
+          <Button>Menú</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem variant="destructive">Eliminar registro</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+
+    const item = screen.getByText('Eliminar registro');
+    expect(item).toHaveClass('text-alcspower-destructive');
+  });
+
   it('no presenta violaciones de accesibilidad cuando está abierto', async () => {
     const { container } = render(
       <DropdownMenu defaultOpen>
