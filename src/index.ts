@@ -9,6 +9,10 @@ export * from './components/input';
 export * from './components/textarea';
 export * from './components/label';
 export * from './components/field';
+export * from './components/radio-group';
+export * from './components/slider';
+export * from './components/toggle';
+export * from './components/toggle-group';
 
 // Controles
 export * from './components/badge';
@@ -24,11 +28,13 @@ export * from './components/dialog';
 export * from './components/alert';
 export * from './components/tooltip';
 export * from './components/dropdown-menu';
+export * from './components/context-menu';
 export * from './components/popover';
 export * from './components/sheet';
 export * from './components/drawer';
 
 // Navegación y Estructura
+export * from './components/breadcrumb';
 export * from './components/tabs';
 export * from './components/separator';
 export * from './components/pagination';

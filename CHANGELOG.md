@@ -1,5 +1,36 @@
 # @alcspower/ui
 
+## 1.0.0
+
+### Major Changes
+
+- ### Lanzamiento Oficial / General Availability (Fase 7)
+  - **Primitivas Enterprise Incorporadas (51 componentes en total):**
+    - **`RadioGroup` (`src/components/radio-group`):** Control accesible de selección única basado en `@radix-ui/react-radio-group`, navegación bidireccional por teclado (`Arrow keys`), indicador circular animado y soporte de validación/error.
+    - **`Breadcrumb` (`src/components/breadcrumb`):** Jerarquía de navegación semántica WAI-ARIA (`Breadcrumb`, `BreadcrumbList`, `BreadcrumbItem`, `BreadcrumbLink`, `BreadcrumbPage`, `BreadcrumbSeparator`, `BreadcrumbEllipsis`) con soporte polimórfico `asChild` para enrutadores SPA (React Router, Next.js).
+    - **`Slider` (`src/components/slider`):** Control deslizante de rango numérico accesible basado en `@radix-ui/react-slider`, con propagación de accesibilidad ARIA al thumb, incrementos por pasos y orientación horizontal.
+    - **`Toggle` & `ToggleGroup` (`src/components/toggle`, `src/components/toggle-group`):** Botones conmutadores de dos estados (`Toggle`) y grupos con selección simple/múltiple (`ToggleGroup`) basados en `@radix-ui/react-toggle` y `@radix-ui/react-toggle-group`.
+    - **`ContextMenu` (`src/components/context-menu`):** Menú contextual flotante desplegado con clic derecho basado en `@radix-ui/react-context-menu`, con soporte para atajos visuales (`ContextMenuShortcut`), checkboxes, radio items, submenús y variantes destructivas.
+  - **Métricas de Calidad y Cobertura:**
+    - 50 suites de pruebas unitarias automatizadas con Vitest y `@testing-library/react`.
+    - 314/314 pruebas aprobadas con **0 violaciones de accesibilidad** verificadas mediante `axe-core`.
+    - 100% de tipos validados estrictamente con `tsc --noEmit`.
+
+## 0.9.0
+
+### Minor Changes
+
+- ### Remediación Técnica de Arquitectura, Accesibilidad y Tokens (Fase 6)
+  - **Primitivo Compuesto `Field` (`src/components/field`):** Arquitectura accesible unificada con `Field`, `FieldLabel`, `FieldControl`, `FieldHint`, `FieldError` y asociación determinista de `aria-describedby` y `aria-invalid`.
+  - **Sincronización de Animaciones Tailwind v4:** Incorporación de `@keyframes` para overlays, modales, menús y barras de progreso indeterminadas en CSS precompilado.
+  - **Escala Métrica Simétrica:** Estandarización de alturas (`sm: h-8`, `md: h-10`, `lg: h-12`) en `Input`, `Textarea` y `SelectTrigger`.
+  - **Remediación de Accesibilidad y Robustez:**
+    - Corrección de `colSpan` dinámico en `DataTable` al ocultar columnas.
+    - Eliminación de encabezados semánticos fijos en celdas de tabla.
+    - Intercepción segura de clics en `Button` con enlaces (`asChild`) durante estado de carga.
+    - Incorporación de `VisuallyHidden` para anuncios accesibles limpios.
+    - Soporte integral de `prefers-reduced-motion` en animaciones.
+
 ## 0.8.0
 
 ### Minor Changes

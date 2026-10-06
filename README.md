@@ -9,7 +9,7 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `0.9.0`
+* **Versión Actual:** `1.0.0`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
@@ -63,10 +63,10 @@ Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.gith
 
 ```bash
 # Con pnpm (recomendado):
-pnpm add @alcspower/ui@0.9.0
+pnpm add @alcspower/ui@1.0.0
 
 # O con npm:
-npm install @alcspower/ui@0.9.0
+npm install @alcspower/ui@1.0.0
 ```
 
 ---
@@ -114,7 +114,7 @@ export function App() {
 
 ---
 
-## 📚 Catálogo Completo de Componentes (46 Componentes)
+## 📚 Catálogo Completo de Componentes (51 Componentes)
 
 Todos los componentes han sido verificados mediante pruebas unitarias exhaustivas, comprobación estricta de tipado con TypeScript y auditorías de accesibilidad automatizada con **axe-core** (100% pruebas aprobadas, **0 violaciones de accesibilidad detectadas**).
 
@@ -124,6 +124,10 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Input`:** Campo de texto accesible con escala métrica simétrica (`sm: h-8`, `md: h-10`, `lg: h-12`), slots para `leftElement`/`rightElement` y variantes de validación.
 * **`Textarea`:** Área de texto multilínea con escala de altura y foco accesible.
 * **`Label`:** Etiqueta accesible basada en Radix UI con soporte de indicador `required`.
+* **`RadioGroup`:** Grupo de opciones de selección única accesible basado en `@radix-ui/react-radio-group`, con navegación bidireccional por teclado (`Arrow keys`), indicador circular animado y soporte de validación/error.
+* **`Slider`:** Control deslizante de rango numérico accesible basado en `@radix-ui/react-slider`, con soporte para etiquetas ARIA delegadas al thumb, paso incremental y orientación horizontal.
+* **`Toggle`:** Botón de dos estados presionado/no presionado accesible basado en `@radix-ui/react-toggle` con variantes (`default`, `outline`) y escala de tamaños (`sm`, `md`, `lg`).
+* **`ToggleGroup`:** Grupo de conmutadores con selección simple o múltiple basado en `@radix-ui/react-toggle-group`, propagación de variantes y soporte de navegación por teclado.
 
 ### 2. Controles (Controls)
 * **`Badge`:** Insignia compacta para categorización y estados con 7 variantes semánticas.
@@ -140,10 +144,12 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Drawer`:** Panel deslizante inferior responsivo optimizado para interfaces móviles y acciones rápidas, equipado con tirador táctil visual (`DrawerHandle`) y estructura semántica completa.
 * **`Popover`:** Primitiva flotante accesible para menús y paneles emergentes basada en `@radix-ui/react-popover`.
 * **`DropdownMenu`:** Menú contextual desplegable con atajos de teclado, submenús y opciones de selección.
+* **`ContextMenu`:** Menú flotante desplegado con clic derecho basado en `@radix-ui/react-context-menu`, con soporte para atajos de teclado (`ContextMenuShortcut`), submenús, ítems de verificación (`ContextMenuCheckboxItem`), grupos de radio (`ContextMenuRadioGroup`) y acciones destructivas.
 * **`Tooltip`:** Mensaje contextual flotante accesible activado por hover o foco por teclado.
 * **`Alert`:** Banner de notificación con iconografía institucional y variantes de estado (`info`, `success`, `warning`, `destructive`).
 
 ### 4. Navegación y Estructura (Navigation & Layout)
+* **`Breadcrumb`:** Jerarquía de navegación accesible orientada a WAI-ARIA (`Breadcrumb`, `BreadcrumbList`, `BreadcrumbItem`, `BreadcrumbLink`, `BreadcrumbPage`, `BreadcrumbSeparator`, `BreadcrumbEllipsis`) con soporte polimórfico `asChild` para enrutadores SPA (React Router, Next.js).
 * **`Tabs`:** Pestañas accesibles con soporte ARIA para selección activa y cambio de vistas (`TabsList`, `TabsTrigger`, `TabsContent`).
 * **`Accordion`:** Contenedor de paneles expandibles basado en `@radix-ui/react-accordion`. Soporta modo simple (`type="single"`) o múltiple (`type="multiple"`), chevron rotativo animado y navegación íntegra por teclado.
 * **`Collapsible`:** Primitiva interactiva ligera basada en `@radix-ui/react-collapsible` para expandir y colapsar secciones, filtros avanzados y detalles.
@@ -231,7 +237,7 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 * **Gestión de Foco:** Atrapamiento de foco en modales y paneles deslizantes (`Sheet`, `Dialog`, `CommandDialog`), retorno automático de foco al elemento disparador tras el cierre.
 * **Movimiento Reducido:** Respeto global automático para `prefers-reduced-motion: reduce` en todas las animaciones y transiciones de la biblioteca.
 * **Teclado:** Navegación por teclado completa (Tab, Flechas arriba/abajo/izquierda/derecha en listas, acordeones y pestañas, Escape, Enter, Espacio).
-* **Verificación Automatizada:** Suite de pruebas con Vitest y `@testing-library/react` combinada con auditorías completas de **axe-core** (44 suites de pruebas, **287/287 pruebas pasando con 0 violaciones**).
+* **Verificación Automatizada:** Suite de pruebas con Vitest y `@testing-library/react` combinada con auditorías completas de **axe-core** (50 suites de pruebas, **314/314 pruebas pasando con 0 violaciones**).
 
 ---
 
