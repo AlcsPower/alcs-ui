@@ -41,6 +41,28 @@ describe('DateRangePicker Component', () => {
     expect(handleChange).toHaveBeenCalledWith(undefined);
   });
 
+  it('soporta los tamaños sm, md y lg', () => {
+    const { container: smContainer } = render(<DateRangePicker size="sm" />);
+    expect(smContainer.firstChild).toHaveClass('h-9');
+
+    const { container: mdContainer } = render(<DateRangePicker size="md" />);
+    expect(mdContainer.firstChild).toHaveClass('h-[42px]');
+
+    const { container: lgContainer } = render(<DateRangePicker size="lg" />);
+    expect(lgContainer.firstChild).toHaveClass('h-12');
+  });
+
+  it('aplica estilos para estado hasError', () => {
+    const { container } = render(<DateRangePicker hasError />);
+    expect(container.firstChild).toHaveClass('border-alcspower-destructive');
+  });
+
+  it('deshabilita el botón de abrir selector cuando disabled={true}', () => {
+    render(<DateRangePicker disabled />);
+    const openBtn = screen.getByRole('button', { name: /abrir selector de rango/i });
+    expect(openBtn).toBeDisabled();
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const range = {
       from: new Date(2026, 9, 1),

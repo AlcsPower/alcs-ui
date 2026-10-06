@@ -19,17 +19,21 @@ export * from './components/checkbox';
 export * from './components/switch';
 export * from './components/select';
 
-// Overlays
+// Overlays y Paneles
 export * from './components/dialog';
 export * from './components/alert';
 export * from './components/tooltip';
 export * from './components/dropdown-menu';
 export * from './components/popover';
+export * from './components/sheet';
+export * from './components/drawer';
 
 // Navegación y Estructura
 export * from './components/tabs';
 export * from './components/separator';
 export * from './components/pagination';
+export * from './components/accordion';
+export * from './components/collapsible';
 
 // Feedback
 export * from './components/skeleton';
@@ -38,6 +42,7 @@ export * from './components/loading-overlay';
 export * from './components/empty-state';
 export * from './components/error-state';
 export * from './components/progress';
+export * from './components/toast';
 
 // Data
 export * from './components/table';
@@ -57,5 +62,3 @@ export * from './components/chart';
 
 // Métricas y Dashboards
 export * from './components/metrics';
-
-

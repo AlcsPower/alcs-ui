@@ -118,3 +118,89 @@
 .rounded-inherit {
   border-radius: inherit;
 }
+
+/* Desplazamientos completos para Sheets, Drawers y Paneles laterales */
+.slide-in-from-top-full {
+  --tw-enter-translate-y: -100%;
+}
+
+.slide-in-from-bottom-full {
+  --tw-enter-translate-y: 100%;
+}
+
+.slide-in-from-left-full {
+  --tw-enter-translate-x: -100%;
+}
+
+.slide-in-from-right-full {
+  --tw-enter-translate-x: 100%;
+}
+
+.slide-out-to-top-full {
+  --tw-exit-translate-y: -100%;
+}
+
+.slide-out-to-bottom-full {
+  --tw-exit-translate-y: 100%;
+}
+
+.slide-out-to-left-full {
+  --tw-exit-translate-x: -100%;
+}
+
+.slide-out-to-right-full {
+  --tw-exit-translate-x: 100%;
+}
+
+/* Animaciones de expansión y colapso de acordeón y paneles */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes collapsible-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+.animate-collapsible-down {
+  animation: collapsible-down 0.2s ease-out;
+}
+
+.animate-collapsible-up {
+  animation: collapsible-up 0.2s ease-out;
+}

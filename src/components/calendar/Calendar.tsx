@@ -13,6 +13,7 @@ export const Calendar = ({
   className,
   classNames,
   showOutsideDays = true,
+  fixedWeeks = true,
   locale = es,
   compact = false,
   ...props
@@ -20,37 +21,43 @@ export const Calendar = ({
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
+      fixedWeeks={fixedWeeks}
       locale={locale}
       className={cn(
+        'relative',
         compact
           ? 'p-2.5 bg-alcspower-surface rounded-xl border border-alcspower-border shadow-xs inline-block'
           : 'p-4 bg-alcspower-surface rounded-2xl border border-alcspower-border shadow-sm inline-block',
         className
       )}
       classNames={{
-        months: 'flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
+        root: cn('relative inline-block', className),
+        months: 'relative flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0',
         month: compact ? 'space-y-2' : 'space-y-4',
-        month_caption: compact
-          ? 'flex justify-center pt-0 relative items-center mb-2'
-          : 'flex justify-center pt-1 relative items-center mb-3',
-        caption_label: compact
-          ? 'text-sm font-bold text-alcspower-foreground capitalize tracking-tight'
-          : 'text-base font-bold text-alcspower-foreground capitalize tracking-tight',
-        nav: 'space-x-1 flex items-center',
+        month_caption: cn(
+          'flex justify-center relative items-center',
+          compact ? 'h-7 mb-2' : 'h-8 mb-3'
+        ),
+        caption_label: cn(
+          'font-bold text-alcspower-foreground capitalize tracking-tight',
+          compact ? 'text-xs' : 'text-sm'
+        ),
+        nav: cn(
+          'absolute flex items-center justify-between pointer-events-none z-10',
+          compact ? 'inset-x-1.5 top-0 h-7' : 'inset-x-3 top-0 h-8'
+        ),
         button_previous: cn(
           compact
-            ? 'absolute left-0.5 top-0 h-7 w-7 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground'
-            : 'absolute left-1 top-0 h-8 w-8 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground',
-          compact ? 'rounded-md' : 'rounded-lg',
-          'inline-flex items-center justify-center border-0 cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-alcspower-ring',
+            ? 'h-7 w-7 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground rounded-md'
+            : 'h-8 w-8 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground rounded-lg',
+          'pointer-events-auto inline-flex items-center justify-center border-0 cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-alcspower-ring',
           'hover:bg-alcspower-surface-muted transition-all active:scale-95 disabled:opacity-30'
         ),
         button_next: cn(
           compact
-            ? 'absolute right-0.5 top-0 h-7 w-7 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground'
-            : 'absolute right-1 top-0 h-8 w-8 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground',
-          compact ? 'rounded-md' : 'rounded-lg',
-          'inline-flex items-center justify-center border-0 cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-alcspower-ring',
+            ? 'h-7 w-7 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground rounded-md'
+            : 'h-8 w-8 bg-alcspower-surface-muted/60 p-0 text-alcspower-muted-foreground hover:text-alcspower-foreground rounded-lg',
+          'pointer-events-auto inline-flex items-center justify-center border-0 cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-alcspower-ring',
           'hover:bg-alcspower-surface-muted transition-all active:scale-95 disabled:opacity-30'
         ),
         month_grid: 'w-full border-collapse space-y-1',
