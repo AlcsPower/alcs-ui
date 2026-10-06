@@ -30,7 +30,7 @@ describe('Input Component', () => {
     const wrapper = container.firstElementChild as HTMLElement;
     expect(wrapper).toHaveClass('has-success');
     const input = screen.getByPlaceholderText(/validado/i);
-    expect(input).toHaveClass('border-emerald-600');
+    expect(input).toHaveClass('border-alcspower-success');
   });
 
   it('renderiza leftElement y rightElement adecuadamente', () => {

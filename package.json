@@ -53,7 +53,7 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "pnpm build:css && pnpm build:js",
+    "build": "pnpm build:js && pnpm build:css",
     "build:js": "tsup",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
     "test": "vitest run",
@@ -109,6 +109,7 @@
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@vitest/coverage-v8": "3.2.7",
     "jsdom": "^26.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

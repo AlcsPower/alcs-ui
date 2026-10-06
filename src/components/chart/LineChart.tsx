@@ -22,7 +22,7 @@ export interface LineChartSeries {
 
 export interface LineChartProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
-  data: any[];
+  data: Array<Record<string, unknown>>;
   config: ChartConfig;
   xAxisKey: string;
   series: LineChartSeries[];

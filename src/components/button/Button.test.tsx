@@ -48,19 +48,25 @@ describe('Button Component', () => {
     expect(link).toHaveAttribute('href', '/portal');
   });
 
-  it('soporta asChild en combinación con isLoading sin lanzar excepción (BUG-01)', () => {
-    expect(() => {
-      render(
-        <Button asChild isLoading loadingText="Cargando enlace...">
-          <a href="/portal">Ir al Portal</a>
-        </Button>
-      );
-    }).not.toThrow();
+  it('soporta asChild en combinación con isLoading sin lanzar excepción y previniendo clics (BUG-01, H-02)', async () => {
+    const handleClick = vi.fn();
+    const user = userEvent.setup();
+
+    render(
+      <Button asChild isLoading loadingText="Cargando enlace..." onClick={handleClick}>
+        <a href="/portal">Ir al Portal</a>
+      </Button>
+    );
 
     const link = screen.getByRole('link', { name: /cargando enlace\.\.\./i });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('aria-busy', 'true');
+    expect(link).toHaveAttribute('aria-disabled', 'true');
+    expect(link).toHaveClass('pointer-events-none');
     expect(link.querySelector('svg')).toBeInTheDocument();
+
+    await user.click(link);
+    expect(handleClick).not.toHaveBeenCalled();
   });
 
   it('soporta variant="destructive" con paridad respecto a "danger"', () => {

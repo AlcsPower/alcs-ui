@@ -10,7 +10,7 @@ export default defineConfig({
     }
   },
   sourcemap: true,
-  clean: false, // will keep dist/styles.css when building
+  clean: true,
   treeshake: true,
   splitting: false,
   banner: {

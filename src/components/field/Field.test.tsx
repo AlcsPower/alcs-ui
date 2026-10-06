@@ -135,6 +135,35 @@ describe('Field Component Primitive', () => {
     expect(input).toHaveClass('h-8', 'text-xs');
   });
 
+  it('no asocia errorId a aria-describedby si hasError es true pero no hay FieldError renderizado (H-03)', () => {
+    render(
+      <Field id="error-without-msg" hasError>
+        <FieldLabel>Campo con error visual</FieldLabel>
+        <FieldControl asChild>
+          <Input placeholder="sin mensaje" />
+        </FieldControl>
+      </Field>
+    );
+
+    const input = screen.getByPlaceholderText('sin mensaje');
+    expect(input).toHaveAttribute('aria-invalid', 'true');
+    expect(input).not.toHaveAttribute('aria-describedby');
+  });
+
+  it('asigna aria-labelledby al contenedor con role="group" cuando existe FieldLabel (H-18)', () => {
+    render(
+      <Field id="labeled-group">
+        <FieldLabel>Etiqueta Grupo</FieldLabel>
+        <FieldControl asChild>
+          <Input placeholder="input" />
+        </FieldControl>
+      </Field>
+    );
+
+    const group = screen.getByRole('group');
+    expect(group).toHaveAttribute('aria-labelledby', 'labeled-group-label');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <Field id="accessible-field" hasError required>

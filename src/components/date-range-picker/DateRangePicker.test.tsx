@@ -43,10 +43,10 @@ describe('DateRangePicker Component', () => {
 
   it('soporta los tamaños sm, md y lg', () => {
     const { container: smContainer } = render(<DateRangePicker size="sm" />);
-    expect(smContainer.firstChild).toHaveClass('h-9');
+    expect(smContainer.firstChild).toHaveClass('h-8');
 
     const { container: mdContainer } = render(<DateRangePicker size="md" />);
-    expect(mdContainer.firstChild).toHaveClass('h-[42px]');
+    expect(mdContainer.firstChild).toHaveClass('h-10');
 
     const { container: lgContainer } = render(<DateRangePicker size="lg" />);
     expect(lgContainer.firstChild).toHaveClass('h-12');

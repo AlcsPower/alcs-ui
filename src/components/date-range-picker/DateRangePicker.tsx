@@ -180,6 +180,7 @@ export const DateRangePicker = React.forwardRef<
     return (
       <div
         className={cn(
+          'box-border',
           datePickerVariants({ size, hasError }),
           disabled && 'cursor-not-allowed opacity-50 bg-alcspower-surface-muted border-alcspower-border/60 text-alcspower-muted-foreground/60 shadow-none hover:shadow-none hover:border-alcspower-border/60',
           open && !hasError && 'border-alcspower-primary ring-3 ring-alcspower-primary/15',

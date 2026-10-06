@@ -16,7 +16,7 @@ const SheetOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-black/50 backdrop-blur-xs data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-50 bg-alcspower-overlay backdrop-blur-xs data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className
     )}
     {...props}
@@ -66,11 +66,10 @@ const SheetContent = React.forwardRef<
       {children}
       {!hideCloseButton && (
         <DialogPrimitive.Close
-          className="absolute right-4 top-4 rounded-alcspower-sm p-1.5 text-alcspower-text-muted hover:text-alcspower-text-primary focus:outline-hidden focus:ring-2 focus:ring-alcspower-ring transition-colors"
+          className="absolute right-4 top-4 rounded-alcspower-sm p-1.5 text-alcspower-text-muted hover:text-alcspower-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring transition-colors"
           aria-label="Cerrar panel"
         >
-          <X className="h-4 w-4" />
-          <span className="sr-only">Cerrar panel</span>
+          <X className="h-4 w-4" aria-hidden="true" />
         </DialogPrimitive.Close>
       )}
     </DialogPrimitive.Content>

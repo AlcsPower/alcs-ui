@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { format, isValid } from 'date-fns';
+import { format, isValid, type Locale } from 'date-fns';
 import { es } from 'date-fns/locale';
 import { Calendar as CalendarIcon, X, AlertCircle, Check } from 'lucide-react';
 import { type VariantProps, cva } from 'class-variance-authority';
@@ -8,20 +8,20 @@ import { Popover, PopoverContent, PopoverTrigger } from '../popover';
 import { Calendar } from '../calendar';
 
 export const datePickerVariants = cva(
-  'relative inline-flex w-full items-center transition-all bg-alcspower-surface border-[1.5px] shadow-2xs font-normal text-left outline-none',
+  'box-border relative inline-flex w-full items-center transition-all bg-alcspower-surface border-[1.5px] shadow-2xs font-normal text-left outline-none',
   {
     variants: {
       size: {
-        sm: 'h-9 text-xs rounded-lg pl-9 pr-8',
-        md: 'h-[42px] text-sm rounded-[10px] pl-10 pr-9',
-        lg: 'h-12 text-base rounded-xl pl-11 pr-10',
+        sm: 'h-8 text-xs rounded-sm pl-8 pr-7',
+        md: 'h-10 text-sm rounded-md pl-9 pr-8',
+        lg: 'h-12 text-base rounded-lg pl-10 pr-9',
       },
       hasError: {
-        true: 'border-alcspower-destructive bg-alcspower-destructive/5 text-alcspower-destructive focus-within:border-alcspower-destructive focus-within:ring-3 focus-within:ring-alcspower-destructive/15',
-        false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-xs focus-within:border-alcspower-primary focus-within:ring-3 focus-within:ring-alcspower-primary/15 text-alcspower-foreground',
+        true: 'border-alcspower-destructive bg-alcspower-destructive/5 text-alcspower-destructive focus-within:border-alcspower-destructive focus-within:ring-2 focus-within:ring-alcspower-destructive/15',
+        false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-xs focus-within:border-alcspower-primary focus-within:ring-2 focus-within:ring-alcspower-primary/15 text-alcspower-foreground',
       },
       hasSuccess: {
-        true: 'border-emerald-500 focus-within:border-emerald-500 focus-within:ring-3 focus-within:ring-emerald-500/15',
+        true: 'border-alcspower-success focus-within:border-alcspower-success focus-within:ring-2 focus-within:ring-alcspower-success/15',
         false: '',
       },
     },
@@ -34,10 +34,12 @@ export const datePickerVariants = cva(
 );
 
 export interface DatePickerProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange'>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'defaultValue' | 'onChange'>,
     VariantProps<typeof datePickerVariants> {
-  /** Fecha seleccionada */
+  /** Fecha seleccionada en modo controlado */
   value?: Date;
+  /** Fecha seleccionada inicial en modo no controlado */
+  defaultValue?: Date;
   /** Callback al seleccionar o limpiar la fecha */
   onChange?: (date: Date | undefined) => void;
   /** Texto cuando no hay fecha seleccionada */
@@ -45,7 +47,7 @@ export interface DatePickerProps
   /** Formato de la fecha según date-fns (por defecto 'dd/MM/yyyy') */
   dateFormat?: string;
   /** Locale para date-fns (por defecto español `es`) */
-  locale?: any;
+  locale?: Locale;
   /** Permite limpiar la fecha seleccionada */
   clearable?: boolean;
   /** Fecha mínima seleccionable */
@@ -68,7 +70,8 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
   (
     {
       className,
-      value,
+      value: controlledValue,
+      defaultValue,
       onChange,
       placeholder = 'Selecciona una fecha...',
       dateFormat = 'dd/MM/yyyy',
@@ -88,14 +91,23 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     ref
   ) => {
     const [open, setOpen] = React.useState(false);
+    const [uncontrolledValue, setUncontrolledValue] = React.useState<Date | undefined>(defaultValue);
+    const isControlled = controlledValue !== undefined;
+    const value = isControlled ? controlledValue : uncontrolledValue;
 
     const handleSelect = (date: Date | undefined) => {
+      if (!isControlled) {
+        setUncontrolledValue(date);
+      }
       onChange?.(date);
       setOpen(false);
     };
 
     const handleClear = (e: React.MouseEvent) => {
       e.stopPropagation();
+      if (!isControlled) {
+        setUncontrolledValue(undefined);
+      }
       onChange?.(undefined);
     };
 
@@ -144,7 +156,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
                       hasError
                         ? 'text-alcspower-destructive hover:bg-alcspower-destructive/10'
                         : hasSuccess
-                        ? 'text-emerald-500 hover:bg-emerald-500/10'
+                        ? 'text-alcspower-success hover:bg-alcspower-success/10'
                         : open
                         ? 'text-alcspower-primary bg-alcspower-primary/15'
                         : 'text-alcspower-muted-foreground hover:text-alcspower-primary hover:bg-alcspower-primary/10'
@@ -154,7 +166,7 @@ export const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               {hasError ? (
                 <AlertCircle className={cn(iconSize, 'text-alcspower-destructive')} />
               ) : hasSuccess ? (
-                <Check className={cn(iconSize, 'text-emerald-500')} />
+                <Check className={cn(iconSize, 'text-alcspower-success')} />
               ) : (
                 <CalendarIcon className={iconSize} />
               )}

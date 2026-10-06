@@ -67,8 +67,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
+    const isInert = Boolean(disabled || isLoading);
     const Comp = asChild ? Slot : 'button';
     const spinnerSize = size === 'lg' || size === 'icon-lg' ? 'md' : 'sm';
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (isInert) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      props.onClick?.(e);
+    };
 
     let content = children;
     if (isLoading) {
@@ -92,11 +102,17 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          isInert && asChild && 'pointer-events-none cursor-not-allowed opacity-45'
+        )}
         ref={ref}
-        disabled={disabled || isLoading}
+        disabled={asChild ? undefined : isInert}
+        aria-disabled={isInert ? true : undefined}
         aria-busy={isLoading}
+        tabIndex={isInert && asChild ? -1 : props.tabIndex}
         {...props}
+        onClick={handleClick}
       >
         {content}
       </Comp>

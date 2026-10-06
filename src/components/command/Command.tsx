@@ -105,7 +105,7 @@ export const CommandInput = React.forwardRef<
   CommandInputProps
 >(({ className, shortcut = '⌘K', ...props }, ref) => (
   <div
-    className="flex items-center gap-3 border-b border-alcspower-border/60 pl-4 pr-5 py-3 transition-colors focus-within:border-alcspower-primary/60 group"
+    className="flex items-center gap-3 border-b border-alcspower-border/60 px-6 py-3 transition-colors focus-within:border-alcspower-primary/60 group"
     cmdk-input-wrapper=""
   >
     <Search className="h-4.5 w-4.5 shrink-0 text-alcspower-muted-foreground/60 transition-colors group-focus-within:text-alcspower-primary" />
@@ -118,9 +118,9 @@ export const CommandInput = React.forwardRef<
       {...props}
     />
     {shortcut && (
-      <span className="inline-flex items-center justify-center gap-1 h-6 min-w-[28px] px-2 rounded-md border border-alcspower-border bg-alcspower-surface-muted text-xs font-mono font-semibold text-alcspower-foreground shrink-0 select-none shadow-2xs">
+      <kbd className="inline-flex items-center justify-center gap-1 h-6 min-w-[28px] px-2 rounded-md border border-alcspower-border bg-alcspower-surface-muted text-xs font-mono font-semibold text-alcspower-foreground shrink-0 select-none shadow-2xs">
         {shortcut}
-      </span>
+      </kbd>
     )}
   </div>
 ));
@@ -213,9 +213,8 @@ export const CommandItemIcon = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      'w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-150',
+      'w-8 h-8 rounded-lg flex items-center justify-center shrink-0',
       'bg-alcspower-surface-muted/80 text-alcspower-muted-foreground',
-      'group-hover:bg-alcspower-surface group-hover:text-alcspower-primary group-hover:shadow-xs',
       'group-data-[selected=true]:bg-white/20 group-data-[selected=true]:text-white',
       className
     )}
@@ -280,8 +279,7 @@ export const CommandItem = React.forwardRef<
     <CommandPrimitive.Item
       ref={ref}
       className={cn(
-        'group relative flex cursor-pointer select-none items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none transition-all duration-150 text-alcspower-foreground',
-        'hover:bg-alcspower-surface-muted/60 hover:text-alcspower-primary',
+        'group relative flex cursor-pointer select-none items-center gap-3 rounded-xl px-3 py-2 text-sm outline-none text-alcspower-foreground',
         'data-[selected=true]:bg-alcspower-primary data-[selected=true]:text-white data-[selected=true]:shadow-md data-[selected=true]:shadow-alcspower-primary/25',
         'data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-40',
         className
@@ -309,11 +307,11 @@ CommandItem.displayName = CommandPrimitive.Item.displayName;
 export const CommandShortcut = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
+}: React.HTMLAttributes<HTMLElement>) => {
   return (
-    <span
+    <kbd
       className={cn(
-        'ml-auto inline-flex items-center justify-center gap-1 h-6 min-w-[28px] px-2 rounded-md font-mono text-xs font-semibold tracking-normal transition-colors select-none shrink-0',
+        'ml-auto inline-flex items-center justify-center gap-1 h-6 min-w-[28px] px-2 rounded-md font-mono text-xs font-semibold tracking-normal select-none shrink-0',
         'bg-alcspower-surface-muted border border-alcspower-border text-alcspower-foreground shadow-2xs',
         'group-data-[selected=true]:bg-white/25 group-data-[selected=true]:border-white/40 group-data-[selected=true]:text-white',
         className

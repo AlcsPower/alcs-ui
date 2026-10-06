@@ -42,13 +42,14 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
 
     const [hasHint, setHasHint] = React.useState(false);
     const [hasErrorMsg, setHasErrorMsg] = React.useState(false);
+    const [hasLabel, setHasLabel] = React.useState(false);
 
     const describedBy = React.useMemo(() => {
       const ids: string[] = [];
       if (hasHint) ids.push(hintId);
-      if (hasErrorMsg || hasError) ids.push(errorId);
+      if (hasErrorMsg) ids.push(errorId);
       return ids.length > 0 ? ids.join(' ') : undefined;
-    }, [hasHint, hasErrorMsg, hasError, hintId, errorId]);
+    }, [hasHint, hasErrorMsg, hintId, errorId]);
 
     const contextValue = React.useMemo<FieldContextValue>(
       () => ({
@@ -62,7 +63,8 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
         size,
         describedBy,
         setHasHint,
-        setHasErrorMsg
+        setHasErrorMsg,
+        setHasLabel
       }),
       [
         controlId,
@@ -82,6 +84,8 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
         <div
           ref={ref}
           role="group"
+          aria-labelledby={props['aria-labelledby'] || (hasLabel ? labelId : undefined)}
+          aria-label={props['aria-label']}
           data-disabled={disabled ? 'true' : undefined}
           data-invalid={hasError ? 'true' : undefined}
           className={cn('flex flex-col gap-1.5 w-full', className)}

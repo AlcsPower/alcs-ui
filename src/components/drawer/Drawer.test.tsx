@@ -62,4 +62,27 @@ describe('Drawer Component', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('se cierra al presionar la tecla Escape', async () => {
+    const user = userEvent.setup();
+    render(
+      <Drawer>
+        <DrawerTrigger asChild>
+          <button type="button">Abrir</button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Drawer con Escape</DrawerTitle>
+            <DrawerDescription>Descripción</DrawerDescription>
+          </DrawerHeader>
+        </DrawerContent>
+      </Drawer>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Abrir' }));
+    expect(screen.getByText('Drawer con Escape')).toBeInTheDocument();
+
+    await user.keyboard('{Escape}');
+    expect(screen.queryByText('Drawer con Escape')).not.toBeInTheDocument();
+  });
 });

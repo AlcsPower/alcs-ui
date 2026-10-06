@@ -11,7 +11,7 @@ import type { ChartConfig } from './ChartContext';
 
 export interface PieChartProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
-  data: any[];
+  data: Array<Record<string, unknown>>;
   config: ChartConfig;
   dataKey: string;
   nameKey: string;
@@ -78,11 +78,11 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
             strokeWidth={2}
           >
             {data.map((entry, index) => {
-              const entryKey = entry[nameKey] || entry.name || entry.id;
+              const entryKey = String(entry[nameKey] ?? (entry as any).name ?? (entry as any).id ?? index);
               const fallbackColor = `var(--alcspower-chart-${(index % 5) + 1})`;
               const cellColor =
-                entry.fill ||
-                entry.color ||
+                (entry.fill as string | undefined) ||
+                (entry.color as string | undefined) ||
                 config[entryKey]?.color ||
                 `var(--color-${entryKey}, ${fallbackColor})`;
 

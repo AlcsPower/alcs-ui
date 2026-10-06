@@ -19,6 +19,8 @@ export interface FieldContextValue {
   size?: 'sm' | 'md' | 'lg';
   /** IDs para aria-describedby calculados automáticamente */
   describedBy?: string;
+  /** Registro dinámico de label */
+  setHasLabel?: (hasLabel: boolean) => void;
   /** Registro dinámico de hint */
   setHasHint: (hasHint: boolean) => void;
   /** Registro dinámico de error */

@@ -63,6 +63,8 @@
   /* Bordes, Controles y Focus Ring */
   --alcspower-border: #e2e8f0;             /* Slate 200 */
   --alcspower-border-subtle: #cbd5e1;      /* Slate 300 */
+  --alcspower-border-strong: #94a3b8;      /* Slate 400 - Énfasis en hover/focus */
+  --alcspower-overlay: rgba(0, 0, 0, 0.55);/* Fondo semitransparente para modales y sheets */
   --alcspower-input: #e2e8f0;              /* Borde de inputs y selects */
   --alcspower-ring: #004b87;               /* Anillo de foco institucional */
   --alcspower-ring-offset: #ffffff;        /* Desplazamiento de foco sobre blanco */
@@ -163,6 +165,8 @@
   /* Bordes, Controles y Focus Ring */
   --alcspower-border: #334155;            /* Slate 700 */
   --alcspower-border-subtle: #475569;     /* Slate 600 */
+  --alcspower-border-strong: #64748b;     /* Slate 500 */
+  --alcspower-overlay: rgba(0, 0, 0, 0.70);/* Fondo para overlays en modo oscuro */
   --alcspower-input: #334155;             /* Borde de inputs y selects */
   --alcspower-ring: #38bdf8;              /* Anillo de foco accesible */
   --alcspower-ring-offset: #0f172a;       /* Desplazamiento sobre superficie oscura */

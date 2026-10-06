@@ -5,7 +5,7 @@ import { Check, Minus } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 export const checkboxVariants = cva(
-  'group peer inline-flex shrink-0 p-0 items-center justify-center border-[1.5px] bg-alcspower-surface transition-all duration-150 outline-none focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/20 focus-visible:border-alcspower-primary disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-alcspower-surface-muted data-[state=checked]:bg-alcspower-primary data-[state=checked]:border-alcspower-primary data-[state=checked]:text-white data-[state=indeterminate]:bg-alcspower-primary data-[state=indeterminate]:border-alcspower-primary data-[state=indeterminate]:text-white active:scale-95 shadow-2xs',
+  'group peer inline-flex shrink-0 p-0 items-center justify-center border-[1.5px] bg-alcspower-surface transition-all duration-150 outline-none focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/20 focus-visible:border-alcspower-primary disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-alcspower-surface-muted data-[state=checked]:bg-alcspower-primary data-[state=checked]:border-alcspower-primary data-[state=checked]:text-alcspower-primary-foreground data-[state=indeterminate]:bg-alcspower-primary data-[state=indeterminate]:border-alcspower-primary data-[state=indeterminate]:text-alcspower-primary-foreground active:scale-95 shadow-2xs',
   {
     variants: {
       size: {

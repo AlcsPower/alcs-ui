@@ -5,13 +5,22 @@ import { useChart } from './ChartContext';
 
 export const ChartTooltip = Tooltip;
 
+export interface ChartTooltipPayloadItem {
+  value?: unknown;
+  name?: unknown;
+  color?: string;
+  dataKey?: string | number;
+  payload?: Record<string, any>;
+  [key: string]: unknown;
+}
+
 export interface ChartTooltipContentProps extends React.HTMLAttributes<HTMLDivElement> {
   active?: boolean;
-  payload?: any[];
-  label?: any;
-  labelFormatter?: (label: any, payload: any[]) => React.ReactNode;
+  payload?: ChartTooltipPayloadItem[];
+  label?: React.ReactNode;
+  labelFormatter?: (label: React.ReactNode, payload: ChartTooltipPayloadItem[]) => React.ReactNode;
   labelClassName?: string;
-  formatter?: (value: any, name: any, item: any, index: number, payload: any[]) => React.ReactNode;
+  formatter?: (value: unknown, name: unknown, item: ChartTooltipPayloadItem, index: number, payload?: any) => React.ReactNode;
   indicator?: 'dot' | 'line' | 'dashed';
   hideLabel?: boolean;
   hideIndicator?: boolean;
@@ -136,14 +145,14 @@ export const ChartTooltipContent = React.forwardRef<
                       <div className="grid gap-1.5">
                         {nestLabel ? tooltipLabel : null}
                         <span className="text-alcspower-muted-foreground">
-                          {itemConfig?.label || item.name}
+                          {itemConfig?.label || (item.name as React.ReactNode)}
                         </span>
                       </div>
                       {item.value !== undefined && (
                         <span className="font-mono font-medium tabular-nums text-alcspower-foreground ml-3">
                           {typeof item.value === 'number'
                             ? item.value.toLocaleString('es-NI')
-                            : item.value}
+                            : String(item.value)}
                         </span>
                       )}
                     </div>

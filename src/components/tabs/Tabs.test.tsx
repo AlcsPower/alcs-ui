@@ -40,4 +40,29 @@ describe('Tabs Component', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('soporta navegación por teclado con flechas (ArrowRight / ArrowLeft)', async () => {
+    const user = userEvent.setup();
+    render(
+      <Tabs defaultValue="t1">
+        <TabsList aria-label="Navegación con flechas">
+          <TabsTrigger value="t1">Paso 1</TabsTrigger>
+          <TabsTrigger value="t2">Paso 2</TabsTrigger>
+          <TabsTrigger value="t3">Paso 3</TabsTrigger>
+        </TabsList>
+        <TabsContent value="t1">Panel 1</TabsContent>
+        <TabsContent value="t2">Panel 2</TabsContent>
+        <TabsContent value="t3">Panel 3</TabsContent>
+      </Tabs>
+    );
+
+    const tab1 = screen.getByRole('tab', { name: 'Paso 1' });
+    tab1.focus();
+    expect(tab1).toHaveFocus();
+
+    await user.keyboard('{ArrowRight}');
+    const tab2 = screen.getByRole('tab', { name: 'Paso 2' });
+    expect(tab2).toHaveFocus();
+    expect(screen.getByText('Panel 2')).toBeInTheDocument();
+  });
 });

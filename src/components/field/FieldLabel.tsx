@@ -9,6 +9,17 @@ export const FieldLabel = React.forwardRef<
   FieldLabelProps
 >(({ htmlFor, id, required, ...props }, ref) => {
   const context = useFieldContext();
+  const setHasLabel = context?.setHasLabel;
+
+  React.useEffect(() => {
+    if (setHasLabel) {
+      setHasLabel(true);
+      return () => {
+        setHasLabel(false);
+      };
+    }
+    return undefined;
+  }, [setHasLabel]);
 
   const finalHtmlFor = htmlFor ?? context?.controlId;
   const finalId = id ?? context?.labelId;

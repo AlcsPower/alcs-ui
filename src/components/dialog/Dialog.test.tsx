@@ -84,4 +84,25 @@ describe('Dialog Component', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('se cierra al presionar Escape en el teclado', async () => {
+    const user = userEvent.setup();
+    render(
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button>Abrir</Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogTitle>Modal con Escape</DialogTitle>
+          <DialogDescription>Contenido</DialogDescription>
+        </DialogContent>
+      </Dialog>
+    );
+
+    await user.click(screen.getByRole('button', { name: /abrir/i }));
+    expect(screen.getByText('Modal con Escape')).toBeInTheDocument();
+
+    await user.keyboard('{Escape}');
+    expect(screen.queryByText('Modal con Escape')).not.toBeInTheDocument();
+  });
 });

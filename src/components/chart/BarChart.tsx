@@ -21,7 +21,7 @@ export interface BarChartSeries {
 
 export interface BarChartProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
-  data: any[];
+  data: Array<Record<string, unknown>>;
   config: ChartConfig;
   xAxisKey: string;
   series: BarChartSeries[];

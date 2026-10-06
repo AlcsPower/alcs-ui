@@ -61,6 +61,8 @@
   /* Bordes, Controles y Focus */
   --color-alcspower-border: var(--alcspower-border);
   --color-alcspower-border-subtle: var(--alcspower-border-subtle);
+  --color-alcspower-border-strong: var(--alcspower-border-strong);
+  --color-alcspower-overlay: var(--alcspower-overlay);
   --color-alcspower-input: var(--alcspower-input);
   --color-alcspower-ring: var(--alcspower-ring);
   --color-alcspower-ring-offset: var(--alcspower-ring-offset);
@@ -99,4 +101,10 @@
   --shadow-sm: var(--alcspower-shadow-sm);
   --shadow-md: var(--alcspower-shadow-md);
   --shadow-lg: var(--alcspower-shadow-lg);
+}
+
+@layer alcspower-ui {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
 }

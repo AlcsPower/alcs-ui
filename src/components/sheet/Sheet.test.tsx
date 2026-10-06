@@ -91,4 +91,27 @@ describe('Sheet Component', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('se cierra al presionar la tecla Escape', async () => {
+    const user = userEvent.setup();
+    render(
+      <Sheet>
+        <SheetTrigger asChild>
+          <button type="button">Abrir</button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Panel con Escape</SheetTitle>
+            <SheetDescription>Descripción</SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    );
+
+    await user.click(screen.getByRole('button', { name: 'Abrir' }));
+    expect(screen.getByText('Panel con Escape')).toBeInTheDocument();
+
+    await user.keyboard('{Escape}');
+    expect(screen.queryByText('Panel con Escape')).not.toBeInTheDocument();
+  });
 });

@@ -12,11 +12,11 @@ export const inputVariants = cva(
         lg: 'h-12 px-4 py-2.5 text-base rounded-lg'
       },
       hasError: {
-        true: 'border-alcspower-destructive bg-red-50/40 dark:bg-red-950/20 focus:border-alcspower-destructive focus:ring-alcspower-destructive/15',
+        true: 'border-alcspower-destructive bg-alcspower-destructive-subtle/40 focus:border-alcspower-destructive focus:ring-alcspower-destructive/15',
         false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-sm focus:border-alcspower-primary focus:ring-alcspower-primary/15'
       },
       hasSuccess: {
-        true: 'border-emerald-600 bg-emerald-50/40 dark:bg-emerald-950/20 focus:border-emerald-600 focus:ring-emerald-600/15',
+        true: 'border-alcspower-success bg-alcspower-success-subtle/40 focus:border-alcspower-success focus:ring-alcspower-success/15',
         false: ''
       }
     },
@@ -75,7 +75,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         className={cn(
           'relative flex items-center w-full group transition-colors',
           hasError && 'has-error text-alcspower-destructive',
-          hasSuccess && 'has-success text-emerald-600',
+          hasSuccess && 'has-success text-alcspower-success',
           containerClassName
         )}
       >
@@ -84,7 +84,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               'absolute flex items-center pointer-events-none transition-colors text-alcspower-muted-foreground group-focus-within:text-alcspower-primary',
               hasError && 'group-focus-within:text-alcspower-destructive text-alcspower-destructive',
-              hasSuccess && 'group-focus-within:text-emerald-600 text-emerald-600',
+              hasSuccess && 'group-focus-within:text-alcspower-success text-alcspower-success',
               leftPos
             )}
           >

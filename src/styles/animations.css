@@ -204,3 +204,21 @@
 .animate-collapsible-up {
   animation: collapsible-up 0.2s ease-out;
 }
+
+/* ==========================================================================
+   Accesibilidad: Respeto global para preferencias de movimiento reducido
+   (WCAG 2.2 Success Criterion 2.3.3 Animation from Interactions)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in,
+  .animate-out,
+  .animate-accordion-down,
+  .animate-accordion-up,
+  .animate-collapsible-down,
+  .animate-collapsible-up,
+  .animate-progress-indeterminate {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -199,16 +199,18 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 | `surface` | `--alcspower-surface` | `#ffffff` | `#0f172a` | Superficie de controles, modales, toasts |
 | `surface-card` | `--alcspower-surface-card` | `#ffffff` | `#131d31` | Superficie de tarjetas y paneles |
 | `surface-muted`| `--alcspower-surface-muted`| `#f1f5f9` | `#1e293b` | Fondos secundarios y contenedores sutiles |
-| `primary` | `--alcspower-primary` | `#004b87` | `#38bdf8` | Botones primarios, enlaces y foco |
-| `primary-foreground` | `--alcspower-primary-foreground` | `#ffffff` | `#082f49` | Texto sobre fondos primarios |
-| `primary-hover`| `--alcspower-primary-hover` | `#003866` | `#0ea5e9` | Hover de acciones principales |
+| `primary` | `--alcspower-primary` | `#2563eb` | `#38bdf8` | Color primario oficial por defecto (personalizable por el consumidor) |
+| `primary-foreground` | `--alcspower-primary-foreground` | `#ffffff` | `#082f49` | Texto legible sobre fondos primarios |
+| `primary-hover`| `--alcspower-primary-hover` | `#1d4ed8` | `#0ea5e9` | Hover de acciones principales |
 | `secondary` | `--alcspower-secondary` | `#f1f5f9` | `#1e293b` | Acciones secundarias y badges neutrales |
 | `destructive` | `--alcspower-destructive` | `#dc2626` | `#ef4444` | Errores, alertas críticas y acciones destructivas |
 | `success` | `--alcspower-success` | `#15803d` | `#4ade80` | Estados completados y confirmación |
 | `warning` | `--alcspower-warning` | `#b45309` | `#fbbf24` | Advertencias y atención requerida |
 | `info` | `--alcspower-info` | `#0369a1` | `#38bdf8` | Mensajes y badges informativos |
 | `border` | `--alcspower-border` | `#e2e8f0` | `#334155` | Bordes estructurales y divisores |
-| `ring` | `--alcspower-ring` | `#004b87` | `#38bdf8` | Anillo visible de foco accesible |
+| `border-strong` | `--alcspower-border-strong` | `#cbd5e1` | `#475569` | Bordes reforzados en hover e interacción |
+| `overlay` | `--alcspower-overlay` | `rgba(0, 0, 0, 0.5)` | `rgba(0, 0, 0, 0.7)` | Fondo de oscurecimiento en modales y paneles |
+| `ring` | `--alcspower-ring` | `#2563eb` | `#38bdf8` | Anillo visible de foco accesible |
 
 ### 2. Escala Geométrica de Radios (Border Radius)
 * **Pequeño (`sm`):** `4px` — Indicadores, insignias compactas (`Badge`).
@@ -225,10 +227,11 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 
 ## ♿ Accesibilidad y Calidad
 
-* **Cumplimiento Normativo:** Estándar **WCAG 2.1 Nivel AA / AAA**.
+* **Cumplimiento Normativo:** Estándar **WCAG 2.1 / 2.2 Nivel AA / AAA**.
 * **Gestión de Foco:** Atrapamiento de foco en modales y paneles deslizantes (`Sheet`, `Dialog`, `CommandDialog`), retorno automático de foco al elemento disparador tras el cierre.
-* **Teclado:** Navegación por teclado completa (Tab, Flechas arriba/abajo en listas y acordeones, Escape, Enter, Espacio).
-* **Verificación Automatizada:** Suite de pruebas con Vitest y `@testing-library/react` combinada con auditorías completas de **axe-core** (44 suites de pruebas, **273/273 pruebas pasando con 0 violaciones**).
+* **Movimiento Reducido:** Respeto global automático para `prefers-reduced-motion: reduce` en todas las animaciones y transiciones de la biblioteca.
+* **Teclado:** Navegación por teclado completa (Tab, Flechas arriba/abajo/izquierda/derecha en listas, acordeones y pestañas, Escape, Enter, Espacio).
+* **Verificación Automatizada:** Suite de pruebas con Vitest y `@testing-library/react` combinada con auditorías completas de **axe-core** (44 suites de pruebas, **287/287 pruebas pasando con 0 violaciones**).
 
 ---
 
@@ -247,12 +250,12 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 | Comando | Propósito |
 | :--- | :--- |
 | `pnpm dev` | Inicia la compilación continua de la biblioteca con `tsup --watch` |
-| `pnpm build` | Compila tanto el CSS (`build:css`) como los bundles JS/DTS (`build:js`) |
+| `pnpm build` | Compila bundles JS/DTS con limpieza previa (`build:js`) y genera el CSS minificado (`build:css`) |
 | `pnpm build:js` | Ejecuta `tsup` para generar bundles ESM, CJS y definiciones de tipos `.d.ts` |
 | `pnpm build:css` | Compila y minifica `src/styles/index.css` hacia `dist/styles.css` con Tailwind CSS v4 |
 | `pnpm test` | Ejecuta la suite de pruebas unitarias y de accesibilidad con Vitest |
 | `pnpm test:watch` | Ejecuta Vitest en modo interactivo/vigilante |
-| `pnpm test:coverage` | Genera reporte de cobertura de código con Vitest |
+| `pnpm test:coverage` | Genera reporte de cobertura de código con Vitest y `@vitest/coverage-v8` |
 | `pnpm typecheck` | Ejecuta la comprobación estricta de tipos de TypeScript con `tsc --noEmit` |
 | `pnpm storybook` | Inicia el servidor de desarrollo local de Storybook |
 | `pnpm build-storybook` | Genera la versión estática de Storybook en `dist-storybook/` |

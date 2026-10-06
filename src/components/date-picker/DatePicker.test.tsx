@@ -37,10 +37,10 @@ describe('DatePicker Component', () => {
 
   it('soporta los tamaños sm, md y lg', () => {
     const { container: smContainer } = render(<DatePicker size="sm" />);
-    expect(smContainer.firstChild).toHaveClass('h-9');
+    expect(smContainer.firstChild).toHaveClass('h-8');
 
     const { container: mdContainer } = render(<DatePicker size="md" />);
-    expect(mdContainer.firstChild).toHaveClass('h-[42px]');
+    expect(mdContainer.firstChild).toHaveClass('h-10');
 
     const { container: lgContainer } = render(<DatePicker size="lg" />);
     expect(lgContainer.firstChild).toHaveClass('h-12');
@@ -51,7 +51,7 @@ describe('DatePicker Component', () => {
     expect(errContainer.firstChild).toHaveClass('border-alcspower-destructive');
 
     const { container: okContainer } = render(<DatePicker hasSuccess />);
-    expect(okContainer.firstChild).toHaveClass('border-emerald-500');
+    expect(okContainer.firstChild).toHaveClass('border-alcspower-success');
   });
 
   it('deshabilita el botón de abrir calendario cuando disabled={true}', () => {

@@ -22,7 +22,7 @@ export interface AreaChartSeries {
 
 export interface AreaChartProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
-  data: any[];
+  data: Array<Record<string, unknown>>;
   config: ChartConfig;
   xAxisKey: string;
   series: AreaChartSeries[];

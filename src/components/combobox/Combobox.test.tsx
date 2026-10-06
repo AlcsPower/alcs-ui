@@ -5,9 +5,9 @@ import { axe } from 'vitest-axe';
 import { Combobox } from './Combobox';
 
 const mockOptions = [
-  { value: 'mific-central', label: 'MIFIC Central' },
-  { value: 'delegacion-leon', label: 'Delegación León' },
-  { value: 'delegacion-esteli', label: 'Delegación Estelí' },
+  { value: 'mific-central', label: 'MIFIC Central', group: 'Managua' },
+  { value: 'delegacion-leon', label: 'Delegación León', group: 'Occidente' },
+  { value: 'delegacion-esteli', label: 'Delegación Estelí', group: 'Norte' },
 ];
 
 describe('Combobox Component', () => {
@@ -72,6 +72,73 @@ describe('Combobox Component', () => {
     await user.click(removeBtn);
 
     expect(handleChange).toHaveBeenCalledWith(['delegacion-esteli']);
+  });
+
+  it('permite limpiar todas las opciones en modo múltiple', async () => {
+    const user = userEvent.setup();
+    const handleChange = vi.fn();
+
+    render(
+      <Combobox
+        multiple={true}
+        options={mockOptions}
+        value={['mific-central', 'delegacion-leon']}
+        onChange={handleChange}
+        clearable={true}
+      />
+    );
+
+    const clearAllButton = screen.getByRole('button', { name: /limpiar todas las opciones/i });
+    await user.click(clearAllButton);
+
+    expect(handleChange).toHaveBeenCalledWith([]);
+  });
+
+  it('soporta estado de error y variantes de tamaño', () => {
+    const { container, rerender } = render(
+      <Combobox
+        options={mockOptions}
+        hasError={true}
+        size="sm"
+        placeholder="Selección..."
+      />
+    );
+
+    expect(container.firstChild).toHaveClass('border-alcspower-destructive');
+
+    rerender(
+      <Combobox
+        options={mockOptions}
+        size="lg"
+        placeholder="Selección..."
+      />
+    );
+
+    expect(container.firstChild).toHaveClass('h-12');
+  });
+
+  it('funciona en modo no controlado con defaultValue en selección simple', () => {
+    render(
+      <Combobox
+        options={mockOptions}
+        defaultValue="delegacion-esteli"
+      />
+    );
+
+    expect(screen.getByText('Delegación Estelí')).toBeInTheDocument();
+  });
+
+  it('funciona en modo no controlado con defaultValue en selección múltiple', () => {
+    render(
+      <Combobox
+        multiple={true}
+        options={mockOptions}
+        defaultValue={['mific-central', 'delegacion-leon']}
+      />
+    );
+
+    expect(screen.getByText('MIFIC Central')).toBeInTheDocument();
+    expect(screen.getByText('Delegación León')).toBeInTheDocument();
   });
 
   it('no presenta violaciones de accesibilidad (axe)', async () => {

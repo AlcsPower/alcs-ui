@@ -190,7 +190,7 @@ export const DataTable = React.forwardRef(
       if (hasSelect) {
         return columns;
       }
-      const selectColumn: ColumnDef<TData, any> = {
+      const selectColumn: ColumnDef<TData, unknown> = {
         id: 'select',
         header: ({ table }) => (
           <Checkbox
