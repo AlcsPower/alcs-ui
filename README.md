@@ -10,9 +10,11 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 
 * **Nombre del Paquete:** `@alcspower/ui`
 * **Versión Actual:** `0.9.0`
+* **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
+* **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
 * **Repositorio GitHub:** [https://github.com/AlcsPower/alcs-ui](https://github.com/AlcsPower/alcs-ui)
-* **Licencia del Paquete:** UNLICENSED (código institucional propietario; dependencias externas de código abierto bajo licencias permisivas MIT / Apache-2.0 / ISC)
+* **Licencia del Paquete:** MIT License (Código abierto permisivo; autoría y titularidad de Alcides Altamirano / AlcsPower).
 * **Independencia Arquitectónica:** La biblioteca no contiene lógica de negocio acoplada a proyectos específicos. Diseñada como un sistema de componentes puro, modular y reutilizable en cualquier aplicación web.
 
 ---
@@ -260,7 +262,8 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 
 ## 📜 Licencia y Enlaces
 
-* **Licencia:** UNLICENSED (Propiedad institucional).
+* **Licencia:** MIT License (Código abierto, Copyright © 2026 Alcides Altamirano / AlcsPower). Consulta el archivo [LICENSE](LICENSE) para más detalles.
+* **Autor / Creador:** Alcides Altamirano ([@AlcsPower](https://github.com/AlcsPower))
 * **Repositorio GitHub:** [https://github.com/AlcsPower/alcs-ui](https://github.com/AlcsPower/alcs-ui)
 * **Registro GitHub Packages:** [https://npm.pkg.github.com/@alcspower/ui](https://npm.pkg.github.com/@alcspower/ui)
 * **Reporte de Incidencias:** [https://github.com/AlcsPower/alcs-ui/issues](https://github.com/AlcsPower/alcs-ui/issues)
