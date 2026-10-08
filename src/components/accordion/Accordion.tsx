@@ -20,10 +20,10 @@ const AccordionContext = React.createContext<AccordionContextValue>({
 export const accordionVariants = cva('box-border w-full transition-all', {
   variants: {
     variant: {
-      default: 'flex flex-col gap-2.5',
+      default: 'flex flex-col gap-2',
       bordered:
-        'flex flex-col gap-0 border-[1.5px] border-alcspower-border rounded-xl overflow-hidden bg-alcspower-surface shadow-2xs divide-y divide-alcspower-border/50',
-      ghost: 'flex flex-col gap-1'
+        'flex flex-col gap-0 border-[1.5px] border-alcspower-border rounded-xl overflow-hidden bg-alcspower-surface shadow-2xs divide-y divide-alcspower-border/60',
+      ghost: 'flex flex-col gap-0'
     }
   },
   defaultVariants: {
@@ -59,16 +59,16 @@ export const Accordion = React.forwardRef<
 Accordion.displayName = 'Accordion';
 
 export const accordionItemVariants = cva(
-  'box-border overflow-hidden transition-all duration-200 select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
+  'box-border overflow-hidden transition-all duration-250 select-none data-[disabled]:opacity-50 data-[disabled]:pointer-events-none',
   {
     variants: {
       variant: {
         default:
-          'bg-alcspower-surface border-[1.5px] border-alcspower-border rounded-xl shadow-2xs hover:border-alcspower-border-subtle hover:shadow-xs data-[state=open]:border-alcspower-primary/30 data-[state=open]:shadow-xs',
+          'bg-alcspower-surface border-[1.5px] border-alcspower-border rounded-xl shadow-2xs hover:border-alcspower-border-subtle hover:shadow-xs data-[state=open]:border-alcspower-primary/40 data-[state=open]:shadow-[0_4px_16px_rgba(99,102,241,0.08)]',
         bordered:
-          'bg-transparent border-0 rounded-none hover:bg-alcspower-surface-muted/30 data-[state=open]:bg-alcspower-primary/5',
+          'bg-alcspower-surface border-0 rounded-none hover:bg-alcspower-surface-muted/40 data-[state=open]:bg-alcspower-primary/6',
         ghost:
-          'bg-transparent border-b border-alcspower-border/60 rounded-none hover:bg-alcspower-surface-muted/30 hover:rounded-xl data-[state=open]:bg-alcspower-primary/5 data-[state=open]:rounded-xl data-[state=open]:border-transparent'
+          'bg-transparent border-b border-alcspower-border/70 rounded-none last:border-b-0 hover:bg-alcspower-surface-muted/40 hover:rounded-xl data-[state=open]:bg-alcspower-primary/6 data-[state=open]:rounded-xl data-[state=open]:border-transparent'
       }
     },
     defaultVariants: {
@@ -134,11 +134,11 @@ export const AccordionTrigger = React.forwardRef<
         <AccordionPrimitive.Trigger
           ref={ref}
           className={cn(
-            'group flex w-full flex-1 items-center gap-3 text-left outline-none transition-all duration-200 cursor-pointer disabled:cursor-not-allowed',
-            'hover:bg-alcspower-surface-muted/30 data-[state=open]:bg-alcspower-primary/5 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/15',
-            size === 'sm' && 'p-3 sm:px-4 sm:py-3',
-            size === 'md' && 'p-4 sm:px-5 sm:py-4',
-            size === 'lg' && 'p-5 sm:px-6 sm:py-5',
+            'group flex w-full flex-1 items-center gap-3 text-left outline-none transition-all duration-200 cursor-pointer disabled:cursor-not-allowed bg-transparent',
+            'hover:bg-alcspower-surface-muted/40 data-[state=open]:bg-alcspower-primary/8 dark:data-[state=open]:bg-alcspower-primary/15 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/15',
+            size === 'sm' && 'p-3 px-4',
+            size === 'md' && 'p-4 px-5',
+            size === 'lg' && 'p-5 px-6',
             className
           )}
           {...props}
@@ -147,7 +147,7 @@ export const AccordionTrigger = React.forwardRef<
             <div
               className={cn(
                 'flex items-center justify-center shrink-0 rounded-lg bg-alcspower-surface-muted text-alcspower-muted-foreground transition-all duration-200',
-                'group-data-[state=open]:bg-alcspower-primary group-data-[state=open]:text-white group-data-[state=open]:shadow-xs group-data-[state=open]:shadow-alcspower-primary/30',
+                'group-data-[state=open]:bg-alcspower-primary group-data-[state=open]:text-white group-data-[state=open]:shadow-[0_2px_6px_rgba(99,102,241,0.3)]',
                 size === 'sm' && 'h-7 w-7 [&>svg]:h-3.5 [&>svg]:w-3.5',
                 size === 'md' && 'h-8 w-8 [&>svg]:h-4 [&>svg]:w-4',
                 size === 'lg' && 'h-9 w-9 [&>svg]:h-4.5 [&>svg]:w-4.5'
@@ -196,8 +196,8 @@ export const AccordionTrigger = React.forwardRef<
           {!hideChevron && (
             <ChevronDown
               className={cn(
-                'h-5 w-5 shrink-0 text-alcspower-muted-foreground transition-transform duration-300 ease-out group-data-[state=open]:rotate-180 group-data-[state=open]:text-alcspower-primary',
-                size === 'sm' && 'h-4 w-4',
+                'h-4 w-4 shrink-0 text-alcspower-muted-foreground transition-transform duration-250 ease-out group-data-[state=open]:rotate-180 group-data-[state=open]:text-alcspower-primary',
+                size === 'sm' && 'h-3.5 w-3.5',
                 size === 'lg' && 'h-5 w-5'
               )}
             />
@@ -230,7 +230,7 @@ export const AccordionContent = React.forwardRef<
           className
         )}
       >
-        <div className="border-t border-alcspower-border/50 pt-4">
+        <div className="border-t border-alcspower-border-subtle/80 pt-4 text-sm">
           {children}
         </div>
       </div>
