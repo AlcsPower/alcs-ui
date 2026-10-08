@@ -1,5 +1,23 @@
 # @alcspower/ui
 
+## 1.2.0
+
+### Minor Changes
+
+- ### Expansión Enterprise de Componentes y Política de Seguridad (`SECURITY.md`)
+  - **Política de Seguridad Enterprise Formalizada:**
+    - Incorporación de [`SECURITY.md`](SECURITY.md) con protocolo responsable de reporte de vulnerabilidades, matriz de severidad CVSS, SLA de remediación, directrices de consumo seguro y sanitización en aplicaciones cliente.
+  - **Expansión de Primitivas y Variantes Avanzadas:**
+    - **`Accordion` (`src/components/accordion`):** Soporte para 4 variantes de diseño (`default`, `elevated`, `bordered`, `ghost`), escala métrica de tamaños (`sm`, `md`, `lg`), y slots avanzados en `AccordionTrigger` (`icon`, `subtitle`, `badge`, `hideChevron`).
+    - **`Collapsible` (`src/components/collapsible`):** Primitivo enriquecido con variantes estructurales (`default`, `card`, `ghost`), disparadores integrados y animaciones fluidas de despliegue.
+    - **`Pagination` (`src/components/pagination`):** Sistema de paginación robusto con navegación semántica accesible, variantes visuales, elipsis interactiva y modo compacto.
+    - **`Separator` (`src/components/separator`):** Divisor semántico enriquecido con soporte para etiquetas de texto centradas o laterales (`label`), variantes cromáticas y orientación vertical/horizontal.
+    - **`Tabs` (`src/components/tabs`):** Soporte ampliado para variantes de navegación (pills, segmentos, subrayado), orientaciones horizontal y vertical, y soporte ergonómico para badges y atajos.
+  - **Métricas de Calidad y Accesibilidad:**
+    - 50 suites de pruebas unitarias automatizadas con Vitest y `@testing-library/react`.
+    - **333/333** pruebas pasando al 100% (19 pruebas nuevas) con **0 violaciones de accesibilidad** (`axe-core`).
+    - 0 errores en tipado estricto con `tsc --noEmit`.
+
 ## 1.1.0
 
 ### Minor Changes
