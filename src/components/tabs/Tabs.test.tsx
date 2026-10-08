@@ -26,11 +26,74 @@ describe('Tabs Component', () => {
     expect(screen.getByText(/contenido de la segunda pestaña/i)).toBeInTheDocument();
   });
 
+  it('renderiza slots contextuales: icon, badge y dot', () => {
+    render(
+      <Tabs defaultValue="t1">
+        <TabsList>
+          <TabsTrigger
+            value="t1"
+            icon={<span data-testid="tab-icon">🏠</span>}
+            badge="5"
+            badgeVariant="warning"
+            dot
+          >
+            Inicio
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="t1">Panel</TabsContent>
+      </Tabs>
+    );
+
+    expect(screen.getByTestId('tab-icon')).toBeInTheDocument();
+    expect(screen.getByText('Inicio')).toBeInTheDocument();
+    expect(screen.getByText('5')).toBeInTheDocument();
+  });
+
+  it('soporta variantes pill y segmented', () => {
+    const { rerender } = render(
+      <Tabs defaultValue="t1" variant="pill">
+        <TabsList>
+          <TabsTrigger value="t1">Pill 1</TabsTrigger>
+          <TabsTrigger value="t2">Pill 2</TabsTrigger>
+        </TabsList>
+        <TabsContent value="t1">C1</TabsContent>
+      </Tabs>
+    );
+
+    expect(screen.getByRole('tab', { name: 'Pill 1' })).toBeInTheDocument();
+
+    rerender(
+      <Tabs defaultValue="t1" variant="segmented">
+        <TabsList>
+          <TabsTrigger value="t1">Segment 1</TabsTrigger>
+        </TabsList>
+        <TabsContent value="t1">C1</TabsContent>
+      </Tabs>
+    );
+
+    expect(screen.getByRole('tab', { name: 'Segment 1' })).toBeInTheDocument();
+  });
+
+  it('soporta orientación vertical', () => {
+    render(
+      <Tabs defaultValue="v1" orientation="vertical">
+        <TabsList>
+          <TabsTrigger value="v1">Vertical 1</TabsTrigger>
+        </TabsList>
+        <TabsContent value="v1">Contenido vertical</TabsContent>
+      </Tabs>
+    );
+
+    expect(screen.getByText('Contenido vertical')).toBeInTheDocument();
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <Tabs defaultValue="t1">
         <TabsList aria-label="Navegación de secciones">
-          <TabsTrigger value="t1">General</TabsTrigger>
+          <TabsTrigger value="t1" badge="3">
+            General
+          </TabsTrigger>
           <TabsTrigger value="t2">Documentos</TabsTrigger>
         </TabsList>
         <TabsContent value="t1">Info general</TabsContent>

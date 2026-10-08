@@ -130,6 +130,52 @@ describe('Pagination Component', () => {
     expect(item.tagName.toLowerCase()).toBe('li');
   });
 
+  it('soporta tamaño grande (lg)', () => {
+    render(<PaginationLink size="lg">1</PaginationLink>);
+    const button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('h-11');
+    expect(button).toHaveClass('text-sm');
+  });
+
+  it('soporta variantes visuales (filled, minimal)', () => {
+    const { rerender } = render(<PaginationLink variant="filled">1</PaginationLink>);
+    let button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('bg-slate-100');
+
+    rerender(<PaginationLink variant="minimal">1</PaginationLink>);
+    button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('bg-transparent');
+  });
+
+  it('soporta colores semánticos (success, warning, error) cuando está activo', () => {
+    const { rerender } = render(<PaginationLink isActive color="success">1</PaginationLink>);
+    let button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('bg-emerald-600');
+
+    rerender(<PaginationLink isActive color="warning">1</PaginationLink>);
+    button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('bg-amber-500');
+
+    rerender(<PaginationLink isActive color="error">1</PaginationLink>);
+    button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('bg-red-600');
+  });
+
+  it('hereda size, variant y color a través del contexto de Pagination', () => {
+    render(
+      <Pagination size="sm" variant="filled" color="success">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationLink isActive>1</PaginationLink>
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
+    );
+    const button = screen.getByRole('button', { name: '1' });
+    expect(button).toHaveClass('h-8');
+    expect(button).toHaveClass('bg-emerald-600');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <Pagination>

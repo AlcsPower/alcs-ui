@@ -107,4 +107,29 @@
   *, ::before, ::after {
     box-sizing: border-box;
   }
+
+  [data-radix-accordion-trigger],
+  [data-radix-accordion-header],
+  [data-radix-collapsible-trigger],
+  [data-radix-tabs-trigger] {
+    border: none;
+    outline: none;
+    margin: 0;
+    background-color: transparent;
+  }
+
+  /* Patrones nítidos para separadores dashed y dotted */
+  .separator-dashed-horizontal {
+    background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 6px, transparent 6px, transparent 12px);
+  }
+  .separator-dotted-horizontal {
+    background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 2px, transparent 2px, transparent 6px);
+  }
+  .separator-dashed-vertical {
+    background-image: repeating-linear-gradient(to bottom, currentColor 0, currentColor 6px, transparent 6px, transparent 12px);
+  }
+  .separator-dotted-vertical {
+    background-image: repeating-linear-gradient(to bottom, currentColor 0, currentColor 2px, transparent 2px, transparent 6px);
+  }
 }
+

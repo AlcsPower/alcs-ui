@@ -130,11 +130,11 @@ export const AccordionTrigger = React.forwardRef<
     const { size } = React.useContext(AccordionContext);
 
     return (
-      <AccordionPrimitive.Header className="flex w-full">
+      <AccordionPrimitive.Header className="flex w-full m-0 p-0 border-0">
         <AccordionPrimitive.Trigger
           ref={ref}
           className={cn(
-            'group flex w-full flex-1 items-center gap-3 text-left outline-none transition-all duration-200 cursor-pointer disabled:cursor-not-allowed bg-transparent',
+            'group flex w-full flex-1 items-center gap-3 text-left m-0 border-0 border-none outline-none appearance-none transition-all duration-200 cursor-pointer disabled:cursor-not-allowed bg-transparent',
             'hover:bg-alcspower-surface-muted/40 data-[state=open]:bg-alcspower-primary/8 dark:data-[state=open]:bg-alcspower-primary/15 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/15',
             size === 'sm' && 'p-3 px-4',
             size === 'md' && 'p-4 px-5',
@@ -196,8 +196,9 @@ export const AccordionTrigger = React.forwardRef<
           {!hideChevron && (
             <ChevronDown
               className={cn(
-                'h-4 w-4 shrink-0 text-alcspower-muted-foreground transition-transform duration-250 ease-out group-data-[state=open]:rotate-180 group-data-[state=open]:text-alcspower-primary',
-                size === 'sm' && 'h-3.5 w-3.5',
+                'shrink-0 text-alcspower-muted-foreground transition-transform duration-250 ease-out group-data-[state=open]:rotate-180 group-data-[state=open]:text-alcspower-primary',
+                size === 'sm' && 'h-4 w-4',
+                size === 'md' && 'h-5 w-5',
                 size === 'lg' && 'h-5 w-5'
               )}
             />
@@ -238,5 +239,42 @@ export const AccordionContent = React.forwardRef<
   );
 });
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+
+export interface AccordionActionsProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const AccordionActions = React.forwardRef<HTMLDivElement, AccordionActionsProps>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        'flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-dashed border-alcspower-border',
+        className
+      )}
+      {...props}
+    />
+  )
+);
+AccordionActions.displayName = 'AccordionActions';
+
+export interface AccordionActionButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+
+export const AccordionActionButton = React.forwardRef<
+  HTMLButtonElement,
+  AccordionActionButtonProps
+>(({ className, ...props }, ref) => (
+  <button
+    ref={ref}
+    type="button"
+    className={cn(
+      'inline-flex items-center justify-center px-3 py-1.5 rounded-md text-xs font-semibold cursor-pointer transition-colors',
+      'bg-alcspower-primary/10 text-alcspower-primary hover:bg-alcspower-primary/20 dark:bg-alcspower-primary/20 dark:text-alcspower-primary-subtle',
+      'border-0 border-none outline-none focus-visible:ring-2 focus-visible:ring-alcspower-primary/30 disabled:opacity-50 disabled:pointer-events-none',
+      className
+    )}
+    {...props}
+  />
+));
+AccordionActionButton.displayName = 'AccordionActionButton';
 
 export { Accordion as default };
