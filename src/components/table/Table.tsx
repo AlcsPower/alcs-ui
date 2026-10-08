@@ -41,7 +41,7 @@ export const TableHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <thead
     ref={ref}
-    className={cn('[&_tr]:border-b [&_tr]:border-alcspower-border', className)}
+    className={cn('bg-alcspower-surface-muted/35 [&_tr]:border-b [&_tr]:border-alcspower-border', className)}
     {...props}
   />
 ));
@@ -93,7 +93,7 @@ export const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      'border-b border-alcspower-border transition-colors hover:bg-alcspower-surface-muted/50 data-[state=selected]:bg-alcspower-surface-muted',
+      'border-b border-alcspower-border transition-colors duration-150 hover:bg-alcspower-surface-muted/40 data-[state=selected]:bg-alcspower-surface-muted',
       className
     )}
     {...props}
@@ -112,7 +112,7 @@ export const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      'h-10 px-4 text-left align-middle text-xs font-medium uppercase tracking-wider text-alcspower-muted-foreground [&:has([role=checkbox])]:pr-0',
+      'h-10 px-4 text-left align-middle text-[11px] font-bold uppercase tracking-wider text-alcspower-muted-foreground [&:has([role=checkbox])]:pr-0',
       className
     )}
     {...props}

@@ -6,13 +6,13 @@ import { Skeleton } from '../skeleton';
 import { DeltaIndicator, type DeltaIndicatorProps } from './DeltaIndicator';
 
 export const metricCardVariants = cva(
-  'relative flex flex-col justify-between rounded-alcspower-lg border border-alcspower-border bg-alcspower-surface p-5 transition-shadow',
+  'box-border relative flex flex-col justify-between rounded-xl border border-alcspower-border bg-alcspower-surface p-5 transition-all duration-200 shadow-2xs',
   {
     variants: {
       variant: {
-        default: 'shadow-sm hover:shadow-md',
-        outline: 'border-alcspower-border-subtle shadow-none',
-        flat: 'bg-alcspower-surface-muted/50 border-transparent shadow-none'
+        default: 'hover:shadow-xs hover:border-alcspower-border-subtle',
+        outline: 'border-alcspower-border-subtle shadow-none hover:border-alcspower-border',
+        flat: 'bg-alcspower-surface-muted/40 border-transparent shadow-none'
       }
     },
     defaultVariants: {
@@ -70,7 +70,7 @@ export const MetricCard = React.forwardRef<HTMLDivElement, MetricCardProps>(
       >
         <header className="flex items-start justify-between gap-3">
           <div className="space-y-1">
-            <Heading className="text-xs font-medium uppercase tracking-wide text-alcspower-muted-foreground">
+            <Heading className="text-[11px] font-bold uppercase tracking-wider text-alcspower-muted-foreground">
               {title}
             </Heading>
           </div>
@@ -78,7 +78,7 @@ export const MetricCard = React.forwardRef<HTMLDivElement, MetricCardProps>(
           <div className="flex items-center gap-2">
             {action && <div>{action}</div>}
             {Icon && (
-              <div className="flex h-8 w-8 items-center justify-center rounded-alcspower-md bg-alcspower-surface-muted text-alcspower-muted-foreground">
+              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-alcspower-surface-muted/70 border border-alcspower-border/40 text-alcspower-muted-foreground">
                 <Icon className="h-4 w-4" />
               </div>
             )}

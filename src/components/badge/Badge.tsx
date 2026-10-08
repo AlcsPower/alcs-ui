@@ -3,17 +3,17 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const badgeVariants = cva(
-  'inline-flex items-center rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface select-none',
+  'box-border inline-flex items-center rounded-full font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/15 select-none shadow-2xs',
   {
     variants: {
       variant: {
         /** @deprecated Alias para 'primary'. Utilice 'primary' en su lugar. */
         default:
-          'bg-alcspower-primary text-alcspower-primary-foreground',
+          'bg-alcspower-primary text-alcspower-primary-foreground border border-transparent shadow-xs',
         primary:
-          'bg-alcspower-primary text-alcspower-primary-foreground',
+          'bg-alcspower-primary text-alcspower-primary-foreground border border-transparent shadow-xs',
         secondary:
-          'bg-alcspower-secondary text-alcspower-secondary-foreground border border-alcspower-border',
+          'bg-alcspower-secondary text-alcspower-secondary-foreground border border-alcspower-border hover:bg-alcspower-secondary-hover',
         success:
           'bg-alcspower-success-subtle text-alcspower-success border border-alcspower-success-border',
         warning:
@@ -26,7 +26,7 @@ export const badgeVariants = cva(
         info:
           'bg-alcspower-info-subtle text-alcspower-info border border-alcspower-info-border',
         outline:
-          'border border-alcspower-border text-alcspower-foreground bg-transparent'
+          'border border-alcspower-border text-alcspower-foreground bg-transparent hover:bg-alcspower-surface-muted'
       },
       size: {
         sm: 'px-2 py-0.5 text-xs',

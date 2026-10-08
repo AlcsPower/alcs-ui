@@ -26,19 +26,19 @@ export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
       <div
         ref={ref}
         className={cn(
-          'flex min-h-[320px] flex-col items-center justify-center rounded-lg border border-dashed border-alcspower-border p-8 text-center animate-in fade-in-50 bg-alcspower-surface',
+          'box-border flex min-h-[320px] flex-col items-center justify-center rounded-2xl border border-dashed border-alcspower-border/80 bg-alcspower-surface-muted/20 p-8 sm:p-12 text-center animate-in fade-in-50 shadow-2xs transition-colors',
           className
         )}
         {...props}
       >
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-alcspower-surface-muted text-alcspower-muted-foreground mb-4">
-          {icon || <Inbox className="h-6 w-6 stroke-[1.5]" aria-hidden="true" />}
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-alcspower-surface ring-8 ring-alcspower-surface-muted/40 text-alcspower-foreground mb-4 shadow-2xs">
+          {icon || <Inbox className="h-6 w-6 stroke-[1.75]" aria-hidden="true" />}
         </div>
-        <h4 className="text-base font-semibold text-alcspower-foreground">
+        <h4 className="text-base sm:text-lg font-semibold tracking-tight text-alcspower-foreground">
           {title}
         </h4>
         {description && (
-          <p className="mt-1 text-sm text-alcspower-muted-foreground max-w-sm mb-4">
+          <p className="mt-1.5 text-sm text-alcspower-muted-foreground max-w-sm mb-4 leading-relaxed">
             {description}
           </p>
         )}

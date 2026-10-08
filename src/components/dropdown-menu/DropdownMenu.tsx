@@ -57,7 +57,7 @@ export const DropdownMenuContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        'z-50 min-w-[8rem] overflow-hidden rounded-alcspower-md border border-alcspower-border bg-alcspower-surface-card p-1 text-alcspower-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
+        'z-50 min-w-[9rem] overflow-hidden rounded-2xl border border-alcspower-border/80 bg-alcspower-surface p-1.5 text-alcspower-foreground shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
         className
       )}
       {...props}
@@ -76,10 +76,10 @@ export const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex cursor-default select-none items-center rounded-alcspower-sm px-2 py-1.5 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+      'relative flex cursor-pointer select-none items-center rounded-xl px-2.5 py-2 text-sm font-medium outline-none transition-all duration-150 active:scale-[0.98] data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       variant === 'destructive'
         ? 'text-alcspower-destructive focus:bg-alcspower-destructive-subtle focus:text-alcspower-destructive'
-        : 'focus:bg-alcspower-surface-muted focus:text-alcspower-foreground',
+        : 'focus:bg-alcspower-primary/10 focus:text-alcspower-primary hover:bg-alcspower-primary/10 hover:text-alcspower-primary',
       inset && 'pl-8',
       className
     )}
