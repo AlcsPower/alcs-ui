@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Toaster } from './Toaster';
+import { Toaster, ToastCard } from './Toaster';
 import { toast } from './toast';
 import { Button } from '../button';
 
@@ -65,6 +65,40 @@ export const Default: Story = {
           Toast con Promesa
         </Button>
       </div>
+    </div>
+  ),
+};
+
+export const StaticCards: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3 max-w-md w-full">
+      <Toaster />
+      <ToastCard
+        variant="success"
+        title="Operación exitosa"
+        description="Los cambios se guardaron correctamente."
+        showProgress
+      />
+      <ToastCard
+        variant="error"
+        title="Error al guardar"
+        description="No se pudo conectar con el servidor. Intentá de nuevo."
+        action={{ label: 'Reintentar', onClick: () => toast('Reintentando...') }}
+        cancel={{ label: 'Descartar' }}
+        showProgress
+      />
+      <ToastCard
+        variant="warning"
+        title="Sesión por expirar"
+        description="Tu sesión expira en 5 minutos. Guardá tu trabajo."
+        showProgress
+      />
+      <ToastCard
+        variant="info"
+        title="Nueva actualización disponible"
+        description="Versión 2.4.1 lista para instalar."
+        showProgress
+      />
     </div>
   ),
 };

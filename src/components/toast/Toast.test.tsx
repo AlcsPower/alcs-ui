@@ -1,7 +1,7 @@
-import { render, screen, act } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { render, screen, act, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import { axe } from 'vitest-axe';
-import { Toaster } from './Toaster';
+import { Toaster, ToastCard } from './Toaster';
 import { toast } from './toast';
 
 describe('Toaster and toast Component', () => {
@@ -43,8 +43,52 @@ describe('Toaster and toast Component', () => {
     expect(notification).toBeInTheDocument();
   });
 
-  it('does not have accessibility violations (axe)', async () => {
+  it('does not have accessibility violations on Toaster (axe)', async () => {
     const { container } = render(<Toaster />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+});
+
+describe('ToastCard Component', () => {
+  it('renders title, description and triggers actions', () => {
+    const onAction = vi.fn();
+    const onCancel = vi.fn();
+    const onClose = vi.fn();
+
+    render(
+      <ToastCard
+        variant="error"
+        title="Error al guardar"
+        description="No se pudo conectar con el servidor."
+        action={{ label: 'Reintentar', onClick: onAction }}
+        cancel={{ label: 'Descartar', onClick: onCancel }}
+        onClose={onClose}
+      />
+    );
+
+    expect(screen.getByText('Error al guardar')).toBeInTheDocument();
+    expect(screen.getByText('No se pudo conectar con el servidor.')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Reintentar' }));
+    expect(onAction).toHaveBeenCalledTimes(1);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Descartar' }));
+    expect(onCancel).toHaveBeenCalledTimes(1);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Cerrar notificación' }));
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not have accessibility violations on ToastCard (axe)', async () => {
+    const { container } = render(
+      <ToastCard
+        variant="success"
+        title="Operación exitosa"
+        description="Los cambios se guardaron correctamente."
+        showProgress
+      />
+    );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });

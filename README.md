@@ -142,6 +142,17 @@ export function App() {
 
 ---
 
+## 📖 Recetas de Integración Rápida (Cookbook)
+
+Guías paso a paso para adoptar `@alcspower/ui` en diferentes entornos modernos y legados:
+
+* ⚡ **[React 19 + Vite + Tailwind CSS v4](docs/recipes/react-vite.md):** Guía estándar para nuevas SPAs modernas y dashboards B2B de alto rendimiento.
+* 🚀 **[Astro + React Islands](docs/recipes/astro.md):** Portales informativos e institucionales ultrarrápidos con 0 KB de JS inicial e hidratación interactiva bajo demanda.
+* 🏢 **[Modernización en .NET (Web Forms, VB.NET, C# y Razor)](docs/recipes/dotnet-aspnet.md):** Integración sin reescribir lógica de backend; modernización visual con tokens CSS o islas interactivas para sistemas legados.
+* 🎨 **[Tailwind CSS v4 & Personalización de Tokens](docs/recipes/tailwind-v4.md):** Configuración de temas institucionales con `@theme`, variables semánticas `--alcspower-*` y modo oscuro.
+
+---
+
 ## 📚 Catálogo Completo de Componentes (51 Componentes)
 
 Todos los componentes han sido verificados mediante pruebas unitarias exhaustivas, comprobación estricta de tipado con TypeScript y auditorías de accesibilidad automatizada con **axe-core** (100% pruebas aprobadas, **0 violaciones de accesibilidad detectadas**).

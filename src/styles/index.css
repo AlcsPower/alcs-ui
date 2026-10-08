@@ -133,3 +133,149 @@
   }
 }
 
+/* Sonner Toast Redesign */
+[data-sonner-toaster] {
+  font-family: inherit !important;
+}
+
+[data-sonner-toast],
+[data-sonner-toast][data-styled="true"] {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--alcspower-border) !important;
+  background: var(--alcspower-surface) !important;
+  color: var(--alcspower-text-primary) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+  padding: 14px 16px !important;
+  font-family: inherit !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+[data-sonner-toast]::after,
+[data-sonner-toast][data-styled="true"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--alcspower-primary, #6366f1);
+  border-radius: 0 0 12px 12px;
+}
+
+[data-sonner-toast][data-type="success"]::after,
+[data-sonner-toast][data-styled="true"][data-type="success"]::after {
+  background: #10b981 !important;
+}
+
+[data-sonner-toast][data-type="error"]::after,
+[data-sonner-toast][data-styled="true"][data-type="error"]::after {
+  background: #ef4444 !important;
+}
+
+[data-sonner-toast][data-type="warning"]::after,
+[data-sonner-toast][data-styled="true"][data-type="warning"]::after {
+  background: #f59e0b !important;
+}
+
+[data-sonner-toast][data-type="info"]::after,
+[data-sonner-toast][data-styled="true"][data-type="info"]::after {
+  background: #3b82f6 !important;
+}
+
+[data-sonner-toast] [data-icon],
+[data-sonner-toast][data-styled="true"] [data-icon] {
+  width: 36px !important;
+  height: 36px !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  align-self: flex-start !important;
+}
+
+[data-sonner-toast] [data-content],
+[data-sonner-toast][data-styled="true"] [data-content] {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  padding-right: 20px !important;
+}
+
+[data-sonner-toast] [data-close-button],
+[data-sonner-toast][data-styled="true"] [data-close-button] {
+  top: 10px !important;
+  right: 10px !important;
+  left: unset !important;
+  transform: none !important;
+  border-radius: 6px !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--alcspower-text-muted) !important;
+  opacity: 0.7;
+  transition: opacity 0.2s, color 0.2s, background 0.2s;
+}
+
+[data-sonner-toast] [data-close-button]:hover,
+[data-sonner-toast][data-styled="true"] [data-close-button]:hover {
+  opacity: 1;
+  color: var(--alcspower-text-primary) !important;
+  background: var(--alcspower-surface-muted) !important;
+}
+
+[data-sonner-toast] [data-title],
+[data-sonner-toast][data-styled="true"] [data-title] {
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  color: var(--alcspower-text-primary) !important;
+  line-height: 1.25rem !important;
+}
+
+[data-sonner-toast] [data-description],
+[data-sonner-toast][data-styled="true"] [data-description] {
+  font-size: 0.75rem !important;
+  color: var(--alcspower-text-secondary) !important;
+  margin-top: 2px !important;
+  line-height: 1rem !important;
+}
+
+[data-sonner-toast] [data-button],
+[data-sonner-toast][data-styled="true"] [data-button] {
+  background: #6366f1 !important;
+  color: #ffffff !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s !important;
+}
+
+[data-sonner-toast] [data-button]:hover,
+[data-sonner-toast][data-styled="true"] [data-button]:hover {
+  background: #4f46e5 !important;
+}
+
+[data-sonner-toast] [data-cancel],
+[data-sonner-toast][data-styled="true"] [data-cancel] {
+  background: transparent !important;
+  color: var(--alcspower-text-secondary) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 6px 10px !important;
+  border-radius: 8px !important;
+}
+
+[data-sonner-toast] [data-cancel]:hover,
+[data-sonner-toast][data-styled="true"] [data-cancel]:hover {
+  background: var(--alcspower-surface-muted) !important;
+  color: var(--alcspower-text-primary) !important;
+}
+
