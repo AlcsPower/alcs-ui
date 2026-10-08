@@ -9,7 +9,7 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `1.0.0`
+* **Versión Actual:** `1.1.0`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
@@ -91,10 +91,10 @@ Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.gith
 
 ```bash
 # Con pnpm (recomendado):
-pnpm add @alcspower/ui@1.0.0
+pnpm add @alcspower/ui@1.1.0
 
 # O con npm:
-npm install @alcspower/ui@1.0.0
+npm install @alcspower/ui@1.1.0
 ```
 
 ---

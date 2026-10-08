@@ -1,5 +1,28 @@
 # @alcspower/ui
 
+## 1.1.0
+
+### Minor Changes
+
+- ### Evolución Visual: Modern SaaS / Craft Minimalist Design System
+  - **Filosofía y Lenguaje de Diseño Formalizado:**
+    - Documentación completa en `README.md` del estándar *Craft Minimalist / Elevated Flat* (inspirado en Linear, Untitled UI, Raycast, Vercel y Stripe).
+    - Adopción integral de los 6 pilares: *Hairline & Layering* (bordes finos de 1.5px y opacidades sutiles), *Soft Depth* (micro-elevaciones `shadow-2xs` y elevaciones flotantes limpias), *Generous Radii* (esquinas contemporáneas `rounded-xl`, `rounded-2xl`, `rounded-3xl` y cápsulas `rounded-full`), *Paleta Cool Indigo & Slate*, *Micro-Feedback* táctil (`active:scale-[0.98]`, foco con `ring-3`) y *Densidad B2B*.
+  - **Refinamiento de Componentes:**
+    - **`Button`:** Sombra micro-elevada `shadow-2xs`, transición activa táctil `active:scale-[0.98]`, anillo de foco suave `ring-3 focus-visible:ring-alcspower-primary/20`, esquinas `rounded-xl`.
+    - **`Input` & `Textarea`:** Geometría de borde nítido `border-[1.5px]`, elevación en reposo `shadow-2xs`, anillo de foco ergonómico `ring-3 focus:ring-alcspower-primary/15`, esquinas `rounded-xl`.
+    - **`Badge`:** Cápsulas fluidas `rounded-full`, sombra `shadow-2xs`, micro-interacción de hover en variantes secundarias y contorno.
+    - **`Card` & `MetricCard`:** Bordes suaves `border-alcspower-border/80`, esquinas contemporáneas `rounded-2xl`, micro-elevación `shadow-2xs`.
+    - **`Dialog`:** Contenedor modal con `rounded-3xl` y elevación `shadow-2xl`, backdrop difuminado `backdrop-blur-sm`, botón de cierre circular `rounded-full` con micro-animación `active:scale-95`.
+    - **`DropdownMenu`:** Menú flotante con `rounded-2xl`, elevación `shadow-xl`, ítems con `rounded-lg`.
+    - **`Tabs`:** Contenedor segmentado `rounded-xl bg-alcspower-surface-muted/70 border border-alcspower-border/50`, pestaña activa flotante con `shadow-xs`.
+    - **`Accordion`:** Indicador chevron alojado en cápsula circular con rotación suave y retroalimentación en grupo.
+    - **`Table`:** Encabezados con fondo suave `bg-alcspower-surface-muted/35` y tipografía B2B compacta `text-[11px] font-bold uppercase tracking-wider`.
+    - **`EmptyState`:** Contenedor ergonómico con `rounded-2xl`, borde discontinuo tenue y fondo translúcido.
+  - **Garantía de Calidad:**
+    - 50/50 suites de pruebas unitarias y 314/314 pruebas aprobadas con **0 violaciones de accesibilidad** (`axe-core`).
+    - 0 errores en tipado estricto con `tsc --noEmit`.
+
 ## 1.0.0
 
 ### Major Changes
