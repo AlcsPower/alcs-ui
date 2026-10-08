@@ -19,6 +19,34 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 
 ---
 
+## 🎨 Filosofía y Estilo de Diseño
+
+El estilo y lenguaje visual de `@alcspower/ui` se clasifica en los estándares contemporáneos de la industria como:
+
+### 1. Nombre Principal: **Modern SaaS / Craft Minimalist**
+*(También conocido en diseño de producto como **Elevated Flat** o **Modern Enterprise UI**)*.
+
+Es el estándar de diseño de alta gama que popularizaron referentes líderes como **Linear**, **Untitled UI**, **Raycast**, **Vercel (Geist)** y **Stripe**.
+
+No es el diseño plano rígido y monocromático de 2015, ni tampoco el "neumorfismo" pesado; es una evolución refinada orientada a la **productividad, ergonomía y elegancia funcional**.
+
+> [!NOTE]
+> **Definición de Síntesis del Sistema:**  
+> *"Un sistema de diseño Craft Minimalist / Elevated Flat, con estética SaaS moderna y alta densidad ergonómica para aplicaciones empresariales."*
+
+### 2. Los Pilares que Definen Este Estilo
+
+| Pilar | Cómo se Refleja en `@alcspower/ui` |
+| :--- | :--- |
+| **Bordes finos y capas suaves** *(Hairline & Layering)* | Bordes de 1.5px nítidos con opacidades sutiles (`border-alcspower-border/70`), fondos con tintes suaves (`bg-primary/5`, `bg-surface-muted/30`) que separan secciones limpiamente sin saturar la vista. |
+| **Micro-elevaciones** *(Soft Depth)* | Sombras muy delicadas (`shadow-2xs`, `shadow-xs`) para controles en reposo, y elevaciones flotantes limpias (`shadow-xl`, `shadow-2xl`) para popovers, menús contextuales y modales. |
+| **Radios de curvatura ergonómicos** *(Generous Radii)* | Esquinas redondeadas contemporáneas (`rounded-xl`, `rounded-2xl` y `rounded-3xl` en tarjetas; `rounded-full` en chips y badges), lo que suaviza la interfaz y reduce la fatiga visual. |
+| **Paleta "Cool Indigo & Slate"** | Un acento primario sofisticado (índigo/azul moderno) combinado con escalas de grises neutros/fríos (Slate/Zinc) y toques semánticos de alta legibilidad (esmeralda, rojo suave, ámbar). |
+| **Micro-interacciones táctiles** *(Micro-Feedback)* | Efectos de pulsación sutiles (`active:scale-[0.98]`), chips animados, indicadores `<kbd>` de atajos de teclado y anillos de foco nítidos (`ring-2` / `ring-3`). |
+| **Densidad y Ergonomía B2B** | Modos compactos para tablas y formularios densos (`size="sm"` de 32-36px), vistas bimestrales fijas para evitar saltos de layout, y atajos rápidos (*presets*). |
+
+---
+
 ## 🏛️ Arquitectura de la Biblioteca
 
 El sistema sigue una arquitectura por capas desacoplada inspirada en la filosofía de **shadcn/ui** y componentes atómicos basados en composición:

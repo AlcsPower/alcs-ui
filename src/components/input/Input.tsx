@@ -3,20 +3,20 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const inputVariants = cva(
-  'flex w-full font-medium bg-alcspower-surface text-alcspower-foreground transition-all duration-200 outline-none border-[1.5px] shadow-xs file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-alcspower-muted-foreground placeholder:font-normal focus:outline-none focus:ring-4 disabled:cursor-not-allowed disabled:bg-alcspower-surface-muted disabled:text-alcspower-muted-foreground disabled:shadow-none read-only:bg-alcspower-surface-subtle read-only:cursor-default',
+  'box-border flex w-full font-medium bg-alcspower-surface text-alcspower-foreground transition-all duration-150 outline-none border-[1.5px] shadow-2xs file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-alcspower-muted-foreground placeholder:font-normal disabled:cursor-not-allowed disabled:bg-alcspower-surface-muted disabled:text-alcspower-muted-foreground disabled:shadow-none read-only:bg-alcspower-surface-subtle read-only:cursor-default',
   {
     variants: {
       size: {
-        sm: 'h-8 px-3 py-1 text-xs rounded-sm',
-        md: 'h-10 px-3.5 py-2 text-sm rounded-md',
-        lg: 'h-12 px-4 py-2.5 text-base rounded-lg'
+        sm: 'h-8 px-3 py-1 text-xs rounded-lg',
+        md: 'h-10 px-3.5 py-2 text-sm rounded-xl',
+        lg: 'h-12 px-4 py-2.5 text-base rounded-xl'
       },
       hasError: {
-        true: 'border-alcspower-destructive bg-alcspower-destructive-subtle/40 focus:border-alcspower-destructive focus:ring-alcspower-destructive/15',
-        false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-sm focus:border-alcspower-primary focus:ring-alcspower-primary/15'
+        true: 'border-alcspower-destructive bg-alcspower-destructive/5 text-alcspower-foreground focus:border-alcspower-destructive focus:ring-3 focus:ring-alcspower-destructive/15',
+        false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-xs focus:border-alcspower-primary focus:ring-3 focus:ring-alcspower-primary/15'
       },
       hasSuccess: {
-        true: 'border-alcspower-success bg-alcspower-success-subtle/40 focus:border-alcspower-success focus:ring-alcspower-success/15',
+        true: 'border-alcspower-success bg-alcspower-success/5 text-alcspower-foreground focus:border-alcspower-success focus:ring-3 focus:ring-alcspower-success/15',
         false: ''
       }
     },

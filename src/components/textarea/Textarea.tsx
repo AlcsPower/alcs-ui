@@ -3,17 +3,17 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../../lib/utils';
 
 export const textareaVariants = cva(
-  'flex w-full border bg-alcspower-surface text-alcspower-foreground transition-colors placeholder:text-alcspower-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-alcspower-ring focus-visible:ring-offset-2 ring-offset-alcspower-surface disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-alcspower-surface-muted',
+  'box-border flex w-full font-normal bg-alcspower-surface text-alcspower-foreground transition-all duration-150 outline-none border-[1.5px] shadow-2xs placeholder:text-alcspower-muted-foreground placeholder:font-normal focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-alcspower-surface-muted disabled:shadow-none read-only:bg-alcspower-surface-subtle read-only:cursor-default',
   {
     variants: {
       size: {
-        sm: 'min-h-[64px] px-2.5 py-1.5 text-xs rounded-alcspower-sm',
-        md: 'min-h-[80px] px-3 py-2 text-sm rounded-alcspower-md',
-        lg: 'min-h-[110px] px-4 py-3 text-base rounded-alcspower-md'
+        sm: 'min-h-[64px] px-3 py-2 text-xs rounded-lg',
+        md: 'min-h-[80px] px-3.5 py-2.5 text-sm rounded-xl',
+        lg: 'min-h-[110px] px-4 py-3 text-base rounded-xl'
       },
       hasError: {
-        true: 'border-alcspower-destructive focus-visible:ring-alcspower-destructive',
-        false: 'border-alcspower-input hover:border-alcspower-border-subtle'
+        true: 'border-alcspower-destructive bg-alcspower-destructive/5 text-alcspower-foreground focus:border-alcspower-destructive focus:ring-3 focus:ring-alcspower-destructive/15',
+        false: 'border-alcspower-border hover:border-alcspower-border-subtle hover:shadow-xs focus:border-alcspower-primary focus:ring-3 focus:ring-alcspower-primary/15'
       }
     },
     defaultVariants: {

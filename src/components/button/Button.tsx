@@ -5,33 +5,33 @@ import { cn } from '../../lib/utils';
 import { Spinner } from '../spinner';
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center font-semibold whitespace-nowrap transition-all duration-200 ease-out select-none outline-none border border-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-offset-alcspower-surface focus-visible:ring-alcspower-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45 disabled:transform-none disabled:shadow-none aria-busy:opacity-90 motion-reduce:transition-none motion-reduce:transform-none',
+  'box-border inline-flex items-center justify-center font-medium whitespace-nowrap transition-all duration-150 ease-out select-none outline-none border focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-alcspower-primary/20 focus-visible:border-alcspower-primary disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45 disabled:transform-none disabled:shadow-none aria-busy:opacity-90 motion-reduce:transition-none motion-reduce:transform-none cursor-pointer',
   {
     variants: {
       variant: {
         primary:
-          'border border-transparent bg-alcspower-primary text-alcspower-primary-foreground shadow-sm hover:bg-alcspower-primary-hover active:bg-alcspower-primary-active',
+          'border-transparent bg-alcspower-primary text-alcspower-primary-foreground shadow-2xs hover:bg-alcspower-primary-hover hover:shadow-xs active:bg-alcspower-primary-active active:scale-[0.98]',
         secondary:
-          'border border-transparent bg-alcspower-secondary text-alcspower-secondary-foreground shadow-sm hover:bg-alcspower-secondary-hover active:bg-alcspower-surface-muted',
+          'border-alcspower-border/80 bg-alcspower-surface text-alcspower-foreground shadow-2xs hover:bg-alcspower-surface-muted hover:border-alcspower-border active:bg-alcspower-surface-subtle active:scale-[0.98]',
         outline:
-          'border border-alcspower-border-subtle bg-transparent text-alcspower-foreground shadow-sm hover:border-alcspower-border hover:bg-alcspower-surface-subtle active:bg-alcspower-surface-muted',
+          'border-alcspower-border bg-alcspower-surface/40 text-alcspower-foreground shadow-2xs hover:border-alcspower-border-subtle hover:bg-alcspower-surface active:bg-alcspower-surface-muted active:scale-[0.98]',
         ghost:
-          'border border-transparent bg-transparent text-alcspower-muted-foreground hover:text-alcspower-foreground hover:bg-alcspower-surface-muted active:bg-alcspower-secondary active:text-alcspower-foreground',
+          'border-transparent bg-transparent text-alcspower-muted-foreground hover:text-alcspower-foreground hover:bg-alcspower-surface-muted active:bg-alcspower-surface-subtle active:scale-[0.98]',
         destructive:
-          'border border-transparent bg-alcspower-destructive text-alcspower-destructive-foreground shadow-sm hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active focus-visible:ring-alcspower-destructive',
+          'border-transparent bg-alcspower-destructive text-alcspower-destructive-foreground shadow-2xs hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active focus-visible:ring-alcspower-destructive/20 focus-visible:border-alcspower-destructive active:scale-[0.98]',
         /** @deprecated Alias para 'destructive'. Utilice 'destructive' en su lugar. */
         danger:
-          'border border-transparent bg-alcspower-destructive text-alcspower-destructive-foreground shadow-sm hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active focus-visible:ring-alcspower-destructive',
+          'border-transparent bg-alcspower-destructive text-alcspower-destructive-foreground shadow-2xs hover:bg-alcspower-destructive-hover active:bg-alcspower-destructive-active focus-visible:ring-alcspower-destructive/20 focus-visible:border-alcspower-destructive active:scale-[0.98]',
         link:
-          'border-0 bg-transparent text-alcspower-primary underline-offset-4 hover:underline p-0 h-auto font-semibold hover:text-alcspower-primary-hover active:opacity-75'
+          'border-0 bg-transparent text-alcspower-primary underline-offset-4 hover:underline p-0 h-auto font-medium hover:text-alcspower-primary-hover active:opacity-75'
       },
       size: {
-        sm: 'h-8 px-3.5 text-xs rounded-sm gap-1.5',
-        md: 'h-10 px-5 py-2 text-sm rounded-md gap-2',
-        lg: 'h-12 px-7 text-base rounded-lg gap-2.5',
-        icon: 'h-10 w-10 p-0 rounded-md',
-        'icon-sm': 'h-8 w-8 p-0 rounded-sm',
-        'icon-lg': 'h-12 w-12 p-0 rounded-lg'
+        sm: 'h-8 px-3.5 text-xs rounded-lg gap-1.5',
+        md: 'h-10 px-4 py-2 text-sm rounded-xl gap-2',
+        lg: 'h-12 px-6 text-base rounded-xl gap-2.5',
+        icon: 'h-10 w-10 p-0 rounded-xl',
+        'icon-sm': 'h-8 w-8 p-0 rounded-lg',
+        'icon-lg': 'h-12 w-12 p-0 rounded-xl'
       }
     },
     defaultVariants: {
