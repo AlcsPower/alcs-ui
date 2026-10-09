@@ -10,20 +10,21 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 2. **Accesibilidad sin Concesiones:** Todo nuevo componente mantendrá el estándar de 0 violaciones detectadas por `axe-core` y soporte completo de navegación por teclado (**WCAG 2.1 AA/AAA**).
 3. **Estética Craft Minimalist / Elevated Flat:** Consistencia estricta con los pilares del sistema (bordes hairline de 1.5px, paleta *Cool Indigo & Slate*, micro-elevaciones y radios contemporáneos).
 4. **Desacoplamiento Absoluto:** Cero lógica de negocio incrustada; los componentes son primitivas puras reutilizables en cualquier entorno.
+5. **Core pequeño, extensible y documentado:** Se prioriza un núcleo sólido y estable sobre un catálogo inflado sin criterio.
 
 ---
 
 ## 🏁 Hitos Consolidados
 
 ### ✅ Versión 1.3.0 (Actual)
-* **Starter Kit Oficial Enterprise (`templates/vite-react-starter`):** Plantilla base con React 19, Vite 6, Tailwind CSS v4, Layout con Sidebar colapsable, Header, selector Claro/Oscuro y vistas completas de Dashboard, Expedientes y Modales.
-* **Recetario Multistack Oficial (`docs/recipes/`):** Guías completas para React 19, Astro (React Islands), .NET (ASP.NET Web Forms con VB.NET/C# y ASP.NET Core) y personalización de tokens con Tailwind v4.
-* **Refinamiento de Primitivas de Feedback:** Exportación de `ToastCard` con barra de progreso, `Skeleton` dinámico con animación shimmer (*shine*), y mejoras estructurales en `EmptyState`, `ErrorState`, `Spinner` y `LoadingOverlay`.
+* **Starter Kit Oficial Enterprise (`templates/vite-react-starter`):** Plantilla base con React 19, Vite 6, Tailwind CSS v4, Sidebar colapsable, Header, selector Claro/Oscuro y vistas de ejemplo.
+* **Recetario Multistack Oficial (`docs/recipes/`):** Guías para React 19, Astro, .NET, y personalización de tokens.
+* **Refinamiento de Primitivas de Feedback:** Exportación de `ToastCard`, `Skeleton` dinámico, mejoras en `EmptyState` y `ErrorState`.
 * **Garantía de Calidad:** 50 suites de pruebas, **353/353 pruebas pasando al 100%**, 0 violaciones de accesibilidad axe-core.
 
 ### ✅ Versión 1.2.0
 * **Política de Seguridad Enterprise:** Formalización de [`SECURITY.md`](SECURITY.md) con protocolos responsables de reporte, matriz CVSS y SLAs de remediación.
-* **Expansión de Primitivas:** `Accordion` (4 variantes y escala métrica), `Collapsible`, `Pagination` semántica, `Separator` con etiquetas de texto y `Tabs` mejorados.
+* **Expansión de Primitivas:** `Accordion`, `Collapsible`, `Pagination`, `Separator` y `Tabs` mejorados.
 
 ### ✅ Versión 1.1.0
 * **Consolidación Craft Minimalist:** Definición y aplicación integral de los 6 pilares de diseño contemporáneo sobre los 51 componentes del catálogo.
@@ -33,15 +34,45 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 ## 🚀 Próximas Versiones Planificadas (Ciclo v1.x)
 
 ```text
-  v1.3.0 (Actual)
-    └─► v1.4.0: Flujos B2B y Trámites Institucionales (Stepper, Timeline, FileUpload, Kbd)
-          └─► v1.5.0: Estructuras Jerárquicas y Datos Complejos (TreeView, Filtros Facetados)
-                └─► v1.6.0: Herramientas de DX, Plantillas y Productividad
+v1.3.0 (Actual)
+  └─► v1.4.0: Flujos B2B y Trámites Institucionales
+        ├─ Stepper / Wizard
+        ├─ Timeline / ActivityLog
+        ├─ FileUpload / Dropzone
+        └─ Kbd
+
+        └─► v1.5.0: Formularios Avanzados + Búsqueda
+             ├─ FormProvider, FormField, useForm
+             ├─ SearchInput, PasswordInput, OTPInput
+             ├─ MultiSelect, Combobox mejorado
+             ├─ ConfirmDialog, AlertDialog mejorado
+             └─ Seguridad y validación reutilizable
+
+             └─► v1.6.0: Navegación + Layout + Datos Avanzados
+                  ├─ Sidebar mejorado, Navbar, Container, Grid
+                  ├─ TreeView, VirtualList, RowActions
+                  ├─ Sparkline, Gauge, Heatmap
+                  ├─ NotificationCenter, HealthBadge
+                  └─ Dashboard patterns reutilizables
+
+                  └─► v1.7.0: Contenido Rich + DX
+                       ├─ RichTextEditor (módulo independiente)
+                       ├─ CodeBlock, Markdown
+                       ├─ ImageGallery, Carousel mejorado
+                       ├─ CopyButton, GlobalSearch
+                       └─ Plantillas y scripts de productividad
+
+                       └─► v1.8.0+: Especialización
+                            ├─ OrganizationChart
+                            ├─ Kanban
+                            ├─ Calendar avanzado
+                            └─ Módulos opcionales / experimentales
 ```
 
 ---
 
-### 📦 Versión 1.4.0 — Flujos B2B y Trámites Institucionales
+## 📦 Versión 1.4.0 — Flujos B2B y Trámites Institucionales
+
 *Enfocada en resolver los patrones de interacción más demandados en plataformas de expedientes, formularios largos y auditoría.*
 
 * [ ] **`Stepper` / `Wizard` (Asistente por Pasos):**
@@ -58,35 +89,173 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 
 ---
 
-### 📊 Versión 1.5.0 — Estructuras Jerárquicas y Datos Complejos
-*Enfocada en la visualización estructurada de información ministerial y corporativa.*
+## 🧩 Versión 1.5.0 — Formularios Avanzados + Búsqueda
 
-* [ ] **`TreeView` (Árbol Jerárquico):**
-  * Primitiva para navegación de directorios, estructuras organizacionales y árboles de clasificación arancelaria/normativa.
-  * Soporte de selección simple y múltiple, estados expandido/colapsado e iconos por nodo.
-* [ ] **Filtros Facetados Avanzados en `DataTable`:**
-  * Componentes de filtrado multi-criterio reutilizables (rangos numéricos, listas de selección con búsqueda, conmutadores booleanos).
-* [ ] **Modo Compacto Ultraintenso para Tablas Operativas:**
-  * Modo de densidad reducida (32px por fila) para operadores de alta velocidad en terminales de captura.
+*Enfocada en lograr formularios complejos, seguros y productivos en operaciones institucionales y SaaS.*
+
+* [ ] **`FormProvider` / `useForm`:**
+  * Contexto de formulario con validación centralizada.
+  * Integración con `zod` o `valibot`.
+  * Soporte para submit, dirty state, touched, errors y submitState.
+* [ ] **`FormField`:**
+  * Wrapper composable para `Input`, `Select`, `Textarea`, `DatePicker` y demás campos.
+  * Manejo estándar de etiqueta, description, hint y error message.
+* [ ] **`SearchInput`:**
+  * Input con debounce, botón limpiar, iconos, estados loading y resultados rápidos.
+* [ ] **`PasswordInput`:**
+  * Toggle de visibilidad, indicador de fortaleza, validación de criterios.
+* [ ] **`OTPInput`:**
+  * Input de código de verificación con foco secuencial y validación.
+* [ ] **`MultiSelect` / `TagsInput`:**
+  * Selección múltiple con tags removibles, búsqueda y estados de vacío.
+* [ ] **`Combobox` mejorado / `Autocomplete`:**
+  * Búsqueda remota, agrupación por categorías, disabled states y keyboard navigation fortalecido.
+* [ ] **`ConfirmDialog` / `AlertDialog`:**
+  * Modales semánticos para confirmación y mensajes de riesgo.
+* [ ] **`Security Helpers` (reutilizables):**
+  * Sanitización de texto, validadores comunes, validación de archivo, escape HTML.
 
 ---
 
-### 🛠️ Versión 1.6.0 — Herramientas de DX, Plantillas y Productividad
-*Enfocada en acelerar el desarrollo para los equipos consumidores.*
+## 📊 Versión 1.6.0 — Navegación + Layout + Datos Avanzados
 
-* [ ] **CLI Inicializador (`create-alcspower-app`):**
-  * Herramienta rápida para inicializar proyectos con la plantilla oficial desde terminal (`pnpm create @alcspower/app`).
-* [ ] **Nuevas Plantillas de Starter:**
-  * Plantilla para **Astro** (React Islands preconfigurado con `@alcspower/ui`).
-  * Plantilla para **Next.js (App Router)** con soporte de servidor y cliente.
-* [ ] **Automatización de Pruebas de Regresión Visual:**
-  * Integración de capturas de regresión visual en el pipeline de CI para asegurar cero saltos de estilo entre releases.
+*Enfocada en dashboards operativos, tablas densas y paneles complejos.*
+
+* [ ] **`Sidebar` mejorado:**
+  * Secciones, grupos, items anidados, estado colapsado, badges, shortcuts.
+* [ ] **`Navbar` / `Header`:**
+  * Brand, actions, dropdowns, búsqueda global, selector de tema.
+* [ ] **`Container`, `Stack`, `Grid`, `AspectRatio`:**
+  * Layout reutilizable para dashboards y contenido editorial.
+* [ ] **`TreeView`:**
+  * Árbol jerárquico para estructuras organizacionales, directorios y clasificación documental.
+* [ ] **`VirtualList`:**
+  * Rendimiento con listas grandes de forma accesible y scroll controlado.
+* [ ] **`Sparkline`, `Gauge`, `Heatmap`, `Funnel`:**
+  * Visualización complementaria para KPIs y métricas operativas.
+* [ ] **`NotificationCenter`:**
+  * Historial de notificaciones, estados leídos/no leídos y acciones rápidas.
+* [ ] **`HealthBadge` / `StatusIndicator`:**
+  * Indicadores de estado sistémico, disponibilidad y resultados operativos.
 
 ---
 
-## 💬 Sugerencias y Nuevas Solicitudes
+## 🧠 Versión 1.7.0 — Contenido Rich + DX
 
-El roadmap de `@alcspower/ui` es dinámico y se adapta a las necesidades reales de los sistemas en producción. Si identificas una necesidad o deseas proponer un nuevo componente:
+*Enfocada en acelerar la adopción y la productividad del consumidor.*
 
-* Abre una propuesta en [GitHub Issues](https://github.com/AlcsPower/alcs-ui/issues).
-* Consulta las guías de integración en [`docs/recipes/`](docs/recipes/README.md).
+* [ ] **`RichTextEditor` (como módulo independiente):**
+  * Evaluar `Lexical` o `TipTap` según costo de mantenimiento.
+  * Sanitización estricta y soporte de contenido seguro.
+* [ ] **`CodeBlock`, `Markdown`, `CopyButton`:**
+  * Render y edición de contenido técnico con manejo controlado de HTML.
+* [ ] **`ImageGallery`, `Carousel` mejorado:**
+  * Galerías con ligthbox, zoom e indicadores accesibles.
+* [ ] **`GlobalSearch` / `Spotlight`:**
+  * Búsqueda global del producto con grupos, shortcuts y comando de navegación.
+* [ ] **CLI de inicialización (`create-alcspower-app`):**
+  * Plantillas para Vite, Astro y Next.js.
+* [ ] **Automatización de regresión visual:**
+  * Capturas visuales en CI para asegurar estabilidad de diseño.
+
+---
+
+## 🌱 Versión 1.8.0+ — Especialización y Módulos Experimentales
+
+*Los siguientes componentes son valiosos, pero pueden agregar peso o complejidad significativa; se evaluarán como módulos opcionales o experimentales.*
+
+* [ ] **`OrganizationChart`**
+* [ ] **`Kanban`**
+* [ ] **`Calendar` avanzado**
+* [ ] **`Flow Diagram` / `Diagram Editor`**
+* [ ] **`Form Builder`**
+* [ ] **`Page Builder`**
+
+> Regla: si un componente exige dependencias pesadas o APIs complejas, debe ser introducido como módulo separado para no inflar el core.
+
+---
+
+## ✅ Reglas para la Calidad del Core
+
+Cada nuevo componente debe cumplir antes de entrar al paquete principal:
+
+- [ ] TypeScript estricto
+- [ ] Tests unitarios
+- [ ] Tests de accesibilidad (`axe-core`)
+- [ ] Storybook con al menos 3 estados
+- [ ] Dark mode
+- [ ] Responsive cuando aplique
+- [ ] Soporte de teclado y foco
+- [ ] Documentación pública
+- [ ] Cobertura de estados (`loading`, `error`, `empty`, `success`)
+- [ ] Compatibilidad con React 18 y 19
+
+---
+
+## 🧭 Priorización Global
+
+| Prioridad | Área | Componentes clave |
+|---|---|---|
+| P0 | Formularios y validación | `FormProvider`, `FormField`, `SearchInput`, `PasswordInput`, `OTPInput`, `MultiSelect` |
+| P0 | Overlays | `ConfirmDialog`, `AlertDialog` |
+| P1 | Data & dashboards | `TreeView`, `VirtualList`, `Sparkline`, `Gauge`, `Heatmap` |
+| P1 | Navegación | `Sidebar`, `Navbar`, `Breadcrumb` mejorado |
+| P1 | Feedback | `NotificationCenter`, `StatusIndicator`, `Result` |
+| P2 | Contenido | `RichTextEditor`, `Markdown`, `CodeBlock` |
+| P2 | DX | `CLI`, `Spotlight`, `CopyButton` |
+| P3 | Experimentales | `Kanban`, `OrganizationChart`, `Flow Diagram` |
+
+---
+
+## 🧱 Principios de diseño para nuevos componentes
+
+### 1. Primitivas antes que megacomponentes
+Se priorizan piezas pequeñas y reutilizables, no bloques específicos de negocio.
+
+### 2. Sin lógica de negocio
+La librería no conoce reglas de negocio ni APIs concretas. La app consumidora maneja los datos y la integración.
+
+### 3. Core estable, extras opcionales
+Si un componente implica un paquete pesado o una API muy compleja, se evaluará como módulo extra.
+
+### 4. A11y no opcional
+Todo componente debe manejar focus, roles, teclado y buenas prácticas de accesibilidad desde el inicio.
+
+---
+
+## 📌 Próximo milestone recomendado
+
+### v1.5.0 — Formularios Avanzados + Búsqueda
+
+La siguiente fase más valiosa es esta, porque convierte la librería en una base útil para aplicaciones ministeriales y SaaS empresariales.
+
+```text
+v1.5.0
+├── FormProvider / useForm
+├── FormField
+├── SearchInput
+├── PasswordInput
+├── OTPInput
+├── MultiSelect / TagsInput
+├── Combobox mejorado
+├── ConfirmDialog
+└── Seguridad / validación reutilizable
+```
+
+Después:
+
+```text
+v1.5.0 → v1.6.0 → v1.7.0
+```
+
+Esto permite escalar sin romper la API pública y sin introducir lógica empresarial.
+
+---
+
+## 🔒 Regla de oro del roadmap
+
+> **Los componentes complejos no deben esperar a que exista todo el catálogo.** Deben construirse sobre primitivas estables y demostrar que la arquitectura de la librería escala.
+
+> **Primero construir primitives reutilizables; después patrones de aplicación; finalmente componentes especializados.**
+
+La librería debe crecer en amplitud sin convertirse en un framework de negocio.
