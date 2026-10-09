@@ -1,16 +1,53 @@
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Build Artifacts & Distribution
 dist
 dist-storybook
 coverage
 .turbo
-*.log
-.DS_Store
-Thumbs.db
+*.tsbuildinfo
+.eslintcache
 
-# Secrets & Environment
+# Secrets, Credentials & Local Environment
 .env
 .env.*
+.env.local
 .npmrc
+*.pem
+*.key
 
-# Build archives
+# Build & Package Archives
 *.tgz
+*.zip
+*.tar.gz
+
+# System, OS & Editor Settings
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+*.bak
+*.tmp
+
+# Package Manager Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# AI Agent Materials & Local Development Auxiliaries
+.agents/
+skills-lock.json
