@@ -1,14 +1,2 @@
-export {
-  Sheet,
-  SheetPortal,
-  SheetOverlay,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription,
-  sheetVariants,
-  type SheetContentProps,
-} from './Sheet';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../overlays/sheet';

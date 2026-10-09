@@ -1,2 +1,2 @@
-export { Toaster, type ToasterProps, ToastCard, type ToastCardProps } from './Toaster';
-export { toast } from './toast';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../feedback/toast';

@@ -1,6 +1,2 @@
-export {
-  RadioGroup,
-  RadioGroupItem,
-  type RadioGroupProps,
-  type RadioGroupItemProps
-} from './RadioGroup';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../forms/radio-group';

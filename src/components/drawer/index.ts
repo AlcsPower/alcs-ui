@@ -1,13 +1,2 @@
-export {
-  Drawer,
-  DrawerTrigger,
-  DrawerClose,
-  DrawerContent,
-  DrawerHeader,
-  DrawerFooter,
-  DrawerTitle,
-  DrawerDescription,
-  DrawerHandle,
-  type DrawerProps,
-  type DrawerContentProps,
-} from './Drawer';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../overlays/drawer';

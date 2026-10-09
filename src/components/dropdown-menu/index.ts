@@ -1,1 +1,2 @@
-export * from './DropdownMenu';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../overlays/dropdown-menu';

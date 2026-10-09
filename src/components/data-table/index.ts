@@ -1,12 +1,2 @@
-export * from './DataTable';
-export * from './DataTableColumnHeader';
-export * from './DataTablePagination';
-export * from './DataTableToolbar';
-
-export type {
-  ColumnDef,
-  SortingState,
-  RowSelectionState,
-  VisibilityState,
-  Column,
-} from '@tanstack/react-table';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../data-display/data-table';

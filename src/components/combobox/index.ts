@@ -1,1 +1,2 @@
-export * from './Combobox';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../forms/combobox';

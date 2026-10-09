@@ -1,13 +1,2 @@
-export {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent,
-  CollapsibleGroup,
-  collapsibleVariants,
-  type CollapsibleProps,
-  type CollapsibleTriggerProps,
-  type CollapsibleContentProps,
-  type CollapsibleGroupProps,
-  type CollapsibleVariant,
-  type CollapsibleSize
-} from './Collapsible';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../navigation/collapsible';

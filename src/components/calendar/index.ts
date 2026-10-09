@@ -1,2 +1,2 @@
-export * from './Calendar';
-export * from './CalendarEventList';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../time/calendar';

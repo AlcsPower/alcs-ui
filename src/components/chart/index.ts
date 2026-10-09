@@ -1,22 +1,2 @@
-export * from './ChartContext';
-export * from './ChartContainer';
-export * from './ChartTooltip';
-export * from './ChartLegend';
-export * from './BarChart';
-export * from './LineChart';
-export * from './AreaChart';
-export * from './PieChart';
-
-// Re-export selective primitives from Recharts for custom composition
-export {
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Bar,
-  Line,
-  Area,
-  Pie,
-  Cell,
-  ReferenceLine
-} from 'recharts';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../data-display/chart';

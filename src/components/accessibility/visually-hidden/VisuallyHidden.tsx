@@ -1,0 +1,29 @@
+import * as React from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { cn } from '../../../lib/utils';
+
+export interface VisuallyHiddenProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Permite delegar en un elemento hijo manteniendo la accesibilidad sr-only */
+  asChild?: boolean;
+}
+
+/**
+ * VisuallyHidden oculta contenido visualmente pero lo mantiene disponible para tecnologías de asistencia (lectores de pantalla).
+ */
+export const VisuallyHidden = React.forwardRef<
+  HTMLSpanElement,
+  VisuallyHiddenProps
+>(({ className, asChild = false, ...props }, ref) => {
+  const Comp = asChild ? Slot : 'span';
+
+  return (
+    <Comp
+      ref={ref}
+      className={cn('sr-only', className)}
+      {...props}
+    />
+  );
+});
+
+VisuallyHidden.displayName = 'VisuallyHidden';

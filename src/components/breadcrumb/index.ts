@@ -1,11 +1,2 @@
-export {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis,
-  type BreadcrumbProps,
-  type BreadcrumbLinkProps
-} from './Breadcrumb';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../navigation/breadcrumb';

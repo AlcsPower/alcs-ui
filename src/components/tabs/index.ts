@@ -1,14 +1,2 @@
-export {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-  TabsVertical,
-  type TabsProps,
-  type TabsListProps,
-  type TabsTriggerProps,
-  type TabsVerticalProps,
-  type TabsVariant,
-  type TabsSize,
-  type TabsOrientation
-} from './Tabs';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../navigation/tabs';

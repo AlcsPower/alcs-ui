@@ -1,6 +1,2 @@
-export * from './FieldContext';
-export * from './Field';
-export * from './FieldLabel';
-export * from './FieldControl';
-export * from './FieldHint';
-export * from './FieldError';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../forms/field';

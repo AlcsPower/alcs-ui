@@ -1,17 +1,2 @@
-export {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-  AccordionActions,
-  AccordionActionButton,
-  type AccordionProps,
-  type AccordionItemProps,
-  type AccordionTriggerProps,
-  type AccordionActionsProps,
-  type AccordionActionButtonProps,
-  type AccordionVariant,
-  type AccordionSize,
-  accordionVariants,
-  accordionItemVariants
-} from './Accordion';
+// Transitional redirect to preserve backward compatibility (API_PRESERVATION_GUIDE.md)
+export * from '../navigation/accordion';
