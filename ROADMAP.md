@@ -75,7 +75,7 @@ v1.3.0 (Actual)
 
 *Enfocada en resolver los patrones de interacción más demandados en plataformas de expedientes, formularios largos y auditoría.*
 
-* [ ] **`Stepper` / `Wizard` (Asistente por Pasos):**
+* [x] **`Stepper` / `Wizard` (Asistente por Pasos):**
   * Control secuencial accesible para trámites y formularios multi-etapa.
   * Modos horizontal y vertical, iconos por etapa, estados (completado, activo, error, pendiente) y soporte para validación por paso.
 * [ ] **`Timeline` / `ActivityLog` (Línea de Tiempo):**
