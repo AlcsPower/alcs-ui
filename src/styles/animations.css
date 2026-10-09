@@ -23,13 +23,64 @@
 
 @keyframes progress-indeterminate {
   0% {
-    transform: translateX(-100%) scaleX(0.2);
-  }
-  50% {
-    transform: translateX(0%) scaleX(0.6);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(100%) scaleX(0.2);
+    transform: translateX(250%);
+  }
+}
+
+/* Animación Progress Shine */
+@keyframes progress-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animación Skeleton Shine */
+@keyframes skeleton-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animaciones Spinner */
+@keyframes dotPulse {
+  0%, 80%, 100% {
+    transform: scale(0.4);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes barPulse {
+  0%, 100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }
 
@@ -55,7 +106,43 @@
 }
 
 .animate-progress-indeterminate {
-  animation: progress-indeterminate 1.8s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+  width: 40% !important;
+  transition: none !important;
+  animation: progress-indeterminate 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
+/* Efecto Shiny para barra de progreso */
+.progress-shiny {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-shiny::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 45%,
+    rgba(255, 255, 255, 0.48) 50%,
+    rgba(255, 255, 255, 0.28) 55%,
+    transparent 100%
+  );
+  animation: progress-shine 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+:where(.dark, [data-theme="dark"]) .progress-shiny::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.22) 50%,
+    rgba(255, 255, 255, 0.1) 55%,
+    transparent 100%
+  );
 }
 
 /* Opacidades de entrada y salida */
@@ -205,6 +292,48 @@
   animation: collapsible-up 0.2s ease-out;
 }
 
+/* EmptyState animations */
+@keyframes emptyIconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes emptyFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ErrorState animations */
+@keyframes errorIconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes errorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================================================
    Accesibilidad: Respeto global para preferencias de movimiento reducido
    (WCAG 2.2 Success Criterion 2.3.3 Animation from Interactions)
@@ -216,9 +345,28 @@
   .animate-accordion-up,
   .animate-collapsible-down,
   .animate-collapsible-up,
-  .animate-progress-indeterminate {
+  .animate-progress-indeterminate,
+  .animate-spin,
+  svg.animate-spin,
+  .skeleton::after,
+  .progress-shiny::after,
+  .spinner,
+  .spinner svg,
+  .spinner-classic,
+  .spinner-ring::before,
+  .spinner-dots .dot,
+  .spinner-bars .bar,
+  .spinner-pulse,
+  .spinner-dual-ring::before,
+  .spinner-dual-ring::after,
+  .empty-state,
+  .empty-icon-wrapper,
+  .error-state,
+  .error-icon-wrapper {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    animation: none !important;
   }
 }
+

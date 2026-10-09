@@ -75,7 +75,7 @@ describe('Metrics & Dashboard Components', () => {
 
       expect(screen.getByText('Ingresos Totales')).toBeInTheDocument();
       expect(screen.queryByText('$125,000')).not.toBeInTheDocument();
-      const skeletons = container.querySelectorAll('.animate-pulse');
+      const skeletons = container.querySelectorAll('.skeleton, .animate-pulse');
       expect(skeletons.length).toBeGreaterThan(0);
     });
 

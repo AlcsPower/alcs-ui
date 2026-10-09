@@ -164,4 +164,23 @@ describe('Progress Component', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('aplica la clase progress-shiny por defecto cuando hay un valor numérico', () => {
+    const { container } = render(<Progress value={50} />);
+    const indicator = container.querySelector('[role="progressbar"] > div');
+    expect(indicator).toHaveClass('progress-shiny');
+  });
+
+  it('no aplica progress-shiny si shiny={false}', () => {
+    const { container } = render(<Progress value={50} shiny={false} />);
+    const indicator = container.querySelector('[role="progressbar"] > div');
+    expect(indicator).not.toHaveClass('progress-shiny');
+  });
+
+  it('en estado indeterminado no aplica progress-shiny y aplica animate-progress-indeterminate', () => {
+    const { container } = render(<Progress shiny={true} />);
+    const indicator = container.querySelector('[role="progressbar"] > div');
+    expect(indicator).toHaveClass('animate-progress-indeterminate');
+    expect(indicator).not.toHaveClass('progress-shiny');
+  });
 });

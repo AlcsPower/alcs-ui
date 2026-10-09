@@ -54,8 +54,30 @@ export const ChartContainer = React.forwardRef<HTMLDivElement, ChartContainerPro
           role="img"
           aria-label={accessibleTitle || 'Gráfico de visualización de datos'}
           className={cn(
-            'relative flex aspect-video justify-center text-xs w-full text-alcspower-foreground',
-            '[&_.recharts-cartesian-axis-tick_text]:fill-alcspower-muted-foreground [&_.recharts-cartesian-grid_line]:stroke-alcspower-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-alcspower-border [&_.recharts-polar-grid_[stroke]]:stroke-alcspower-border [&_.recharts-radial-bar-background-sector]:fill-alcspower-surface-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-alcspower-surface-muted/50 [&_.recharts-reference-line_[stroke]]:stroke-alcspower-border',
+            'relative flex justify-center text-xs w-full text-alcspower-foreground select-none',
+            // SVG surface y precisión geométrica
+            '[&_svg]:overflow-visible',
+            '[&_.recharts-surface]:overflow-visible',
+            // Cuadrícula y ejes ultra-nítidos (1px crispEdges sin blur subpixel)
+            '[&_.recharts-cartesian-grid_line]:[shape-rendering:crispEdges]',
+            '[&_.recharts-cartesian-grid_line]:stroke-alcspower-border/60',
+            '[&_.recharts-cartesian-axis-line]:[shape-rendering:crispEdges]',
+            '[&_.recharts-cartesian-axis-line]:stroke-alcspower-border',
+            '[&_.recharts-cartesian-axis-tick-line]:[shape-rendering:crispEdges]',
+            '[&_.recharts-cartesian-axis-tick-line]:stroke-alcspower-border',
+            // Tipografía de ejes nítida y legible
+            '[&_.recharts-cartesian-axis-tick_text]:fill-alcspower-muted-foreground',
+            '[&_.recharts-cartesian-axis-tick_text]:font-medium',
+            '[&_.recharts-cartesian-axis-tick_text]:text-[11px]',
+            '[&_.recharts-cartesian-axis-tick_text]:[text-rendering:geometricPrecision]',
+            '[&_.recharts-cartesian-axis-tick_text]:[-webkit-font-smoothing:antialiased]',
+            // Tooltip cursor y referencias
+            '[&_.recharts-curve.recharts-tooltip-cursor]:stroke-alcspower-border',
+            '[&_.recharts-polar-grid_[stroke]]:stroke-alcspower-border',
+            '[&_.recharts-radial-bar-background-sector]:fill-alcspower-surface-muted',
+            '[&_.recharts-rectangle.recharts-tooltip-cursor]:fill-alcspower-surface-muted/40',
+            '[&_.recharts-reference-line_[stroke]]:stroke-alcspower-border',
+            aspectRatio ? 'aspect-video' : 'h-[320px]',
             className
           )}
           style={{

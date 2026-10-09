@@ -21,6 +21,20 @@ describe('Spinner Component', () => {
     expect(cXl.querySelector('svg')).toHaveClass('h-8');
   });
 
+  it('soporta las nuevas variantes y colores semánticos', () => {
+    const { container: cRing } = render(<Spinner variant="ring" color="primary" />);
+    expect(cRing.querySelector('.spinner-ring')).toBeInTheDocument();
+    expect(cRing.querySelector('.spinner-ring')).toHaveClass('text-alcspower-primary');
+
+    const { container: cDots } = render(<Spinner variant="dots" color="success" />);
+    expect(cDots.querySelector('.spinner-dots')).toBeInTheDocument();
+    expect(cDots.querySelectorAll('.dot').length).toBe(3);
+
+    const { container: cBars } = render(<Spinner variant="bars" />);
+    expect(cBars.querySelector('.spinner-bars')).toBeInTheDocument();
+    expect(cBars.querySelectorAll('.bar').length).toBe(4);
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(<Spinner />);
     const results = await axe(container);

@@ -66,11 +66,13 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
         <RechartsBarChart
           data={data}
           layout={layout}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 16, right: 16, left: 0, bottom: 4 }}
         >
           {showGrid && (
             <CartesianGrid
-              strokeDasharray="3 3"
+              strokeDasharray="4 4"
+              stroke="var(--alcspower-border)"
+              strokeOpacity={0.6}
               vertical={layout === 'horizontal' ? false : true}
               horizontal={layout === 'horizontal' ? true : false}
             />
@@ -82,19 +84,19 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 dataKey={xAxisKey}
                 tickLine={false}
                 axisLine={false}
-                tickMargin={8}
+                tickMargin={10}
               />
-              <YAxis tickLine={false} axisLine={false} tickMargin={8} />
+              <YAxis tickLine={false} axisLine={false} tickMargin={10} />
             </>
           ) : (
             <>
-              <XAxis type="number" tickLine={false} axisLine={false} tickMargin={8} />
+              <XAxis type="number" tickLine={false} axisLine={false} tickMargin={10} />
               <YAxis
                 dataKey={xAxisKey}
                 type="category"
                 tickLine={false}
                 axisLine={false}
-                tickMargin={8}
+                tickMargin={10}
               />
             </>
           )}
@@ -111,7 +113,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
           {series.map((s, index) => {
             const fallbackColor = `var(--alcspower-chart-${(index % 5) + 1})`;
             const barColor = s.color || `var(--color-${s.key}, ${fallbackColor})`;
-            const defaultRadius: [number, number, number, number] = [4, 4, 0, 0];
+            const defaultRadius: [number, number, number, number] = [6, 6, 0, 0];
 
             return (
               <Bar
@@ -121,6 +123,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
                 fill={barColor}
                 stackId={s.stackId}
                 radius={s.radius !== undefined ? s.radius : defaultRadius}
+                maxBarSize={48}
               />
             );
           })}

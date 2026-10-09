@@ -151,6 +151,12 @@ Guías paso a paso para adoptar `@alcspower/ui` en diferentes entornos modernos 
 * 🏢 **[Modernización en .NET (Web Forms, VB.NET, C# y Razor)](docs/recipes/dotnet-aspnet.md):** Integración sin reescribir lógica de backend; modernización visual con tokens CSS o islas interactivas para sistemas legados.
 * 🎨 **[Tailwind CSS v4 & Personalización de Tokens](docs/recipes/tailwind-v4.md):** Configuración de temas institucionales con `@theme`, variables semánticas `--alcspower-*` y modo oscuro.
 
+### 🌟 Starter Kit Oficial (Listo para Producción)
+
+Si deseas iniciar un nuevo proyecto ministerial o empresarial en menos de un minuto con todo preconfigurado (Layout con Sidebar colapsable, Header, Selector Claro/Oscuro, Dashboard de KPIs y Tabla de Expedientes), consulta el template oficial:
+
+👉 **[`templates/vite-react-starter`](templates/vite-react-starter/README.md)**
+
 ---
 
 ## 📚 Catálogo Completo de Componentes (51 Componentes)

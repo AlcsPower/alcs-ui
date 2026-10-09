@@ -45,8 +45,8 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
     },
     ref
   ) => {
-    const computedInnerRadius = donut ? (innerRadius ?? 55) : (innerRadius ?? 0);
-    const computedOuterRadius = outerRadius ?? 85;
+    const computedInnerRadius = donut ? (innerRadius ?? 65) : (innerRadius ?? 0);
+    const computedOuterRadius = outerRadius ?? (donut ? 105 : 95);
 
     return (
       <ChartContainer
@@ -58,7 +58,7 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
         className={className}
         {...props}
       >
-        <RechartsPieChart margin={{ top: 10, right: 10, left: 10, bottom: 10 }}>
+        <RechartsPieChart margin={{ top: 16, right: 16, left: 16, bottom: 16 }}>
           {showTooltip && (
             <ChartTooltip
               content={<ChartTooltipContent nameKey={nameKey} />}
@@ -73,9 +73,9 @@ export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>(
             nameKey={nameKey}
             innerRadius={computedInnerRadius}
             outerRadius={computedOuterRadius}
-            paddingAngle={donut ? 2 : 0}
+            paddingAngle={donut ? 3 : 0}
             stroke="var(--alcspower-surface)"
-            strokeWidth={2}
+            strokeWidth={3}
           >
             {data.map((entry, index) => {
               const entryKey = String(entry[nameKey] ?? (entry as any).name ?? (entry as any).id ?? index);

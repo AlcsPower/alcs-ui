@@ -4,14 +4,32 @@ import { axe } from 'vitest-axe';
 import { Skeleton } from './Skeleton';
 
 describe('Skeleton Component', () => {
-  it('renderiza con clases de animación y aria-hidden', () => {
+  it('renderiza por defecto con efecto shine y aria-hidden', () => {
     const { container } = render(<Skeleton className="h-6 w-32" />);
     const el = container.firstElementChild as HTMLElement;
 
-    expect(el).toHaveClass('animate-pulse');
+    expect(el).toHaveClass('skeleton');
+    expect(el).toHaveClass('relative');
+    expect(el).toHaveClass('overflow-hidden');
     expect(el).toHaveClass('h-6');
     expect(el).toHaveClass('w-32');
     expect(el).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('soporta animación pulse clásica', () => {
+    const { container } = render(<Skeleton animation="pulse" className="h-6 w-32" />);
+    const el = container.firstElementChild as HTMLElement;
+
+    expect(el).toHaveClass('animate-pulse');
+    expect(el).not.toHaveClass('skeleton');
+  });
+
+  it('permite desactivar la animación (sin shine)', () => {
+    const { container } = render(<Skeleton animation="none" className="h-6 w-32" />);
+    const el = container.firstElementChild as HTMLElement;
+
+    expect(el).toHaveClass('no-shine');
+    expect(el).not.toHaveClass('animate-pulse');
   });
 
   it('no presenta violaciones de accesibilidad (axe)', async () => {

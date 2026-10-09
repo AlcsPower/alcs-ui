@@ -57,15 +57,75 @@ describe('LoadingOverlay Component', () => {
     expect(overlay).toHaveClass('z-20');
   });
 
+  it('permite cambiar la variante del Spinner (spinnerVariant)', () => {
+    const { container: ringContainer } = render(
+      <LoadingOverlay spinnerVariant="ring" />
+    );
+    expect(ringContainer.querySelector('.spinner-ring')).toBeInTheDocument();
+
+    const { container: dotsContainer } = render(
+      <LoadingOverlay spinnerVariant="dots" />
+    );
+    expect(dotsContainer.querySelector('.spinner-dots')).toBeInTheDocument();
+  });
+
+  it('permite cambiar el color del Spinner (spinnerColor)', () => {
+    const { container } = render(
+      <LoadingOverlay spinnerColor="success" />
+    );
+    const svg = container.querySelector('svg');
+    expect(svg).toHaveClass('text-emerald-600');
+  });
+
+  it('renderiza un spinner personalizado cuando se pasa la prop spinner', () => {
+    render(
+      <LoadingOverlay
+        spinner={<span data-testid="custom-spinner">Custom Spinner</span>}
+      />
+    );
+    expect(screen.getByTestId('custom-spinner')).toBeInTheDocument();
+  });
+
+  it('aplica las clases de desenfoque de fondo según blur', () => {
+    const { container: blurNone } = render(<LoadingOverlay blur="none" />);
+    expect(blurNone.firstElementChild).not.toHaveClass('backdrop-blur-[2px]');
+
+    const { container: blurMd } = render(<LoadingOverlay blur="md" />);
+    expect(blurMd.firstElementChild).toHaveClass('backdrop-blur-sm');
+  });
+
+  it('renderiza barra de progreso y descripción secundaria', () => {
+    const { container } = render(
+      <LoadingOverlay
+        label="Sincronizando"
+        description="3 de 12 registros"
+        progress={25}
+      />
+    );
+    expect(screen.getByText('Sincronizando')).toBeInTheDocument();
+    expect(screen.getByText('3 de 12 registros')).toBeInTheDocument();
+    const progressBar = container.querySelector('[role="progressbar"]');
+    expect(progressBar).toBeInTheDocument();
+    expect(progressBar).toHaveAttribute('aria-valuenow', '25');
+  });
+
   it('no presenta violaciones de accesibilidad cuando se coloca en un contenedor con contenido (axe)', async () => {
     const { container } = render(
       <div className="relative p-6" role="region" aria-label="Panel de estado institucional">
         <h3>Información general</h3>
         <p>Cuerpo del contenedor con contenido informativo.</p>
-        <LoadingOverlay label="Actualizando contenido..." />
+        <LoadingOverlay
+          label="Actualizando contenido..."
+          description="3 de 12 registros"
+          progress={45}
+          spinnerVariant="ring"
+          spinnerColor="primary"
+        />
       </div>
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });
+
+

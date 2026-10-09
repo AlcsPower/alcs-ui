@@ -66,17 +66,24 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
       >
         <RechartsLineChart
           data={data}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 16, right: 16, left: 0, bottom: 4 }}
         >
-          {showGrid && <CartesianGrid strokeDasharray="3 3" vertical={false} />}
+          {showGrid && (
+            <CartesianGrid
+              strokeDasharray="4 4"
+              stroke="var(--alcspower-border)"
+              strokeOpacity={0.6}
+              vertical={false}
+            />
+          )}
 
           <XAxis
             dataKey={xAxisKey}
             tickLine={false}
             axisLine={false}
-            tickMargin={8}
+            tickMargin={10}
           />
-          <YAxis tickLine={false} axisLine={false} tickMargin={8} />
+          <YAxis tickLine={false} axisLine={false} tickMargin={10} />
 
           {showTooltip && (
             <ChartTooltip content={<ChartTooltipContent />} />
@@ -87,6 +94,7 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
           {series.map((s, index) => {
             const fallbackColor = `var(--alcspower-chart-${(index % 5) + 1})`;
             const strokeColor = s.color || `var(--color-${s.key}, ${fallbackColor})`;
+            const effectiveStrokeWidth = s.strokeWidth ?? 2.5;
 
             return (
               <Line
@@ -95,9 +103,25 @@ export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                 dataKey={s.key}
                 name={s.name || (config[s.key]?.label as string) || s.key}
                 stroke={strokeColor}
-                strokeWidth={s.strokeWidth || 2}
-                dot={s.dot ?? false}
-                activeDot={{ r: 5 }}
+                strokeWidth={effectiveStrokeWidth}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                dot={
+                  s.dot
+                    ? {
+                        r: 4,
+                        strokeWidth: 2,
+                        fill: 'var(--alcspower-surface)',
+                        stroke: strokeColor
+                      }
+                    : false
+                }
+                activeDot={{
+                  r: 6,
+                  strokeWidth: 2,
+                  fill: strokeColor,
+                  stroke: 'var(--alcspower-surface)'
+                }}
                 strokeDasharray={s.strokeDasharray}
               />
             );

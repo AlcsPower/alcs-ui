@@ -21,6 +21,31 @@ describe('EmptyState Component', () => {
     expect(screen.getByRole('button', { name: /nueva solicitud/i })).toBeInTheDocument();
   });
 
+  it('soporta tamaños, colores semánticos y acciones secundarias', () => {
+    const { container } = render(
+      <EmptyState
+        title="Sin resultados"
+        description="Ajuste los filtros de búsqueda."
+        color="warning"
+        size="compact"
+        variant="inside-card"
+        action={<Button size="sm">Reintentar</Button>}
+        secondaryAction={<Button size="sm" variant="outline">Limpiar filtros</Button>}
+      />
+    );
+
+    expect(container.querySelector('.empty-state.inside-card')).toBeInTheDocument();
+    expect(container.querySelector('.empty-icon-wrapper.warning.small')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /reintentar/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /limpiar filtros/i })).toBeInTheDocument();
+  });
+
+  it('permite personalizar el headingLevel', () => {
+    render(<EmptyState title="Título H2" headingLevel="h2" />);
+    const heading = screen.getByRole('heading', { level: 2 });
+    expect(heading).toHaveTextContent('Título H2');
+  });
+
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <EmptyState

@@ -72,16 +72,80 @@ describe('ErrorState Component', () => {
     expect(element).toHaveClass('min-h-[320px]');
   });
 
+  it('renders error code badge when code is provided', () => {
+    render(<ErrorState title="Fallo" code="ERR_CONNECTION_TIMEOUT" />);
+    expect(screen.getByText('ERR_CONNECTION_TIMEOUT')).toBeInTheDocument();
+    expect(screen.getByText('ERR_CONNECTION_TIMEOUT')).toHaveClass('error-code');
+  });
+
+  it('toggles technical details when button is clicked', async () => {
+    const { userEvent } = await import('@testing-library/user-event');
+    const user = userEvent.setup();
+
+    render(
+      <ErrorState
+        title="Fallo"
+        details={<div>Timestamp: 2026-10-15</div>}
+        detailsLabel="Ver detalles"
+        hideDetailsLabel="Ocultar detalles"
+      />
+    );
+
+    const toggleBtn = screen.getByRole('button', { name: /ver detalles/i });
+    expect(toggleBtn).toBeInTheDocument();
+    expect(screen.queryByText(/timestamp: 2026-10-15/i)).not.toBeInTheDocument();
+
+    await user.click(toggleBtn);
+    expect(screen.getByText(/timestamp: 2026-10-15/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /ocultar detalles/i })).toBeInTheDocument();
+  });
+
+  it('supports severity variants (warning, info, primary, gray)', () => {
+    const { container } = render(
+      <ErrorState title="Acceso denegado" severity="warning" />
+    );
+    const wrapper = container.querySelector('.error-icon-wrapper');
+    expect(wrapper).toHaveClass('warning');
+  });
+
+  it('supports size and container variants', () => {
+    const { container: compactContainer } = render(
+      <ErrorState title="Compacto" size="compact" variant="compact" />
+    );
+    expect(compactContainer.querySelector('.error-state')).toHaveClass(
+      'compact',
+      'error-state-compact'
+    );
+
+    const { container: cardContainer } = render(
+      <ErrorState title="Inside card" variant="inside-card" />
+    );
+    expect(cardContainer.querySelector('.error-state')).toHaveClass(
+      'inside-card',
+      'error-state-inside-card'
+    );
+  });
+
+  it('renders custom headingLevel', () => {
+    render(<ErrorState title="Título H2" headingLevel="h2" />);
+    const heading = screen.getByRole('heading', { level: 2 });
+    expect(heading).toBeInTheDocument();
+    expect(heading).toHaveTextContent('Título H2');
+  });
+
   it('passes vitest-axe accessibility test with 0 violations', async () => {
     const { container } = render(
       <ErrorState
         title="Error al cargar datos"
+        code="ERR_500"
         description="Ocurrió un problema de conexión con el servidor. Intente nuevamente."
         action={<Button variant="primary">Reintentar</Button>}
         secondaryAction={<Button variant="outline">Volver al inicio</Button>}
+        details="Detalle técnico de error para pruebas"
       />
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
 });
+

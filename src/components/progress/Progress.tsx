@@ -46,6 +46,11 @@ export interface ProgressProps
   showLabel?: boolean;
   /** Función personalizada para formatear el texto del porcentaje */
   formatLabel?: (value: number) => string;
+  /**
+   * Aplica un suave efecto de brillo dinámico (shimmer/shine) sobre el indicador de progreso.
+   * @default true
+   */
+  shiny?: boolean;
 }
 
 export const Progress = React.forwardRef<
@@ -60,6 +65,7 @@ export const Progress = React.forwardRef<
       size,
       showLabel,
       formatLabel,
+      shiny = true,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       ...props
@@ -94,12 +100,14 @@ export const Progress = React.forwardRef<
           <ProgressPrimitive.Indicator
             className={cn(
               progressIndicatorVariants({ variant }),
-              isIndeterminate && 'animate-progress-indeterminate'
+              isIndeterminate
+                ? 'animate-progress-indeterminate'
+                : (shiny && 'progress-shiny relative overflow-hidden')
             )}
             style={
               isIndeterminate
                 ? undefined
-                : { transform: `translateX(-${100 - clampedValue}%)` }
+                : { width: `${clampedValue}%` }
             }
           />
         </ProgressPrimitive.Root>

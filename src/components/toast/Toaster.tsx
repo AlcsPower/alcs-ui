@@ -48,7 +48,9 @@ export const Toaster: React.FC<ToasterProps> = ({
   position = 'bottom-right',
   closeButton = true,
   richColors = false,
+  expand = true,
   duration = 4000,
+  gap = 12,
   toastOptions,
   icons,
   ...props
@@ -58,7 +60,9 @@ export const Toaster: React.FC<ToasterProps> = ({
       position={position}
       closeButton={closeButton}
       richColors={richColors}
+      expand={expand}
       duration={duration}
+      gap={gap}
       className="toaster group font-sans"
       icons={{
         ...defaultIcons,

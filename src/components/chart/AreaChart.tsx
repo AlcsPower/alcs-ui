@@ -71,7 +71,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
       >
         <RechartsAreaChart
           data={data}
-          margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+          margin={{ top: 16, right: 16, left: 0, bottom: 4 }}
         >
           {useGradient && (
             <defs>
@@ -82,23 +82,30 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
 
                 return (
                   <linearGradient key={s.key} id={gradId} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={color} stopOpacity={0.6} />
-                    <stop offset="95%" stopColor={color} stopOpacity={0.05} />
+                    <stop offset="0%" stopColor={color} stopOpacity={0.42} />
+                    <stop offset="100%" stopColor={color} stopOpacity={0.02} />
                   </linearGradient>
                 );
               })}
             </defs>
           )}
 
-          {showGrid && <CartesianGrid strokeDasharray="3 3" vertical={false} />}
+          {showGrid && (
+            <CartesianGrid
+              strokeDasharray="4 4"
+              stroke="var(--alcspower-border)"
+              strokeOpacity={0.6}
+              vertical={false}
+            />
+          )}
 
           <XAxis
             dataKey={xAxisKey}
             tickLine={false}
             axisLine={false}
-            tickMargin={8}
+            tickMargin={10}
           />
-          <YAxis tickLine={false} axisLine={false} tickMargin={8} />
+          <YAxis tickLine={false} axisLine={false} tickMargin={10} />
 
           {showTooltip && (
             <ChartTooltip content={<ChartTooltipContent />} />
@@ -111,6 +118,7 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
             const strokeColor = s.color || `var(--color-${s.key}, ${fallbackColor})`;
             const gradId = `${gradientPrefix}-${s.key}`;
             const fill = useGradient ? `url(#${gradId})` : strokeColor;
+            const effectiveStrokeWidth = s.strokeWidth ?? 2.5;
 
             return (
               <Area
@@ -119,9 +127,11 @@ export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(
                 dataKey={s.key}
                 name={s.name || (config[s.key]?.label as string) || s.key}
                 stroke={strokeColor}
-                strokeWidth={s.strokeWidth || 2}
+                strokeWidth={effectiveStrokeWidth}
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 fill={fill}
-                fillOpacity={useGradient ? 1 : s.fillOpacity ?? 0.2}
+                fillOpacity={useGradient ? 1 : s.fillOpacity ?? 0.25}
                 stackId={s.stackId}
               />
             );
