@@ -1,5 +1,30 @@
 # @alcspower/ui
 
+## 1.3.0
+
+### Minor Changes
+
+- ### Starter Kit Oficial B2B, Recetario Multistack y Refinamiento de Primitivas de Feedback
+  - **Starter Kit Oficial Enterprise (`templates/vite-react-starter`):**
+    - Plantilla lista para producción con **React 19**, **Vite 6**, **Tailwind CSS v4** y `@alcspower/ui` preconfigurado.
+    - Layout empresarial completo: barra lateral (*Sidebar*) colapsable y accesible con badges de conteo, cabecera flotante (*Header*) con migas de pan (*Breadcrumbs*), perfil de usuario y selector de tema Claro / Oscuro (`ThemeToggle`) persistido en `localStorage`.
+    - Vistas de ejemplo funcionales: Tablero de Control de KPIs (`DashboardView`) con métricas y avance institucional, Bandeja de Expedientes con filtros en tiempo real (`ExpedientesView`), y modal de registro con validación y notificaciones toast (`NuevoTramiteModal`).
+  - **Recetario de Integración Multistack (Cookbook en `docs/recipes/`):**
+    - Guías paso a paso de adopción para:
+      - ⚡ **React 19 + Vite + Tailwind CSS v4** (`docs/recipes/react-vite.md`).
+      - 🚀 **Astro con React Islands** (`docs/recipes/astro.md`) para portales institucionales de alto rendimiento y 0 KB de JS inicial.
+      - 🏢 **Modernización en .NET** (`docs/recipes/dotnet-aspnet.md`) para sistemas existentes en **ASP.NET Web Forms (VB.NET / C#)** y **ASP.NET Core (MVC / Razor Pages)** mediante tokens directos CSS o islas interactivas sin reescribir lógica de servidor.
+      - 🎨 **Tailwind CSS v4 & Tokens de Diseño** (`docs/recipes/tailwind-v4.md`) con directivas `@theme` y variables semánticas `--alcspower-*`.
+  - **Refinamiento de Componentes de Feedback y Gráficos:**
+    - **`Toast` / `Toaster`:** Incorporación y exportación de `ToastCard` con barra de progreso reactiva, variantes cromáticas semánticas y soporte de acciones primarias/cancelación.
+    - **`Skeleton`:** Soporte dinámico de animación shimmer con efecto `shine` en gradiente fluido, modo `pulse` y control accesible `motion-reduce:animate-none`.
+    - **`EmptyState` & `ErrorState`:** Alturas dinámicas adaptables, bordes discretos y mejores anuncios para lectores de pantalla.
+    - **`Spinner` & `LoadingOverlay`:** Contenedores flex optimizados, micro-interacciones suaves y etiquetas accesibles únicas.
+    - **`Chart`:** Contenedores reactivos con estilos semánticos y tokens de color unificados.
+  - **Métricas de Calidad y Accesibilidad:**
+    - **353/353** pruebas unitarias pasando al 100% (50 suites de pruebas) con **0 violaciones de accesibilidad axe-core**.
+    - Tipado estricto con `tsc --noEmit` completado sin advertencias.
+
 ## 1.2.0
 
 ### Minor Changes

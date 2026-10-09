@@ -9,7 +9,7 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `1.2.0`
+* **Versión Actual:** `1.3.0`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
@@ -91,10 +91,10 @@ Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.gith
 
 ```bash
 # Con pnpm (recomendado):
-pnpm add @alcspower/ui@1.2.0
+pnpm add @alcspower/ui@1.3.0
 
 # O con npm:
-npm install @alcspower/ui@1.2.0
+npm install @alcspower/ui@1.3.0
 ```
 
 ---
@@ -282,7 +282,7 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 * **Gestión de Foco:** Atrapamiento de foco en modales y paneles deslizantes (`Sheet`, `Dialog`, `CommandDialog`), retorno automático de foco al elemento disparador tras el cierre.
 * **Movimiento Reducido:** Respeto global automático para `prefers-reduced-motion: reduce` en todas las animaciones y transiciones de la biblioteca.
 * **Teclado:** Navegación por teclado completa (Tab, Flechas arriba/abajo/izquierda/derecha en listas, acordeones y pestañas, Escape, Enter, Espacio).
-* **Verificación Automatizada:** Suite de pruebas con Vitest y `@testing-library/react` combinada con auditorías completas de **axe-core** (50 suites de pruebas, **333/333 pruebas pasando con 0 violaciones**).
+* **Verificación Automatizada:** Suite de pruebas con Vitest y `@testing-library/react` combinada con auditorías completas de **axe-core** (50 suites de pruebas, **353/353 pruebas pasando con 0 violaciones**).
 
 ---
 
