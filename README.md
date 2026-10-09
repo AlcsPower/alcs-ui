@@ -318,6 +318,7 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 
 * **Licencia:** MIT License (Código abierto, Copyright © 2026 Alcides Altamirano / AlcsPower). Consulta el archivo [LICENSE](LICENSE) para más detalles.
 * **Política de Seguridad:** Consulta [SECURITY.md](SECURITY.md) para el reporte responsable de vulnerabilidades y buenas prácticas de consumo seguro.
+* **Hoja de Ruta (Roadmap):** Consulta [ROADMAP.md](ROADMAP.md) para conocer las características y componentes planificados para el ciclo v1.x.
 * **Autor / Creador:** Alcides Altamirano ([@AlcsPower](https://github.com/AlcsPower))
 * **Repositorio GitHub:** [https://github.com/AlcsPower/alcs-ui](https://github.com/AlcsPower/alcs-ui)
 * **Registro GitHub Packages:** [https://npm.pkg.github.com/@alcspower/ui](https://npm.pkg.github.com/@alcspower/ui)
