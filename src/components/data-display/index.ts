@@ -9,3 +9,4 @@ export * from './separator';
 export * from './chart';
 export * from './metrics';
 export * from './timeline';
+export * from './kbd';

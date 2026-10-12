@@ -11,3 +11,4 @@ export * from './checkbox';
 export * from './switch';
 export * from './select';
 export * from './combobox';
+export * from './file-upload';

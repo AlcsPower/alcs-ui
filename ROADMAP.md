@@ -81,10 +81,10 @@ v1.3.0 (Actual)
 * [x] **`Timeline` / `ActivityLog` (Línea de Tiempo):**
   * Visualización cronológica de eventos, trazabilidad de expedientes y registros de auditoría técnica.
   * Soporte para avatares, estados de color con `StatusBadge`, marcas de tiempo y contenido colapsable.
-* [ ] **`FileUpload` / `Dropzone` (Carga de Documentos):**
+* [x] **`FileUpload` / `Dropzone` (Carga de Documentos):**
   * Zona accesible para arrastrar y soltar archivos (PDFs, imágenes, etc.).
   * Barra de progreso de subida individual y global, validación de extensiones y peso máximo, y previsualización de lista de archivos.
-* [ ] **`Kbd` (Indicador de Atajos de Teclado):**
+* [x] **`Kbd` (Indicador de Atajos de Teclado):**
   * Primitiva visual para representar teclas y combinaciones de atajos (`⌘K`, `Ctrl + S`, `Esc`), diseñada para integrarse con la paleta de comandos (`CommandMenu`).
 
 ---
