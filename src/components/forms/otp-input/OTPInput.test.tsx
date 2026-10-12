@@ -75,12 +75,39 @@ describe('OTPInput Component', () => {
   });
 
   it('renderiza separador intermedio si se proporciona', () => {
-    render(<OTPInput length={6} separator={<span data-testid="sep">-</span>} />);
+    const { rerender } = render(<OTPInput length={6} separator={<span data-testid="sep">-</span>} />);
     expect(screen.getByTestId('sep')).toBeInTheDocument();
+
+    rerender(<OTPInput length={6} separator="dash" />);
+    expect(screen.getByText('—')).toBeInTheDocument();
+
+    rerender(<OTPInput length={6} separator="dot" />);
+    expect(screen.getByText('•')).toBeInTheDocument();
+  });
+
+  it('soporta estados visuales de error y éxito con sus clases y sombras respectivas', () => {
+    const { rerender, container } = render(<OTPInput length={4} state="error" />);
+    const inputError = container.querySelector('input');
+    expect(inputError).toHaveClass('border-red-500');
+
+    rerender(<OTPInput length={4} state="success" />);
+    const inputSuccess = container.querySelector('input');
+    expect(inputSuccess).toHaveClass('border-emerald-500');
+  });
+
+  it('renderiza statusText con icono correspondiente', () => {
+    render(<OTPInput length={4} state="error" statusText="Código caducado." />);
+    expect(screen.getByText('Código caducado.')).toBeInTheDocument();
+  });
+
+  it('soporta máscara de seguridad tipo password', () => {
+    const { container } = render(<OTPInput length={4} mask />);
+    const input = container.querySelector('input');
+    expect(input).toHaveAttribute('type', 'password');
   });
 
   it('no presenta violaciones de accesibilidad (axe)', async () => {
-    const { container } = render(<OTPInput length={4} />);
+    const { container } = render(<OTPInput length={4} statusText="Ingresá tu código" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
