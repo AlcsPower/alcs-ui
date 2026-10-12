@@ -16,7 +16,8 @@ export default defineConfig({
   banner: {
     js: "'use client';"
   },
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'react/jsx-runtime'],
+  noExternal: [/^(?!react($|\/)|react-dom($|\/)).*$/],
   esbuildOptions(options) {
     options.banner = {
       js: "'use client';"
