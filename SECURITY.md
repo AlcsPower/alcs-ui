@@ -18,7 +18,7 @@
 
 Si descubres una vulnerabilidad de seguridad en `@alcspower/ui`, **no la publiques en issues públicas**.
 
-**Por favor reporta a:** [alcides.altamirano@gmail.com](mailto:alcides.altamirano@gmail.com)
+**Por favor reporta a:** [alcides.altamirano@gmail.com](mailto:alci.altamirano@gmail.com)
 
 **Incluye:**
 - Descripción detallada de la vulnerabilidad
