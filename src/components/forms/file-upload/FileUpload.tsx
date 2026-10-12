@@ -684,6 +684,7 @@ export interface FileUploadItemProps extends React.LiHTMLAttributes<HTMLLIElemen
   status?: 'idle' | 'uploading' | 'success' | 'error';
   errorMessage?: string;
   previewUrl?: string;
+  thumbnail?: React.ReactNode;
   onRemove?: () => void;
   onRetry?: () => void;
 }
@@ -696,6 +697,7 @@ export const FileUploadItem = React.forwardRef<HTMLLIElement, FileUploadItemProp
       status = 'idle',
       errorMessage,
       previewUrl,
+      thumbnail,
       onRemove,
       onRetry,
       className,
@@ -705,8 +707,10 @@ export const FileUploadItem = React.forwardRef<HTMLLIElement, FileUploadItemProp
   ) => {
     const isImage = file.type.startsWith('image/');
     const [localPreview, setLocalPreview] = React.useState<string | undefined>(previewUrl);
+    const [hasImgError, setHasImgError] = React.useState(false);
 
     React.useEffect(() => {
+      setHasImgError(false);
       if (previewUrl) {
         setLocalPreview(previewUrl);
         return undefined;
@@ -735,11 +739,14 @@ export const FileUploadItem = React.forwardRef<HTMLLIElement, FileUploadItemProp
       >
         {/* Thumbnail o Icono */}
         <div className="relative flex items-center justify-center h-10 w-10 shrink-0 rounded-lg bg-alcspower-surface-muted/60 border border-alcspower-border-subtle overflow-hidden">
-          {localPreview ? (
+          {thumbnail ? (
+            thumbnail
+          ) : localPreview && !hasImgError ? (
             <img
               src={localPreview}
               alt={file.name}
               className="h-full w-full object-cover"
+              onError={() => setHasImgError(true)}
             />
           ) : (
             getFileCategoryIcon(file)
