@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import * as React from 'react';
 import { OTPInput } from './OTPInput';
-import { Label } from '../label';
-import { Button } from '../button';
 
 const meta: Meta<typeof OTPInput> = {
   title: 'Formularios/OTPInput',
