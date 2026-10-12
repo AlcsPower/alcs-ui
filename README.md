@@ -174,6 +174,39 @@ Si deseas iniciar un nuevo proyecto ministerial o empresarial en menos de un min
 
 ---
 
+## 🎓 Instructivo para Principiantes
+
+¿Estás comenzando a programar? ¿Quieres aprender React construyendo algo real desde cero?
+
+El directorio **[`docs/instructivo/`](docs/instructivo/README.md)** contiene un curso paso a paso, nivel principiante absoluto, diseñado para aprender `@alcspower/ui` **haciendo un proyecto real**: una **Agenda de Contactos** completa.
+
+| Idioma | Enlace |
+| :--- | :--- |
+| 🇪🇸 **Español** | [`docs/instructivo/es/README.md`](docs/instructivo/es/README.md) |
+| 🇺🇸 **English** | [`docs/instructivo/en/README.md`](docs/instructivo/en/README.md) |
+
+### ¿Qué cubre el instructivo?
+
+10 módulos progresivos que van de lo más simple a lo más avanzado:
+
+| # | Módulo | Componentes | Nivel |
+| :-- | :--- | :--- | :---: |
+| 00 | Introducción — ¿Qué es todo esto? | — | — |
+| 01 | Instalación y configuración | Node.js, pnpm, Vite | — |
+| 02 | Tu primer componente | `Button`, `Badge`, `Avatar` | 🟢 |
+| 03 | Formularios | `Input`, `Select`, `Checkbox`, `Switch` | 🟢 |
+| 04 | Layout y Cards | `Card`, `Tabs`, `Separator` | 🟢 |
+| 05 | Feedback | `Alert`, `Toast`, `Spinner`, `Skeleton`, `Progress` | 🟡 |
+| 06 | Overlays | `Dialog`, `Tooltip`, `DropdownMenu` | 🟡 |
+| 07 | Datos | `Table`, `StatusBadge`, `Pagination` | 🟡 |
+| 08 | Navegación | `Accordion`, `Breadcrumb`, `Stepper` | 🟡 |
+| 09 | Proyecto Final | Todo integrado — Agenda completa | 🔴 |
+
+> [!NOTE]
+> El instructivo está diseñado para personas que nunca han programado. Cada módulo incluye analogías del mundo real, código comentado línea por línea, sección de errores comunes y ejercicios prácticos.
+
+---
+
 ## 📚 Catálogo Completo de Componentes (59+ Componentes)
 
 Todos los componentes han sido verificados mediante pruebas unitarias exhaustivas, comprobación estricta de tipado con TypeScript y auditorías de accesibilidad automatizada con **axe-core** (100% pruebas aprobadas, **0 violaciones de accesibilidad detectadas**).
