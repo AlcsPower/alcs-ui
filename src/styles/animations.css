@@ -62,6 +62,38 @@
   }
 }
 
+/* Animaciones OTPInput */
+@keyframes otp-digit-enter {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes otp-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-4px);
+  }
+  40%, 80% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-otp-digit {
+  animation: otp-digit-enter 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-otp-shake {
+  animation: otp-shake 0.45s ease;
+}
+
 @keyframes barPulse {
   0%, 100% {
     transform: scaleY(0.4);
@@ -362,7 +394,9 @@
   .empty-state,
   .empty-icon-wrapper,
   .error-state,
-  .error-icon-wrapper {
+  .error-icon-wrapper,
+  .animate-otp-digit,
+  .animate-otp-shake {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
