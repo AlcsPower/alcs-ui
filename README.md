@@ -9,7 +9,7 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `1.3.0`
+* **Versión Actual:** `1.4.0`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
@@ -88,14 +88,29 @@ Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.gith
 > * Nunca subas archivos con credenciales en texto plano al control de versiones (Git).
 
 ### 2. Instalación de la Dependencia
-
+ 
 ```bash
 # Con pnpm (recomendado):
-pnpm add @alcspower/ui@1.3.0
+pnpm add @alcspower/ui@1.4.0
 
 # O con npm:
-npm install @alcspower/ui@1.3.0
+npm install @alcspower/ui@1.4.0
 ```
+
+### 3. Instalación en Entornos Offline / Air-Gapped (Sin Acceso a Internet)
+
+Para despliegues institucionales o gubernamentales en redes aisladas (*air-gapped*), `@alcspower/ui` se distribuye como un paquete totalmente autónomo (*Self-Contained Bundle*). Sus dependencias secundarias vienen inyectadas en el bundle compilado y sus licencias legales MIT/ISC/Apache-2.0 están compiladas en [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
+
+```bash
+# Copia el paquete .tgz en tu entorno e instala localmente:
+pnpm add ./alcspower-ui-1.4.0.tgz
+
+# O con npm:
+npm install ./alcspower-ui-1.4.0.tgz
+```
+
+> [!NOTE]
+> La instalación local no consulta ningún registro de red. Solo requiere que el proyecto consumidor provea `react` y `react-dom` (v18 o v19).
 
 ---
 
@@ -159,7 +174,7 @@ Si deseas iniciar un nuevo proyecto ministerial o empresarial en menos de un min
 
 ---
 
-## 📚 Catálogo Completo de Componentes (51 Componentes)
+## 📚 Catálogo Completo de Componentes (59+ Componentes)
 
 Todos los componentes han sido verificados mediante pruebas unitarias exhaustivas, comprobación estricta de tipado con TypeScript y auditorías de accesibilidad automatizada con **axe-core** (100% pruebas aprobadas, **0 violaciones de accesibilidad detectadas**).
 
@@ -167,6 +182,12 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Button`:** Botón interactivo con 6 variantes semánticas (`primary`, `secondary`, `outline`, `ghost`, `destructive`, `link`), 4 tamaños (`sm`, `md`, `lg`, `icon`), estado de carga reactivo (`isLoading`) y delegación polimórfica `asChild`.
 * **`Field` (Primitivo Compuesto):** Contenedor accesible (`Field`, `FieldLabel`, `FieldControl`, `FieldHint`, `FieldError`) que coordina identificadores deterministas y asociaciones ARIA (`aria-describedby`, `aria-invalid`).
 * **`Input`:** Campo de texto accesible con escala métrica simétrica (`sm: h-8`, `md: h-10`, `lg: h-12`), slots para `leftElement`/`rightElement` y variantes de validación.
+* **`NumberInput`:** Control numérico accesible conforme a WAI-ARIA (`role="spinbutton"`), aceleración continua por pulsación sostenida (*long-press*), 4 disposiciones de steppers (`stacked`, `split`, `inline-right`, `none`), soporte de `prefix`/`suffix`, precisión decimal segura contra punto flotante IEEE 754 y atajos de teclado (`Shift+Arrows`, `Home`, `End`, `PageUp/Down`).
+* **`TagsInput`:** Entrada interactiva de etiquetas tipo chip con delimitadores de teclado (`Enter`, `,`), prevención de duplicados, límite máximo (`maxTags`), formas (`squircle`, `rounded`) y botón de limpieza rápida con icono semántico `Broom` (escoba).
+* **`OTPInput`:** Entrada moderna de códigos de verificación/PIN con esquinas proporcionales a la escala (`sm: 10px`, `md: 12px`, `lg: 14px`), elevación táctil al foco, halos cromáticos reactivos (índigo en foco, sacudida carmesí en error, esmeralda en éxito), texto de estado descriptivo con iconografía automática y separadores configurables (`dash`, `dot`, `space`).
+* **`FileUpload`:** Zona de carga de archivos por arrastrar y soltar (*dropzone*) o explorador nativo, previsualizaciones, estados de progreso y lista interactiva de adjuntos.
+* **`PasswordInput`:** Campo de contraseña con botón accesible para conmutar visibilidad (mostrar/ocultar), soporte de atajos y escala de tamaños.
+* **`SearchInput`:** Campo de búsqueda ergonómico con icono de lupa, atajo visual `<kbd>`, botón de borrado inmediato y estado de carga.
 * **`Textarea`:** Área de texto multilínea con escala de altura y foco accesible.
 * **`Label`:** Etiqueta accesible basada en Radix UI con soporte de indicador `required`.
 * **`RadioGroup`:** Grupo de opciones de selección única accesible basado en `@radix-ui/react-radio-group`, con navegación bidireccional por teclado (`Arrow keys`), indicador circular animado y soporte de validación/error.
@@ -174,7 +195,7 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Toggle`:** Botón de dos estados presionado/no presionado accesible basado en `@radix-ui/react-toggle` con variantes (`default`, `outline`) y escala de tamaños (`sm`, `md`, `lg`).
 * **`ToggleGroup`:** Grupo de conmutadores con selección simple o múltiple basado en `@radix-ui/react-toggle-group`, propagación de variantes y soporte de navegación por teclado.
 
-### 2. Controles (Controls)
+### 2. Controles y Datos Básicos (Controls)
 * **`Badge`:** Insignia compacta para categorización y estados con 7 variantes semánticas.
 * **`StatusBadge`:** Insignia especializada para estados operativos con indicador visual tipo punto y variantes semánticas.
 * **`Card`:** Contenedor modular con elevación tenue y piezas semánticas (`CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`).
@@ -182,8 +203,11 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Checkbox`:** Control binario accesible con escala métrica de tamaño (`sm`, `md`, `lg`) basado en `@radix-ui/react-checkbox`.
 * **`Switch`:** Interruptor booleano accesible con animaciones fluidas basado en `@radix-ui/react-switch`.
 * **`Select`:** Menú desplegable con navegación por teclado y portales basado en `@radix-ui/react-select`.
+* **`Timeline`:** Línea de tiempo interactiva para auditoría de eventos y seguimiento procesal con conectores continuos e iconografía semántica.
+* **`Kbd`:** Insignia visual accesible de atajos de teclado con micro-relieve táctil y variantes de plataforma.
 
 ### 3. Capas Superpuestas y Paneles (Overlays)
+* **`AlertDialog` & `ConfirmDialog`:** Diálogos modales accesibles para confirmaciones críticas o advertencias irreversibles con foco predeterminado en el botón Cancelar, variantes semánticas (`destructive`, `warning`, `info`) y envoltura de alto nivel `ConfirmDialog` con manejo asíncrono de promesas y spinner integrado.
 * **`Dialog`:** Ventana modal accesible con trampa de foco (`focus trap`), bloqueo de scroll y atajo de escape.
 * **`Sheet`:** Panel deslizante modal o no modal con variantes direccionales (`side="right" | "left" | "top" | "bottom"`), backdrop con desenfoque suave y animaciones fluidas de entrada y salida.
 * **`Drawer`:** Panel deslizante inferior responsivo optimizado para interfaces móviles y acciones rápidas, equipado con tirador táctil visual (`DrawerHandle`) y estructura semántica completa.
@@ -198,6 +222,7 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Tabs`:** Pestañas accesibles con soporte ARIA para selección activa y cambio de vistas (`TabsList`, `TabsTrigger`, `TabsContent`).
 * **`Accordion`:** Contenedor de paneles expandibles basado en `@radix-ui/react-accordion`. Soporta modo simple (`type="single"`) o múltiple (`type="multiple"`), chevron rotativo animado y navegación íntegra por teclado.
 * **`Collapsible`:** Primitiva interactiva ligera basada en `@radix-ui/react-collapsible` para expandir y colapsar secciones, filtros avanzados y detalles.
+* **`Stepper`:** Guía interactiva de pasos para formularios secuenciales (*wizards*) con gestión de estados activo, completado y pendiente.
 * **`Pagination`:** Sistema de paginación accesible con soporte de páginas previas/siguientes y elipsis interactiva.
 * **`Separator`:** Divisor horizontal o vertical semántico basado en `@radix-ui/react-separator`.
 

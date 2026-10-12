@@ -1,5 +1,45 @@
 # @alcspower/ui
 
+## 1.4.0
+
+### Minor Changes
+
+- ### Soporte para Entornos Offline (Air-Gapped), Nuevos Componentes de Formularios y Overlays Semánticos
+  - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
+    - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
+    - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.
+    - Soporte nativo para instalación local directa vía `.tgz` (`pnpm add ./alcspower-ui-1.4.0.tgz` o `npm install ./alcspower-ui-1.4.0.tgz`).
+    - Cumplimiento estricto de licencias de software libre con la creación y distribución de [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md), preservando avisos de derechos de autor y licencias MIT, ISC y Apache-2.0 de todas las dependencias empaquetadas.
+  - **Nuevo Componente `NumberInput` (`src/components/forms/number-input`):**
+    - Control numérico accesible conforme al estándar WAI-ARIA (`role="spinbutton"`).
+    - Aceleración continua configurable por pulsación sostenida en botones steppers (*long-press acceleration*).
+    - Navegación completa por teclado con atajos estándar: flechas Arriba/Abajo (`step`), `Shift + flechas` ($\times 10$), `PageUp` / `PageDown` ($\times 10$), `Home` (`min`) y `End` (`max`).
+    - 4 disposiciones ergonómicas de steppers: `stacked` (apilados verticalmente a la derecha), `split` (decremento a la izquierda, incremento a la derecha), `inline-right` (horizontales adyacentes a la derecha) y `none` (ocultos).
+    - Corrección de precisión decimal contra inconsistencias de punto flotante de IEEE 754.
+    - Soporte ergonómico para `prefix` y `suffix` con márgenes adaptativos anti-colisión.
+    - Micro-interacción con resplandor sutil (*stepper glow*) y respeto a `prefers-reduced-motion`.
+  - **Nuevos Primitivos `AlertDialog` y `ConfirmDialog` (`src/components/overlays/alert-dialog`):**
+    - Diálogos modales de interrupción accesibles basados en `@radix-ui/react-alert-dialog` con trampa de foco y bloqueo de scroll.
+    - Foco inicial colocado deliberadamente en el botón de cancelar para mitigar confirmaciones destructivas accidentales.
+    - Componente de alto nivel `ConfirmDialog` con soporte asíncrono para promesas en `onConfirm`, indicador `Spinner` reactivo y bloqueo de acciones durante ejecución.
+    - Variantes semánticas con halos luminosos suaves: `destructive`, `warning` e `info`.
+  - **Nuevo Componente `TagsInput` (`src/components/forms/tags-input`):**
+    - Control dinámico para captura y gestión de etiquetas tipo chip con validación y prevención de duplicados.
+    - Adición fluida mediante delimitadores de teclado configurables (`Enter`, `,`).
+    - Botón de limpieza total (*Clear all*) con icono semántico `Broom` (escoba) e interactividad táctil.
+    - Soporte para límite máximo de etiquetas (`maxTags`), eliminación individual con `Backspace` o botón `x`, y formas visuales (`squircle` y `rounded`).
+  - **Rediseño Moderno de `OTPInput` (`src/components/forms/otp-input`):**
+    - Rediseño visual con radios proporcionales según escala de tamaño (`sm: rounded-[10px]`, `md: rounded-[12px]`, `lg: rounded-[14px]`).
+    - Micro-elevación táctil al recibir foco (`-translate-y-0.5`).
+    - Celda completada con tinte suave y halo índigo de enfoque.
+    - Animación de sacudida ergonómica (*shake animation*) y halo carmesí ante estados de error, y halo esmeralda suave ante estados de éxito.
+    - Texto descriptivo de estado (`statusText`) con iconografía automática integrada (`CheckCircle2`, `AlertCircle`, `Info`).
+    - Separadores visuales configurables (`dash`, `dot`, `space`) y modo PIN enmascarado (`mask`).
+  - **Métricas de Calidad y Accesibilidad:**
+    - **434/434** pruebas unitarias pasando al 100% en **60 suites de pruebas** (`vitest`).
+    - **0 violaciones de accesibilidad** detectadas por `axe-core`.
+    - Tipado estricto verificado con `tsc --noEmit`.
+
 ## 1.3.0
 
 ### Minor Changes
