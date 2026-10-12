@@ -63,7 +63,7 @@ No es el diseño plano rígido y monocromático de 2015, ni tampoco el "neumorfi
 El sistema sigue una arquitectura por capas desacoplada inspirada en la filosofía de **shadcn/ui** y componentes atómicos basados en composición:
 
 ```text
-React Components (Radix UI Primitives + Lucide + CVA + Sonner + Recharts)
+React Components (Radix UI + Lucide + CVA + Sonner + Recharts + TanStack Table)
                          ↓
            Design Tokens Semánticos
                          ↓
@@ -71,13 +71,20 @@ React Components (Radix UI Primitives + Lucide + CVA + Sonner + Recharts)
                          ↓
   CSS Precompilado Encapsulado (@layer alcspower-tokens, alcspower-ui)
                          ↓
-   Artefacto Distribuido en GitHub Packages (ESM / CJS / DTS / CSS)
+    Artefacto Autónomo / Self-Contained Bundle (ESM / CJS / DTS / CSS)
+       ├── Distribución en Línea: npm público & GitHub Packages
+       └── Distribución Desconectada: Archivo .tgz para entornos Air-Gapped / Offline
 ```
 
 ### Principios Fundamentales
+
 1. **Composición sobre Configuración:** Se favorece el uso de subcomponentes declarativos (e.g. `SheetContent`, `AccordionTrigger`, `CardHeader`) y el patrón `asChild` para composición polimórfica accesible.
 2. **Cero Resets Globales Destructivos:** Los estilos se empaquetan dentro de `@layer alcspower-tokens` y `@layer alcspower-ui`, evitando alterar selectores globales como `body`, `html` o tablas de fuentes del consumidor.
-3. **Distribución Autónoma:** Todo el CSS necesario está empaquetado en `@alcspower/ui/styles.css`. El consumidor no requiere duplicar archivos ni configuraciones internas de Tailwind.
+3. **Distribución Autónoma & CSS Empaquetado:** Todo el CSS necesario está empaquetado en `@alcspower/ui/styles.css`. El consumidor no requiere duplicar archivos ni configuraciones internas de Tailwind.
+4. **Auto-Contención Total (Zero-Subdependencies):** Para evitar el "infierno de dependencias" (*dependency hell*), todas las bibliotecas internas secundarias (Radix UI, Lucide, CVA, cmdk, Sonner, Recharts, TanStack Table, etc.) se inyectan compiladas dentro del bundle de la biblioteca. La aplicación consumidora solo necesita proveer `react` y `react-dom`.
+5. **Doble Modalidad de Adopción (Dual Distribution):**
+   * 🌐 **En línea:** Publicado en los registros oficiales de **npm** y **GitHub Packages** para integración continua estándar.
+   * 🔒 **Offline / Air-Gapped:** Empaquetable como archivo autónomo `.tgz` que se instala en servidores o redes aisladas sin requerir conexión a internet ni registros externos. Las licencias de terceros están recopiladas en [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
 ---
 
@@ -423,18 +430,26 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 * **Radix UI** accessible primitives
 * **Tailwind CSS v4** & semantic design tokens
 * **Lucide React**, **Sonner**, **cmdk**, **TanStack Table**, and **Recharts**
+* **Self-Contained Bundle:** Zero sub-dependencies needed by consumers (only `react` & `react-dom` required)
 
-### Quick Install
+### Dual Distribution & Installation
 
+#### 🌐 Online via npm or GitHub Packages
 ```bash
-# Check published version on npm:
+# Verify version on npm:
 npm view @alcspower/ui version
 
-# Install via pnpm:
+# Install via pnpm (recommended):
 pnpm add @alcspower/ui@1.4.0
 
 # Or via npm:
 npm install @alcspower/ui@1.4.0
+```
+
+#### 🔒 Offline / Air-Gapped Environments
+```bash
+# Install local autonomous tarball without internet access:
+pnpm add ./alcspower-ui-1.4.0.tgz
 ```
 
 ### Basic Usage
