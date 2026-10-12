@@ -189,7 +189,7 @@ export const ShowcaseRedesign: Story = {
               <div className="flex-1 max-w-md space-y-1">
                 <Input
                   hasSuccess
-                  defaultValue="alcides.altamirano@mific.gob.ni"
+                  defaultValue="usuario.ejemplo@alcspower.dev"
                   rightElement={<CheckCircle2 className="h-4 w-4 text-emerald-600" />}
                 />
                 <span className="text-xs text-emerald-600 font-medium">Correo verificado y disponible</span>

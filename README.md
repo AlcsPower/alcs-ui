@@ -1,4 +1,12 @@
-# `@alcspower/ui` - Sistema de Diseño y Biblioteca Reutilizable de Componentes React
+# `@alcspower/ui` — React Design System & Reusable Component Library
+
+<div align="center">
+
+**🇪🇸 Español** &nbsp;|&nbsp; [🇺🇸 English](#english-summary)
+
+</div>
+
+---
 
 Biblioteca modular, accesible y reutilizable de componentes de interfaz de usuario para aplicaciones web basadas en React.
 
@@ -12,9 +20,12 @@ Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **Typ
 * **Versión Actual:** `1.4.0`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
-* **Registro de Distribución:** GitHub Packages (`https://npm.pkg.github.com`)
+* **Registros de Distribución:**
+  * **npm:** [`https://www.npmjs.com/package/@alcspower/ui`](https://www.npmjs.com/package/@alcspower/ui) (verificar versión: `npm view @alcspower/ui version`)
+  * **GitHub Packages:** `https://npm.pkg.github.com`
 * **Repositorio GitHub:** [https://github.com/AlcsPower/alcs-ui](https://github.com/AlcsPower/alcs-ui)
 * **Licencia del Paquete:** MIT License (Código abierto permisivo; autoría y titularidad de Alcides Altamirano / AlcsPower).
+* **Contacto y Soporte:** Exclusivamente vía [GitHub Issues](https://github.com/AlcsPower/alcs-ui/issues) y [GitHub Discussions](https://github.com/AlcsPower/alcs-ui/discussions).
 * **Independencia Arquitectónica:** La biblioteca no contiene lógica de negocio acoplada a proyectos específicos. Diseñada como un sistema de componentes puro, modular y reutilizable en cualquier aplicación web.
 
 ---
@@ -72,9 +83,33 @@ React Components (Radix UI Primitives + Lucide + CVA + Sonner + Recharts)
 
 ## 🚀 Instalación
 
-### 1. Configuración de Acceso a GitHub Packages
+Puedes instalar `@alcspower/ui` directamente desde el registro oficial público de **npm** o mediante **GitHub Packages**.
 
-Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.github.com`), configura el registro en tu proyecto consumidor agregando o actualizando tu archivo `.npmrc`:
+### 1. Instalación Directa desde npm (Recomendado)
+
+El paquete está publicado en el registro público de npm. Puedes verificar la versión disponible ejecutando:
+
+```bash
+npm view @alcspower/ui version
+# Salida esperada: 1.4.0
+```
+
+Instálalo en tu proyecto usando tu gestor de paquetes favorito:
+
+```bash
+# Con pnpm (recomendado):
+pnpm add @alcspower/ui@1.4.0
+
+# Con npm:
+npm install @alcspower/ui@1.4.0
+
+# Con yarn:
+yarn add @alcspower/ui@1.4.0
+```
+
+### 2. Instalación Alternativa desde GitHub Packages
+
+Si tu organización utiliza GitHub Packages (`https://npm.pkg.github.com`), configura el registro en el archivo `.npmrc` de tu proyecto:
 
 ```ini
 @alcspower:registry=https://npm.pkg.github.com
@@ -86,16 +121,6 @@ Dado que `@alcspower/ui` se distribuye en GitHub Packages (`https://npm.pkg.gith
 > * Utiliza la referencia a variable de entorno `${NODE_AUTH_TOKEN}` o `${GITHUB_TOKEN}`.
 > * Asegúrate de que el token cuente con el permiso mínimo `read:packages`.
 > * Nunca subas archivos con credenciales en texto plano al control de versiones (Git).
-
-### 2. Instalación de la Dependencia
- 
-```bash
-# Con pnpm (recomendado):
-pnpm add @alcspower/ui@1.4.0
-
-# O con npm:
-npm install @alcspower/ui@1.4.0
-```
 
 ### 3. Instalación en Entornos Offline / Air-Gapped (Sin Acceso a Internet)
 
@@ -379,5 +404,75 @@ La biblioteca define su sistema visual a partir de **conceptos semánticos** que
 * **Hoja de Ruta (Roadmap):** Consulta [ROADMAP.md](ROADMAP.md) para conocer las características y componentes planificados para el ciclo v1.x.
 * **Autor / Creador:** Alcides Altamirano ([@AlcsPower](https://github.com/AlcsPower))
 * **Repositorio GitHub:** [https://github.com/AlcsPower/alcs-ui](https://github.com/AlcsPower/alcs-ui)
+* **Registro Público npm:** [https://www.npmjs.com/package/@alcspower/ui](https://www.npmjs.com/package/@alcspower/ui) (`npm view @alcspower/ui version`)
 * **Registro GitHub Packages:** [https://npm.pkg.github.com/@alcspower/ui](https://npm.pkg.github.com/@alcspower/ui)
-* **Reporte de Incidencias:** [https://github.com/AlcsPower/alcs-ui/issues](https://github.com/AlcsPower/alcs-ui/issues)
+* **Canal Oficial de Contacto y Dudas:** [GitHub Discussions](https://github.com/AlcsPower/alcs-ui/discussions)
+* **Reporte de Incidencias y Bugs:** [GitHub Issues](https://github.com/AlcsPower/alcs-ui/issues)
+
+---
+
+<div id="english-summary"></div>
+
+## 🇺🇸 English Summary
+
+### About `@alcspower/ui`
+
+`@alcspower/ui` is an accessible, modern, enterprise-ready React component library and design system built with:
+* **React 18 & React 19** support
+* **TypeScript** strict typing
+* **Radix UI** accessible primitives
+* **Tailwind CSS v4** & semantic design tokens
+* **Lucide React**, **Sonner**, **cmdk**, **TanStack Table**, and **Recharts**
+
+### Quick Install
+
+```bash
+# Check published version on npm:
+npm view @alcspower/ui version
+
+# Install via pnpm:
+pnpm add @alcspower/ui@1.4.0
+
+# Or via npm:
+npm install @alcspower/ui@1.4.0
+```
+
+### Basic Usage
+
+```tsx
+import React from 'react';
+import '@alcspower/ui/styles.css';
+import { Button, Card, CardHeader, CardTitle, CardContent, Toaster, toast } from '@alcspower/ui';
+
+export function App() {
+  return (
+    <>
+      <Toaster position="bottom-right" richColors />
+      <Card className="max-w-md mx-auto my-8">
+        <CardHeader>
+          <CardTitle>Welcome</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Button variant="primary" onClick={() => toast.success('Action successful!')}>
+            Click Me
+          </Button>
+        </CardContent>
+      </Card>
+    </>
+  );
+}
+```
+
+### 🎓 Beginner Tutorial & Guide
+
+A complete, 10-module step-by-step tutorial for total beginners is available:
+* 🇺🇸 **English Tutorial:** [`docs/instructivo/en/README.md`](docs/instructivo/en/README.md)
+* 🇪🇸 **Guía en Español:** [`docs/instructivo/es/README.md`](docs/instructivo/es/README.md)
+
+### Contact & Community
+
+All communication, questions, and feedback are handled exclusively via GitHub:
+* 💬 **Discussions & Questions:** [GitHub Discussions](https://github.com/AlcsPower/alcs-ui/discussions)
+* 🐛 **Bug Reports:** [GitHub Issues](https://github.com/AlcsPower/alcs-ui/issues)
+* 🔒 **Security Reports:** [GitHub Security Advisories](https://github.com/AlcsPower/alcs-ui/security/advisories/new)
+

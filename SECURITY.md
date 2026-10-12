@@ -18,7 +18,8 @@
 
 Si descubres una vulnerabilidad de seguridad en `@alcspower/ui`, **no la publiques en issues públicas**.
 
-**Por favor reporta a:** [alcides.altamirano@gmail.com](mailto:alci.altamirano@gmail.com)
+**Por favor reporta a través de GitHub Security Advisories:**
+👉 [Reportar vulnerabilidad de forma privada](https://github.com/AlcsPower/alcs-ui/security/advisories/new)
 
 **Incluye:**
 - Descripción detallada de la vulnerabilidad
@@ -1046,10 +1047,7 @@ echo "✅ Audit passed!"
 ## 📞 Contacto y Soporte
 
 **Para reportar vulnerabilidades:**
-📧 [alcides.altamirano@gmail.com](mailto:alcides.altamirano@gmail.com)
-
-**Para preguntas generales de seguridad:**
-💬 [GitHub Discussions](https://github.com/AlcsPower/alcs-ui/discussions)
+🔒 [GitHub Security Advisories](https://github.com/AlcsPower/alcs-ui/security/advisories/new) *(canal privado y seguro)*
 
 **Para issues públicas:**
 🐛 [GitHub Issues](https://github.com/AlcsPower/alcs-ui/issues)
