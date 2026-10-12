@@ -179,6 +179,33 @@ describe('NumberInput Component', () => {
     expect(screen.getByText('NIO')).toBeInTheDocument();
   });
 
+  it('soporta prop currency configurando automáticamente prefijo, sufijo y precisión', () => {
+    // NIO (Córdoba nicaragüense)
+    const { unmount } = render(
+      <NumberInput defaultValue={500} currency="NIO" aria-label="NIO" />
+    );
+    expect(screen.getByText('C$')).toBeInTheDocument();
+    expect(screen.getByText('NIO')).toBeInTheDocument();
+    unmount();
+
+    // EUR (Euro)
+    render(<NumberInput defaultValue={75} currency="EUR" aria-label="EUR" />);
+    expect(screen.getByText('€')).toBeInTheDocument();
+    expect(screen.getByText('EUR')).toBeInTheDocument();
+
+    // JPY (Yen japonés - precisión 0 enteros)
+    render(<NumberInput defaultValue={1200} currency="JPY" aria-label="JPY" />);
+    expect(screen.getByText('¥')).toBeInTheDocument();
+    expect(screen.getByText('JPY')).toBeInTheDocument();
+    const spin = screen.getByRole('spinbutton', { name: /jpy/i });
+    expect(spin).toHaveValue('1200');
+
+    // showCurrencyCode={false} oculta el sufijo ISO
+    render(<NumberInput defaultValue={100} currency="USD" showCurrencyCode={false} aria-label="USD" />);
+    expect(screen.getByText('$')).toBeInTheDocument();
+    expect(screen.queryByText('USD')).not.toBeInTheDocument();
+  });
+
   it('soporta disposición split (botones separados - / +)', () => {
     render(
       <NumberInput

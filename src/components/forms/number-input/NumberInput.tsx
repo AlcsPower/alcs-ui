@@ -1,8 +1,84 @@
 import * as React from 'react';
-import { ChevronUp, ChevronDown, Plus, Minus } from 'lucide-react';
+import { ArrowUp, ArrowDown, Plus, Minus } from 'lucide-react';
 import { cn } from '../../../lib/utils';
 
 export type NumberInputStepperPosition = 'stacked' | 'split' | 'inline-right' | 'none';
+
+export type SupportedCurrency =
+  // América
+  | 'NIO'
+  | 'USD'
+  | 'CAD'
+  | 'MXN'
+  | 'BRL'
+  | 'COP'
+  | 'CLP'
+  | 'PEN'
+  | 'GTQ'
+  | 'HNL'
+  | 'CRC'
+  // Europa
+  | 'EUR'
+  | 'GBP'
+  | 'CHF'
+  | 'SEK'
+  | 'NOK'
+  | 'DKK'
+  | 'PLN'
+  // Asia y Oceanía
+  | 'JPY'
+  | 'CNY'
+  | 'INR'
+  | 'KRW'
+  | 'AUD'
+  | 'NZD'
+  | 'SGD'
+  | 'HKD'
+  // Medio Oriente y África
+  | 'SAR'
+  | 'AED'
+  | 'ZAR'
+  | (string & {});
+
+export interface CurrencyConfig {
+  symbol: string;
+  code: string;
+  name: string;
+  precision: number;
+}
+
+export const WORLD_CURRENCIES: Record<string, CurrencyConfig> = {
+  // Principales monedas del mundo y regionales
+  NIO: { symbol: 'C$', code: 'NIO', name: 'Córdoba nicaragüense', precision: 2 },
+  USD: { symbol: '$', code: 'USD', name: 'Dólar estadounidense', precision: 2 },
+  EUR: { symbol: '€', code: 'EUR', name: 'Euro', precision: 2 },
+  GBP: { symbol: '£', code: 'GBP', name: 'Libra esterlina', precision: 2 },
+  JPY: { symbol: '¥', code: 'JPY', name: 'Yen japonés', precision: 0 },
+  CHF: { symbol: 'CHF', code: 'CHF', name: 'Franco suizo', precision: 2 },
+  CAD: { symbol: 'CA$', code: 'CAD', name: 'Dólar canadiense', precision: 2 },
+  AUD: { symbol: 'A$', code: 'AUD', name: 'Dólar australiano', precision: 2 },
+  CNY: { symbol: '¥', code: 'CNY', name: 'Yuan chino', precision: 2 },
+  MXN: { symbol: '$', code: 'MXN', name: 'Peso mexicano', precision: 2 },
+  BRL: { symbol: 'R$', code: 'BRL', name: 'Real brasileño', precision: 2 },
+  COP: { symbol: '$', code: 'COP', name: 'Peso colombiano', precision: 0 },
+  CLP: { symbol: '$', code: 'CLP', name: 'Peso chileno', precision: 0 },
+  PEN: { symbol: 'S/', code: 'PEN', name: 'Sol peruano', precision: 2 },
+  GTQ: { symbol: 'Q', code: 'GTQ', name: 'Quetzal guatemalteco', precision: 2 },
+  HNL: { symbol: 'L', code: 'HNL', name: 'Lempira hondureño', precision: 2 },
+  CRC: { symbol: '₡', code: 'CRC', name: 'Colón costarricense', precision: 2 },
+  INR: { symbol: '₹', code: 'INR', name: 'Rupia india', precision: 2 },
+  KRW: { symbol: '₩', code: 'KRW', name: 'Won surcoreano', precision: 0 },
+  NZD: { symbol: 'NZ$', code: 'NZD', name: 'Dólar neozelandés', precision: 2 },
+  SGD: { symbol: 'S$', code: 'SGD', name: 'Dólar de Singapur', precision: 2 },
+  HKD: { symbol: 'HK$', code: 'HKD', name: 'Dólar de Hong Kong', precision: 2 },
+  SEK: { symbol: 'kr', code: 'SEK', name: 'Corona sueca', precision: 2 },
+  NOK: { symbol: 'kr', code: 'NOK', name: 'Corona noruega', precision: 2 },
+  DKK: { symbol: 'kr', code: 'DKK', name: 'Corona danesa', precision: 2 },
+  PLN: { symbol: 'zł', code: 'PLN', name: 'Złoty polaco', precision: 2 },
+  SAR: { symbol: '﷼', code: 'SAR', name: 'Riyal saudí', precision: 2 },
+  AED: { symbol: 'د.إ', code: 'AED', name: 'Dírham emiratí', precision: 2 },
+  ZAR: { symbol: 'R', code: 'ZAR', name: 'Rand sudafricano', precision: 2 },
+};
 
 export interface NumberInputProps
   extends Omit<
@@ -29,11 +105,15 @@ export interface NumberInputProps
   stepperPosition?: NumberInputStepperPosition;
   /** Muestra u oculta los botones stepper (por defecto true) */
   showSteppers?: boolean;
-  /** Prefijo o símbolo visual a la izquierda del número (ej. "C$", "$", "NIO") */
+  /** Moneda del mundo para autoconfigurar prefijo, sufijo y precisión (ej: 'NIO', 'USD', 'EUR', 'GBP', 'JPY') */
+  currency?: SupportedCurrency;
+  /** Muestra u oculta el código ISO en el sufijo al utilizar la prop currency (por defecto true) */
+  showCurrencyCode?: boolean;
+  /** Prefijo o símbolo visual a la izquierda del número (ej. "C$", "$", "N°") */
   prefix?: React.ReactNode;
-  /** Sufijo o unidad visual a la derecha del número (ej. "%", "kg", "unidades") */
+  /** Sufijo o unidad visual a la derecha del número (ej. "%", "NIO", "ejemplares") */
   suffix?: React.ReactNode;
-  /** Escala dimensional del control */
+  /** Escala dimensional del control ('sm' | 'md' | 'lg') */
   size?: 'sm' | 'md' | 'lg';
   /** Estado de error de validación */
   hasError?: boolean;
@@ -96,8 +176,8 @@ function useLongPressStep(onStep: () => void, disabled?: boolean) {
       timeoutRef.current = setTimeout(() => {
         intervalRef.current = setInterval(() => {
           onStep();
-        }, 60);
-      }, 350);
+        }, 100);
+      }, 500);
     },
     [disabled, onStep, stop]
   );
@@ -128,6 +208,8 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       precision: explicitPrecision,
       stepperPosition = 'stacked',
       showSteppers = true,
+      currency,
+      showCurrencyCode = true,
       prefix,
       suffix,
       size = 'md',
@@ -155,16 +237,37 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
     const [internalValue, setInternalValue] = React.useState<number | null>(defaultValue);
     const currentValue = isControlled ? controlledValue : internalValue;
 
-    // Calcular precisión efectiva (si no se especifica, se deduce del step)
+    // Resolución de moneda mundial (WORLD_CURRENCIES)
+    const currencyUpper = currency ? String(currency).toUpperCase() : undefined;
+    const currencyConfig = currencyUpper ? WORLD_CURRENCIES[currencyUpper] : undefined;
+
+    // Prefijo y sufijo efectivos considerando moneda si no se proporcionan explícitos
+    const effectivePrefix =
+      prefix !== undefined
+        ? prefix
+        : currencyConfig
+        ? currencyConfig.symbol
+        : undefined;
+
+    const effectiveSuffix =
+      suffix !== undefined
+        ? suffix
+        : currencyConfig && showCurrencyCode
+        ? currencyConfig.code
+        : undefined;
+
+    // Calcular precisión efectiva (si no se especifica, usa la de la moneda o la del step)
     const effectivePrecision = React.useMemo(() => {
       if (explicitPrecision !== undefined) return explicitPrecision;
+      if (currencyConfig) return currencyConfig.precision;
       return countDecimals(step);
-    }, [explicitPrecision, step]);
+    }, [explicitPrecision, currencyConfig, step]);
 
     // Permite negativos si no está bloqueado explícitamente y min no es >= 0
-    const allowNegative = explicitAllowNegative !== undefined
-      ? explicitAllowNegative
-      : (min === undefined || min < 0);
+    const allowNegative =
+      explicitAllowNegative !== undefined
+        ? explicitAllowNegative
+        : min === undefined || min < 0;
 
     // Texto visual que se muestra en el input mientras se escribe
     const formatValueToString = React.useCallback(
@@ -221,8 +324,10 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       [disabled, readOnly, currentValue, min, step, updateValue]
     );
 
-    const canIncrement = !disabled && !readOnly && (max === undefined || (currentValue !== null && currentValue < max));
-    const canDecrement = !disabled && !readOnly && (min === undefined || (currentValue !== null && currentValue > min));
+    const canIncrement =
+      !disabled && !readOnly && (max === undefined || (currentValue !== null && currentValue < max));
+    const canDecrement =
+      !disabled && !readOnly && (min === undefined || (currentValue !== null && currentValue > min));
 
     const incrementLongPress = useLongPressStep(() => handleStep(1), !canIncrement);
     const decrementLongPress = useLongPressStep(() => handleStep(-1), !canDecrement);
@@ -247,7 +352,6 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         return;
       }
 
-      // Limpieza estándar: permitir dígitos, un signo menos (si allowNegative) y un punto decimal
       let sanitized = raw;
       if (!allowNegative) {
         sanitized = sanitized.replace(/-/g, '');
@@ -268,7 +372,6 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         if (parsed !== null && !isNaN(parsed)) {
           updateValue(parsed);
         } else {
-          // Revertir al último valor numérico válido
           setInputValue(formatValueToString(currentValue));
         }
       }
@@ -311,278 +414,292 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
       onKeyDown?.(e);
     };
 
-    // Estilos dimensionales
-    const SIZE_STYLES = {
+    // Dimensiones y escalas proporcionales del sistema
+    const SIZES = {
       sm: {
-        container: 'h-8 text-xs rounded-lg',
-        input: 'h-8 text-xs',
-        btnStacked: 'h-3.5 w-6',
-        btnSplit: 'h-8 w-8',
-        btnInline: 'h-6 w-6 text-xs',
-        icon: 12,
+        wrapper: 'h-8 text-xs rounded-lg',
+        input: 'h-8 text-[13px] px-2.5',
+        prefix: 'text-xs px-2.5',
+        suffix: 'text-xs px-2.5',
+        btnStackedWidth: 'w-8',
+        btnSplitWidth: 'w-9',
+        btnInlineWidth: 'w-8',
+        iconSize: 13,
       },
       md: {
-        container: 'h-10 text-sm rounded-xl',
-        input: 'h-10 text-sm',
-        btnStacked: 'h-4.5 w-7',
-        btnSplit: 'h-10 w-10',
-        btnInline: 'h-7 w-7 text-sm',
-        icon: 14,
+        wrapper: 'h-10 text-sm rounded-[10px]',
+        input: 'h-10 text-sm px-3.5',
+        prefix: 'text-xs px-3',
+        suffix: 'text-xs px-3',
+        btnStackedWidth: 'w-10',
+        btnSplitWidth: 'w-11',
+        btnInlineWidth: 'w-9',
+        iconSize: 15,
       },
       lg: {
-        container: 'h-12 text-base rounded-xl',
-        input: 'h-12 text-base',
-        btnStacked: 'h-5.5 w-8',
-        btnSplit: 'h-12 w-12',
-        btnInline: 'h-8 w-8 text-base',
-        icon: 16,
+        wrapper: 'h-12 text-base rounded-xl',
+        input: 'h-12 text-[15px] px-4',
+        prefix: 'text-sm px-3.5',
+        suffix: 'text-sm px-3.5',
+        btnStackedWidth: 'w-12',
+        btnSplitWidth: 'w-13',
+        btnInlineWidth: 'w-10',
+        iconSize: 17,
       },
     };
 
-    const currentSize = SIZE_STYLES[size];
+    const sizeConfig = SIZES[size];
     const effectiveStepper = showSteppers ? stepperPosition : 'none';
 
-    // RENDERIZADO MODO SPLIT: Botón [-] a la izquierda, Input al centro, Botón [+] a la derecha
+    // Clases del contenedor principal
+    const wrapperBaseClasses = cn(
+      'number-input-wrapper relative inline-flex items-center w-full transition-all duration-200 overflow-hidden',
+      'border-[1.5px] bg-white dark:bg-slate-900 shadow-2xs',
+      hasError
+        ? 'border-red-500 bg-red-50/50 dark:bg-red-950/20 focus-within:ring-3 focus-within:ring-red-500/15 focus-within:shadow-md'
+        : hasSuccess
+        ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20 focus-within:ring-3 focus-within:ring-emerald-500/15 focus-within:shadow-md'
+        : cn(
+            'border-gray-200 dark:border-slate-700',
+            'hover:border-gray-300 dark:hover:border-slate-600 hover:shadow-xs',
+            'focus-within:border-[#6366f1] dark:focus-within:border-indigo-500 focus-within:ring-3 focus-within:ring-[#6366f1]/15 focus-within:shadow-xs'
+          ),
+      disabled && 'bg-gray-100 dark:bg-slate-800/60 opacity-60 cursor-not-allowed border-gray-200 dark:border-slate-700',
+      sizeConfig.wrapper,
+      containerClassName
+    );
+
+    // Componente Input común
+    const inputElement = (
+      <input
+        ref={forwardedRef}
+        id={id}
+        name={name}
+        role="spinbutton"
+        type="text"
+        inputMode="decimal"
+        disabled={disabled}
+        readOnly={readOnly}
+        placeholder={placeholder}
+        value={inputValue}
+        onChange={handleInputChange}
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
+        onKeyDown={handleInputKeyDown}
+        aria-valuenow={currentValue ?? undefined}
+        aria-valuemin={min}
+        aria-valuemax={max}
+        aria-invalid={hasError ? 'true' : undefined}
+        className={cn(
+          'number-input flex-1 min-w-0 bg-transparent font-medium text-gray-800 dark:text-gray-100 outline-none select-text tabular-nums border-0 focus:outline-none focus:ring-0 shadow-none placeholder:text-gray-400 dark:placeholder:text-gray-500',
+          effectiveStepper === 'split' ? 'text-center' : 'text-left',
+          sizeConfig.input,
+          className
+        )}
+        {...props}
+      />
+    );
+
+    // =========================================================================
+    // 1. DISPOSICIÓN SPLIT: [-] a la izquierda, Input al centro, [+] a la derecha
+    // =========================================================================
     if (effectiveStepper === 'split') {
       return (
-        <div
-          className={cn(
-            'inline-flex items-center gap-1.5 w-full',
-            containerClassName
-          )}
-        >
-          {/* Botón Decrementar */}
+        <div className={cn(wrapperBaseClasses, 'split')}>
+          {/* Botón Decrementar (-) */}
           <button
             type="button"
             tabIndex={-1}
             disabled={!canDecrement}
             aria-label="Decrementar valor"
             className={cn(
-              'shrink-0 flex items-center justify-center rounded-xl border-[1.5px] border-alcspower-border bg-white dark:bg-slate-900',
-              'text-alcspower-foreground transition-all duration-150 select-none shadow-2xs',
-              'hover:bg-alcspower-surface-muted hover:border-alcspower-border-subtle active:scale-95',
-              'focus:outline-none focus:ring-2 focus:ring-alcspower-primary/20',
-              'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-900 disabled:active:scale-100',
-              currentSize.btnSplit
+              'stepper-btn self-stretch flex items-center justify-center border-0 border-r border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300',
+              'transition-all select-none shrink-0 cursor-pointer',
+              'hover:bg-indigo-50/70 dark:hover:bg-indigo-950/40 hover:text-[#4f46e5] dark:hover:text-indigo-400',
+              'active:scale-95',
+              'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit disabled:active:scale-100',
+              sizeConfig.btnSplitWidth
             )}
             {...decrementLongPress}
           >
-            <Minus size={currentSize.icon} strokeWidth={2.5} />
+            <div className="stepper-icon-wrapper">
+              <Minus size={sizeConfig.iconSize} strokeWidth={2.5} />
+            </div>
           </button>
 
-          {/* Campo de Entrada Central */}
-          <div
-            className={cn(
-              'relative flex-1 flex items-center border-[1.5px] bg-alcspower-surface transition-all duration-150 shadow-2xs',
-              hasError
-                ? 'border-alcspower-destructive bg-alcspower-destructive/5 ring-3 ring-alcspower-destructive/15'
-                : hasSuccess
-                ? 'border-alcspower-success bg-alcspower-success/5 ring-3 ring-alcspower-success/15'
-                : isFocused
-                ? 'border-alcspower-primary ring-3 ring-alcspower-primary/15'
-                : 'border-alcspower-border hover:border-alcspower-border-subtle',
-              disabled && 'bg-alcspower-surface-muted opacity-60 cursor-not-allowed',
-              currentSize.container
-            )}
-          >
-            {prefix && (
-              <span className="pl-3 pr-1 text-alcspower-muted-foreground select-none font-medium shrink-0">
-                {prefix}
-              </span>
-            )}
-            <input
-              ref={forwardedRef}
-              id={id}
-              name={name}
-              role="spinbutton"
-              type="text"
-              inputMode="decimal"
-              disabled={disabled}
-              readOnly={readOnly}
-              placeholder={placeholder}
-              value={inputValue}
-              onChange={handleInputChange}
-              onFocus={handleInputFocus}
-              onBlur={handleInputBlur}
-              onKeyDown={handleInputKeyDown}
-              aria-valuenow={currentValue ?? undefined}
-              aria-valuemin={min}
-              aria-valuemax={max}
-              aria-invalid={hasError ? 'true' : undefined}
+          {/* Prefijo opcional en Split */}
+          {effectivePrefix && (
+            <div
               className={cn(
-                'w-full bg-transparent font-medium text-alcspower-foreground text-center outline-none select-none tabular-nums px-2 border-0 focus:outline-none focus:ring-0 shadow-none',
-                currentSize.input,
-                className
+                'flex items-center font-semibold text-gray-500 dark:text-gray-400 select-none shrink-0 pl-2',
+                sizeConfig.prefix
               )}
-              {...props}
-            />
-            {suffix && (
-              <span className="pr-3 pl-1 text-alcspower-muted-foreground select-none font-medium shrink-0">
-                {suffix}
-              </span>
-            )}
-          </div>
+            >
+              {effectivePrefix}
+            </div>
+          )}
 
-          {/* Botón Incrementar */}
+          {/* Campo Central */}
+          {inputElement}
+
+          {/* Sufijo opcional en Split */}
+          {effectiveSuffix && (
+            <div
+              className={cn(
+                'flex items-center font-semibold text-gray-500 dark:text-gray-400 select-none shrink-0 pr-2',
+                sizeConfig.suffix
+              )}
+            >
+              {effectiveSuffix}
+            </div>
+          )}
+
+          {/* Botón Incrementar (+) */}
           <button
             type="button"
             tabIndex={-1}
             disabled={!canIncrement}
             aria-label="Incrementar valor"
             className={cn(
-              'shrink-0 flex items-center justify-center rounded-xl border-[1.5px] border-alcspower-border bg-white dark:bg-slate-900',
-              'text-alcspower-foreground transition-all duration-150 select-none shadow-2xs',
-              'hover:bg-alcspower-surface-muted hover:border-alcspower-border-subtle active:scale-95',
-              'focus:outline-none focus:ring-2 focus:ring-alcspower-primary/20',
-              'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-900 disabled:active:scale-100',
-              currentSize.btnSplit
+              'stepper-btn self-stretch flex items-center justify-center border-0 border-l border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300',
+              'transition-all select-none shrink-0 cursor-pointer',
+              'hover:bg-indigo-50/70 dark:hover:bg-indigo-950/40 hover:text-[#4f46e5] dark:hover:text-indigo-400',
+              'active:scale-95',
+              'disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit disabled:active:scale-100',
+              sizeConfig.btnSplitWidth
             )}
             {...incrementLongPress}
           >
-            <Plus size={currentSize.icon} strokeWidth={2.5} />
+            <div className="stepper-icon-wrapper">
+              <Plus size={sizeConfig.iconSize} strokeWidth={2.5} />
+            </div>
           </button>
         </div>
       );
     }
 
-    // RENDERIZADO ESTÁNDAR: Contenedor con input y steppers (stacked, inline-right o none)
+    // =========================================================================
+    // 2. DISPOSICIONES STACKED, INLINE-RIGHT Y NONE
+    // =========================================================================
     return (
-      <div
-        className={cn(
-          'relative flex items-center w-full border-[1.5px] bg-alcspower-surface transition-all duration-150 shadow-2xs',
-          hasError
-            ? 'border-alcspower-destructive bg-alcspower-destructive/5 ring-3 ring-alcspower-destructive/15'
-            : hasSuccess
-            ? 'border-alcspower-success bg-alcspower-success/5 ring-3 ring-alcspower-success/15'
-            : isFocused
-            ? 'border-alcspower-primary ring-3 ring-alcspower-primary/15'
-            : 'border-alcspower-border hover:border-alcspower-border-subtle',
-          disabled && 'bg-alcspower-surface-muted opacity-60 cursor-not-allowed',
-          currentSize.container,
-          containerClassName
-        )}
-      >
-        {/* Prefijo */}
-        {prefix && (
-          <span className="pl-3 pr-1 text-alcspower-muted-foreground select-none font-medium shrink-0">
-            {prefix}
-          </span>
+      <div className={cn(wrapperBaseClasses, effectiveStepper)}>
+        {/* Prefijo integrado como pastilla segmentada */}
+        {effectivePrefix && (
+          <div
+            className={cn(
+              'stacked-prefix flex items-center font-semibold text-gray-500 dark:text-gray-400 bg-gray-50/80 dark:bg-slate-800/60 border-r border-gray-200 dark:border-slate-700 select-none shrink-0 self-stretch',
+              sizeConfig.prefix
+            )}
+          >
+            {effectivePrefix}
+          </div>
         )}
 
         {/* Input Numérico */}
-        <input
-          ref={forwardedRef}
-          id={id}
-          name={name}
-          role="spinbutton"
-          type="text"
-          inputMode="decimal"
-          disabled={disabled}
-          readOnly={readOnly}
-          placeholder={placeholder}
-          value={inputValue}
-          onChange={handleInputChange}
-          onFocus={handleInputFocus}
-          onBlur={handleInputBlur}
-          onKeyDown={handleInputKeyDown}
-          aria-valuenow={currentValue ?? undefined}
-          aria-valuemin={min}
-          aria-valuemax={max}
-          aria-invalid={hasError ? 'true' : undefined}
-          className={cn(
-            'flex-1 min-w-0 bg-transparent font-medium text-alcspower-foreground outline-none select-none tabular-nums px-3 border-0 focus:outline-none focus:ring-0 shadow-none',
-            !suffix && effectiveStepper === 'stacked' && 'pr-8',
-            !suffix && effectiveStepper === 'inline-right' && 'pr-16',
-            currentSize.input,
-            className
-          )}
-          {...props}
-        />
+        {inputElement}
 
-        {/* Sufijo */}
-        {suffix && (
-          <span
+        {/* Sufijo integrado como pastilla segmentada */}
+        {effectiveSuffix && (
+          <div
             className={cn(
-              'text-alcspower-muted-foreground select-none font-medium shrink-0 pl-1',
-              effectiveStepper === 'stacked' && 'mr-8',
-              effectiveStepper === 'inline-right' && 'mr-16',
-              effectiveStepper === 'none' && 'pr-3'
+              'stacked-suffix flex items-center font-semibold text-gray-500 dark:text-gray-400 bg-gray-50/80 dark:bg-slate-800/60 border-l border-gray-200 dark:border-slate-700 select-none shrink-0 self-stretch',
+              sizeConfig.suffix
             )}
           >
-            {suffix}
-          </span>
+            {effectiveSuffix}
+          </div>
         )}
 
-        {/* STEPPERS APILADOS (STACKED) */}
+        {/* STEPPERS APILADOS (STACKED: ↑ arriba / ↓ abajo) */}
         {effectiveStepper === 'stacked' && (
-          <div className="absolute right-1 top-0 bottom-0 flex flex-col justify-center items-center gap-0.5 border-l border-alcspower-border/60 pl-1">
+          <div className="stepper-group flex flex-col border-l border-gray-200 dark:border-slate-700 shrink-0 self-stretch">
+            {/* Arriba: Incrementar */}
             <button
               type="button"
               tabIndex={-1}
               disabled={!canIncrement}
               aria-label="Incrementar valor"
               className={cn(
-                'flex items-center justify-center rounded-md text-alcspower-muted-foreground transition-colors select-none',
-                'hover:bg-alcspower-surface-muted hover:text-alcspower-foreground active:scale-90',
-                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:active:scale-100',
-                currentSize.btnStacked
+                'stepper-btn relative flex-1 flex items-center justify-center border-0 border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300',
+                'transition-all select-none cursor-pointer',
+                'hover:bg-indigo-50/70 dark:hover:bg-indigo-950/40 hover:text-[#4f46e5] dark:hover:text-indigo-400',
+                'active:scale-95',
+                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit disabled:active:scale-100',
+                sizeConfig.btnStackedWidth
               )}
               {...incrementLongPress}
             >
-              <ChevronUp size={currentSize.icon} strokeWidth={2.5} />
+              <div className="stepper-icon-wrapper">
+                <ArrowUp size={sizeConfig.iconSize} strokeWidth={2.2} />
+              </div>
             </button>
+
+            {/* Abajo: Decrementar */}
             <button
               type="button"
               tabIndex={-1}
               disabled={!canDecrement}
               aria-label="Decrementar valor"
               className={cn(
-                'flex items-center justify-center rounded-md text-alcspower-muted-foreground transition-colors select-none',
-                'hover:bg-alcspower-surface-muted hover:text-alcspower-foreground active:scale-90',
-                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:active:scale-100',
-                currentSize.btnStacked
+                'stepper-btn relative flex-1 flex items-center justify-center border-0 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300',
+                'transition-all select-none cursor-pointer',
+                'hover:bg-indigo-50/70 dark:hover:bg-indigo-950/40 hover:text-[#4f46e5] dark:hover:text-indigo-400',
+                'active:scale-95',
+                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit disabled:active:scale-100',
+                sizeConfig.btnStackedWidth
               )}
               {...decrementLongPress}
             >
-              <ChevronDown size={currentSize.icon} strokeWidth={2.5} />
+              <div className="stepper-icon-wrapper">
+                <ArrowDown size={sizeConfig.iconSize} strokeWidth={2.2} />
+              </div>
             </button>
           </div>
         )}
 
-        {/* STEPPERS EN LÍNEA A LA DERECHA (INLINE-RIGHT) */}
+        {/* STEPPERS EN LÍNEA DERECHA (INLINE-RIGHT: - arriba / + abajo) */}
         {effectiveStepper === 'inline-right' && (
-          <div className="absolute right-1.5 flex items-center gap-1">
+          <div className="stepper-group flex flex-col border-l border-gray-200 dark:border-slate-700 shrink-0 self-stretch">
+            {/* Decrementar (-) */}
             <button
               type="button"
               tabIndex={-1}
               disabled={!canDecrement}
               aria-label="Decrementar valor"
               className={cn(
-                'flex items-center justify-center rounded-lg border border-alcspower-border bg-white dark:bg-slate-900',
-                'text-alcspower-muted-foreground transition-all duration-150 select-none shadow-2xs',
-                'hover:bg-alcspower-surface-muted hover:text-alcspower-foreground active:scale-95',
-                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-900 disabled:active:scale-100',
-                currentSize.btnInline
+                'stepper-btn relative flex-1 flex items-center justify-center border-0 border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300',
+                'transition-all select-none cursor-pointer',
+                'hover:bg-indigo-50/70 dark:hover:bg-indigo-950/40 hover:text-[#4f46e5] dark:hover:text-indigo-400',
+                'active:scale-95',
+                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit disabled:active:scale-100',
+                sizeConfig.btnInlineWidth
               )}
               {...decrementLongPress}
             >
-              <Minus size={currentSize.icon} strokeWidth={2.5} />
+              <div className="stepper-icon-wrapper">
+                <Minus size={sizeConfig.iconSize} strokeWidth={2.5} />
+              </div>
             </button>
+
+            {/* Incrementar (+) */}
             <button
               type="button"
               tabIndex={-1}
               disabled={!canIncrement}
               aria-label="Incrementar valor"
               className={cn(
-                'flex items-center justify-center rounded-lg border border-alcspower-border bg-white dark:bg-slate-900',
-                'text-alcspower-muted-foreground transition-all duration-150 select-none shadow-2xs',
-                'hover:bg-alcspower-surface-muted hover:text-alcspower-foreground active:scale-95',
-                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white dark:disabled:hover:bg-slate-900 disabled:active:scale-100',
-                currentSize.btnInline
+                'stepper-btn relative flex-1 flex items-center justify-center border-0 bg-white dark:bg-slate-900 text-gray-700 dark:text-gray-300',
+                'transition-all select-none cursor-pointer',
+                'hover:bg-indigo-50/70 dark:hover:bg-indigo-950/40 hover:text-[#4f46e5] dark:hover:text-indigo-400',
+                'active:scale-95',
+                'disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-inherit disabled:active:scale-100',
+                sizeConfig.btnInlineWidth
               )}
               {...incrementLongPress}
             >
-              <Plus size={currentSize.icon} strokeWidth={2.5} />
+              <div className="stepper-icon-wrapper">
+                <Plus size={sizeConfig.iconSize} strokeWidth={2.5} />
+              </div>
             </button>
           </div>
         )}
