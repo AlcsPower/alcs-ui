@@ -12,3 +12,6 @@ export * from './switch';
 export * from './select';
 export * from './combobox';
 export * from './file-upload';
+export * from './search-input';
+export * from './password-input';
+export * from './otp-input';

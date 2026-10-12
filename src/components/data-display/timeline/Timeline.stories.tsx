@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import * as React from 'react';
 import {
   Timeline,
   TimelineItem,
@@ -20,7 +19,6 @@ import {
   FileText,
   User,
   ShieldCheck,
-  Send,
   Download,
 } from 'lucide-react';
 import { Badge } from '../badge';

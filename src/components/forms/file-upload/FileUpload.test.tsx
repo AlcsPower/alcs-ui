@@ -81,12 +81,12 @@ describe('FileUpload Component', () => {
     // Validación falla por tamaño
     const sizeErrors = validateFile(hugeFile, 'image/*', 0, 2 * 1024 * 1024);
     expect(sizeErrors).toHaveLength(1);
-    expect(sizeErrors[0].code).toBe('file-too-large');
+    expect(sizeErrors[0]!.code).toBe('file-too-large');
 
     // Validación falla por tipo
     const typeErrors = validateFile(invalidTypeFile, '.png,.jpg,image/*');
     expect(typeErrors).toHaveLength(1);
-    expect(typeErrors[0].code).toBe('file-invalid-type');
+    expect(typeErrors[0]!.code).toBe('file-invalid-type');
   });
 
   it('renderiza la lista de archivos con sus estados y acción de eliminar', () => {

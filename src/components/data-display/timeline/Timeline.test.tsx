@@ -85,7 +85,7 @@ describe('Timeline Component', () => {
   });
 
   it('aplica correctamente las variantes de forma circle y squircle', () => {
-    const { container } = render(
+    render(
       <Timeline shape="squircle">
         <TimelineItem>
           <TimelineSeparator>
