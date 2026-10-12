@@ -706,6 +706,7 @@ export const FileUploadItem = React.forwardRef<HTMLLIElement, FileUploadItemProp
     ref
   ) => {
     const isImage = file.type.startsWith('image/');
+    const fileKey = `${file.name}-${file.size}-${file.lastModified}`;
     const [localPreview, setLocalPreview] = React.useState<string | undefined>(previewUrl);
     const [hasImgError, setHasImgError] = React.useState(false);
 
@@ -716,14 +717,18 @@ export const FileUploadItem = React.forwardRef<HTMLLIElement, FileUploadItemProp
         return undefined;
       }
       if (isImage) {
-        const url = URL.createObjectURL(file);
-        setLocalPreview(url);
-        return () => {
-          URL.revokeObjectURL(url);
-        };
+        try {
+          const url = URL.createObjectURL(file);
+          setLocalPreview(url);
+          return () => {
+            URL.revokeObjectURL(url);
+          };
+        } catch {
+          setHasImgError(true);
+        }
       }
       return undefined;
-    }, [file, isImage, previewUrl]);
+    }, [fileKey, isImage, previewUrl]);
 
     return (
       <li
