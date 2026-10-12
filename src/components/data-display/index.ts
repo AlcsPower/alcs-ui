@@ -8,3 +8,4 @@ export * from './pagination';
 export * from './separator';
 export * from './chart';
 export * from './metrics';
+export * from './timeline';

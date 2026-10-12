@@ -78,7 +78,7 @@ v1.3.0 (Actual)
 * [x] **`Stepper` / `Wizard` (Asistente por Pasos):**
   * Control secuencial accesible para trámites y formularios multi-etapa.
   * Modos horizontal y vertical, iconos por etapa, estados (completado, activo, error, pendiente) y soporte para validación por paso.
-* [ ] **`Timeline` / `ActivityLog` (Línea de Tiempo):**
+* [x] **`Timeline` / `ActivityLog` (Línea de Tiempo):**
   * Visualización cronológica de eventos, trazabilidad de expedientes y registros de auditoría técnica.
   * Soporte para avatares, estados de color con `StatusBadge`, marcas de tiempo y contenido colapsable.
 * [ ] **`FileUpload` / `Dropzone` (Carga de Documentos):**

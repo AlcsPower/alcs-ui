@@ -99,52 +99,52 @@ export const separatorVariants = cva('shrink-0 transition-all select-none', {
     {
       color: 'primary',
       orientation: 'horizontal',
-      className: 'h-[2px] bg-alcspower-primary dark:bg-blue-500 border-alcspower-primary dark:border-blue-500'
+      className: 'h-[2px] bg-alcspower-primary text-alcspower-primary dark:bg-blue-500 dark:text-blue-500 border-alcspower-primary dark:border-blue-500'
     },
     {
       color: 'primary',
       orientation: 'vertical',
-      className: 'w-[2px] bg-alcspower-primary dark:bg-blue-500 border-alcspower-primary dark:border-blue-500'
+      className: 'w-[2px] bg-alcspower-primary text-alcspower-primary dark:bg-blue-500 dark:text-blue-500 border-alcspower-primary dark:border-blue-500'
     },
     {
       color: 'success',
       orientation: 'horizontal',
-      className: 'h-[2px] bg-emerald-500 dark:bg-emerald-400 border-emerald-500 dark:border-emerald-400'
+      className: 'h-[2px] bg-emerald-500 text-emerald-500 dark:bg-emerald-400 dark:text-emerald-400 border-emerald-500 dark:border-emerald-400'
     },
     {
       color: 'success',
       orientation: 'vertical',
-      className: 'w-[2px] bg-emerald-500 dark:bg-emerald-400 border-emerald-500 dark:border-emerald-400'
+      className: 'w-[2px] bg-emerald-500 text-emerald-500 dark:bg-emerald-400 dark:text-emerald-400 border-emerald-500 dark:border-emerald-400'
     },
     {
       color: 'warning',
       orientation: 'horizontal',
-      className: 'h-[2px] bg-amber-500 dark:bg-amber-400 border-amber-500 dark:border-amber-400'
+      className: 'h-[2px] bg-amber-500 text-amber-500 dark:bg-amber-400 dark:text-amber-400 border-amber-500 dark:border-amber-400'
     },
     {
       color: 'warning',
       orientation: 'vertical',
-      className: 'w-[2px] bg-amber-500 dark:bg-amber-400 border-amber-500 dark:border-amber-400'
+      className: 'w-[2px] bg-amber-500 text-amber-500 dark:bg-amber-400 dark:text-amber-400 border-amber-500 dark:border-amber-400'
     },
     {
       color: 'error',
       orientation: 'horizontal',
-      className: 'h-[2px] bg-red-500 dark:bg-red-400 border-red-500 dark:border-red-400'
+      className: 'h-[2px] bg-red-500 text-red-500 dark:bg-red-400 dark:text-red-400 border-red-500 dark:border-red-400'
     },
     {
       color: 'error',
       orientation: 'vertical',
-      className: 'w-[2px] bg-red-500 dark:bg-red-400 border-red-500 dark:border-red-400'
+      className: 'w-[2px] bg-red-500 text-red-500 dark:bg-red-400 dark:text-red-400 border-red-500 dark:border-red-400'
     },
     {
       color: 'destructive',
       orientation: 'horizontal',
-      className: 'h-[2px] bg-red-500 dark:bg-red-400 border-red-500 dark:border-red-400'
+      className: 'h-[2px] bg-red-500 text-red-500 dark:bg-red-400 dark:text-red-400 border-red-500 dark:border-red-400'
     },
     {
       color: 'destructive',
       orientation: 'vertical',
-      className: 'w-[2px] bg-red-500 dark:bg-red-400 border-red-500 dark:border-red-400'
+      className: 'w-[2px] bg-red-500 text-red-500 dark:bg-red-400 dark:text-red-400 border-red-500 dark:border-red-400'
     },
 
     // INSET

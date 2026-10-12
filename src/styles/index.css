@@ -117,21 +117,78 @@
     margin: 0;
     background-color: transparent;
   }
-
-  /* Patrones nítidos para separadores dashed y dotted */
-  .separator-dashed-horizontal {
-    background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 6px, transparent 6px, transparent 12px);
-  }
-  .separator-dotted-horizontal {
-    background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 2px, transparent 2px, transparent 6px);
-  }
-  .separator-dashed-vertical {
-    background-image: repeating-linear-gradient(to bottom, currentColor 0, currentColor 6px, transparent 6px, transparent 12px);
-  }
-  .separator-dotted-vertical {
-    background-image: repeating-linear-gradient(to bottom, currentColor 0, currentColor 2px, transparent 2px, transparent 6px);
-  }
 }
+
+/* Patrones nítidos para separadores y conectores dashed y dotted (sin zigzag ni artefactos subpixel) */
+.separator-dashed-horizontal,
+.line-dashed-horizontal {
+  background-color: transparent !important;
+  background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 5px, transparent 5px, transparent 10px) !important;
+}
+.separator-dotted-horizontal,
+.line-dotted-horizontal {
+  background-color: transparent !important;
+  background-image: repeating-linear-gradient(to right, currentColor 0, currentColor 2.5px, transparent 2.5px, transparent 6px) !important;
+}
+.separator-dashed-vertical,
+.line-dashed-vertical {
+  background-color: transparent !important;
+  background-image: repeating-linear-gradient(to bottom, currentColor 0, currentColor 5px, transparent 5px, transparent 10px) !important;
+}
+.separator-dotted-vertical,
+.line-dotted-vertical {
+  background-color: transparent !important;
+  background-image: repeating-linear-gradient(to bottom, currentColor 0, currentColor 2.5px, transparent 2.5px, transparent 6px) !important;
+}
+
+/* Conectores semánticos controlados para Timeline y Asistentes (vía --connector-color) */
+.connector--dashed {
+  width: 2px !important;
+  background-color: transparent !important;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--connector-color, var(--alcspower-border, #cbd5e1)) 0 5px,
+    transparent 5px 9px
+  ) !important;
+}
+
+.connector--dotted {
+  width: 3px !important;
+  background-color: transparent !important;
+  background-image: radial-gradient(
+    circle,
+    var(--connector-color, var(--alcspower-border, #cbd5e1)) 1.25px,
+    transparent 1.4px
+  ) !important;
+  background-size: 3px 6px !important;
+  background-position: center top !important;
+  background-repeat: repeat-y !important;
+}
+
+.connector--dashed-horizontal {
+  height: 2px !important;
+  background-color: transparent !important;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--connector-color, var(--alcspower-border, #cbd5e1)) 0 5px,
+    transparent 5px 9px
+  ) !important;
+}
+
+.connector--dotted-horizontal {
+  height: 3px !important;
+  background-color: transparent !important;
+  background-image: radial-gradient(
+    circle,
+    var(--connector-color, var(--alcspower-border, #cbd5e1)) 1.25px,
+    transparent 1.4px
+  ) !important;
+  background-size: 6px 3px !important;
+  background-position: left center !important;
+  background-repeat: repeat-x !important;
+}
+
+
 
 /* Sonner Toast Redesign */
 [data-sonner-toaster] {
