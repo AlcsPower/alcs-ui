@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "1.6.0",
+  "version": "1.6.2",
   "description": "Biblioteca de componentes React accesibles y reutilizables basada en Radix UI y Tailwind CSS",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",
@@ -29,7 +29,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "alcspower-ui": "./bin/cli.js"
+    "alcspower-ui": "bin/cli.js"
   },
   "exports": {
     ".": {
@@ -52,7 +52,10 @@
     "dist",
     "bin",
     "snippets",
-    "skill",
+    ".cursor",
+    ".github",
+    ".agent",
+    "CLAUDE.md",
     "registry.json",
     "llms.txt",
     "llms-small.txt",

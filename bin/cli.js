@@ -73,29 +73,41 @@ function runInitAgent() {
   );
 
   // 2. Cursor Rules
+  const cursorSource = fs.existsSync(path.join(packageRoot, 'skill', 'alcspower-ui.mdc'))
+    ? path.join(packageRoot, 'skill', 'alcspower-ui.mdc')
+    : path.join(packageRoot, '.cursor', 'rules', 'alcspower-ui.mdc');
   copyFileSafe(
-    path.join(packageRoot, 'skill', 'alcspower-ui.mdc'),
+    cursorSource,
     path.join(targetRoot, '.cursor', 'rules', 'alcspower-ui.mdc'),
     'Cursor Rules'
   );
 
   // 3. Claude Code
+  const claudeSource = fs.existsSync(path.join(packageRoot, 'skill', 'CLAUDE.md'))
+    ? path.join(packageRoot, 'skill', 'CLAUDE.md')
+    : path.join(packageRoot, 'CLAUDE.md');
   copyFileSafe(
-    path.join(packageRoot, 'skill', 'CLAUDE.md'),
+    claudeSource,
     path.join(targetRoot, 'CLAUDE.md'),
     'Claude Code Instructions'
   );
 
   // 4. GitHub Copilot
+  const copilotSource = fs.existsSync(path.join(packageRoot, 'skill', 'copilot-instructions.md'))
+    ? path.join(packageRoot, 'skill', 'copilot-instructions.md')
+    : path.join(packageRoot, '.github', 'copilot-instructions.md');
   copyFileSafe(
-    path.join(packageRoot, 'skill', 'copilot-instructions.md'),
+    copilotSource,
     path.join(targetRoot, '.github', 'copilot-instructions.md'),
     'GitHub Copilot Instructions'
   );
 
   // 5. Agent Skill (Antigravity)
+  const agentSource = fs.existsSync(path.join(packageRoot, 'skill', 'AGENT.md'))
+    ? path.join(packageRoot, 'skill', 'AGENT.md')
+    : path.join(packageRoot, '.agent', 'skills', 'alcspower-ui', 'SKILL.md');
   copyFileSafe(
-    path.join(packageRoot, 'skill', 'AGENT.md'),
+    agentSource,
     path.join(targetRoot, '.agent', 'skills', 'alcspower-ui', 'SKILL.md'),
     'Agent Skill Specification'
   );

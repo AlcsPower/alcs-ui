@@ -1,6 +1,6 @@
 # @alcspower/ui
 
-## 1.6.0
+## 1.6.2
 
 ### Minor Changes
 
