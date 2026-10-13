@@ -44,6 +44,30 @@
       - Aguja mecánica indicadora con perno central metálico (`showNeedle`) o display numérico central de alta visibilidad (`showValue`).
       - Escalas de tamaño estandarizadas (`sm: 96px`, `md: 144px`, `lg: 192px`, `xl: 240px`) y soporte para etiquetas `label`, `sublabel` y extremos `min`/`max`.
       - 7/7 pruebas unitarias pasando y 0 violaciones `axe-core`.
+  - **Nuevos Primitivos de Layout y Distribución: `Container`, `Stack`, `Grid` y `GridItem` (`src/components/layout`):**
+    - **`Container` (`src/components/layout/container`):**
+      - Primitivo de delimitación horizontal responsiva que acota y centra el contenido conforme a los puntos de quiebre oficiales de Tailwind v4 y el diseño institucional.
+      - Variantes de ancho máximo: `sm` (640px), `md` (768px), `lg` (1024px), `xl` (1280px), `2xl` (1536px), `prose` (65ch para lectura de acuerdos y normativas) y `full`.
+      - Padding horizontal configurable (`none`, `sm`, `md`, `lg`, `xl`) y centrado automático con `centered={true}` (`mx-auto`).
+      - Polimorfismo semántico con la prop `as` (`div`, `main`, `section`, `article`).
+      - 5/5 pruebas unitarias pasando y 0 violaciones `axe-core`.
+    - **`Stack` (`src/components/layout/stack`):**
+      - Primitivo flexbox unidimensional para apilado vertical u horizontal con espaciados semánticos uniformes (`gap`: `none`, `xs`, `sm`, `md`, `lg`, `xl`, `2xl`).
+      - Soporte para intercalar divisores decorativos automáticamente entre hijos directos (`divider={<Separator />}`) sin markup redundante.
+      - Control de alineación (`items-*`), justificación (`justify-*`) y salto de línea (`wrap`).
+      - 6/6 pruebas unitarias pasando y 0 violaciones `axe-core`.
+    - **`Grid` y `GridItem` (`src/components/layout/grid`):**
+      - Primitivo bidimensional de rejilla CSS con control intuitivo de columnas base (`cols: 1..12`) y quiebres responsivos fluidos (`colsSm`, `colsMd`, `colsLg`, `colsXl`).
+      - Componente complementario `GridItem` para expansiones horizontales y verticales (`colSpan: 1..12 | 'full'`, `rowSpan: 1..6 | 'full'`).
+      - Espaciados estandarizados `gap` y modos de flujo (`row`, `col`, `dense`).
+      - 5/5 pruebas unitarias pasando y 0 violaciones `axe-core`.
+  - **Nuevo Componente `CopyButton` (`src/components/forms/button`):**
+    - Botón de un solo clic accesible (`aria-live="polite"`) para copiar al portapapeles con micro-animación fluida de icono.
+    - Transición suave de icono `Copy` a `Check` esmeralda (`text-emerald-600 dark:text-emerald-400`) con temporizador de retorno automático configurable (`timeout: 2000ms`).
+    - Tooltip institucional reactivo integrado (`Tooltip` de `@alcspower/ui`) con textos configurables (`tooltipText="Copiar"`, `copiedTooltipText="¡Copiado!"`).
+    - Soporte para fallback de portapapeles cuando la Clipboard API no está expuesta y callbacks `onCopy` y `onError`.
+    - Variantes de botón (`ghost`, `outline`, `primary`, `secondary`) y tamaños (`icon-sm`, `icon`, `icon-lg`, `sm`, `md`).
+    - 5/5 pruebas unitarias pasando y 0 violaciones `axe-core`.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
     - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
     - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.

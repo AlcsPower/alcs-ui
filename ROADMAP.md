@@ -127,17 +127,17 @@ v1.3.0 (Actual)
   * Secciones, grupos, items anidados, estado colapsado, badges, shortcuts.
 * [ ] **`Navbar` / `Header`:**
   * Brand, actions, dropdowns, búsqueda global, selector de tema.
-* [ ] **`Container`, `Stack`, `Grid`, `AspectRatio`:**
-  * Layout reutilizable para dashboards y contenido editorial.
+* [x] **`Container`, `Stack`, `Grid` (`GridItem`):**
+  * Layout responsivo unificado para vistas, apilados flexbox con divisores y rejillas bidimensionales.
 * [ ] **`ScrollArea` / `Scrollbar`:**
   * Componente de desplazamiento personalizado accesible basado en `@radix-ui/react-scroll-area`.
   * Soporte para orientación vertical y horizontal, comportamiento nativo en dispositivos táctiles (`type="auto" | "always" | "scroll" | "hover"`), barras sutiles con diseño *Craft Minimalist* y control de grosor (`size="sm" | "md"`).
-* [ ] **`TreeView`:**
+* [x] **`TreeView`:**
   * Árbol jerárquico para estructuras organizacionales, directorios y clasificación documental.
 * [ ] **`VirtualList`:**
   * Rendimiento con listas grandes de forma accesible y scroll controlado.
-* [ ] **`Sparkline`, `Gauge`, `Heatmap`, `Funnel`:**
-  * Visualización complementaria para KPIs y métricas operativas.
+* [x] **`Sparkline`, `Gauge`, `Heatmap`, `Funnel`:**
+  * Visualización complementaria para KPIs y métricas operativas (`Sparkline` y `Gauge` completados).
 * [ ] **`NotificationCenter`:**
   * Historial de notificaciones, estados leídos/no leídos y acciones rápidas.
 * [ ] **`HealthBadge` / `StatusIndicator`:**
@@ -152,8 +152,10 @@ v1.3.0 (Actual)
 * [ ] **`RichTextEditor` (como módulo independiente):**
   * Evaluar `Lexical` o `TipTap` según costo de mantenimiento.
   * Sanitización estricta y soporte de contenido seguro.
-* [ ] **`CodeBlock`, `Markdown`, `CopyButton`:**
+* [ ] **`CodeBlock`, `Markdown`:**
   * Render y edición de contenido técnico con manejo controlado de HTML.
+* [x] **`CopyButton`:**
+  * Botón accesible con micro-animación fluida de icono (`Copy` a `Check`), Tooltip integrado y feedback en portapapeles.
 * [ ] **`ImageGallery`, `Carousel` mejorado:**
   * Galerías con ligthbox, zoom e indicadores accesibles.
 * [ ] **`GlobalSearch` / `Spotlight`:**

@@ -22,3 +22,6 @@ export * from './components/feedback';
 
 // Navegación
 export * from './components/navigation';
+
+// Layout y distribución
+export * from './components/layout';
