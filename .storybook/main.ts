@@ -14,6 +14,8 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     config.plugins = config.plugins || [];
     config.plugins.push(tailwindcss());
+    config.build = config.build || {};
+    config.build.target = 'es2022';
     return config;
   }
 };
