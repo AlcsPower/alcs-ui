@@ -1,0 +1,63 @@
+# @alcspower/ui — Concise Agent Reference
+
+Accessible React 18/19 component library (59+ components) with semantic Tailwind CSS v4 tokens, Radix UI primitives, CVA, and bundled sub-dependencies (zero external runtime dependencies beyond react + react-dom).
+
+## Critical Rules
+1. ALWAYS import from '@alcspower/ui': `import { Button, Card, ... } from '@alcspower/ui'`
+2. ALWAYS import CSS once: `import '@alcspower/ui/styles.css'` (or `@import "@alcspower/ui/styles.css"` in CSS)
+3. ONLY use semantic tokens (`bg-alcspower-primary`, `text-alcspower-foreground`, `border-alcspower-border`). NEVER hardcode hex colors or static Tailwind colors (e.g. `bg-blue-600`).
+4. Merging classes: ALWAYS use `cn()` from '@alcspower/ui'.
+5. Toasts: Place `<Toaster position="bottom-right" richColors />` in app root; trigger with `toast.success()`, `toast.error()`, etc.
+6. Polymorphism: Use `asChild` prop (Radix Slot) to render components as links or custom tags.
+
+## Design Tokens (--alcspower-*)
+- Backgrounds: `bg-alcspower-background`, `bg-alcspower-surface`, `bg-alcspower-surface-muted`, `bg-alcspower-primary`
+- Foreground: `text-alcspower-foreground`, `text-alcspower-muted-foreground`, `text-alcspower-primary`
+- Borders: `border-alcspower-border`, `border-alcspower-border-strong`
+- States: `bg-alcspower-destructive`, `bg-alcspower-success`, `bg-alcspower-warning`, `bg-alcspower-info`
+- Dark mode: activated via `.dark` class or `[data-theme="dark"]` attribute.
+
+## Components Matrix
+
+### Forms
+- Button: variant ('primary'|'secondary'|'outline'|'ghost'|'destructive'|'link'), size ('sm'|'md'|'lg'|'icon'|'icon-sm'|'icon-lg'), isLoading, asChild
+- Input / SearchInput / PasswordInput / NumberInput / OTPInput: size ('sm'|'md'|'lg'), disabled, readOnly
+- Textarea: rows, disabled, resize
+- Field (Compound): Field, Label, FieldDescription, FieldError
+- Checkbox / Switch / RadioGroup (RadioGroupItem) / Slider
+- Select: Select, SelectTrigger, SelectValue, SelectContent, SelectItem, SelectGroup, SelectLabel
+- Combobox / MultiSelect / TagsInput / FileUpload / Toggle / ToggleGroup
+
+### Data Display
+- Badge: variant ('primary'|'secondary'|'outline'|'destructive'|'success'|'warning'|'info')
+- StatusBadge: status ('success'|'warning'|'error'|'info'|'neutral')
+- Card (Compound): Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter
+- Avatar: Avatar, AvatarImage, AvatarFallback
+- Table: Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption
+- DataTable: TanStack table with columns, data, searchKey, pagination
+- MetricCard / StatCard / DeltaIndicator (trend: 'positive'|'negative'|'neutral')
+- Chart: Bar, Line, Area, Pie (Recharts wrapper)
+- Pagination / Separator / Timeline / Kbd / Gauge / Sparkline
+
+### Overlays
+- Dialog: Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose
+- AlertDialog: AlertDialog, AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogAction, AlertDialogCancel
+- ConfirmDialog: high-level confirmation dialog
+- Sheet / Drawer: side ('top'|'bottom'|'left'|'right')
+- Popover / Tooltip (TooltipProvider, Tooltip, TooltipTrigger, TooltipContent)
+- DropdownMenu / ContextMenu / Command (CommandDialog, CommandInput, CommandList, CommandItem)
+
+### Feedback & Navigation
+- Alert: variant ('default'|'info'|'success'|'warning'|'destructive'), AlertTitle, AlertDescription
+- Toaster & toast (Sonner wrapper)
+- Progress / Skeleton / Spinner / LoadingOverlay / EmptyState / ErrorState
+- Tabs: Tabs, TabsList, TabsTrigger, TabsContent
+- Accordion: Accordion, AccordionItem, AccordionTrigger, AccordionContent (type: 'single'|'multiple')
+- Breadcrumb / Collapsible / Stepper / TreeView
+
+### Time
+- Calendar / DatePicker / DateRangePicker
+
+### Layout & Accessibility
+- Container / Grid / Stack
+- VisuallyHidden

@@ -1,0 +1,199 @@
+# @alcspower/ui
+
+> Accessible, reusable React component library (59+ components) built on Radix UI, Tailwind CSS v4 tokens, and CVA. Self-contained bundle with zero sub-dependencies.
+
+- Package: `@alcspower/ui`
+- npm: https://www.npmjs.com/package/@alcspower/ui
+- Repository: https://github.com/AlcsPower/alcs-ui
+- License: MIT
+- Style: Modern SaaS / Craft Minimalist / Elevated Flat
+
+## System Prompt Guidelines for AI Agents
+
+When authoring code with `@alcspower/ui`, follow these strict rules:
+
+1. **Imports:** Always import components, utilities, and toast directly from `'@alcspower/ui'`.
+   ```tsx
+   import { Button, Card, CardHeader, CardTitle, CardContent, Input, Field, Label, toast } from '@alcspower/ui';
+   ```
+2. **Global CSS:** Ensure `@alcspower/ui/styles.css` is imported in the application root (`main.tsx` or `App.tsx`).
+   ```tsx
+   import '@alcspower/ui/styles.css';
+   ```
+3. **Design Tokens:** NEVER use raw hex values (`#3b82f6`) or generic color classes (`bg-blue-600`, `text-gray-900`). Exclusively use semantic classes:
+   - Backgrounds: `bg-alcspower-background`, `bg-alcspower-surface`, `bg-alcspower-surface-muted`, `bg-alcspower-primary`, `bg-alcspower-destructive`
+   - Foregrounds: `text-alcspower-foreground`, `text-alcspower-muted-foreground`, `text-alcspower-primary`
+   - Borders: `border-alcspower-border`, `border-alcspower-border-strong`
+   - Focus: `focus-visible:ring-3 focus-visible:ring-alcspower-primary/20`
+4. **Class Merging:** Always use `cn()` from `'@alcspower/ui'` to merge Tailwind classes safely.
+5. **Polymorphic Rendering:** Use `asChild` to wrap custom elements or router links (`<Link asChild>`).
+6. **Toast Notifications:** Insert `<Toaster position="bottom-right" richColors />` once at the app root, then call `toast.success('...')`, `toast.error('...')`.
+
+---
+
+## Machine-Readable Manifest & Snippets
+
+- Manifest: `registry.json` or `import manifest from '@alcspower/ui/registry.json'`
+- VS Code Snippets: Available in `@alcspower/ui/snippets` (`.vscode/alcspower.code-snippets`)
+- Quick AI summary: `llms-small.txt`
+
+---
+
+## Component Catalog & Recipes
+
+### 1. Forms & Inputs
+
+- **Button**:
+  Variants: `primary`, `secondary`, `outline`, `ghost`, `destructive`, `link`
+  Sizes: `sm`, `md`, `lg`, `icon`, `icon-sm`, `icon-lg`
+  Props: `asChild?: boolean`, `isLoading?: boolean`, `loadingText?: string`
+  ```tsx
+  <Button variant="primary" size="md" isLoading={loading}>Guardar</Button>
+  ```
+
+- **Field (Compound Pattern)**:
+  Components: `Field`, `Label`, `FieldDescription`, `FieldError`
+  ```tsx
+  <Field id="username" required>
+    <Label>Nombre de Usuario</Label>
+    <Input placeholder="admin" value={user} onChange={(e) => setUser(e.target.value)} />
+    <FieldDescription>Nombre visible en el sistema.</FieldDescription>
+    {error && <FieldError>{error}</FieldError>}
+  </Field>
+  ```
+
+- **Select**:
+  Components: `Select`, `SelectTrigger`, `SelectValue`, `SelectContent`, `SelectItem`, `SelectGroup`, `SelectLabel`
+  ```tsx
+  <Select value={val} onValueChange={setVal}>
+    <SelectTrigger><SelectValue placeholder="Seleccione..." /></SelectTrigger>
+    <SelectContent>
+      <SelectItem value="active">Activo</SelectItem>
+      <SelectItem value="inactive">Inactivo</SelectItem>
+    </SelectContent>
+  </Select>
+  ```
+
+- **Additional Form Controls**:
+  `Input`, `SearchInput`, `PasswordInput`, `NumberInput`, `OTPInput`, `Textarea`, `Checkbox`, `Switch`, `RadioGroup` (`RadioGroupItem`), `Slider`, `Toggle`, `ToggleGroup`, `Combobox`, `MultiSelect`, `TagsInput`, `FileUpload`.
+
+### 2. Data Display & Metrics
+
+- **Card (Compound Pattern)**:
+  Components: `Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`
+  ```tsx
+  <Card>
+    <CardHeader>
+      <CardTitle>Resumen Operativo</CardTitle>
+      <CardDescription>Métricas acumuladas del periodo.</CardDescription>
+    </CardHeader>
+    <CardContent>...</CardContent>
+    <CardFooter><Button variant="outline">Ver más</Button></CardFooter>
+  </Card>
+  ```
+
+- **StatusBadge**:
+  Props: `status: 'success' | 'warning' | 'error' | 'info' | 'neutral'`
+  ```tsx
+  <StatusBadge status="success">Aprobado</StatusBadge>
+  ```
+
+- **Badge**:
+  Variants: `primary`, `secondary`, `outline`, `destructive`, `success`, `warning`, `info`
+  ```tsx
+  <Badge variant="info">Nuevo</Badge>
+  ```
+
+- **Table & DataTable**:
+  Primitivas: `Table`, `TableHeader`, `TableBody`, `TableFooter`, `TableHead`, `TableRow`, `TableCell`, `TableCaption`
+  DataTable avanzada: `<DataTable columns={columns} data={data} searchKey="nombre" />`
+
+- **Metrics & KPIs**:
+  Components: `MetricCard`, `StatCard`, `DeltaIndicator`
+  ```tsx
+  <MetricCard title="Ingresos" value="$45,200" delta="+8.4%" trend="positive" />
+  ```
+
+- **Charts**:
+  Built on Recharts: `Chart` (Bar, Line, Area, Pie) with accessible container and responsive tokens.
+
+### 3. Overlays & Modals
+
+- **Dialog**:
+  Components: `Dialog`, `DialogTrigger`, `DialogContent`, `DialogHeader`, `DialogTitle`, `DialogDescription`, `DialogFooter`, `DialogClose`
+  ```tsx
+  <Dialog open={open} onOpenChange={setOpen}>
+    <DialogTrigger asChild><Button>Editar</Button></DialogTrigger>
+    <DialogContent>
+      <DialogHeader>
+        <DialogTitle>Editar Perfil</DialogTitle>
+        <DialogDescription>Actualice sus datos personales.</DialogDescription>
+      </DialogHeader>
+      <div className="py-2">...</div>
+      <DialogFooter>
+        <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
+        <Button variant="primary" onClick={handleSave}>Guardar</Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+  ```
+
+- **AlertDialog**:
+  Components: `AlertDialog`, `AlertDialogTrigger`, `AlertDialogContent`, `AlertDialogHeader`, `AlertDialogTitle`, `AlertDialogDescription`, `AlertDialogFooter`, `AlertDialogAction`, `AlertDialogCancel`
+
+- **Sheet & Drawer**:
+  Props: `side: 'top' | 'bottom' | 'left' | 'right'` (default `'right'`)
+
+- **DropdownMenu & ContextMenu**:
+  Subcomponents: `DropdownMenuTrigger`, `DropdownMenuContent`, `DropdownMenuItem`, `DropdownMenuSeparator`, `DropdownMenuLabel`
+
+- **Command & CommandDialog**:
+  Quick search palette (`CommandInput`, `CommandList`, `CommandEmpty`, `CommandGroup`, `CommandItem`).
+
+### 4. Feedback & Navigation
+
+- **Alert**:
+  Variants: `default`, `info`, `success`, `warning`, `destructive`
+  ```tsx
+  <Alert variant="warning">
+    <AlertTitle>Atención requerida</AlertTitle>
+    <AlertDescription>Su sesión expirará pronto.</AlertDescription>
+  </Alert>
+  ```
+
+- **Toaster & toast**:
+  ```tsx
+  // In root:
+  <Toaster position="bottom-right" richColors />
+
+  // Anywhere in code:
+  toast.success('Operación completada con éxito');
+  toast.error('Ocurrió un error al procesar la solicitud');
+  ```
+
+- **Tabs**:
+  `Tabs`, `TabsList`, `TabsTrigger`, `TabsContent`
+
+- **Accordion**:
+  `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent` (type: `'single' | 'multiple'`)
+
+- **EmptyState & ErrorState**:
+  Accessible fallback components for lists, search results, and query failures.
+
+- **Time Components**:
+  `Calendar`, `DatePicker`, `DateRangePicker`
+
+---
+
+## CLI & Scaffolding
+
+To install rules and snippets automatically in a consumer project:
+```bash
+npx @alcspower/ui init-agent
+```
+Supported agent integrations:
+- Cursor (`.cursor/rules/alcspower-ui.mdc`)
+- Claude Code (`CLAUDE.md`)
+- GitHub Copilot (`.github/copilot-instructions.md`)
+- Antigravity / Agentic IDEs (`.agent/skills/alcspower-ui/SKILL.md`)
+- VS Code Snippets (`.vscode/alcspower.code-snippets`)

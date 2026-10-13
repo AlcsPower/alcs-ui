@@ -1,5 +1,25 @@
 # @alcspower/ui
 
+## 1.6.0
+
+### Minor Changes
+
+- ### Ecosistema Nativo para Agentes de IA y Ergonomía de Desarrollo
+  - **CLI Oficial de la Biblioteca (`bin/cli.js`):**
+    - Registrado como comando ejecutable en `package.json` (`alcspower-ui`) para ejecución directa vía `npx @alcspower/ui <comando>`.
+    - **`init-agent`:** Inyecta en segundos las reglas de contexto para Cursor (`.cursor/rules/alcspower-ui.mdc`), Claude Code (`CLAUDE.md`), GitHub Copilot (`.github/copilot-instructions.md`), Google Antigravity (`.agent/AGENT.md`) y snippets de VS Code en cualquier proyecto consumidor.
+    - **`info <componente>`:** Muestra instantáneamente import, variantes, subcomponentes, tamaños y ejemplo de uso JSX de cualquier componente del sistema.
+    - **`list`:** Despliega los 67+ componentes categorizados.
+    - **`snippets`:** Copia únicamente la colección de snippets en `.vscode/alcspower.code-snippets`.
+    - **`tokens`:** Imprime la chuleta rápida de tokens semánticos CSS (`--alcspower-*`).
+  - **Manifiestos Estáticos para LLMs y Economía de Tokens (`registry.json`, `llms.txt`, `llms-small.txt`):**
+    - Especificación abierta según el estándar [llmstxt.org](https://llmstxt.org/) (`llms.txt` y versión condensada `llms-small.txt`).
+    - `registry.json` (~15 KB): Diccionario estructurado en JSON con los 67+ componentes que permite a los asistentes consultar props y sintaxis con mínima huella de tokens sin parsear el bundle completo de TypeScript.
+    - Subpaths exportados en `package.json`: `./registry.json`, `./llms.txt`, `./llms-small.txt` y `./snippets`.
+  - **Snippets de VS Code Empaquetados (`snippets/alcspower.code-snippets`):**
+    - Prefijos `alcs-*` para autocompletado rápido de botones, tarjetas, tablas, formularios, modales y overlays.
+    - Empaquetados en la distribución para instalación offline y *air-gapped*.
+
 ## 1.5.0
 
 ### Minor Changes

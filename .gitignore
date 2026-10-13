@@ -51,4 +51,3 @@ pnpm-debug.log*
 # AI Agent Materials & Local Development Auxiliaries
 .agents/
 skills-lock.json
-skill/

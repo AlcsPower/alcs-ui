@@ -269,3 +269,16 @@ Esto permite escalar sin romper la API pública y sin introducir lógica empresa
 > **Primero construir primitives reutilizables; después patrones de aplicación; finalmente componentes especializados.**
 
 La librería debe crecer en amplitud sin convertirse en un framework de negocio.
+
+---
+
+## 🤖 Ecosistema de Agentes de IA & Ergonomía para Desarrolladores
+
+### Decisiones de Arquitectura
+* ❌ **Servidor MCP descartado:** Se descarta oficialmente el desarrollo de un servidor MCP propio. No justifica los costos de infraestructura, latencia ni la carga de mantenimiento continuo frente a las soluciones estáticas.
+* ✅ **Estándares Estáticos y Autónomos ($0 Costo / Offline-First):** Se prioriza la distribución de manifiestos livianos (`registry.json`), estándares abiertos (`llms.txt`, `llms-small.txt`), snippets de VS Code y reglas de agentes locales mediante el CLI `npx @alcspower/ui init-agent`.
+
+### Hito Futuro: Hosting Público de `llms.txt` ($0 Infraestructura)
+* **Objetivo:** Exponer `llms.txt` y `llms-small.txt` como endpoints estáticos públicos para que agentes web o navegadores de IA consuman la documentación en una sola petición HTTP.
+* **Infraestructura Requerida:** $0 costo. Se servirá de manera estática a través de **GitHub Pages** (junto al build de Storybook) o mediante la URL pública del repositorio en GitHub (`raw.githubusercontent.com`).
+

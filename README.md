@@ -12,12 +12,16 @@ Biblioteca modular, accesible y reutilizable de componentes de interfaz de usuar
 
 Diseñada con soporte para **React 18** y **React 19**, tipado estricto en **TypeScript**, primitivas accesibles de **Radix UI**, iconografía con **Lucide React**, notificaciones fluidas con **Sonner**, paleta de comandos con **cmdk**, tablas con **TanStack Table**, gráficos con **Recharts** y un sistema de tokens de diseño semánticos distribuido en CSS precompilado. Es completamente compatible con aplicaciones consumidoras que utilicen **Tailwind CSS v3**, **Tailwind CSS v4** o **ningún framework CSS**.
 
+> [!TIP]
+> **Nativamente Preparada para Flujos de Trabajo Asistidos por IA y Desarrolladores**  
+> `@alcspower/ui` pasó de ser una biblioteca técnicamente impecable pero aislada de las herramientas externas, a ser una de las pocas bibliotecas de componentes en el ecosistema React hispanohablante que **nace nativamente preparada para flujos de desarrollo asistidos por Inteligencia Artificial y humanos**. A través de manifiestos ultra-condensados (`llms.txt`, `registry.json`), un CLI oficial sin dependencias (`npx @alcspower/ui`) y reglas preconfiguradas para Cursor, Claude Code, GitHub Copilot y Antigravity, maximiza la velocidad de desarrollo y minimiza el consumo de tokens de contexto.
+
 ---
 
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `1.5.0`
+* **Versión Actual:** `1.6.0`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registros de Distribución:**
@@ -105,13 +109,13 @@ Instálalo en tu proyecto usando tu gestor de paquetes favorito:
 
 ```bash
 # Con pnpm (recomendado):
-pnpm add @alcspower/ui@1.4.0
+pnpm add @alcspower/ui
 
 # Con npm:
-npm install @alcspower/ui@1.4.0
+npm install @alcspower/ui
 
 # Con yarn:
-yarn add @alcspower/ui@1.4.0
+yarn add @alcspower/ui
 ```
 
 ### 2. Instalación Alternativa desde GitHub Packages
@@ -131,18 +135,72 @@ Si tu organización utiliza GitHub Packages (`https://npm.pkg.github.com`), conf
 
 ### 3. Instalación en Entornos Offline / Air-Gapped (Sin Acceso a Internet)
 
-Para despliegues institucionales o gubernamentales en redes aisladas (*air-gapped*), `@alcspower/ui` se distribuye como un paquete totalmente autónomo (*Self-Contained Bundle*). Sus dependencias secundarias vienen inyectadas en el bundle compilado y sus licencias legales MIT/ISC/Apache-2.0 están compiladas en [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
+Para despliegues institucionales o empresariales en redes aisladas (*air-gapped*), `@alcspower/ui` se distribuye como un paquete totalmente autónomo (*Self-Contained Bundle*). Sus dependencias secundarias vienen inyectadas en el bundle compilado y sus licencias legales MIT/ISC/Apache-2.0 están compiladas en [`THIRD_PARTY_LICENSES.md`](THIRD_PARTY_LICENSES.md).
 
 ```bash
 # Copia el paquete .tgz en tu entorno e instala localmente:
-pnpm add ./alcspower-ui-1.4.0.tgz
+pnpm add ./alcspower-ui-1.6.0.tgz
 
 # O con npm:
-npm install ./alcspower-ui-1.4.0.tgz
+npm install ./alcspower-ui-1.6.0.tgz
 ```
 
 > [!NOTE]
 > La instalación local no consulta ningún registro de red. Solo requiere que el proyecto consumidor provea `react` y `react-dom` (v18 o v19).
+
+---
+
+## 🤖 CLI Oficial y Ecosistema de Agentes de IA
+
+`@alcspower/ui` incluye una suite de herramientas diseñada para optimizar los flujos de desarrollo asistidos por Inteligencia Artificial y equipos de ingeniería:
+
+```text
+npx @alcspower/ui <comando>
+```
+
+### 1. Inicialización Automática de Reglas de Agente (`init-agent`)
+
+Configura en 1 segundo las reglas de contexto y mejores prácticas para los principales asistentes de código en la raíz de cualquier proyecto consumidor:
+
+```bash
+npx @alcspower/ui init-agent
+```
+
+* **Cursor:** Genera reglas de sistema en `.cursor/rules/alcspower-ui.mdc`.
+* **Claude Code:** Genera guía de arquitectura y tokens en `CLAUDE.md`.
+* **GitHub Copilot:** Inyecta directivas en `.github/copilot-instructions.md`.
+* **Google Antigravity:** Inyecta especificaciones en `.agent/AGENT.md`.
+* **VS Code:** Instala snippets instantáneos en `.vscode/alcspower.code-snippets`.
+
+### 2. Inspección Rápida de Componentes (`info` y `list`)
+
+Permite a desarrolladores y agentes consultar al instante las variantes, tamaños, subcomponentes y ejemplos de código sin tener que inspeccionar definiciones pesadas de TypeScript:
+
+```bash
+# Consultar un componente específico:
+npx @alcspower/ui info DataTable
+npx @alcspower/ui info MultiSelect
+npx @alcspower/ui info Button
+
+# Listar todos los 67+ componentes agrupados por categoría:
+npx @alcspower/ui list
+
+# Ver la chuleta de tokens semánticos CSS (--alcspower-*):
+npx @alcspower/ui tokens
+
+# Instalar únicamente los snippets de VS Code:
+npx @alcspower/ui snippets
+```
+
+### 3. Manifiestos para LLMs y Economía de Tokens (`llms.txt` y `registry.json`)
+
+* **`registry.json` (~15 KB):** Diccionario estructurado en JSON de todos los componentes, variantes, subcomponentes y props. Permite a los agentes inspeccionar la API sin consumir el archivo de tipos compilado (`dist/index.d.ts` de ~129 KB).
+* **`llms.txt`:** Especificación estándar para modelos de lenguaje basada en [llmstxt.org](https://llmstxt.org/).
+* **`llms-small.txt` (~1.5k tokens):** Versión ultra-condensada de reglas de diseño, tokens semánticos y componentes clave para inyección directa en system prompts con mínima huella de contexto.
+* **Subpaths exportados en `package.json`:**
+  ```tsx
+  import registry from '@alcspower/ui/registry.json';
+  ```
 
 ---
 

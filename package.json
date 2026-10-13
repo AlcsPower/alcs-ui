@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Biblioteca de componentes React accesibles y reutilizables basada en Radix UI y Tailwind CSS",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",
@@ -28,6 +28,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "alcspower-ui": "./bin/cli.js"
+  },
   "exports": {
     ".": {
       "types": {
@@ -39,10 +42,20 @@
       "require": "./dist/index.cjs"
     },
     "./styles.css": "./dist/styles.css",
+    "./registry.json": "./registry.json",
+    "./llms.txt": "./llms.txt",
+    "./llms-small.txt": "./llms-small.txt",
+    "./snippets": "./snippets/alcspower.code-snippets",
     "./package.json": "./package.json"
   },
   "files": [
     "dist",
+    "bin",
+    "snippets",
+    "skill",
+    "registry.json",
+    "llms.txt",
+    "llms-small.txt",
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
@@ -56,6 +69,8 @@
     "build": "pnpm build:js && pnpm build:css",
     "build:js": "tsup",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
+    "cli": "node ./bin/cli.js",
+    "init-agent": "node ./bin/cli.js init-agent",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",

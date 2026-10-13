@@ -1,0 +1,272 @@
+{
+  "@alcspower/ui Setup & Toaster": {
+    "prefix": "alcs-setup",
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "description": "Imports esenciales de @alcspower/ui y componente Toaster",
+    "body": [
+      "import '@alcspower/ui/styles.css';",
+      "import { Toaster } from '@alcspower/ui';",
+      "",
+      "// En la raíz de tu aplicación (App.tsx o main.tsx):",
+      "<Toaster position=\"bottom-right\" richColors />"
+    ]
+  },
+  "Button (@alcspower/ui)": {
+    "prefix": "alcs-button",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Botón accesible con variantes y soporte asChild",
+    "body": [
+      "<Button",
+      "  variant=\"${1|primary,secondary,outline,ghost,destructive,link|}\"",
+      "  size=\"${2|md,sm,lg,icon|}\"",
+      "  ${3:onClick={() => {$4\\}}}",
+      ">",
+      "  ${5:Botón}",
+      "</Button>"
+    ]
+  },
+  "Field + Input Form Pattern": {
+    "prefix": "alcs-field-input",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Patrón Field compuesto accesible con Label, Input, Helper y Error",
+    "body": [
+      "<Field id=\"${1:field-id}\" ${2:required}>",
+      "  <Label>${3:Etiqueta}</Label>",
+      "  <Input",
+      "    placeholder=\"${4:Ingrese valor...}\"",
+      "    value={${5:value}}",
+      "    onChange={(e) => ${6:setValue(e.target.value)}}",
+      "  />",
+      "  ${7:<FieldDescription>${8:Texto de ayuda}</FieldDescription>}",
+      "  ${9:{error && <FieldError>{error}</FieldError>\\}}",
+      "</Field>"
+    ]
+  },
+  "Field + Select Pattern": {
+    "prefix": "alcs-field-select",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Patrón Field con Select desplegable accesible",
+    "body": [
+      "<Field id=\"${1:select-id}\">",
+      "  <Label>${2:Seleccione una opción}</Label>",
+      "  <Select value={${3:selected}} onValueChange={${4:setSelected}}>",
+      "    <SelectTrigger>",
+      "      <SelectValue placeholder=\"${5:Seleccionar...}\" />",
+      "    </SelectTrigger>",
+      "    <SelectContent>",
+      "      <SelectItem value=\"${6:opcion-1}\">${7:Opción 1}</SelectItem>",
+      "      <SelectItem value=\"${8:opcion-2}\">${9:Opción 2}</SelectItem>",
+      "    </SelectContent>",
+      "  </Select>",
+      "</Field>"
+    ]
+  },
+  "Card Compound": {
+    "prefix": "alcs-card",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Tarjeta compuesta con Header, Content y Footer",
+    "body": [
+      "<Card className=\"${1:max-w-md}\">",
+      "  <CardHeader>",
+      "    <CardTitle>${2:Título de la Tarjeta}</CardTitle>",
+      "    <CardDescription>${3:Descripción o subtítulo explicativo.}</CardDescription>",
+      "  </CardHeader>",
+      "  <CardContent>",
+      "    ${4:<p className=\"text-sm text-alcspower-muted-foreground\">Contenido principal...</p>}",
+      "  </CardContent>",
+      "  <CardFooter className=\"flex justify-end gap-2\">",
+      "    <Button variant=\"outline\">${5:Cancelar}</Button>",
+      "    <Button variant=\"primary\">${6:Guardar}</Button>",
+      "  </CardFooter>",
+      "</Card>"
+    ]
+  },
+  "Dialog Modal": {
+    "prefix": "alcs-dialog",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Modal interactivo accesible con Dialog",
+    "body": [
+      "<Dialog>",
+      "  <DialogTrigger asChild>",
+      "    <Button variant=\"primary\">${1:Abrir Diálogo}</Button>",
+      "  </DialogTrigger>",
+      "  <DialogContent>",
+      "    <DialogHeader>",
+      "      <DialogTitle>${2:Título del Diálogo}</DialogTitle>",
+      "      <DialogDescription>${3:Detalle descriptivo de la acción modal.}</DialogDescription>",
+      "    </DialogHeader>",
+      "    <div className=\"py-4\">",
+      "      ${4:/* Contenido del modal */}",
+      "    </div>",
+      "    <DialogFooter>",
+      "      <Button variant=\"outline\">Cancelar</Button>",
+      "      <Button variant=\"primary\">Confirmar</Button>",
+      "    </DialogFooter>",
+      "  </DialogContent>",
+      "</Dialog>"
+    ]
+  },
+  "AlertDialog (Confirm)": {
+    "prefix": "alcs-alert-dialog",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Diálogo de alerta o confirmación destructiva",
+    "body": [
+      "<AlertDialog>",
+      "  <AlertDialogTrigger asChild>",
+      "    <Button variant=\"destructive\">${1:Eliminar elemento}</Button>",
+      "  </AlertDialogTrigger>",
+      "  <AlertDialogContent>",
+      "    <AlertDialogHeader>",
+      "      <AlertDialogTitle>${2:¿Está completamente seguro?}</AlertDialogTitle>",
+      "      <AlertDialogDescription>",
+      "        ${3:Esta acción no se puede deshacer. Se eliminará permanentemente el registro.}",
+      "      </AlertDialogDescription>",
+      "    </AlertDialogHeader>",
+      "    <AlertDialogFooter>",
+      "      <AlertDialogCancel>${4:Cancelar}</AlertDialogCancel>",
+      "      <AlertDialogAction className=\"bg-alcspower-destructive hover:bg-alcspower-destructive-hover\" onClick={${5:handleConfirm}}>",
+      "        ${6:Confirmar Eliminación}",
+      "      </AlertDialogAction>",
+      "    </AlertDialogFooter>",
+      "  </AlertDialogContent>",
+      "</AlertDialog>"
+    ]
+  },
+  "Sheet (Slide-out panel)": {
+    "prefix": "alcs-sheet",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Panel lateral deslizable (Sheet)",
+    "body": [
+      "<Sheet>",
+      "  <SheetTrigger asChild>",
+      "    <Button variant=\"outline\">${1:Abrir Filtros}</Button>",
+      "  </SheetTrigger>",
+      "  <SheetContent side=\"${2|right,left,top,bottom|}\">",
+      "    <SheetHeader>",
+      "      <SheetTitle>${3:Filtros Avanzados}</SheetTitle>",
+      "      <SheetDescription>${4:Ajuste los parámetros para refinar la búsqueda.}</SheetDescription>",
+      "    </SheetHeader>",
+      "    <div className=\"py-4 space-y-4\">",
+      "      ${5:/* Contenido lateral */}",
+      "    </div>",
+      "    <SheetFooter>",
+      "      <Button variant=\"primary\">${6:Aplicar Filtros}</Button>",
+      "    </SheetFooter>",
+      "  </SheetContent>",
+      "</Sheet>"
+    ]
+  },
+  "Tabs Compound": {
+    "prefix": "alcs-tabs",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Pestañas de navegación con accesibilidad por teclado",
+    "body": [
+      "<Tabs defaultValue=\"${1:general}\">",
+      "  <TabsList>",
+      "    <TabsTrigger value=\"${1:general}\">${2:General}</TabsTrigger>",
+      "    <TabsTrigger value=\"${3:seguridad}\">${4:Seguridad}</TabsTrigger>",
+      "  </TabsList>",
+      "  <TabsContent value=\"${1:general}\" className=\"pt-4\">",
+      "    ${5:/* Panel General */}",
+      "  </TabsContent>",
+      "  <TabsContent value=\"${3:seguridad}\" className=\"pt-4\">",
+      "    ${6:/* Panel Seguridad */}",
+      "  </TabsContent>",
+      "</Tabs>"
+    ]
+  },
+  "Table Primitives": {
+    "prefix": "alcs-table",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Tabla HTML semántica con estilos craft minimalist",
+    "body": [
+      "<Table>",
+      "  <TableHeader>",
+      "    <TableRow>",
+      "      <TableHead>${1:Nombre}</TableHead>",
+      "      <TableHead>${2:Estado}</TableHead>",
+      "      <TableHead className=\"text-right\">${3:Acciones}</TableHead>",
+      "    </TableRow>",
+      "  </TableHeader>",
+      "  <TableBody>",
+      "    <TableRow>",
+      "      <TableCell className=\"font-medium\">${4:Elemento 1}</TableCell>",
+      "      <TableCell><StatusBadge status=\"success\">Activo</StatusBadge></TableCell>",
+      "      <TableCell className=\"text-right\"><Button size=\"sm\" variant=\"ghost\">Editar</Button></TableCell>",
+      "    </TableRow>",
+      "  </TableBody>",
+      "</Table>"
+    ]
+  },
+  "DataTable (TanStack)": {
+    "prefix": "alcs-datatable",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Tabla de datos avanzada con paginación y ordenamiento",
+    "body": [
+      "<DataTable",
+      "  columns={${1:columns}}",
+      "  data={${2:data}}",
+      "  ${3:searchKey=\"name\"}",
+      "  ${4:searchPlaceholder=\"Buscar registros...\"}",
+      "/>"
+    ]
+  },
+  "MetricCard & Stat": {
+    "prefix": "alcs-metric",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Tarjeta de métrica KPI con indicador de delta",
+    "body": [
+      "<MetricCard",
+      "  title=\"${1:Total de Solicitudes}\"",
+      "  value=\"${2:1,420}\"",
+      "  delta=\"${3:+12.5%}\"",
+      "  trend=\"${4|positive,negative,neutral|}\"",
+      "  description=\"${5:vs. mes anterior}\"",
+      "/>"
+    ]
+  },
+  "StatusBadge": {
+    "prefix": "alcs-statusbadge",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Badge de estado semántico con punto indicador",
+    "body": [
+      "<StatusBadge status=\"${1|success,warning,error,info,neutral|}\">",
+      "  ${2:Activo}",
+      "</StatusBadge>"
+    ]
+  },
+  "Toast Notification": {
+    "prefix": "alcs-toast",
+    "scope": "typescriptreact,javascriptreact,typescript,javascript",
+    "description": "Llamada a notificación Toast con Sonner",
+    "body": [
+      "toast.${1|success,error,warning,info|}('${2:Operación completada exitosamente}', {",
+      "  description: '${3:Los cambios se han guardado en el servidor.}',",
+      "});"
+    ]
+  },
+  "DatePicker": {
+    "prefix": "alcs-datepicker",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Selector de fecha individual accesible",
+    "body": [
+      "<DatePicker",
+      "  date={${1:selectedDate}}",
+      "  onDateChange={${2:setSelectedDate}}",
+      "  placeholder=\"${3:Seleccione una fecha}\"",
+      "/>"
+    ]
+  },
+  "EmptyState": {
+    "prefix": "alcs-empty-state",
+    "scope": "typescriptreact,javascriptreact",
+    "description": "Estado vacío para tablas, filtros o listas sin datos",
+    "body": [
+      "<EmptyState",
+      "  title=\"${1:No se encontraron resultados}\"",
+      "  description=\"${2:Intente ajustar los filtros o cree un nuevo elemento.}\"",
+      "  action={<Button variant=\"primary\" onClick={${3:handleCreate}}>${4:Crear Nuevo}</Button>}",
+      "/>"
+    ]
+  }
+}
