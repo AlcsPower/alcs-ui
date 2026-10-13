@@ -61,13 +61,27 @@
       - Componente complementario `GridItem` para expansiones horizontales y verticales (`colSpan: 1..12 | 'full'`, `rowSpan: 1..6 | 'full'`).
       - Espaciados estandarizados `gap` y modos de flujo (`row`, `col`, `dense`).
       - 5/5 pruebas unitarias pasando y 0 violaciones `axe-core`.
-  - **Nuevo Componente `CopyButton` (`src/components/forms/button`):**
-    - Botón de un solo clic accesible (`aria-live="polite"`) para copiar al portapapeles con micro-animación fluida de icono.
-    - Transición suave de icono `Copy` a `Check` esmeralda (`text-emerald-600 dark:text-emerald-400`) con temporizador de retorno automático configurable (`timeout: 2000ms`).
-    - Tooltip institucional reactivo integrado (`Tooltip` de `@alcspower/ui`) con textos configurables (`tooltipText="Copiar"`, `copiedTooltipText="¡Copiado!"`).
-    - Soporte para fallback de portapapeles cuando la Clipboard API no está expuesta y callbacks `onCopy` y `onError`.
-    - Variantes de botón (`ghost`, `outline`, `primary`, `secondary`) y tamaños (`icon-sm`, `icon`, `icon-lg`, `sm`, `md`).
-    - 5/5 pruebas unitarias pasando y 0 violaciones `axe-core`.
+  - **Rediseño Completo y Mejoras del Componente `CopyButton` (`src/components/forms/button`):**
+    - Botón interactivo de un solo clic altamente accesible (`aria-live="polite"`, `role="button"`) para copiar al portapapeles con micro-animaciones fluidas de 2 capas.
+    - **3 variantes de diseño especializadas (`variant`):**
+      - `outlined` (predeterminado): superficie limpia con borde sutil de $1.5\text{px}$, elevación y brillo radial índigo en hover.
+      - `filled`: botón primario institucional con sombra elevada que conmuta suavemente a esmeralda vibrante al copiar para llamadas a la acción prominentes.
+      - `inline`: botón transparente con posición absoluta (`absolute right-1.5 top-1/2 -translate-y-1/2`) diseñado para incrustarse naturalmente dentro de campos `Input`.
+      - Compatibilidad hacia atrás total con alias anteriores (`ghost`, `primary`, `secondary`, `outline`).
+    - **3 escalas métricas proporcionales (`size`):**
+      - `sm`: $28\text{px}\times 28\text{px}$ (icono $14\text{px}$) para tablas densas y micro-campos.
+      - `md` (predeterminado): $36\text{px}\times 36\text{px}$ (icono $18\text{px}$) con radio óptimo de $10\text{px}$.
+      - `lg`: $44\text{px}\times 44\text{px}$ (icono $22\text{px}$) para objetivos táctiles de alta accesibilidad (WCAG AAA $44\text{px}$).
+      - Aliases `icon-sm`, `icon` e `icon-lg` preservados sin roturas de API.
+    - **Micro-animación y efectos cinéticos:**
+      - Transición de doble capa: rotación elástica y salto de escala de `Copy` a `Check` esmeralda (`text-emerald-600 dark:text-emerald-400`).
+      - Halo radial luminoso (*radial glow effect*) difuminado en estados reposo, hover y copiado.
+      - Estado de error visual con icono `AlertCircle` ante denegación o fallo de la Clipboard API.
+    - **Soporte para etiquetas adyacentes:**
+      - Props `label` y `labelPlacement="left" | "right"` para botones de copia con texto visible contiguo.
+    - **Tooltip institucional adaptativo:**
+      - Tooltip interactivo con flecha indicadora y textos reactivos según estado (`tooltipText="Copiar"`, `copiedTooltipText="¡Copiado!"`, `errorTooltipText="Error al copiar"`).
+    - Suite de 8 pruebas unitarias pasando al 100% y 0 violaciones de accesibilidad `axe-core`.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
     - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
     - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.

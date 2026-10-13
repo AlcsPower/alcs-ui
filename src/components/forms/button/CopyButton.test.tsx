@@ -80,11 +80,40 @@ describe('CopyButton Component', () => {
     expect(onErrorMock).toHaveBeenCalledWith(error);
   });
 
+  it('soporta variantes filled e inline correctamente', () => {
+    const { rerender } = render(<CopyButton value="test-filled" variant="filled" />);
+    let button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+
+    rerender(<CopyButton value="test-inline" variant="inline" />);
+    button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+  });
+
+  it('renderiza label y respeta labelPlacement', () => {
+    const { rerender } = render(<CopyButton value="test-label" label="Copiar código" labelPlacement="right" />);
+    expect(screen.getByText('Copiar código')).toBeInTheDocument();
+
+    rerender(<CopyButton value="test-label" label="Copiar clave" labelPlacement="left" />);
+    expect(screen.getByText('Copiar clave')).toBeInTheDocument();
+  });
+
+  it('soporta diferentes tamaños sm, md, lg', () => {
+    const { rerender } = render(<CopyButton value="test-size" size="sm" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+
+    rerender(<CopyButton value="test-size" size="md" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+
+    rerender(<CopyButton value="test-size" size="lg" />);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+
   it('no presenta violaciones de accesibilidad (axe-core)', async () => {
     const { container } = render(
       <div>
         <label htmlFor="copy-doc">Número de Expediente</label>
-        <CopyButton id="copy-doc" value="DOC-998877" />
+        <CopyButton id="copy-doc" value="DOC-998877" variant="filled" label="Copiar Folio" />
       </div>
     );
     const results = await axe(container);
