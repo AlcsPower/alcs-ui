@@ -5,6 +5,17 @@
 ### Minor Changes
 
 - ### Soporte para Entornos Offline (Air-Gapped), Nuevos Componentes de Formularios y Overlays Semánticos
+  - **Nuevo Componente `MultiSelect` (`src/components/forms/multi-select`):**
+    - Selector múltiple empresarial accesible conforme a los patrones WAI-ARIA (`role="listbox"`, `role="option"` con `aria-multiselectable="true"`).
+    - 3 modos de visualización ergonómicos en el disparador:
+      - `hybrid` (predeterminado): colapso inteligente con primeros $N$ chips visibles y badge `+N más` interactivo con tooltip informativo.
+      - `chips`: renderizado individual de chips con botón de eliminación rápida (`x`).
+      - `summary`: resumen compacto de alta densidad con badge de conteo para tablas y formularios estrechos.
+    - Acciones del disparador adaptativas: botón de limpiar (`x`) y flecha chevron (`⌄`) pegados al margen derecho (`pr-2` a `pr-3`), con alineación vertical inteligente centrada para una sola fila y anclaje fluido en la esquina inferior derecha (`self-end`) cuando el contenido se expande a dos o más filas.
+    - Soporte nativo para agrupación de opciones (`group`), iconografía personalizada (`icon`) y distintivos contextuales (`badge` usando primitivas de la biblioteca).
+    - Barra de herramientas con buscador en tiempo real, atajos de teclado (`↑↓`, `Espacio`, `Enter`, `Esc` con etiquetas `Kbd`), y opción de "Seleccionar todos" con checkbox indeterminado reactivo.
+    - Escalas métricas normalizadas: `sm` (32px), `md` (40px) y `lg` (48px) y 3 variantes estilísticas de chips: `primary`, `secondary` y `outline`.
+    - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, cero elementos interactivos anidados (`nested-interactive`), y suite completa con 12 pruebas unitarias.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
     - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
     - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.
@@ -36,7 +47,7 @@
     - Texto descriptivo de estado (`statusText`) con iconografía automática integrada (`CheckCircle2`, `AlertCircle`, `Info`).
     - Separadores visuales configurables (`dash`, `dot`, `space`) y modo PIN enmascarado (`mask`).
   - **Métricas de Calidad y Accesibilidad:**
-    - **434/434** pruebas unitarias pasando al 100% en **60 suites de pruebas** (`vitest`).
+    - **447/447** pruebas unitarias pasando al 100% en **61 suites de pruebas** (`vitest`).
     - **0 violaciones de accesibilidad** detectadas por `axe-core`.
     - Tipado estricto verificado con `tsc --noEmit`.
 
