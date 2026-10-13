@@ -3,3 +3,4 @@ export * from './tabs';
 export * from './accordion';
 export * from './collapsible';
 export * from './stepper';
+export * from './tree-view';

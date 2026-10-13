@@ -16,6 +16,14 @@
     - Barra de herramientas con buscador en tiempo real, atajos de teclado (`↑↓`, `Espacio`, `Enter`, `Esc` con etiquetas `Kbd`), y opción de "Seleccionar todos" con checkbox indeterminado reactivo.
     - Escalas métricas normalizadas: `sm` (32px), `md` (40px) y `lg` (48px) y 3 variantes estilísticas de chips: `primary`, `secondary` y `outline`.
     - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, cero elementos interactivos anidados (`nested-interactive`), y suite completa con 12 pruebas unitarias.
+  - **Nuevo Componente `TreeView` (`src/components/navigation/tree-view`):**
+    - Árbol jerárquico accesible conforme al estándar WAI-ARIA (`role="tree"`, `role="treeitem"`, `role="group"`).
+    - Navegación completa por teclado con atajos estándar: `ArrowDown` / `ArrowUp` (navegación vertical), `ArrowRight` (expandir rama o entrar en primer hijo), `ArrowLeft` (colapsar rama o saltar al nodo padre), `Home` / `End` (primer/último nodo visible), `Enter` / `Space` (seleccionar/alternar) y `*` (expandir todos los nodos hermanos).
+    - Modos de selección flexible: selección simple (`selectedId`), multi-selección con casillas de verificación (`showCheckboxes`), y lógica de propagación en cascada con estado indeterminado tri-estado automático.
+    - Líneas guía visuales jerárquicas sutiles conectando niveles de profundidad con estética *Craft Minimalist*.
+    - Iconografía adaptativa inteligente con carpetas (`Folder`, `FolderOpen`) y documentos (`FileText`), o render props personalizados según estado (`isOpen`, `isSelected`).
+    - Soporte para distintivos contextuales (`badge`), ranura de acciones secundarias en hover (`actions`), y estado de carga asíncrona con `Spinner`.
+    - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, 8/8 pruebas unitarias pasando.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
     - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
     - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.
@@ -47,7 +55,7 @@
     - Texto descriptivo de estado (`statusText`) con iconografía automática integrada (`CheckCircle2`, `AlertCircle`, `Info`).
     - Separadores visuales configurables (`dash`, `dot`, `space`) y modo PIN enmascarado (`mask`).
   - **Métricas de Calidad y Accesibilidad:**
-    - **447/447** pruebas unitarias pasando al 100% en **61 suites de pruebas** (`vitest`).
+    - **455/455** pruebas unitarias pasando al 100% en **62 suites de pruebas** (`vitest`).
     - **0 violaciones de accesibilidad** detectadas por `axe-core`.
     - Tipado estricto verificado con `tsc --noEmit`.
 
