@@ -18,12 +18,17 @@
     - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, cero elementos interactivos anidados (`nested-interactive`), y suite completa con 12 pruebas unitarias.
   - **Nuevo Componente `TreeView` (`src/components/navigation/tree-view`):**
     - Árbol jerárquico accesible conforme al estándar WAI-ARIA (`role="tree"`, `role="treeitem"`, `role="group"`).
-    - Navegación completa por teclado con atajos estándar: `ArrowDown` / `ArrowUp` (navegación vertical), `ArrowRight` (expandir rama o entrar en primer hijo), `ArrowLeft` (colapsar rama o saltar al nodo padre), `Home` / `End` (primer/último nodo visible), `Enter` / `Space` (seleccionar/alternar) y `*` (expandir todos los nodos hermanos).
+    - **Barra de herramientas integrada para expansión/colapso global:**
+      - Prop `showToolbar` con disposición configurable `toolbarLayout="toggle"` (botón único inteligente que conmuta dinámicamente entre "Expandir todo" con `FolderPlus` y "Contraer todo" con `FolderMinus`) o `toolbarLayout="pair"` (dos botones independientes con desactivación contextual automática cuando todos los nodos están expandidos o colapsados).
+      - Título visual personalizable (`toolbarTitle`) y render prop avanzado (`renderToolbar`) exponiendo métodos programáticos `expandAll()`, `collapseAll()`, `toggleExpandAll()` y banderas `isAllExpanded`, `isAllCollapsed`.
+      - Botones construidos con primitivas oficiales de la biblioteca (`Button` de `@alcspower/ui`) garantizando diseño semántico y consistencia cromática.
+      - Cumplimiento de jerarquía semántica ARIA: la barra de herramientas se renderiza fuera de `<ul role="tree">` asegurando 0 violaciones de relación padre/hijo en analizadores WAI-ARIA / `axe-core`.
+    - Navegación completa por teclado con atajos estándar: `ArrowDown` / `ArrowUp` (navegación vertical), `ArrowRight` (expandir rama o entrar en primer hijo), `ArrowLeft` (colapsar rama o saltar al nodo padre), `Home` / `End` (primer/último nodo visible), `Enter` / `Space` (seleccionar/alternar), `*` (expandir todos los nodos hermanos) y atajos globales avanzados `Alt + ArrowRight` (expandir todo el árbol) y `Alt + ArrowLeft` (contraer todo el árbol).
     - Modos de selección flexible: selección simple (`selectedId`), multi-selección con casillas de verificación (`showCheckboxes`), y lógica de propagación en cascada con estado indeterminado tri-estado automático.
     - Líneas guía visuales jerárquicas sutiles conectando niveles de profundidad con estética *Craft Minimalist*.
     - Iconografía adaptativa inteligente con carpetas (`Folder`, `FolderOpen`) y documentos (`FileText`), o render props personalizados según estado (`isOpen`, `isSelected`).
     - Soporte para distintivos contextuales (`badge`), ranura de acciones secundarias en hover (`actions`), y estado de carga asíncrona con `Spinner`.
-    - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, 8/8 pruebas unitarias pasando.
+    - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, 11/11 pruebas unitarias pasando.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
     - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
     - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.

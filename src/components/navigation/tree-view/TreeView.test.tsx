@@ -170,11 +170,102 @@ describe('TreeView Component', () => {
     expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
   });
 
+  it('permite expandir y contraer todo el árbol con el botón toggle en la barra de herramientas', async () => {
+    const user = userEvent.setup();
+    const handleExpandAll = vi.fn();
+    const handleCollapseAll = vi.fn();
+
+    render(
+      <TreeView
+        data={mockTreeData}
+        showToolbar
+        toolbarTitle="Explorador Ministerial"
+        onExpandAll={handleExpandAll}
+        onCollapseAll={handleCollapseAll}
+      />
+    );
+
+    expect(screen.getByText('Explorador Ministerial')).toBeInTheDocument();
+
+    // Botón inicial: "Expandir todo"
+    const toggleBtn = screen.getByRole('button', { name: /expandir todo/i });
+    expect(toggleBtn).toBeInTheDocument();
+    expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
+    expect(screen.queryByText('Resolución Ministerial 01-2026.pdf')).not.toBeInTheDocument();
+
+    // Clic en "Expandir todo"
+    await user.click(toggleBtn);
+    expect(handleExpandAll).toHaveBeenCalled();
+
+    // Todo el árbol debe estar expandido en todos los niveles
+    expect(screen.getByText('Aduanas y Aranceles')).toBeInTheDocument();
+    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Comercio Exterior')).toBeInTheDocument();
+    expect(screen.getByText('Distribución Cuota Azúcar OMC.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Directiva General de Firma Digital.pdf')).toBeInTheDocument();
+
+    // El botón debe haber cambiado a "Contraer todo"
+    const collapseBtn = screen.getByRole('button', { name: /contraer todo/i });
+    expect(collapseBtn).toBeInTheDocument();
+
+    // Clic en "Contraer todo"
+    await user.click(collapseBtn);
+    expect(handleCollapseAll).toHaveBeenCalled();
+
+    // Todo debe colapsarse
+    expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
+    expect(screen.queryByText('Directiva General de Firma Digital.pdf')).not.toBeInTheDocument();
+  });
+
+  it('soporta toolbarLayout="pair" con botones separados y estados deshabilitados contextuales', async () => {
+    const user = userEvent.setup();
+
+    render(<TreeView data={mockTreeData} showToolbar toolbarLayout="pair" />);
+
+    const expandBtn = screen.getByRole('button', { name: /expandir todo/i });
+    const collapseBtn = screen.getByRole('button', { name: /contraer todo/i });
+
+    expect(expandBtn).toBeEnabled();
+    expect(collapseBtn).toBeDisabled(); // Inicialmente colapsado
+
+    // Expandir todo
+    await user.click(expandBtn);
+    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(expandBtn).toBeDisabled();
+    expect(collapseBtn).toBeEnabled();
+
+    // Contraer todo
+    await user.click(collapseBtn);
+    expect(screen.queryByText('Resolución Ministerial 01-2026.pdf')).not.toBeInTheDocument();
+    expect(expandBtn).toBeEnabled();
+    expect(collapseBtn).toBeDisabled();
+  });
+
+  it('soporta atajos de teclado Alt+ArrowRight y Alt+ArrowLeft para expandir y contraer todo', async () => {
+    const user = userEvent.setup();
+    render(<TreeView data={mockTreeData} />);
+
+    const tree = screen.getByRole('tree');
+    tree.focus();
+
+    // Alt + Flecha Derecha expande todo
+    await user.keyboard('{Alt>}{ArrowRight}{/Alt}');
+    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Distribución Cuota Azúcar OMC.pdf')).toBeInTheDocument();
+
+    // Alt + Flecha Izquierda contrae todo
+    await user.keyboard('{Alt>}{ArrowLeft}{/Alt}');
+    expect(screen.queryByText('Resolución Ministerial 01-2026.pdf')).not.toBeInTheDocument();
+    expect(screen.queryByText('Distribución Cuota Azúcar OMC.pdf')).not.toBeInTheDocument();
+  });
+
   it('no presenta violaciones de accesibilidad (axe-core)', async () => {
     const { container } = render(
       <TreeView
         data={mockTreeData}
         defaultExpandedIds={['exp-2026']}
+        showToolbar
+        toolbarTitle="Explorador Ministerial"
         aria-label="Estructura Jerárquica Ministerial"
       />
     );
@@ -183,3 +274,4 @@ describe('TreeView Component', () => {
     expect(results).toHaveNoViolations();
   });
 });
+

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { TreeView, type TreeNode } from './TreeView';
 import { Badge } from '../../data-display/badge';
+import { Button } from '../../forms/button';
 import { Download } from 'lucide-react';
 
 const expedientesData: TreeNode[] = [
@@ -184,6 +185,30 @@ export const EscalasMetricas: Story = {
   ),
 };
 
+export const ConBarraDeHerramientas: Story = {
+  args: {
+    data: expedientesData,
+    showToolbar: true,
+    toolbarTitle: 'Archivo Central MIFIC',
+    toolbarLayout: 'toggle',
+    size: 'md',
+    showGuideLines: true,
+    showDefaultIcons: true,
+  },
+};
+
+export const ConBarraDeHerramientasPar: Story = {
+  args: {
+    data: expedientesData,
+    showToolbar: true,
+    toolbarTitle: 'Gestión Documental Jerárquica',
+    toolbarLayout: 'pair',
+    size: 'md',
+    showGuideLines: true,
+    showDefaultIcons: true,
+  },
+};
+
 export const ConAccionesYBadges: Story = {
   render: () => {
     const dataConAcciones: TreeNode[] = [
@@ -197,13 +222,16 @@ export const ConAccionesYBadges: Story = {
             badge: <Badge variant="secondary" size="sm">Aprobado</Badge>,
             actions: (
               <div className="flex items-center gap-1">
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
+                  size="icon-sm"
                   title="Descargar"
-                  className="w-6 h-6 rounded flex items-center justify-center text-alcspower-muted-foreground hover:text-alcspower-foreground hover:bg-black/5 dark:hover:bg-white/10"
+                  aria-label="Descargar archivo"
+                  className="h-6 w-6 rounded-md"
                 >
                   <Download className="w-3.5 h-3.5" />
-                </button>
+                </Button>
               </div>
             ),
           },
@@ -213,13 +241,16 @@ export const ConAccionesYBadges: Story = {
             badge: <Badge variant="outline" size="sm">En Revisión</Badge>,
             actions: (
               <div className="flex items-center gap-1">
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
+                  size="icon-sm"
                   title="Descargar"
-                  className="w-6 h-6 rounded flex items-center justify-center text-alcspower-muted-foreground hover:text-alcspower-foreground hover:bg-black/5 dark:hover:bg-white/10"
+                  aria-label="Descargar archivo"
+                  className="h-6 w-6 rounded-md"
                 >
                   <Download className="w-3.5 h-3.5" />
-                </button>
+                </Button>
               </div>
             ),
           },
@@ -238,3 +269,4 @@ export const ConAccionesYBadges: Story = {
     );
   },
 };
+

@@ -4,10 +4,13 @@ import {
   ChevronRight,
   Folder,
   FolderOpen,
+  FolderPlus,
+  FolderMinus,
   FileText,
 } from 'lucide-react';
 import { cn } from '../../../lib/utils';
 import { Checkbox } from '../../forms/checkbox';
+import { Button } from '../../forms/button';
 import { Spinner } from '../../feedback/spinner';
 
 export interface TreeNode {
@@ -77,6 +80,24 @@ export interface TreeViewProps
   showDefaultIcons?: boolean;
   /** Permite expandir nodos haciendo clic en todo el elemento, no solo en el chevron */
   expandOnClick?: boolean;
+  /** Muestra una barra de herramientas superior con acciones rápidas (ej. expandir / contraer todo) */
+  showToolbar?: boolean;
+  /** Disposición de los botones en la barra de herramientas: 'toggle' (botón alternante) o 'pair' (dos botones) */
+  toolbarLayout?: 'toggle' | 'pair';
+  /** Título o elemento visual a la izquierda de la barra de herramientas */
+  toolbarTitle?: React.ReactNode;
+  /** Callback invocado cuando se expanden todos los nodos */
+  onExpandAll?: () => void;
+  /** Callback invocado cuando se contraen todos los nodos */
+  onCollapseAll?: () => void;
+  /** Render prop personalizado para la barra de herramientas */
+  renderToolbar?: (props: {
+    expandAll: () => void;
+    collapseAll: () => void;
+    toggleExpandAll: () => void;
+    isAllExpanded: boolean;
+    isAllCollapsed: boolean;
+  }) => React.ReactNode;
   /** Render prop personalizado para el contenido de cada nodo */
   renderNodeContent?: (node: TreeNode, state: { isOpen: boolean; isSelected: boolean; isFocused: boolean }) => React.ReactNode;
 }
@@ -99,6 +120,12 @@ export const TreeView = React.forwardRef<HTMLUListElement, TreeViewProps>(
       showGuideLines = true,
       showDefaultIcons = true,
       expandOnClick = false,
+      showToolbar = false,
+      toolbarLayout = 'toggle',
+      toolbarTitle,
+      onExpandAll,
+      onCollapseAll,
+      renderToolbar,
       renderNodeContent,
       size = 'md',
       className,
@@ -184,6 +211,43 @@ export const TreeView = React.forwardRef<HTMLUListElement, TreeViewProps>(
       },
       [expandedIds, updateExpandedIds]
     );
+
+    // Todos los IDs de ramas (nodos que tienen al menos un hijo)
+    const allBranchIds = React.useMemo(() => {
+      const ids: string[] = [];
+      const traverse = (nodes: TreeNode[]) => {
+        nodes.forEach((n) => {
+          if (n.children && n.children.length > 0) {
+            ids.push(n.id);
+            traverse(n.children);
+          }
+        });
+      };
+      traverse(data);
+      return ids;
+    }, [data]);
+
+    const isAllExpanded =
+      allBranchIds.length > 0 && allBranchIds.every((id) => expandedIds.includes(id));
+    const isAllCollapsed = expandedIds.length === 0;
+
+    const expandAll = React.useCallback(() => {
+      updateExpandedIds(allBranchIds);
+      onExpandAll?.();
+    }, [allBranchIds, onExpandAll, updateExpandedIds]);
+
+    const collapseAll = React.useCallback(() => {
+      updateExpandedIds([]);
+      onCollapseAll?.();
+    }, [onCollapseAll, updateExpandedIds]);
+
+    const toggleExpandAll = React.useCallback(() => {
+      if (isAllExpanded) {
+        collapseAll();
+      } else {
+        expandAll();
+      }
+    }, [collapseAll, expandAll, isAllExpanded]);
 
     // Obtener todos los descendientes de un nodo
     const getAllDescendantIds = React.useCallback((node: TreeNode): string[] => {
@@ -331,6 +395,11 @@ export const TreeView = React.forwardRef<HTMLUListElement, TreeViewProps>(
         }
 
         case 'ArrowRight': {
+          if (e.altKey) {
+            e.preventDefault();
+            expandAll();
+            break;
+          }
           e.preventDefault();
           if (currentNode && currentNode.children && currentNode.children.length > 0) {
             if (!expandedIds.includes(currentNode.id)) {
@@ -344,6 +413,11 @@ export const TreeView = React.forwardRef<HTMLUListElement, TreeViewProps>(
         }
 
         case 'ArrowLeft': {
+          if (e.altKey) {
+            e.preventDefault();
+            collapseAll();
+            break;
+          }
           e.preventDefault();
           if (currentNode) {
             if (currentNode.children && currentNode.children.length > 0 && expandedIds.includes(currentNode.id)) {
@@ -569,7 +643,7 @@ export const TreeView = React.forwardRef<HTMLUListElement, TreeViewProps>(
       );
     };
 
-    return (
+    const treeList = (
       <ul
         ref={ref}
         role="tree"
@@ -579,13 +653,90 @@ export const TreeView = React.forwardRef<HTMLUListElement, TreeViewProps>(
         className={cn(
           treeViewVariants({ size }),
           'space-y-0.5 p-0 m-0 list-none outline-none focus-visible:ring-1 focus-visible:ring-alcspower-primary/20 rounded-xl',
-          className
+          !showToolbar && !renderToolbar && className
         )}
         {...restProps}
       >
         {data.map((rootNode) => renderNode(rootNode, 0))}
       </ul>
     );
+
+    if (showToolbar || renderToolbar) {
+      return (
+        <div className={cn('w-full flex flex-col gap-2', className)}>
+          <div className="flex items-center justify-between gap-2 px-1 py-1 border-b border-alcspower-border/50 text-xs">
+            {toolbarTitle ? (
+              <div className="font-medium text-alcspower-foreground text-sm">{toolbarTitle}</div>
+            ) : (
+              <div />
+            )}
+            <div className="flex items-center gap-1.5 ml-auto">
+              {renderToolbar ? (
+                renderToolbar({
+                  expandAll,
+                  collapseAll,
+                  toggleExpandAll,
+                  isAllExpanded,
+                  isAllCollapsed,
+                })
+              ) : toolbarLayout === 'pair' ? (
+                <>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={expandAll}
+                    disabled={isAllExpanded || allBranchIds.length === 0}
+                    className="gap-1.5 font-normal h-7 px-2.5 text-xs rounded-lg"
+                    title="Expandir todo el árbol"
+                  >
+                    <FolderPlus className="w-3.5 h-3.5 text-alcspower-muted-foreground" />
+                    <span>Expandir todo</span>
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={collapseAll}
+                    disabled={isAllCollapsed || allBranchIds.length === 0}
+                    className="gap-1.5 font-normal h-7 px-2.5 text-xs rounded-lg"
+                    title="Contraer todo el árbol"
+                  >
+                    <FolderMinus className="w-3.5 h-3.5 text-alcspower-muted-foreground" />
+                    <span>Contraer todo</span>
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={toggleExpandAll}
+                  disabled={allBranchIds.length === 0}
+                  className="gap-1.5 font-normal h-7 px-2.5 text-xs rounded-lg"
+                  title={isAllExpanded ? 'Contraer todo el árbol' : 'Expandir todo el árbol'}
+                >
+                  {isAllExpanded ? (
+                    <>
+                      <FolderMinus className="w-3.5 h-3.5 text-alcspower-muted-foreground" />
+                      <span>Contraer todo</span>
+                    </>
+                  ) : (
+                    <>
+                      <FolderPlus className="w-3.5 h-3.5 text-alcspower-muted-foreground" />
+                      <span>Expandir todo</span>
+                    </>
+                  )}
+                </Button>
+              )}
+            </div>
+          </div>
+          {treeList}
+        </div>
+      );
+    }
+
+    return treeList;
   }
 );
 
