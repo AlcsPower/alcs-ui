@@ -68,24 +68,26 @@ pnpm update @alcspower/ui@1.2
 
 ### Auditoría Regular
 
-La biblioteca ejecuta auditoría de seguridad en:
-- ✅ Cada commit (CI/CD)
-- ✅ Antes de cada release (manual)
+La biblioteca ejecuta auditoría de seguridad automatizada en:
+- ✅ Cada commit y pull request (CI/CD vía `.github/workflows/ci.yml`):
+  - `pnpm audit --prod`: Cero vulnerabilidades toleradas en dependencias de producción.
+  - `pnpm audit --audit-level=critical`: Cero vulnerabilidades críticas toleradas en tooling de desarrollo.
+- ✅ Antes de cada release (manual y compresión de paquete)
 - ✅ Semanalmente en `main` (automatizado)
 
 ### Ejecutar Auditoría Localmente
 
 ```bash
-# Revisar vulnerabilidades
+# Revisar vulnerabilidades en todo el árbol
 pnpm audit
 
-# Mostrar solo moderate y critical
-pnpm audit --audit-level=moderate
+# Revisar vulnerabilidades exclusivas del runtime de producción (cero toleradas)
+pnpm audit --prod
 
-# Aplicar fixes automáticos
-pnpm audit --fix
+# Mostrar solo critical
+pnpm audit --audit-level=critical
 
-# Generar reporte detallado
+# Generar reporte detallado en JSON
 pnpm audit --json > audit-report.json
 ```
 
@@ -136,6 +138,30 @@ export function UserProfile({ userName }: { userName: string }) {
   const safeName = DOMPurify.sanitize(userName, { ALLOWED_TAGS: [] });
   return <Tooltip content={safeName}>Profile</Tooltip>;
 }
+```
+
+#### ✓ Sanitización de Enlaces y Atributos `href`
+
+Al pasar URLs dinámicas a primitivas de navegación como `BreadcrumbLink`, `Button asChild` o componentes con elementos `<a>`:
+
+```typescript
+// ❌ MALO: Pasar un enlace sin validar esquema (riesgo de URL javascript:...)
+<a href={userProvidedUrl}>Visitar enlace</a>
+
+// ✅ BUENO: Validar esquema permitido (http, https, mailto, tel o rutas relativas)
+function isSafeUrl(url: string): boolean {
+  if (!url) return false;
+  // Permitir rutas relativas
+  if (url.startsWith('/') || url.startsWith('#')) return true;
+  try {
+    const parsed = new URL(url);
+    return ['http:', 'https:', 'mailto:', 'tel:'].includes(parsed.protocol);
+  } catch {
+    return false;
+  }
+}
+
+const safeHref = isSafeUrl(userProvidedUrl) ? userProvidedUrl : '#';
 ```
 
 #### ✓ Usando `dangerouslySetInnerHTML` (evitar cuando sea posible)

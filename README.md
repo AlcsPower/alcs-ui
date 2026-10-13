@@ -239,12 +239,14 @@ El directorio **[`docs/instructivo/`](docs/instructivo/README.md)** contiene un 
 
 ---
 
-## 📚 Catálogo Completo de Componentes (59+ Componentes)
+## 📚 Catálogo Completo de Componentes (67+ Componentes)
 
 Todos los componentes han sido verificados mediante pruebas unitarias exhaustivas, comprobación estricta de tipado con TypeScript y auditorías de accesibilidad automatizada con **axe-core** (100% pruebas aprobadas, **0 violaciones de accesibilidad detectadas**).
 
 ### 1. Formularios (Forms)
 * **`Button`:** Botón interactivo con 6 variantes semánticas (`primary`, `secondary`, `outline`, `ghost`, `destructive`, `link`), 4 tamaños (`sm`, `md`, `lg`, `icon`), estado de carga reactivo (`isLoading`) y delegación polimórfica `asChild`.
+* **`CopyButton`:** Botón interactivo de un solo clic para transferir información al portapapeles con micro-animaciones fluidas de 2 capas (giro y rebote elástico de `Copy` a `Check` esmeralda o `AlertCircle` ante fallo), halo radial luminoso (*radial glow*), 3 variantes (`outlined`, `filled`, `inline` incrustado dentro de inputs), 3 escalas proporcionales (`sm: 28px`, `md: 36px`, `lg: 44px`), soporte de etiquetas textuales (`label`) y tooltip accesible integrado.
+* **`MultiSelect`:** Selector múltiple empresarial conforme a WAI-ARIA (`role="listbox"` con `aria-multiselectable="true"`), 3 modos de visualización ergonómicos (`hybrid` con colapso inteligente en `+N más`, `chips` individuales y `summary` compacto), acciones del disparador adaptativas (botón limpiar `x` y flecha chevron `⌄` pegados al margen derecho y anclaje fluido en esquina inferior derecha para múltiples filas), selector masivo "Seleccionar todos", buscador en tiempo real y escalas métricas (`sm`, `md`, `lg`).
 * **`Field` (Primitivo Compuesto):** Contenedor accesible (`Field`, `FieldLabel`, `FieldControl`, `FieldHint`, `FieldError`) que coordina identificadores deterministas y asociaciones ARIA (`aria-describedby`, `aria-invalid`).
 * **`Input`:** Campo de texto accesible con escala métrica simétrica (`sm: h-8`, `md: h-10`, `lg: h-12`), slots para `leftElement`/`rightElement` y variantes de validación.
 * **`NumberInput`:** Control numérico accesible conforme a WAI-ARIA (`role="spinbutton"`), aceleración continua por pulsación sostenida (*long-press*), 4 disposiciones de steppers (`stacked`, `split`, `inline-right`, `none`), soporte de `prefix`/`suffix`, precisión decimal segura contra punto flotante IEEE 754 y atajos de teclado (`Shift+Arrows`, `Home`, `End`, `PageUp/Down`).
@@ -283,6 +285,10 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Alert`:** Banner de notificación con iconografía institucional y variantes de estado (`info`, `success`, `warning`, `destructive`).
 
 ### 4. Navegación y Estructura (Navigation & Layout)
+* **`TreeView`:** Árbol jerárquico accesible conforme al estándar WAI-ARIA (`role="tree"`, `role="treeitem"`, `role="group"`), navegación completa por teclado con atajos estándar (`Arrow keys`, `Home`, `End`, `*`, `Alt+Arrows`), barra de herramientas integrada para expansión/colapso global (`toolbarLayout="toggle" | "pair"`), soporte de selección simple o multi-selección con checkboxes tri-estado jerárquicos y líneas guía visuales tipo *Craft Minimalist*.
+* **`Container`:** Primitivo de delimitación horizontal responsiva que centra y acota el contenido a los puntos de quiebre oficiales de Tailwind v4 y el diseño institucional (`sm`, `md`, `lg`, `xl`, `2xl`, `prose`, `full`), padding horizontal configurable y polimorfismo semántico con `as`.
+* **`Stack`:** Primitivo flexbox unidimensional para apilado vertical u horizontal con espaciados semánticos uniformes y soporte para intercalar divisores decorativos automáticamente (`divider={<Separator />}`).
+* **`Grid` y `GridItem`:** Primitivo bidimensional de rejilla CSS con control responsivo de columnas base (`cols: 1..12`) y quiebres fluidos (`colsSm`, `colsMd`, `colsLg`, `colsXl`), junto con `GridItem` para expansiones `colSpan` y `rowSpan`.
 * **`Breadcrumb`:** Jerarquía de navegación accesible orientada a WAI-ARIA (`Breadcrumb`, `BreadcrumbList`, `BreadcrumbItem`, `BreadcrumbLink`, `BreadcrumbPage`, `BreadcrumbSeparator`, `BreadcrumbEllipsis`) con soporte polimórfico `asChild` para enrutadores SPA (React Router, Next.js).
 * **`Tabs`:** Pestañas accesibles con soporte ARIA para selección activa y cambio de vistas (`TabsList`, `TabsTrigger`, `TabsContent`).
 * **`Accordion`:** Contenedor de paneles expandibles basado en `@radix-ui/react-accordion`. Soporta modo simple (`type="single"`) o múltiple (`type="multiple"`), chevron rotativo animado y navegación íntegra por teclado.
@@ -317,6 +323,8 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Chart`:** Módulo de gráficos institucionales basado en Recharts (`BarChart`, `LineChart`, `AreaChart`, `PieChart`), con contenedor responsivo (`ChartContainer`), paleta cromática semántica (`--color-alcspower-chart-1` a `5`) y soporte automático para modo oscuro.
 
 ### 10. Métricas y Dashboards (Metrics)
+* **`Sparkline`:** Micro-gráfico de tendencia vectorial en SVG puro sin dependencias adicionales para tablas y tarjetas KPI, con 3 tipos de renderizado (`area`, `line`, `bar`), suavizado `monotone`/`linear`, variante cromática dinámica `auto` y tooltip interactivo.
+* **`Gauge`:** Tacómetro / medidor radial accesible (`role="meter"`) para metas y SLAs con 3 geometrías (`semicircle`, `arc`, `circle`), umbrales semánticos (`thresholds`), aguja mecánica o valor central y 4 escalas métricas.
 * **`MetricCard`:** Tarjeta de KPI empresarial con valor principal, título, descripción, indicador delta y slot para gráficos de tendencia.
 * **`StatCard`:** Tarjeta compacta para indicadores cuantitativos con iconos semánticos.
 * **`DeltaIndicator`:** Indicador numérico de variación porcentual con flechas y estilos semánticos (positivo, negativo, neutro).
