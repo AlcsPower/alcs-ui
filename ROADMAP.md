@@ -50,6 +50,7 @@ v1.3.0 (Actual)
 
              └─► v1.6.0: Navegación + Layout + Datos Avanzados
                   ├─ Sidebar mejorado, Navbar, Container, Grid
+                  ├─ ScrollArea / Scrollbar (Radix UI ScrollArea accesible)
                   ├─ TreeView, VirtualList, RowActions
                   ├─ Sparkline, Gauge, Heatmap
                   ├─ NotificationCenter, HealthBadge
@@ -63,6 +64,7 @@ v1.3.0 (Actual)
                        └─ Plantillas y scripts de productividad
 
                        └─► v1.8.0+: Especialización
+                            ├─ GanttChart / Gantt (cronogramas y gestión de proyectos)
                             ├─ OrganizationChart
                             ├─ Kanban
                             ├─ Calendar avanzado
@@ -127,6 +129,9 @@ v1.3.0 (Actual)
   * Brand, actions, dropdowns, búsqueda global, selector de tema.
 * [ ] **`Container`, `Stack`, `Grid`, `AspectRatio`:**
   * Layout reutilizable para dashboards y contenido editorial.
+* [ ] **`ScrollArea` / `Scrollbar`:**
+  * Componente de desplazamiento personalizado accesible basado en `@radix-ui/react-scroll-area`.
+  * Soporte para orientación vertical y horizontal, comportamiento nativo en dispositivos táctiles (`type="auto" | "always" | "scroll" | "hover"`), barras sutiles con diseño *Craft Minimalist* y control de grosor (`size="sm" | "md"`).
 * [ ] **`TreeView`:**
   * Árbol jerárquico para estructuras organizacionales, directorios y clasificación documental.
 * [ ] **`VirtualList`:**
@@ -164,6 +169,9 @@ v1.3.0 (Actual)
 
 *Los siguientes componentes son valiosos, pero pueden agregar peso o complejidad significativa; se evaluarán como módulos opcionales o experimentales.*
 
+* [ ] **`GanttChart` / `Gantt` (Diagrama de Gantt):**
+  * Cronograma interactivo para gestión de proyectos, expedientes y planificación temporal.
+  * Línea de tiempo con escalas configurables (días, semanas, meses), barras de progreso con dependencias visuales entre tareas, hitos (*milestones*), arrastre (*drag-and-drop*) accesible o atajos de teclado, e integración con el sistema de tokens semánticos de `@alcspower/ui`.
 * [ ] **`OrganizationChart`**
 * [ ] **`Kanban`**
 * [ ] **`Calendar` avanzado**
@@ -198,12 +206,12 @@ Cada nuevo componente debe cumplir antes de entrar al paquete principal:
 |---|---|---|
 | P0 | Formularios y validación | `FormProvider`, `FormField`, `SearchInput`, `PasswordInput`, `OTPInput`, `MultiSelect` |
 | P0 | Overlays | `ConfirmDialog`, `AlertDialog` |
-| P1 | Data & dashboards | `TreeView`, `VirtualList`, `Sparkline`, `Gauge`, `Heatmap` |
+| P1 | Data & dashboards | `TreeView`, `VirtualList`, `ScrollArea` / `Scrollbar`, `Sparkline`, `Gauge`, `Heatmap` |
 | P1 | Navegación | `Sidebar`, `Navbar`, `Breadcrumb` mejorado |
 | P1 | Feedback | `NotificationCenter`, `StatusIndicator`, `Result` |
 | P2 | Contenido | `RichTextEditor`, `Markdown`, `CodeBlock` |
 | P2 | DX | `CLI`, `Spotlight`, `CopyButton` |
-| P3 | Experimentales | `Kanban`, `OrganizationChart`, `Flow Diagram` |
+| P3 | Especialización / Proyectos | `GanttChart` (Diagrama de Gantt), `Kanban`, `OrganizationChart`, `Flow Diagram` |
 
 ---
 

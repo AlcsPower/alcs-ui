@@ -29,6 +29,21 @@
     - Iconografía adaptativa inteligente con carpetas (`Folder`, `FolderOpen`) y documentos (`FileText`), o render props personalizados según estado (`isOpen`, `isSelected`).
     - Soporte para distintivos contextuales (`badge`), ranura de acciones secundarias en hover (`actions`), y estado de carga asíncrona con `Spinner`.
     - Cumplimiento estricto de accesibilidad: 0 violaciones `axe-core`, 11/11 pruebas unitarias pasando.
+  - **Nuevos Primitivos Analíticos Ligeros para Dashboards: `Sparkline` y `Gauge` (`src/components/data-display`):**
+    - **`Sparkline` (`src/components/data-display/sparkline`):**
+      - Micro-gráfico de tendencia vectorial en SVG puro sin dependencias externas adicionales, ideal para filas de `DataTable`, tablas y tarjetas KPI.
+      - 3 tipos visuales de renderizado: `area` (con gradiente vertical semántico), `line` (trazo continuo) y `bar` (rectángulos con esquinas redondeadas).
+      - Suavizado de curvas mediante splines cúbicos o trazos lineales (`curve="monotone" | "linear"`).
+      - Variante cromática dinámica `variant="auto"` que detecta automáticamente si la tendencia es positiva (éxito/esmeralda) o negativa (destructivo/carmesí) comparando el último valor con el primero.
+      - Interacción táctil y ratón con retícula en cruz, punto activo resaltado y tooltip flotante interactivo con formateo personalizable.
+      - 8/8 pruebas unitarias pasando y 0 violaciones `axe-core`.
+    - **`Gauge` (`src/components/data-display/gauge`):**
+      - Medidor radial / tacómetro accesible (`role="meter"`) para cumplimiento de metas, SLAs institucionales y porcentajes de avance.
+      - 3 geometrías de arco: `semicircle` (180° plano), `arc` (240° velocímetro) y `circle` (360° anillo completo).
+      - Zonas y umbrales semánticos configurables (`thresholds`) con coloración automática (`color="auto"`) en tres bandas: advertencia, óptimo y crítico.
+      - Aguja mecánica indicadora con perno central metálico (`showNeedle`) o display numérico central de alta visibilidad (`showValue`).
+      - Escalas de tamaño estandarizadas (`sm: 96px`, `md: 144px`, `lg: 192px`, `xl: 240px`) y soporte para etiquetas `label`, `sublabel` y extremos `min`/`max`.
+      - 7/7 pruebas unitarias pasando y 0 violaciones `axe-core`.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
     - Empaquetamiento autónomo con `tsup` inyectando (`noExternal`) las 31 dependencias secundarias en el artefacto de distribución (`dist/index.js` y `dist/index.cjs`), excluyendo estrictamente el ecosistema React (`react`, `react-dom` y `react/jsx-runtime`) como dependencias externas de tiempo de ejecución (*peer dependencies*).
     - Eliminación de dependencias en tiempo de ejecución de la sección `dependencies` de `package.json`, trasladándolas a `devDependencies` para prevenir que `npm` o `pnpm` intenten consultar registros remotos al instalar la librería en entornos cerrados o sin conexión a internet.

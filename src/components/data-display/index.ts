@@ -10,3 +10,5 @@ export * from './chart';
 export * from './metrics';
 export * from './timeline';
 export * from './kbd';
+export * from './sparkline';
+export * from './gauge';
