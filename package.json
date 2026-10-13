@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Biblioteca de componentes React accesibles y reutilizables basada en Radix UI y Tailwind CSS",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",
