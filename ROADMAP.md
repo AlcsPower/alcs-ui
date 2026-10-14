@@ -36,49 +36,32 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 
 ---
 
-## 🚀 Próximas Versiones Planificadas (Ciclo v1.x)
+## 🚀 Próximas Versiones y Evolución del Ciclo v1.x
 
 ```text
-v1.3.0 (Actual)
-  └─► v1.4.0: Flujos B2B y Solicitudes Corporativas
-        ├─ Stepper / Wizard
-        ├─ Timeline / ActivityLog
-        ├─ FileUpload / Dropzone
-        └─ Kbd
+v1.6.2 (Actual Consolidado ✓)
+  ├─ Stepper, Timeline, FileUpload, Kbd (v1.4.0 ✓)
+  ├─ Field, SearchInput, PasswordInput, OTPInput, MultiSelect, TagsInput, NumberInput, Combobox, ConfirmDialog (v1.5.0 ✓)
+  ├─ Container, Stack, Grid, TreeView, Sparkline, Gauge, StatusBadge, CopyButton (v1.6.0 ✓)
+  ├─ CLI Oficial (init-agent, info, list), llms.txt, registry.json, Neutralización, Docs Bilingües (v1.6.2 ✓)
+  │
+  └─► v1.7.0: Showcase Interactivo + ScrollArea + Contenido Rich
+        ├─ Storybook Showcase en GitHub Pages (Demo interactiva con máximo pulido)
+        ├─ ScrollArea / Scrollbar (Radix UI accesible)
+        ├─ Portal Web de Documentación Bilingüe (Astro Starlight)
+        ├─ RichTextEditor (módulo independiente)
+        └─ CodeBlock, Markdown
 
-        └─► v1.5.0: Formularios Avanzados + Búsqueda
-             ├─ FormProvider, FormField, useForm
-             ├─ SearchInput, PasswordInput, OTPInput
-             ├─ MultiSelect, Combobox mejorado
-             ├─ ConfirmDialog, AlertDialog mejorado
-             └─ Seguridad y validación reutilizable
-
-             └─► v1.6.0: Navegación + Layout + Datos Avanzados
-                  ├─ Sidebar mejorado, Navbar, Container, Grid
-                  ├─ ScrollArea / Scrollbar (Radix UI ScrollArea accesible)
-                  ├─ TreeView, VirtualList, RowActions
-                  ├─ Sparkline, Gauge, Heatmap
-                  ├─ NotificationCenter, HealthBadge
-                  └─ Dashboard patterns reutilizables
-
-                  └─► v1.7.0: Contenido Rich + DX
-                       ├─ RichTextEditor (módulo independiente)
-                       ├─ CodeBlock, Markdown
-                       ├─ ImageGallery, Carousel mejorado
-                       ├─ CopyButton, GlobalSearch
-                       └─ Plantillas y scripts de productividad
-
-                       └─► v1.8.0+: Especialización
-                            ├─ GanttChart / Gantt (cronogramas y gestión de proyectos)
-                            ├─ OrganizationChart
-                            ├─ Kanban
-                            ├─ Calendar avanzado
-                            └─ Módulos opcionales / experimentales
+        └─► v1.8.0+: Especialización y Módulos Avanzados
+             ├─ GanttChart / Gantt (gestión temporal y de proyectos)
+             ├─ VirtualList (listas masivas virtualizadas)
+             ├─ OrganizationChart & Kanban
+             └─ NotificationCenter
 ```
 
 ---
 
-## 📦 Versión 1.4.0 — Flujos B2B y Solicitudes Corporativas
+## 📦 Versión 1.4.0 — Flujos B2B y Solicitudes Corporativas (Consolidada ✓)
 
 *Enfocada en resolver los patrones de interacción más demandados en plataformas de expedientes, formularios largos y auditoría.*
 
@@ -96,79 +79,81 @@ v1.3.0 (Actual)
 
 ---
 
-## 🧩 Versión 1.5.0 — Formularios Avanzados + Búsqueda
+## 🧩 Versión 1.5.0 — Formularios Avanzados + Búsqueda (Consolidada ✓)
 
 *Enfocada en lograr formularios complejos, seguros y productivos en operaciones corporativas y SaaS.*
 
-* [ ] **`FormProvider` / `useForm`:**
-  * Contexto de formulario con validación centralizada.
-  * Integración con `zod` o `valibot`.
-  * Soporte para submit, dirty state, touched, errors y submitState.
-* [ ] **`FormField`:**
-  * Wrapper composable para `Input`, `Select`, `Textarea`, `DatePicker` y demás campos.
-  * Manejo estándar de etiqueta, description, hint y error message.
-* [ ] **`SearchInput`:**
-  * Input con debounce, botón limpiar, iconos, estados loading y resultados rápidos.
-* [ ] **`PasswordInput`:**
-  * Toggle de visibilidad, indicador de fortaleza, validación de criterios.
-* [ ] **`OTPInput`:**
-  * Input de código de verificación con foco secuencial y validación.
-* [ ] **`MultiSelect` / `TagsInput`:**
-  * Selección múltiple con tags removibles, búsqueda y estados de vacío.
-* [ ] **`Combobox` mejorado / `Autocomplete`:**
-  * Búsqueda remota, agrupación por categorías, disabled states y keyboard navigation fortalecido.
-* [ ] **`ConfirmDialog` / `AlertDialog`:**
-  * Modales semánticos para confirmación y mensajes de riesgo.
-* [ ] **`Security Helpers` (reutilizables):**
-  * Sanitización de texto, validadores comunes, validación de archivo, escape HTML.
+* [x] **`Field` (Primitivo Compuesto de Formulario):**
+  * Wrapper modular y accesible (`Field`, `FieldLabel`, `FieldControl`, `FieldHint`, `FieldError`).
+  * Gestión coordinada de identificadores deterministas y asociaciones ARIA (`aria-describedby`, `aria-invalid`).
+* [x] **`SearchInput`:**
+  * Input ergonómico con botón limpiar instantáneo, icono de búsqueda, atajo visual `<kbd>` y estado de carga (`isLoading`).
+* [x] **`PasswordInput`:**
+  * Toggle accesible de visibilidad (mostrar/ocultar contraseña), soporte de teclado y escala proporcional de tamaños.
+* [x] **`OTPInput`:**
+  * Entrada moderna de PIN / verificación con elevación táctil, anillos de brillo reactivos (índigo/esmeralda/carmesí) y separadores configurables.
+* [x] **`MultiSelect` & `TagsInput`:**
+  * `MultiSelect`: 3 modos visuales (`hybrid`, `chips`, `summary`), acciones del trigger pegadas a la derecha/abajo y selector masivo "Seleccionar todos".
+  * `TagsInput`: Entrada interactiva de chips delimitada por teclado con botón de limpieza rápida (`Broom`).
+* [x] **`NumberInput`:**
+  * Control spinbutton conforme a WAI-ARIA, aceleración continua por pulsación sostenida (*long-press*), precisión decimal IEEE 754 y 4 disposiciones de steppers.
+* [x] **`Combobox` mejorado / `Autocomplete`:**
+  * Búsqueda en popover, filtrado en tiempo real y soporte para selección múltiple con chips interactivos removibles.
+* [x] **`ConfirmDialog` / `AlertDialog`:**
+  * Diálogos semánticos de advertencia y confirmación con wrapper `ConfirmDialog` asíncrono y spinner integrado.
+* [x] **`Security Helpers` y Guías de Validación:**
+  * Políticas de sanitización contra XSS/CSRF y checklists documentados en [`SECURITY.md`](SECURITY.md) y [`SECURITY.es.md`](SECURITY.es.md).
+* [ ] **`FormProvider` / `useForm` (Abstracción de Contexto):**
+  * Abstracción agnóstica de contexto para validación centralizada (actualmente soportado vía estado controlado o React Hook Form).
 
 ---
 
-## 📊 Versión 1.6.0 — Navegación + Layout + Datos Avanzados
+## 📊 Versión 1.6.0 — Navegación + Layout + Datos Avanzados (Consolidada ✓)
 
 *Enfocada en dashboards operativos, tablas densas y paneles complejos.*
 
-* [ ] **`Sidebar` mejorado:**
-  * Secciones, grupos, items anidados, estado colapsado, badges, shortcuts.
-* [ ] **`Navbar` / `Header`:**
-  * Brand, actions, dropdowns, búsqueda global, selector de tema.
 * [x] **`Container`, `Stack`, `Grid` (`GridItem`):**
-  * Layout responsivo unificado para vistas, apilados flexbox con divisores y rejillas bidimensionales.
-* [ ] **`ScrollArea` / `Scrollbar`:**
-  * Componente de desplazamiento personalizado accesible basado en `@radix-ui/react-scroll-area`.
-  * Soporte para orientación vertical y horizontal, comportamiento nativo en dispositivos táctiles (`type="auto" | "always" | "scroll" | "hover"`), barras sutiles con diseño *Craft Minimalist* y control de grosor (`size="sm" | "md"`).
+  * Primitivos unificados de layout responsivo con control de breakpoints oficiales de Tailwind v4, apilados con divisores automáticos y rejillas CSS multidimensionales.
 * [x] **`TreeView`:**
-  * Árbol jerárquico para estructuras organizacionales, directorios y clasificación documental.
+  * Árbol jerárquico accesible conforme al estándar WAI-ARIA (`role="tree"`), navegación completa por teclado, barra de herramientas integrada de colapso/expansión y checkboxes tri-estado.
+* [x] **`Sparkline` & `Gauge`:**
+  * `Sparkline`: Micro-gráficos vectoriales en SVG puro (area, line, bar) para tablas y tarjetas KPI sin dependencias extra.
+  * `Gauge`: Medidor radial accesible (`role="meter"`) con umbrales semánticos y 3 geometrías (semicircle, arc, circle).
+* [x] **`StatusBadge` / `HealthBadge`:**
+  * Indicador visual de estado operativo con micro-indicador puntual de color y semántica accesible.
+* [x] **Componentes de Layout en Starter Kit (`Header` & `Sidebar` colapsable):**
+  * Estructura ergonómica de dashboard empresarial con selector Claro/Oscuro y navegación accesible integrada en `templates/vite-react-starter`.
+* [ ] **`ScrollArea` / `Scrollbar`:**
+  * Componente de desplazamiento personalizado accesible basado en `@radix-ui/react-scroll-area` (programado para v1.7.0).
 * [ ] **`VirtualList`:**
-  * Rendimiento con listas grandes de forma accesible y scroll controlado.
-* [x] **`Sparkline`, `Gauge`, `Heatmap`, `Funnel`:**
-  * Visualización complementaria para KPIs y métricas operativas (`Sparkline` y `Gauge` completados).
+  * Rendimiento con listas grandes de forma accesible y scroll controlado (programado para v1.8.0).
 * [ ] **`NotificationCenter`:**
   * Historial de notificaciones, estados leídos/no leídos y acciones rápidas.
-* [ ] **`HealthBadge` / `StatusIndicator`:**
-  * Indicadores de estado sistémico, disponibilidad y resultados operativos.
 
 ---
 
-## 🧠 Versión 1.7.0 — Contenido Rich + DX
+## 🧠 Versión 1.7.0 — Showcase Interactivo + Contenido Rich + DX
 
 *Enfocada en acelerar la adopción y la productividad del consumidor.*
 
+* [x] **`CopyButton` (Completado ✓):**
+  * Botón interactivo accesible con micro-animaciones fluidas de dos capas (`Copy` a `Check` / `AlertCircle`), halo radial luminoso, 3 variantes (`outlined`, `filled`, `inline`) y tooltip integrado.
+* [x] **CLI Oficial (`@alcspower/ui` / `alcspower-ui`) (Completado ✓):**
+  * Binario ejecutable con `npx @alcspower/ui` con comandos `init-agent`, `info`, `list`, `tokens` y `snippets`.
+* [x] **Manifiestos Nativos para Agentes de IA (Completado ✓):**
+  * Diccionario estructurado `registry.json` y estándares abiertos `llms.txt` y `llms-small.txt` empaquetados en npm.
+* [ ] **Demostración Interactiva en Vivo (Storybook Showcase en GitHub Pages):**
+  * Hito dedicado planificado para desplegar las 64 historias interactivas con controles dinámicos, alternancia de temas y accesibilidad auditada.
+* [ ] **Portal Web de Documentación Bilingüe (Astro Starlight):**
+  * Sitio estático con búsqueda *Pagefind*, instructivo completo y recetas multistack.
+* [ ] **`ScrollArea` / `Scrollbar`:**
+  * Contenedor de scroll accesible con barras estilizadas Craft Minimalist.
 * [ ] **`RichTextEditor` (como módulo independiente):**
-  * Evaluar `Lexical` o `TipTap` según costo de mantenimiento.
-  * Sanitización estricta y soporte de contenido seguro.
+  * Editor WYSIWYG evaluando `Lexical` o `TipTap` con sanitización estricta.
 * [ ] **`CodeBlock`, `Markdown`:**
-  * Render y edición de contenido técnico con manejo controlado de HTML.
-* [x] **`CopyButton`:**
-  * Botón accesible con micro-animación fluida de icono (`Copy` a `Check`), Tooltip integrado y feedback en portapapeles.
+  * Render y edición de contenido técnico con resaltado de sintaxis accesible.
 * [ ] **`ImageGallery`, `Carousel` mejorado:**
-  * Galerías con ligthbox, zoom e indicadores accesibles.
-* [ ] **`GlobalSearch` / `Spotlight`:**
-  * Búsqueda global del producto con grupos, shortcuts y comando de navegación.
-* [ ] **CLI de inicialización (`create-alcspower-app`):**
-  * Plantillas para Vite, Astro y Next.js.
-* [ ] **Automatización de regresión visual:**
-  * Capturas visuales en CI para asegurar estabilidad de diseño.
+  * Galerías accesibles con soporte táctil y lightbox.
 
 ---
 
@@ -194,16 +179,16 @@ v1.3.0 (Actual)
 
 Cada nuevo componente debe cumplir antes de entrar al paquete principal:
 
-- [ ] TypeScript estricto
-- [ ] Tests unitarios
-- [ ] Tests de accesibilidad (`axe-core`)
-- [ ] Storybook con al menos 3 estados
-- [ ] Dark mode
-- [ ] Responsive cuando aplique
-- [ ] Soporte de teclado y foco
-- [ ] Documentación pública
-- [ ] Cobertura de estados (`loading`, `error`, `empty`, `success`)
-- [ ] Compatibilidad con React 18 y 19
+- [x] TypeScript estricto (0 errores con `tsc --noEmit`)
+- [x] Tests unitarios (68 suites / 497 tests pasando al 100%)
+- [x] Tests de accesibilidad (`axe-core` con 0 violaciones WCAG 2.1 AA)
+- [x] Storybook con al menos 3 estados por componente
+- [x] Dark mode (Tokens semánticos bidireccionales `--alcspower-*`)
+- [x] Responsive en vistas y controles adaptativos
+- [x] Soporte completo de teclado, atajos y anillo de foco
+- [x] Documentación pública bilingüe (`README.md`, `README.es.md`, instructivo de 10 módulos)
+- [x] Cobertura de estados (`loading`, `error`, `empty`, `success`)
+- [x] Compatibilidad verificada con React 18 y React 19
 
 ---
 
@@ -240,27 +225,23 @@ Todo componente debe manejar focus, roles, teclado y buenas prácticas de accesi
 
 ## 📌 Próximo milestone recomendado
 
-### v1.5.0 — Formularios Avanzados + Búsqueda
+### v1.7.0 — Showcase Interactivo + Contenido Rich + ScrollArea
 
-La siguiente fase más valiosa es esta, porque convierte la librería en una base útil para aplicaciones de misión crítica y SaaS empresariales.
+Con los formularios avanzados (`v1.5.0`) y el layout responsivo (`v1.6.0`) ya consolidados, el hito actual se enfoca en la experiencia interactiva, visibilidad y componentes de enriquecimiento:
 
 ```text
-v1.5.0
-├── FormProvider / useForm
-├── FormField
-├── SearchInput
-├── PasswordInput
-├── OTPInput
-├── MultiSelect / TagsInput
-├── Combobox mejorado
-├── ConfirmDialog
-└── Seguridad / validación reutilizable
+v1.7.0
+├── Storybook Showcase en GitHub Pages (Demo interactiva en vivo)
+├── ScrollArea / Scrollbar accesible
+├── Portal Web de Documentación Bilingüe (Astro Starlight)
+├── RichTextEditor (WYSIWYG)
+└── CodeBlock / Markdown
 ```
 
 Después:
 
 ```text
-v1.5.0 → v1.6.0 → v1.7.0
+v1.7.0 → v1.8.0 (GanttChart, VirtualList, OrganizationChart, Kanban)
 ```
 
 Esto permite escalar sin romper la API pública y sin introducir lógica empresarial.
