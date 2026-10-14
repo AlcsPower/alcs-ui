@@ -196,13 +196,13 @@ Cada nuevo componente debe cumplir antes de entrar al paquete principal:
 
 | Prioridad | Área | Componentes clave |
 |---|---|---|
-| P0 | Formularios y validación | `FormProvider`, `FormField`, `SearchInput`, `PasswordInput`, `OTPInput`, `MultiSelect` |
-| P0 | Overlays | `ConfirmDialog`, `AlertDialog` |
-| P1 | Data & dashboards | `TreeView`, `VirtualList`, `ScrollArea` / `Scrollbar`, `Sparkline`, `Gauge`, `Heatmap` |
-| P1 | Navegación | `Sidebar`, `Navbar`, `Breadcrumb` mejorado |
-| P1 | Feedback | `NotificationCenter`, `StatusIndicator`, `Result` |
-| P2 | Contenido | `RichTextEditor`, `Markdown`, `CodeBlock` |
-| P2 | DX | `CLI`, `Spotlight`, `CopyButton` |
+| P0 | Formularios y validación | `Field` (✓), `SearchInput` (✓), `PasswordInput` (✓), `OTPInput` (✓), `MultiSelect` (✓), `TagsInput` (✓), `NumberInput` (✓), `FormProvider` (Planificado) |
+| P0 | Overlays | `ConfirmDialog` (✓), `AlertDialog` (✓), `Sheet` (✓), `Drawer` (✓) |
+| P1 | Data & dashboards | `TreeView` (✓), `Sparkline` (✓), `Gauge` (✓), `DataTable` (✓), `ScrollArea` / `Scrollbar` (En progreso), `VirtualList` |
+| P1 | Navegación | `Tabs` (✓), `Accordion` (✓), `Breadcrumb` (✓), `Stepper` (✓), `Sidebar` & `Header` en Starter (✓) |
+| P1 | Feedback | `StatusBadge` (✓), `Toaster` / `toast` (✓), `LoadingOverlay` (✓), `NotificationCenter` (Planificado) |
+| P2 | Contenido | `CopyButton` (✓), `RichTextEditor` (Planificado), `Markdown` / `CodeBlock` (Planificado) |
+| P2 | DX & Agentes | `CLI Oficial` (`npx @alcspower/ui`) (✓), `Snippets VS Code` (✓), `registry.json` / `llms.txt` (✓) |
 | P3 | Especialización / Proyectos | `GanttChart` (Diagrama de Gantt), `Kanban`, `OrganizationChart`, `Flow Diagram` |
 
 ---
@@ -261,8 +261,23 @@ La librería debe crecer en amplitud sin convertirse en un framework de negocio.
 ## 🤖 Ecosistema de Agentes de IA & Ergonomía para Desarrolladores
 
 ### Decisiones de Arquitectura
-* ❌ **Servidor MCP descartado:** Se descarta oficialmente el desarrollo de un servidor MCP propio. No justifica los costos de infraestructura, latencia ni la carga de mantenimiento continuo frente a las soluciones estáticas.
+* ❌ **Servidor MCP descartado:** Se descarta oficialmente el desarrollo de un servidor MCP propio. No justifica los costos recurrentes de infraestructura, latencia ni la carga de mantenimiento continuo frente a las soluciones estáticas y sin conexión.
 * ✅ **Estándares Estáticos y Autónomos ($0 Costo / Offline-First):** Se prioriza la distribución de manifiestos livianos (`registry.json`), estándares abiertos (`llms.txt`, `llms-small.txt`), snippets de VS Code y reglas de agentes locales mediante el CLI `npx @alcspower/ui init-agent`.
+
+### ✅ Hitos Alcanzados de Ergonomía para IA y Desarrolladores
+* [x] **CLI Oficial Integrado (`alcspower-ui` / `npx @alcspower/ui`):**
+  * Herramienta nativa sin dependencias pesadas (<50ms de arranque) registrada en `package.json` (`"bin"`).
+  * Comandos disponibles: `init-agent` (scaffolding automático de reglas), `snippets` (instalación de snippets), `list` (catálogo de 64 componentes por categoría), `info <component>` (API, variantes, props y ejemplo JSX desde `registry.json`) y `tokens` (chuleta CSS de `--alcspower-*`).
+* [x] **Economía de Contexto y Manifiestos Estructurados:**
+  * `registry.json` (~15 KB): Diccionario estructurado en JSON de los 64 componentes, variantes y subcomponentes para evitar consumo de tokens sobre archivos `.d.ts` de gran tamaño.
+  * `llms-small.txt` (~1.5k tokens): Resumen ultra-condensado de tokens, directivas y componentes clave para inyección en system prompts.
+  * `llms.txt`: Especificación estándar abierta según lineamientos de [llmstxt.org](https://llmstxt.org/).
+* [x] **Snippets Oficiales para VS Code (`snippets/alcspower.code-snippets`):**
+  * Prefijos estandarizados `alcs-*` (`alcs-button`, `alcs-card`, `alcs-dialog`, `alcs-field-input`, `alcs-datatable`, `alcs-toast`, etc.) instalados en `.vscode/` y en el starter kit.
+* [x] **Reglas Preconfiguradas para Asistentes de IA:**
+  * Soporte nativo verificado para **Cursor** (`.cursor/rules/alcspower-ui.mdc`), **Claude Code** (`CLAUDE.md`), **GitHub Copilot** (`.github/copilot-instructions.md`) y **Google Antigravity** (`.agent/skills/alcspower-ui/SKILL.md`).
+* [x] **Arquitectura Unificada (Single Source of Truth):**
+  * Eliminación de duplicidades en el repositorio: erradicación de la carpeta residual `skill/` para que el CLI y los desarrolladores consuman directamente las rutas estándar de la raíz del proyecto.
 
 ### Hito Futuro: Hosting Público de `llms.txt` ($0 Infraestructura)
 * **Objetivo:** Exponer `llms.txt` y `llms-small.txt` como endpoints estáticos públicos para que agentes web o navegadores de IA consuman la documentación en una sola petición HTTP.
