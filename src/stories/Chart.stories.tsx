@@ -114,14 +114,14 @@ export const AreaConGradiente: StoryObj<typeof AreaChart> = {
 export const CircularDonut: StoryObj<typeof PieChart> = {
   render: () => {
     const pieData = [
-      { canal: 'Ventanilla Única', valor: 450 },
+      { canal: 'Portal de Autoservicio', valor: 450 },
       { canal: 'Portal En Línea', valor: 820 },
-      { canal: 'Delegaciones', valor: 210 }
+      { canal: 'Sucursales', valor: 210 }
     ];
     const pieConfig: ChartConfig = {
-      'Ventanilla Única': { label: 'Ventanilla', color: 'var(--alcspower-chart-1)' },
+      'Portal de Autoservicio': { label: 'Autoservicio', color: 'var(--alcspower-chart-1)' },
       'Portal En Línea': { label: 'En Línea', color: 'var(--alcspower-chart-2)' },
-      'Delegaciones': { label: 'Delegaciones', color: 'var(--alcspower-chart-3)' }
+      'Sucursales': { label: 'Sucursales', color: 'var(--alcspower-chart-3)' }
     };
 
     return (

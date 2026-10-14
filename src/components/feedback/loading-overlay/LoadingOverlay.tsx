@@ -33,12 +33,12 @@ export interface LoadingOverlayProps
    */
   spinnerSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
-   * Variante gráfica del Spinner institucional: 'classic', 'ring', 'dots', 'bars', 'pulse' o 'dual-ring'.
+   * Variante gráfica del Spinner: 'classic', 'ring', 'dots', 'bars', 'pulse' o 'dual-ring'.
    * @default 'classic'
    */
   spinnerVariant?: SpinnerVariantType;
   /**
-   * Color semántico del Spinner institucional: 'primary', 'success', 'warning', 'error', 'destructive', 'info', 'gray', 'white' o 'current'.
+   * Color semántico del Spinner: 'primary', 'success', 'warning', 'error', 'destructive', 'info', 'gray', 'white' o 'current'.
    * @default 'primary'
    */
   spinnerColor?: SpinnerColorType;

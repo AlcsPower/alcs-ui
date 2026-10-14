@@ -75,14 +75,14 @@ export const WithDivider: Story = {
     <Stack {...args} className="p-4 border border-alcspower-border rounded-xl bg-alcspower-surface max-w-md">
       <div>
         <div className="text-sm font-bold text-alcspower-foreground">Fase 1: Recepción</div>
-        <div className="text-xs text-alcspower-muted-foreground">Documentos ingresados a ventanilla única.</div>
+        <div className="text-xs text-alcspower-muted-foreground">Documentos ingresados al canal de atención.</div>
       </div>
       <div>
         <div className="text-sm font-bold text-alcspower-foreground">Fase 2: Dictamen Técnico</div>
-        <div className="text-xs text-alcspower-muted-foreground">Evaluación de cumplimiento arancelario.</div>
+        <div className="text-xs text-alcspower-muted-foreground">Evaluación de cumplimiento normativo.</div>
       </div>
       <div>
-        <div className="text-sm font-bold text-alcspower-foreground">Fase 3: Resolución Ministerial</div>
+        <div className="text-sm font-bold text-alcspower-foreground">Fase 3: Resolución Corporativa</div>
         <div className="text-xs text-alcspower-muted-foreground">Emisión de certificado oficial.</div>
       </div>
     </Stack>

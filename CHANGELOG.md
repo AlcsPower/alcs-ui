@@ -58,7 +58,7 @@
       - Interacción táctil y ratón con retícula en cruz, punto activo resaltado y tooltip flotante interactivo con formateo personalizable.
       - 8/8 pruebas unitarias pasando y 0 violaciones `axe-core`.
     - **`Gauge` (`src/components/data-display/gauge`):**
-      - Medidor radial / tacómetro accesible (`role="meter"`) para cumplimiento de metas, SLAs institucionales y porcentajes de avance.
+      - Medidor radial / tacómetro accesible (`role="meter"`) para cumplimiento de metas, SLAs corporativos y porcentajes de avance.
       - 3 geometrías de arco: `semicircle` (180° plano), `arc` (240° velocímetro) y `circle` (360° anillo completo).
       - Zonas y umbrales semánticos configurables (`thresholds`) con coloración automática (`color="auto"`) en tres bandas: advertencia, óptimo y crítico.
       - Aguja mecánica indicadora con perno central metálico (`showNeedle`) o display numérico central de alta visibilidad (`showValue`).
@@ -66,7 +66,7 @@
       - 7/7 pruebas unitarias pasando y 0 violaciones `axe-core`.
   - **Nuevos Primitivos de Layout y Distribución: `Container`, `Stack`, `Grid` y `GridItem` (`src/components/layout`):**
     - **`Container` (`src/components/layout/container`):**
-      - Primitivo de delimitación horizontal responsiva que acota y centra el contenido conforme a los puntos de quiebre oficiales de Tailwind v4 y el diseño institucional.
+      - Primitivo de delimitación horizontal responsiva que acota y centra el contenido conforme a los puntos de quiebre oficiales de Tailwind v4 y el diseño corporativo.
       - Variantes de ancho máximo: `sm` (640px), `md` (768px), `lg` (1024px), `xl` (1280px), `2xl` (1536px), `prose` (65ch para lectura de acuerdos y normativas) y `full`.
       - Padding horizontal configurable (`none`, `sm`, `md`, `lg`, `xl`) y centrado automático con `centered={true}` (`mx-auto`).
       - Polimorfismo semántico con la prop `as` (`div`, `main`, `section`, `article`).
@@ -85,7 +85,7 @@
     - Botón interactivo de un solo clic altamente accesible (`aria-live="polite"`, `role="button"`) para copiar al portapapeles con micro-animaciones fluidas de 2 capas.
     - **3 variantes de diseño especializadas (`variant`):**
       - `outlined` (predeterminado): superficie limpia con borde sutil de $1.5\text{px}$, elevación y brillo radial índigo en hover.
-      - `filled`: botón primario institucional con sombra elevada que conmuta suavemente a esmeralda vibrante al copiar para llamadas a la acción prominentes.
+      - `filled`: botón primario corporativo con sombra elevada que conmuta suavemente a esmeralda vibrante al copiar para llamadas a la acción prominentes.
       - `inline`: botón transparente con posición absoluta (`absolute right-1.5 top-1/2 -translate-y-1/2`) diseñado para incrustarse naturalmente dentro de campos `Input`.
       - Compatibilidad hacia atrás total con alias anteriores (`ghost`, `primary`, `secondary`, `outline`).
     - **3 escalas métricas proporcionales (`size`):**
@@ -99,7 +99,7 @@
       - Estado de error visual con icono `AlertCircle` ante denegación o fallo de la Clipboard API.
     - **Soporte para etiquetas adyacentes:**
       - Props `label` y `labelPlacement="left" | "right"` para botones de copia con texto visible contiguo.
-    - **Tooltip institucional adaptativo:**
+    - **Tooltip corporativo adaptativo:**
       - Tooltip interactivo con flecha indicadora y textos reactivos según estado (`tooltipText="Copiar"`, `copiedTooltipText="¡Copiado!"`, `errorTooltipText="Error al copiar"`).
     - Suite de 8 pruebas unitarias pasando al 100% y 0 violaciones de accesibilidad `axe-core`.
   - **Soporte Completo para Entornos Offline y Aislados (Self-Contained Bundle):**
@@ -145,11 +145,11 @@
   - **Starter Kit Oficial Enterprise (`templates/vite-react-starter`):**
     - Plantilla lista para producción con **React 19**, **Vite 6**, **Tailwind CSS v4** y `@alcspower/ui` preconfigurado.
     - Layout empresarial completo: barra lateral (*Sidebar*) colapsable y accesible con badges de conteo, cabecera flotante (*Header*) con migas de pan (*Breadcrumbs*), perfil de usuario y selector de tema Claro / Oscuro (`ThemeToggle`) persistido en `localStorage`.
-    - Vistas de ejemplo funcionales: Tablero de Control de KPIs (`DashboardView`) con métricas y avance institucional, Bandeja de Expedientes con filtros en tiempo real (`ExpedientesView`), y modal de registro con validación y notificaciones toast (`NuevoTramiteModal`).
+    - Vistas de ejemplo funcionales: Tablero de Control de KPIs (`DashboardView`) con métricas y avance operativo, Bandeja de Registros con filtros en tiempo real (`ExpedientesView`), y modal de registro con validación y notificaciones toast (`NuevoTramiteModal`).
   - **Recetario de Integración Multistack (Cookbook en `docs/recipes/`):**
     - Guías paso a paso de adopción para:
       - ⚡ **React 19 + Vite + Tailwind CSS v4** (`docs/recipes/react-vite.md`).
-      - 🚀 **Astro con React Islands** (`docs/recipes/astro.md`) para portales institucionales de alto rendimiento y 0 KB de JS inicial.
+      - 🚀 **Astro con React Islands** (`docs/recipes/astro.md`) para portales corporativos de alto rendimiento y 0 KB de JS inicial.
       - 🏢 **Modernización en .NET** (`docs/recipes/dotnet-aspnet.md`) para sistemas existentes en **ASP.NET Web Forms (VB.NET / C#)** y **ASP.NET Core (MVC / Razor Pages)** mediante tokens directos CSS o islas interactivas sin reescribir lógica de servidor.
       - 🎨 **Tailwind CSS v4 & Tokens de Diseño** (`docs/recipes/tailwind-v4.md`) con directivas `@theme` y variables semánticas `--alcspower-*`.
   - **Refinamiento de Componentes de Feedback y Gráficos:**
@@ -342,7 +342,7 @@
 
     - Se configuró `@tailwindcss/vite` en Storybook (`.storybook/main.ts`), habilitando la compilación completa de utilidades de Tailwind CSS v4.
     - Se agregaron keyframes nativos `@keyframes enter`, `@keyframes exit`, `@keyframes progress-indeterminate` y clases utilitarias (`animate-in`, `animate-out`, `fade-in-*`, `fade-out-*`, `zoom-in-*`, `slide-in-*`, `rounded-inherit`) en `src/styles/animations.css`.
-    - Se agregó la directiva `@custom-variant dark` en `src/styles/index.css` para sincronizar las utilidades `dark:` con las clases institucionales `.dark` y atributos `[data-theme="dark"]`.
+    - Se agregó la directiva `@custom-variant dark` en `src/styles/index.css` para sincronizar las utilidades `dark:` con las clases corporativas `.dark` y atributos `[data-theme="dark"]`.
     - Se mapearon los tokens de sombras `--shadow-alcspower-*` y `--shadow-*` en el bloque `@theme` de `src/styles/index.css`, garantizando elevación reforzada para modo oscuro.
 
   - **Accesibilidad y Lógica de Componentes:**
@@ -356,7 +356,7 @@
 
   - **Consistencia de Tokens y API:**
     - **Switch**: Se migró el thumb al token semántico `bg-alcspower-surface`.
-    - **Overlays**: Se migraron los radios de borde en `Dialog`, `DropdownMenu`, `Select`, `Tooltip` y `Card` a los tokens institucionales `rounded-alcspower-*`.
+    - **Overlays**: Se migraron los radios de borde en `Dialog`, `DropdownMenu`, `Select`, `Tooltip` y `Card` a los tokens corporativos `rounded-alcspower-*`.
     - **DropdownMenu**: Se agregó la variante `variant="destructive"` a `DropdownMenuItem`.
     - **Alert, EmptyState y ErrorState**: Se agregaron props configurables `as` y `titleHeadingLevel` para jerarquías semánticas de encabezados válidas, además de la variante `compact` para `EmptyState` y `ErrorState`.
     - **Deprecaciones**: Se documentó formalmente `@deprecated` en variantes redundantes (`danger` en favor de `destructive`, y `default` en Badge en favor de `primary`).
@@ -379,7 +379,7 @@
 
   - Cobertura de pruebas unitarias ampliada de 121 a 157 tests en 27 suites con Vitest y `@testing-library/react`.
   - Cero violaciones de accesibilidad WCAG 2.1 AA verificadas con `vitest-axe` en todos los componentes y estados nuevos.
-  - Soporte completo para temas claro y oscuro mediante tokens institucionales `--alcspower-*`.
+  - Soporte completo para temas claro y oscuro mediante tokens corporativos `--alcspower-*`.
   - Historias interactivas y documentación de props en Storybook para todos los nuevos componentes.
 
 ## 0.4.0
@@ -397,7 +397,7 @@
 
   - Cobertura de pruebas unitarias ampliada de 69 a 121 tests en 24 suites con Vitest y `@testing-library/react`.
   - Cero violaciones de accesibilidad WCAG 2.1 AA verificadas con `vitest-axe` en todos los componentes nuevos.
-  - Soporte completo para temas claro y oscuro mediante tokens institucionales `--alcspower-*`.
+  - Soporte completo para temas claro y oscuro mediante tokens corporativos `--alcspower-*`.
   - Historias documentadas en Storybook para todos los nuevos componentes bajo categorías 'Data', 'Navegación', 'Feedback' y 'Controles'.
 
 ## 0.3.0
@@ -430,8 +430,8 @@
 
 ### Minor Changes
 
-- Migración completa de tokens CSS institucionales, capas y utilidades al namespace `@alcspower/ui`:
-  - Variables CSS `:root` y `.dark` migradas de `--mific-*` a `--alcspower-*`.
+- Migración completa de tokens CSS corporativos, capas y utilidades al namespace `@alcspower/ui`:
+  - Variables CSS `:root` y `.dark` consolidadas bajo el prefijo canónico `--alcspower-*`.
   - Encapsulamiento de estilos en `@layer alcspower-tokens, alcspower-ui`.
   - Clases utilitarias de Tailwind y CVA actualizadas a prefijo `alcspower-*`.
   - Compatibilidad completa verificada con React 18/19 y Tailwind CSS v4.

@@ -34,15 +34,15 @@ export function NuevoTramiteModal({ onTramiteCreado }: NuevoTramiteModalProps) {
     e.preventDefault();
     if (!titular.trim()) {
       toast.error('Nombre del titular requerido', {
-        description: 'Por favor ingrese la razón social o titular del trámite.',
+        description: 'Por favor ingrese la razón social o titular de la solicitud.',
       });
       return;
     }
 
     const randomNum = Math.floor(1000 + Math.random() * 9000);
     const nuevo: Tramite = {
-      id: `TR-${Date.now()}`,
-      codigo: `EXP-2026-${randomNum}`,
+      id: `REQ-${Date.now()}`,
+      codigo: `REQ-2026-${randomNum}`,
       titular: titular.trim(),
       tipo,
       estado: 'en_revision',
@@ -54,8 +54,8 @@ export function NuevoTramiteModal({ onTramiteCreado }: NuevoTramiteModalProps) {
     setOpen(false);
     setTitular('');
 
-    toast.success('Expediente registrado con éxito', {
-      description: `Se ha generado el folio ministerial ${nuevo.codigo}.`,
+    toast.success('Solicitud registrada con éxito', {
+      description: `Se ha generado el código de solicitud ${nuevo.codigo}.`,
     });
   };
 
@@ -64,15 +64,15 @@ export function NuevoTramiteModal({ onTramiteCreado }: NuevoTramiteModalProps) {
       <DialogTrigger asChild>
         <Button variant="primary" className="gap-2 shadow-2xs">
           <Plus className="h-4 w-4" />
-          Nuevo Trámite
+          Nueva Solicitud
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[480px]">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>Registro de Nuevo Expediente</DialogTitle>
+            <DialogTitle>Registro de Nueva Solicitud</DialogTitle>
             <DialogDescription>
-              Ingrese los datos para aperturar un nuevo trámite ministerial en ventanilla.
+              Ingrese los datos para aperturar una nueva solicitud en el portal.
             </DialogDescription>
           </DialogHeader>
 
@@ -88,10 +88,10 @@ export function NuevoTramiteModal({ onTramiteCreado }: NuevoTramiteModalProps) {
             </div>
 
             <div className="space-y-1.5">
-              <Label htmlFor="tipo">Tipo de Trámite</Label>
+              <Label htmlFor="tipo">Tipo de Solicitud</Label>
               <Select value={tipo} onValueChange={setTipo}>
                 <SelectTrigger id="tipo">
-                  <SelectValue placeholder="Seleccione el tipo de trámite" />
+                  <SelectValue placeholder="Seleccione el tipo de solicitud" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="Registro de Marca">Registro de Marca</SelectItem>
@@ -118,7 +118,7 @@ export function NuevoTramiteModal({ onTramiteCreado }: NuevoTramiteModalProps) {
               Cancelar
             </Button>
             <Button type="submit" variant="primary">
-              Registrar Trámite
+              Registrar Solicitud
             </Button>
           </DialogFooter>
         </form>
@@ -126,3 +126,5 @@ export function NuevoTramiteModal({ onTramiteCreado }: NuevoTramiteModalProps) {
     </Dialog>
   );
 }
+
+export const NewRequestModal = NuevoTramiteModal;

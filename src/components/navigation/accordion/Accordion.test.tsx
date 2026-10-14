@@ -135,7 +135,7 @@ describe('Accordion Component', () => {
       <Accordion type="single" collapsible defaultValue="a11y">
         <AccordionItem value="a11y">
           <AccordionTrigger
-            subtitle="Guía institucional"
+            subtitle="Guía corporativa"
             badge="Info"
           >
             Pregunta Frecuente

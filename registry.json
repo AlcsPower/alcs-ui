@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "@alcspower/ui",
-  "version": "1.5.0",
+  "version": "1.6.2",
   "style": "Modern SaaS / Craft Minimalist",
   "css": "@alcspower/ui/styles.css",
   "tokensPrefix": "alcspower-",
@@ -33,7 +33,7 @@
     "Field": {
       "category": "forms",
       "subcomponents": ["Field", "Label", "FieldDescription", "FieldError"],
-      "example": "<Field id=\"email\"><Label>Correo</Label><Input type=\"email\" /><FieldDescription>Correo institucional</FieldDescription></Field>"
+      "example": "<Field id=\"email\"><Label>Correo</Label><Input type=\"email\" /><FieldDescription>Correo corporativo</FieldDescription></Field>"
     },
     "Checkbox": {
       "category": "forms",
@@ -53,7 +53,7 @@
     "Combobox": {
       "category": "forms",
       "props": ["options", "value", "onChange", "placeholder"],
-      "example": "<Combobox options={[{label: 'Nicaragua', value: 'NI'}]} value={val} onChange={setVal} />"
+      "example": "<Combobox options={[{label: 'Opción 1', value: '1'}]} value={val} onChange={setVal} />"
     },
     "MultiSelect": {
       "category": "forms",

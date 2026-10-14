@@ -133,7 +133,7 @@ export const EnDashboardCard: Story = {
       <Card>
         <CardHeader className="text-center pb-2">
           <CardTitle className="text-sm font-semibold text-alcspower-foreground">
-            SLA de Atención Ministerial
+            SLA de Atención Corporativa
           </CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col items-center pt-2">

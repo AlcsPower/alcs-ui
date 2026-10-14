@@ -30,13 +30,13 @@ export const Destructivo: Story = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Eliminar Expediente</Button>
+        <Button variant="destructive">Eliminar Registro</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>¿Desea eliminar definitivamente el expediente?</AlertDialogTitle>
+          <AlertDialogTitle>¿Desea eliminar definitivamente el registro?</AlertDialogTitle>
           <AlertDialogDescription>
-            Esta acción es irreversible y removerá todos los documentos adjuntos de los servidores institucionales.
+            Esta acción es irreversible y removerá todos los documentos adjuntos de los servidores corporativos.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -57,8 +57,8 @@ export const CompositeConfirmDialog: Story = {
         onOpenChange={setOpen}
         trigger={<Button variant="destructive">Eliminar Cuenta</Button>}
         variant="destructive"
-        title="Eliminar cuenta institucional"
-        description="Todos los privilegios de firma electrónica y accesos a trámites serán revocados de inmediato."
+        title="Eliminar cuenta corporativa"
+        description="Todos los privilegios de firma electrónica y accesos corporativos serán revocados de inmediato."
         confirmLabel="Confirmar eliminación"
         cancelLabel="Cancelar"
         onConfirm={async () => {

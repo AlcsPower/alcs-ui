@@ -19,7 +19,7 @@ export const Informacion: Story = {
       <Alert variant="info">
         <AlertTitle>Horario de Atención</AlertTitle>
         <AlertDescription>
-          La ventanilla única atiende solicitudes de lunes a viernes de 8:00 AM a 5:00 PM.
+          La mesa de ayuda corporativa atiende solicitudes de lunes a viernes de 8:00 AM a 5:00 PM.
         </AlertDescription>
       </Alert>
     </div>

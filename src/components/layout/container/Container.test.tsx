@@ -5,9 +5,9 @@ import { Container } from './Container';
 
 describe('Container Component', () => {
   it('renderiza correctamente el contenido hijo', () => {
-    render(<Container data-testid="container">Contenido institucional</Container>);
+    render(<Container data-testid="container">Contenido corporativo</Container>);
     expect(screen.getByTestId('container')).toBeInTheDocument();
-    expect(screen.getByText('Contenido institucional')).toBeInTheDocument();
+    expect(screen.getByText('Contenido corporativo')).toBeInTheDocument();
   });
 
   it('aplica clases por defecto (centrado y padding)', () => {

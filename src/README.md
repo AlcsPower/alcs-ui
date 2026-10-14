@@ -214,7 +214,7 @@ components/navigation/
 
 ### ¿Por qué aquí?
 - Los componentes que estructuran navegación, jerarquía visual e interacción progresiva deben agruparse.
-- Mantiene una zona de consumo clara para dashboards, apps CRUD y portales institucionales.
+- Mantiene una zona de consumo clara para dashboards, apps CRUD y portales corporativos.
 
 ---
 

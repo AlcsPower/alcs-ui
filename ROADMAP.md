@@ -16,11 +16,16 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 
 ## 🏁 Hitos Consolidados
 
-### ✅ Versión 1.3.0 (Actual)
+### ✅ Versión 1.6.2 (Actual)
+* **Neutralización Corporativa Total:** Erradicación completa de léxico administrativo territorial en favor de terminología empresarial neutra estándar (`@empresa.com`, `REQ-`, tokens `--alcspower-*`).
+* **CLI Oficial y Soporte Nativo de Agentes de IA (`alcspower-ui`):** Comandos `init-agent`, `info`, `list`, `tokens`, `snippets`, más manifiestos `llms.txt`, `llms-small.txt` y `registry.json`.
+* **Primitivas de Layout y Visualización:** Nuevos componentes `Container`, `Stack`, `Grid` (`GridItem`), `TreeView`, `Gauge`, `Sparkline`, `CopyButton`, `NumberInput`, `Field`.
+* **Garantía de Calidad:** 68 suites de pruebas, **497/497 pruebas pasando al 100%**, 0 violaciones de accesibilidad `axe-core`, 0 errores TypeScript.
+
+### ✅ Versión 1.3.0
 * **Starter Kit Oficial Enterprise (`templates/vite-react-starter`):** Plantilla base con React 19, Vite 6, Tailwind CSS v4, Sidebar colapsable, Header, selector Claro/Oscuro y vistas de ejemplo.
 * **Recetario Multistack Oficial (`docs/recipes/`):** Guías para React 19, Astro, .NET, y personalización de tokens.
 * **Refinamiento de Primitivas de Feedback:** Exportación de `ToastCard`, `Skeleton` dinámico, mejoras en `EmptyState` y `ErrorState`.
-* **Garantía de Calidad:** 50 suites de pruebas, **353/353 pruebas pasando al 100%**, 0 violaciones de accesibilidad axe-core.
 
 ### ✅ Versión 1.2.0
 * **Política de Seguridad Enterprise:** Formalización de [`SECURITY.md`](SECURITY.md) con protocolos responsables de reporte, matriz CVSS y SLAs de remediación.
@@ -35,7 +40,7 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 
 ```text
 v1.3.0 (Actual)
-  └─► v1.4.0: Flujos B2B y Trámites Institucionales
+  └─► v1.4.0: Flujos B2B y Solicitudes Corporativas
         ├─ Stepper / Wizard
         ├─ Timeline / ActivityLog
         ├─ FileUpload / Dropzone
@@ -73,7 +78,7 @@ v1.3.0 (Actual)
 
 ---
 
-## 📦 Versión 1.4.0 — Flujos B2B y Trámites Institucionales
+## 📦 Versión 1.4.0 — Flujos B2B y Solicitudes Corporativas
 
 *Enfocada en resolver los patrones de interacción más demandados en plataformas de expedientes, formularios largos y auditoría.*
 
@@ -93,7 +98,7 @@ v1.3.0 (Actual)
 
 ## 🧩 Versión 1.5.0 — Formularios Avanzados + Búsqueda
 
-*Enfocada en lograr formularios complejos, seguros y productivos en operaciones institucionales y SaaS.*
+*Enfocada en lograr formularios complejos, seguros y productivos en operaciones corporativas y SaaS.*
 
 * [ ] **`FormProvider` / `useForm`:**
   * Contexto de formulario con validación centralizada.
@@ -237,7 +242,7 @@ Todo componente debe manejar focus, roles, teclado y buenas prácticas de accesi
 
 ### v1.5.0 — Formularios Avanzados + Búsqueda
 
-La siguiente fase más valiosa es esta, porque convierte la librería en una base útil para aplicaciones ministeriales y SaaS empresariales.
+La siguiente fase más valiosa es esta, porque convierte la librería en una base útil para aplicaciones de misión crítica y SaaS empresariales.
 
 ```text
 v1.5.0
@@ -281,4 +286,36 @@ La librería debe crecer en amplitud sin convertirse en un framework de negocio.
 ### Hito Futuro: Hosting Público de `llms.txt` ($0 Infraestructura)
 * **Objetivo:** Exponer `llms.txt` y `llms-small.txt` como endpoints estáticos públicos para que agentes web o navegadores de IA consuman la documentación en una sola petición HTTP.
 * **Infraestructura Requerida:** $0 costo. Se servirá de manera estática a través de **GitHub Pages** (junto al build de Storybook) o mediante la URL pública del repositorio en GitHub (`raw.githubusercontent.com`).
+
+---
+
+## 🌐 Visibilidad, Documentación Pública & Demo en Vivo (Hito Planificado con Máxima Calidad)
+
+*Basado en las directrices de visibilidad e internacionalización (`PLAN_VISIBILIDAD_I18N.md`).*
+
+> [!IMPORTANT]
+> **Filosofía del Hito de Demostración:**  
+> La demo en vivo es la carta de presentación visual de `@alcspower/ui` ante el mundo. No debe ser un volcado apresurado ni automático: requiere dedicarle el tiempo, diseño y esmero necesarios para que cada una de las 64 historias de componentes refleje a la perfección la estética *Craft Minimalist / Modern SaaS*, soporte bidireccional de tema (Claro / Oscuro), controles interactivos y contraste WCAG impecable. Por esta razón, se programa como un hito dedicado de desarrollo antes de su apertura pública.
+
+### 1. Demostración Interactiva en Vivo (Storybook Showcase en GitHub Pages)
+* **Objetivo:** Permitir a desarrolladores, diseñadores y evaluadores explorar, probar y copiar código interactivo de los 64 componentes sin necesidad de clonar ni compilar el repositorio.
+* **Criterios de Excelencia Visual y Técnica:**
+  * ✅ **Curaduría de Casos de Uso:** Cada componente dispondrá de historias con datos y estados reales (reposo, hover, activo, carga, error, deshabilitado, denso y responsivo).
+  * ✅ **Toggle Dinámico de Temas:** Conmutador fluido entre modo claro y modo oscuro verificado con tokens semánticos `--alcspower-*`.
+  * ✅ **Playground de Controles (Args):** Controles intuitivos para variar props, tamaños (`sm`, `md`, `lg`), variantes de color y estados de validación en tiempo real.
+  * ✅ **Panel de Accesibilidad Integrado:** Visualización del reporte `axe-core` en vivo para cada historia demostrando cumplimiento WCAG 2.1 AA.
+  * ✅ **Pipeline de Despliegue Automatizado:** GitHub Actions (`actions/deploy-pages`) desplegando `dist-storybook/` a GitHub Pages con $0 costo de infraestructura.
+
+### 2. Portal Web de Documentación Bilingüe (Astro Starlight)
+* **Objetivo:** Sitio web oficial de documentación de producto, ligero, de alta velocidad y optimizado para SEO y lectores de pantalla.
+* **Características Principales:**
+  * Búsqueda estática ultrarrápida integrada con *Pagefind*.
+  * Soporte bilingüe completo: Inglés canónico (fuente de verdad internacional) y Español espejo.
+  * Documentación unificada: Guía de inicio rápido, instructivo paso a paso (`docs/instructivo/`), recetas multistack (`docs/recipes/`), guías de tokens y compatibilidad.
+  * Hosting público de manifiestos para agentes (`/llms.txt`, `/llms-small.txt`, `/registry.json`).
+
+### 3. Ecosistema de Comunidad y Adopción Abierta
+* **Archivos Estándar:** `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SUPPORT.md`, plantillas estandarizadas de Issues (Bug Report, Feature Request) y Pull Requests.
+* **Insignias Oficiales de Proyecto:** Indicadores en vivo de versión de npm, licencias, suite de pruebas automatizadas (497/497 pasando) y compatibilidad React 18/19.
+
 

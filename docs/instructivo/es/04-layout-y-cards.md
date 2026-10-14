@@ -100,16 +100,16 @@ export function TarjetaContactoBasica() {
       {/* Encabezado: agrupa el título y la descripción */}
       <CardHeader>
         <CardTitle>Ana García Martínez</CardTitle>
-        <CardDescription>Directora de Operaciones • Managua, Nicaragua</CardDescription>
+        <CardDescription>Directora de Operaciones • Sede Central</CardDescription>
       </CardHeader>
 
       {/* Contenido principal: aquí colocamos los datos relevantes */}
       <CardContent className="space-y-2 text-sm text-muted-foreground">
         <p>
-          <strong className="text-foreground">Correo:</strong> ana.garcia@empresa.com.ni
+          <strong className="text-foreground">Correo:</strong> ana.garcia@empresa.com
         </p>
         <p>
-          <strong className="text-foreground">Teléfono:</strong> +505 8888-0123
+          <strong className="text-foreground">Teléfono:</strong> +1 (555) 888-0123
         </p>
         <p>
           <strong className="text-foreground">Área:</strong> Logística y Distribución

@@ -15,8 +15,8 @@ import { NuevoTramiteModal } from './NuevoTramiteModal';
 
 const TRAMITES_INICIALES: Tramite[] = [
   {
-    id: 'TR-101',
-    codigo: 'EXP-2026-0891',
+    id: 'REQ-101',
+    codigo: 'REQ-2026-0891',
     titular: 'Cafés Especiales de Las Segovias S.A.',
     tipo: 'Certificado de Origen',
     estado: 'aprobado',
@@ -24,8 +24,8 @@ const TRAMITES_INICIALES: Tramite[] = [
     monto: '$120.00',
   },
   {
-    id: 'TR-102',
-    codigo: 'EXP-2026-0888',
+    id: 'REQ-102',
+    codigo: 'REQ-2026-0888',
     titular: 'Industrias Lácteas del Norte',
     tipo: 'Licencia Sanitaria',
     estado: 'en_revision',
@@ -33,8 +33,8 @@ const TRAMITES_INICIALES: Tramite[] = [
     monto: '$250.00',
   },
   {
-    id: 'TR-103',
-    codigo: 'EXP-2026-0875',
+    id: 'REQ-103',
+    codigo: 'REQ-2026-0875',
     titular: 'Comercializadora Textil Moderna',
     tipo: 'Registro de Marca',
     estado: 'observado',
@@ -42,8 +42,8 @@ const TRAMITES_INICIALES: Tramite[] = [
     monto: '$150.00',
   },
   {
-    id: 'TR-104',
-    codigo: 'EXP-2026-0869',
+    id: 'REQ-104',
+    codigo: 'REQ-2026-0869',
     titular: 'Importadora y Distribuidora Solís',
     tipo: 'Homologación Técnica',
     estado: 'aprobado',
@@ -51,8 +51,8 @@ const TRAMITES_INICIALES: Tramite[] = [
     monto: '$320.00',
   },
   {
-    id: 'TR-105',
-    codigo: 'EXP-2026-0854',
+    id: 'REQ-105',
+    codigo: 'REQ-2026-0854',
     titular: 'Laboratorios Farmacéuticos Unidos',
     tipo: 'Licencia Sanitaria',
     estado: 'rechazado',
@@ -94,7 +94,7 @@ export function ExpedientesView() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Bandeja Oficial de Expedientes
+            Bandeja de Registros
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
             Gestión y seguimiento de solicitudes de registros, licencias y certificaciones.
@@ -109,7 +109,7 @@ export function ExpedientesView() {
             <div>
               <CardTitle>Listado de Solicitudes</CardTitle>
               <CardDescription>
-                Mostrando {tramitesFiltrados.length} de {tramites.length} expedientes registrados.
+                Mostrando {tramitesFiltrados.length} de {tramites.length} registros.
               </CardDescription>
             </div>
             <div className="flex items-center gap-2">
@@ -133,12 +133,12 @@ export function ExpedientesView() {
             <table className="w-full text-left text-sm border-collapse">
               <thead>
                 <tr className="border-b border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                  <th className="px-6 py-3.5">Código Folio</th>
+                  <th className="px-6 py-3.5">Código</th>
                   <th className="px-6 py-3.5">Titular / Empresa</th>
-                  <th className="px-6 py-3.5">Tipo de Trámite</th>
+                  <th className="px-6 py-3.5">Tipo de Solicitud</th>
                   <th className="px-6 py-3.5">Fecha</th>
                   <th className="px-6 py-3.5">Estado</th>
-                  <th className="px-6 py-3.5 text-right">Arancel</th>
+                  <th className="px-6 py-3.5 text-right">Monto</th>
                   <th className="px-6 py-3.5 text-center">Acciones</th>
                 </tr>
               </thead>
@@ -146,7 +146,7 @@ export function ExpedientesView() {
                 {tramitesFiltrados.length === 0 ? (
                   <tr>
                     <td colSpan={7} className="px-6 py-12 text-center text-slate-500">
-                      No se encontraron expedientes que coincidan con la búsqueda.
+                      No se encontraron registros que coincidan con la búsqueda.
                     </td>
                   </tr>
                 ) : (
@@ -199,3 +199,5 @@ export function ExpedientesView() {
     </div>
   );
 }
+
+export const RecordsView = ExpedientesView;

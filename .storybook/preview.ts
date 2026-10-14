@@ -22,8 +22,8 @@ const preview: Preview = {
   },
   globalTypes: {
     theme: {
-      name: 'Tema Institucional',
-      description: 'Alternar modo claro / oscuro institucional',
+      name: 'Tema Corporativo',
+      description: 'Alternar modo claro / oscuro corporativo',
       defaultValue: 'light',
       toolbar: {
         icon: 'circlehollow',

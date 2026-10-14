@@ -113,7 +113,7 @@ export function ContactDetailsAccordion() {
           <AccordionContent className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
             <p><strong>Full Name:</strong> Ana Maria Garcia</p>
             <p><strong>Date of Birth:</strong> April 14, 1992</p>
-            <p><strong>Nationality:</strong> Nicaraguan</p>
+            <p><strong>Location:</strong> Headquarters</p>
           </AccordionContent>
         </AccordionItem>
 

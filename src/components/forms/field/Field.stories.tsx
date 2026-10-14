@@ -44,7 +44,7 @@ export const ConError: Story = {
         <FieldControl asChild>
           <Input type="email" defaultValue="invalido@dominio" />
         </FieldControl>
-        <FieldError>Ingrese una dirección de correo institucional válida</FieldError>
+        <FieldError>Ingrese una dirección de correo corporativo válida</FieldError>
       </Field>
     </div>
   )

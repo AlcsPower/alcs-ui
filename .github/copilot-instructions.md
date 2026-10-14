@@ -1,7 +1,7 @@
 # GitHub Copilot Instructions — @alcspower/ui
 
 ## Project Context
-This is the source repository for `@alcspower/ui`, an accessible React component library (v1.4.0) built with React 18/19, TypeScript strict, Radix UI, Tailwind CSS v4, and CVA.
+This is the source repository for `@alcspower/ui`, an accessible React component library (v1.6.2, 64 components) built with React 18/19, TypeScript strict, Radix UI, Tailwind CSS v4, and CVA.
 
 ## Code Generation Rules
 - Import components from `'@alcspower/ui'` (consumer code) or relative paths (library code)

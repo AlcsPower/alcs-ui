@@ -41,7 +41,7 @@ export interface ContainerProps
 
 /**
  * `Container` es el primitivo de envoltura responsiva de `@alcspower/ui`.
- * Centra y delimita horizontalmente el contenido según la escala de quiebres institucionales.
+ * Centra y delimita horizontalmente el contenido según la escala de quiebres responsivos corporativos.
  */
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   (

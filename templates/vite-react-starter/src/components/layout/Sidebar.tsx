@@ -28,8 +28,8 @@ export function Sidebar({ currentView, onSelectView, isOpen, onClose }: SidebarP
       badge: null,
     },
     {
-      id: 'expedientes' as ViewType,
-      label: 'Expedientes',
+      id: 'records' as ViewType,
+      label: 'Registros',
       icon: FolderKanban,
       badge: '12',
     },
@@ -150,7 +150,7 @@ export function Sidebar({ currentView, onSelectView, isOpen, onClose }: SidebarP
               <p className="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">
                 Mesa de Ayuda
               </p>
-              <p className="text-[11px] text-slate-500 truncate">soporte@institucion.gob</p>
+              <p className="text-[11px] text-slate-500 truncate">soporte@empresa.com</p>
             </div>
           </div>
         </div>

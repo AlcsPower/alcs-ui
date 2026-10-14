@@ -7,28 +7,28 @@ import { TreeView, type TreeNode } from './TreeView';
 const mockTreeData: TreeNode[] = [
   {
     id: 'exp-2026',
-    label: 'Expedientes 2026',
+    label: 'Registros 2026',
     children: [
       {
         id: 'exp-dga',
         label: 'Aduanas y Aranceles',
-        badge: 'DGA',
+        badge: 'Operaciones',
         children: [
-          { id: 'doc-resolucion-01', label: 'Resolución Ministerial 01-2026.pdf' },
+          { id: 'doc-resolucion-01', label: 'Resolución Corporativa 01-2026.pdf' },
           { id: 'doc-arancel-maiz', label: 'Aranceles Maíz y Granos Básicos.xlsx' },
         ],
       },
       {
-        id: 'exp-mific',
+        id: 'exp-corp',
         label: 'Comercio Exterior',
-        badge: 'MIFIC',
+        badge: 'Corp',
         children: [
           { id: 'doc-cuota-azucar', label: 'Distribución Cuota Azúcar OMC.pdf' },
         ],
       },
       {
         id: 'exp-archivado',
-        label: 'Expedientes Archivados',
+        label: 'Registros Archivados',
         disabled: true,
         children: [
           { id: 'doc-antiguo', label: 'Histórico 2020.pdf' },
@@ -45,7 +45,7 @@ const mockTreeData: TreeNode[] = [
   },
   {
     id: 'archivo-suelto',
-    label: 'Manual de Identidad Visual MIFIC.pdf',
+    label: 'Manual de Identidad Visual.pdf',
   },
 ];
 
@@ -54,9 +54,9 @@ describe('TreeView Component', () => {
     render(<TreeView data={mockTreeData} aria-label="Árbol Documental" />);
 
     expect(screen.getByRole('tree', { name: 'Árbol Documental' })).toBeInTheDocument();
-    expect(screen.getByText('Expedientes 2026')).toBeInTheDocument();
+    expect(screen.getByText('Registros 2026')).toBeInTheDocument();
     expect(screen.getByText('Normativas y Directivas Vigentes')).toBeInTheDocument();
-    expect(screen.getByText('Manual de Identidad Visual MIFIC.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Manual de Identidad Visual.pdf')).toBeInTheDocument();
 
     // Los hijos colapsados no deben estar en el documento
     expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
@@ -69,8 +69,8 @@ describe('TreeView Component', () => {
     // Nodo inicialmente cerrado
     expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
 
-    // Clic en el botón chevron de "Expedientes 2026"
-    const expandBtn = screen.getByRole('button', { name: /expandir expedientes 2026/i });
+    // Clic en el botón chevron de "Registros 2026"
+    const expandBtn = screen.getByRole('button', { name: /expandir registros 2026/i });
     await user.click(expandBtn);
 
     // Ahora los hijos deben estar visibles
@@ -78,7 +78,7 @@ describe('TreeView Component', () => {
     expect(screen.getByText('Comercio Exterior')).toBeInTheDocument();
 
     // Colapsar de nuevo
-    const collapseBtn = screen.getByRole('button', { name: /colapsar expedientes 2026/i });
+    const collapseBtn = screen.getByRole('button', { name: /colapsar registros 2026/i });
     await user.click(collapseBtn);
 
     expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
@@ -87,9 +87,9 @@ describe('TreeView Component', () => {
   it('respeta defaultExpandedIds de forma no controlada', () => {
     render(<TreeView data={mockTreeData} defaultExpandedIds={['exp-2026', 'exp-dga']} />);
 
-    expect(screen.getByText('Expedientes 2026')).toBeInTheDocument();
+    expect(screen.getByText('Registros 2026')).toBeInTheDocument();
     expect(screen.getByText('Aduanas y Aranceles')).toBeInTheDocument();
-    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Resolución Corporativa 01-2026.pdf')).toBeInTheDocument();
     expect(screen.getByText('Aranceles Maíz y Granos Básicos.xlsx')).toBeInTheDocument();
   });
 
@@ -99,7 +99,7 @@ describe('TreeView Component', () => {
 
     render(<TreeView data={mockTreeData} onSelect={handleSelect} />);
 
-    const leafNode = screen.getByText('Manual de Identidad Visual MIFIC.pdf');
+    const leafNode = screen.getByText('Manual de Identidad Visual.pdf');
     await user.click(leafNode);
 
     expect(handleSelect).toHaveBeenCalledWith(
@@ -121,9 +121,9 @@ describe('TreeView Component', () => {
       />
     );
 
-    // Seleccionar el nodo hoja 'Resolución Ministerial 01-2026.pdf'
+    // Seleccionar el nodo hoja 'Resolución Corporativa 01-2026.pdf'
     const docCheckbox = screen.getByRole('checkbox', {
-      name: /seleccionar resolución ministerial 01-2026\.pdf/i,
+      name: /seleccionar resolución corporativa 01-2026\.pdf/i,
     });
     await user.click(docCheckbox);
 
@@ -145,7 +145,7 @@ describe('TreeView Component', () => {
       />
     );
 
-    const disabledNode = screen.getByText('Expedientes Archivados');
+    const disabledNode = screen.getByText('Registros Archivados');
     await user.click(disabledNode);
 
     expect(handleSelect).not.toHaveBeenCalled();
@@ -153,7 +153,7 @@ describe('TreeView Component', () => {
 
   it('soporta navegación accesible por teclado (ArrowDown, ArrowUp, ArrowRight, ArrowLeft)', async () => {
     const user = userEvent.setup();
-    render(<TreeView data={mockTreeData} aria-label="Explorador Ministerial" />);
+    render(<TreeView data={mockTreeData} aria-label="Explorador Documental" />);
 
     const tree = screen.getByRole('tree');
     tree.focus();
@@ -179,19 +179,19 @@ describe('TreeView Component', () => {
       <TreeView
         data={mockTreeData}
         showToolbar
-        toolbarTitle="Explorador Ministerial"
+        toolbarTitle="Explorador Documental"
         onExpandAll={handleExpandAll}
         onCollapseAll={handleCollapseAll}
       />
     );
 
-    expect(screen.getByText('Explorador Ministerial')).toBeInTheDocument();
+    expect(screen.getByText('Explorador Documental')).toBeInTheDocument();
 
     // Botón inicial: "Expandir todo"
     const toggleBtn = screen.getByRole('button', { name: /expandir todo/i });
     expect(toggleBtn).toBeInTheDocument();
     expect(screen.queryByText('Aduanas y Aranceles')).not.toBeInTheDocument();
-    expect(screen.queryByText('Resolución Ministerial 01-2026.pdf')).not.toBeInTheDocument();
+    expect(screen.queryByText('Resolución Corporativa 01-2026.pdf')).not.toBeInTheDocument();
 
     // Clic en "Expandir todo"
     await user.click(toggleBtn);
@@ -199,7 +199,7 @@ describe('TreeView Component', () => {
 
     // Todo el árbol debe estar expandido en todos los niveles
     expect(screen.getByText('Aduanas y Aranceles')).toBeInTheDocument();
-    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Resolución Corporativa 01-2026.pdf')).toBeInTheDocument();
     expect(screen.getByText('Comercio Exterior')).toBeInTheDocument();
     expect(screen.getByText('Distribución Cuota Azúcar OMC.pdf')).toBeInTheDocument();
     expect(screen.getByText('Directiva General de Firma Digital.pdf')).toBeInTheDocument();
@@ -230,13 +230,13 @@ describe('TreeView Component', () => {
 
     // Expandir todo
     await user.click(expandBtn);
-    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Resolución Corporativa 01-2026.pdf')).toBeInTheDocument();
     expect(expandBtn).toBeDisabled();
     expect(collapseBtn).toBeEnabled();
 
     // Contraer todo
     await user.click(collapseBtn);
-    expect(screen.queryByText('Resolución Ministerial 01-2026.pdf')).not.toBeInTheDocument();
+    expect(screen.queryByText('Resolución Corporativa 01-2026.pdf')).not.toBeInTheDocument();
     expect(expandBtn).toBeEnabled();
     expect(collapseBtn).toBeDisabled();
   });
@@ -250,12 +250,12 @@ describe('TreeView Component', () => {
 
     // Alt + Flecha Derecha expande todo
     await user.keyboard('{Alt>}{ArrowRight}{/Alt}');
-    expect(screen.getByText('Resolución Ministerial 01-2026.pdf')).toBeInTheDocument();
+    expect(screen.getByText('Resolución Corporativa 01-2026.pdf')).toBeInTheDocument();
     expect(screen.getByText('Distribución Cuota Azúcar OMC.pdf')).toBeInTheDocument();
 
     // Alt + Flecha Izquierda contrae todo
     await user.keyboard('{Alt>}{ArrowLeft}{/Alt}');
-    expect(screen.queryByText('Resolución Ministerial 01-2026.pdf')).not.toBeInTheDocument();
+    expect(screen.queryByText('Resolución Corporativa 01-2026.pdf')).not.toBeInTheDocument();
     expect(screen.queryByText('Distribución Cuota Azúcar OMC.pdf')).not.toBeInTheDocument();
   });
 
@@ -265,8 +265,8 @@ describe('TreeView Component', () => {
         data={mockTreeData}
         defaultExpandedIds={['exp-2026']}
         showToolbar
-        toolbarTitle="Explorador Ministerial"
-        aria-label="Estructura Jerárquica Ministerial"
+        toolbarTitle="Explorador Documental"
+        aria-label="Estructura Jerárquica Documental"
       />
     );
 

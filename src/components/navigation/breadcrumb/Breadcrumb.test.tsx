@@ -21,7 +21,7 @@ describe('Breadcrumb Component', () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/tramites">Trámites</BreadcrumbLink>
+            <BreadcrumbLink href="/solicitudes">Solicitudes</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>

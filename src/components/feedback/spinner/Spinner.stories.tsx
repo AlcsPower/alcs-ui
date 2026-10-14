@@ -86,7 +86,7 @@ export const DarkMode: Story = {
   render: () => (
     <div className="dark bg-alcspower-surface-card p-6 rounded-lg flex items-center gap-4 text-alcspower-text-primary">
       <Spinner size="md" className="text-alcspower-primary" />
-      <span className="text-sm">Cargando datos institucionales en modo oscuro...</span>
+      <span className="text-sm">Cargando datos corporativos en modo oscuro...</span>
     </div>
   )
 };

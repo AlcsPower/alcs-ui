@@ -4,7 +4,7 @@ import { axe } from 'vitest-axe';
 import { Badge } from './Badge';
 
 describe('Badge Component', () => {
-  it('renderiza con variante institucional', () => {
+  it('renderiza con variante corporativa', () => {
     render(<Badge variant="success">Aprobado</Badge>);
     expect(screen.getByText(/aprobado/i)).toBeInTheDocument();
   });

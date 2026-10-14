@@ -18,17 +18,17 @@ type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Número de expediente (ej. EXP-2026-001)'
+    placeholder: 'Número de registro (ej. REQ-2026-001)'
   }
 };
 
 export const ConEtiqueta: Story = {
   render: () => (
     <div className="grid w-80 gap-1.5">
-      <Label htmlFor="expediente" required>
-        Número de Expediente
+      <Label htmlFor="registro" required>
+        Número de Registro
       </Label>
-      <Input id="expediente" placeholder="EXP-2026-001" />
+      <Input id="registro" placeholder="REQ-2026-001" />
     </div>
   )
 };
@@ -36,11 +36,11 @@ export const ConEtiqueta: Story = {
 export const ConError: Story = {
   render: () => (
     <div className="grid w-80 gap-1.5">
-      <Label htmlFor="ruc" required>
-        RUC del Contribuyente
+      <Label htmlFor="tax-id" required>
+        ID Fiscal Corporativo
       </Label>
-      <Input id="ruc" hasError defaultValue="J03100000000" />
-      <span className="text-xs text-alcspower-destructive">El número RUC ingresado no es válido.</span>
+      <Input id="tax-id" hasError defaultValue="TAX-990001-X" />
+      <span className="text-xs text-alcspower-destructive">El ID fiscal ingresado no es válido.</span>
     </div>
   )
 };
@@ -81,7 +81,7 @@ export const ConIconoDerecho: Story = {
 export const Deshabilitado: Story = {
   args: {
     disabled: true,
-    defaultValue: 'Campo de solo lectura institucional'
+    defaultValue: 'Campo de solo lectura corporativo'
   }
 };
 
@@ -211,7 +211,7 @@ export const ShowcaseRedesign: Story = {
               <div className="flex-1 max-w-md">
                 <Input
                   leftElement={<Search className="h-4 w-4" />}
-                  placeholder="Buscar expedientes, personas..."
+                  placeholder="Buscar registros, personas..."
                 />
               </div>
             </div>
@@ -240,8 +240,8 @@ export const ShowcaseRedesign: Story = {
               <div className="flex-1 max-w-md">
                 <Input
                   leftElement={<Mail className="h-4 w-4" />}
-                  rightElement={<span className="text-xs font-semibold text-slate-400">.gob.ni</span>}
-                  placeholder="usuario institucional"
+                  rightElement={<span className="text-xs font-semibold text-slate-400">.com</span>}
+                  placeholder="usuario corporativo"
                 />
               </div>
             </div>
@@ -258,7 +258,7 @@ export const ShowcaseRedesign: Story = {
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm max-w-xl space-y-4">
             <div className="space-y-1.5">
               <Label htmlFor="live-email" required>
-                Correo Institucional
+                Correo Corporativo
               </Label>
               <Input
                 id="live-email"
@@ -278,7 +278,7 @@ export const ShowcaseRedesign: Story = {
                     <AlertCircle className="h-4 w-4 text-red-600 animate-in fade-in zoom-in" />
                   ) : null
                 }
-                placeholder="ejemplo@mific.gob.ni"
+                placeholder="ejemplo@empresa.com"
               />
               {showError && (
                 <p className="text-xs text-red-600 font-medium animate-in fade-in slide-in-from-top-1">

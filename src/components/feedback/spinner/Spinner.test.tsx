@@ -5,12 +5,12 @@ import { Spinner } from './Spinner';
 
 describe('Spinner Component', () => {
   it('renderiza con rol status y texto accesible para lectores de pantalla', () => {
-    render(<Spinner label="Cargando información institucional..." />);
+    render(<Spinner label="Cargando información corporativa..." />);
 
     const status = screen.getByRole('status');
     expect(status).toBeInTheDocument();
     expect(status).toHaveAttribute('aria-live', 'polite');
-    expect(screen.getByText(/cargando información institucional\.\.\./i)).toBeInTheDocument();
+    expect(screen.getByText(/cargando información corporativa\.\.\./i)).toBeInTheDocument();
   });
 
   it('aplica las clases correspondientes según el tamaño solicitado', () => {

@@ -20,7 +20,7 @@ const meta: Meta<typeof Separator> = {
     color: {
       control: 'select',
       options: ['default', 'primary', 'success', 'warning', 'error'],
-      description: 'Color semántico o institucional'
+      description: 'Color semántico o corporativo'
     },
     inset: {
       control: 'boolean',

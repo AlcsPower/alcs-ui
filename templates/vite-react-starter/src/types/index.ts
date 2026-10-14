@@ -1,4 +1,4 @@
-export interface Tramite {
+export interface RequestItem {
   id: string;
   codigo: string;
   titular: string;
@@ -8,4 +8,7 @@ export interface Tramite {
   monto: string;
 }
 
-export type ViewType = 'dashboard' | 'expedientes';
+/** Alias para compatibilidad con código existente */
+export type Tramite = RequestItem;
+
+export type ViewType = 'dashboard' | 'records' | 'expedientes';

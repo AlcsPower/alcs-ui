@@ -99,7 +99,7 @@ export const DialogoComandosModal: StoryObj = {
             <CommandGroup heading="Acciones Principales">
               <CommandItem onSelect={() => setOpen(false)}>
                 <FileText className="mr-2 h-4 w-4" />
-                <span>Nuevo Expediente</span>
+                <span>Nuevo Registro</span>
               </CommandItem>
               <CommandItem onSelect={() => setOpen(false)}>
                 <Calendar className="mr-2 h-4 w-4" />

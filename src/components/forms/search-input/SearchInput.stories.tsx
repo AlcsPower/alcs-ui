@@ -16,20 +16,20 @@ type Story = StoryObj<typeof SearchInput>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Buscar expedientes, personas...',
+    placeholder: 'Buscar registros, personas...',
   },
 };
 
 export const ConAtajo: Story = {
   args: {
-    placeholder: 'Buscar en el catálogo institucional...',
+    placeholder: 'Buscar en el catálogo corporativo...',
     shortcut: '⌘K',
   },
 };
 
 export const Cargando: Story = {
   args: {
-    defaultValue: 'Trámites de importación',
+    defaultValue: 'Solicitudes de importación',
     isLoading: true,
   },
 };
@@ -53,8 +53,8 @@ export const Showcase: Story = {
         setIsSearching(false);
         setResults([
           `Registro N° ${Math.floor(1000 + Math.random() * 9000)} para "${term}"`,
-          `Expediente Mercantil - Coincidencia con "${term}"`,
-          `Licencia Sanitaria - Relacionada a "${term}"`,
+          `Registro Comercial - Coincidencia con "${term}"`,
+          `Licencia Comercial - Relacionada a "${term}"`,
         ]);
       }, 500);
     };
@@ -149,7 +149,7 @@ export const Showcase: Story = {
 
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-4">
             <SearchInput
-              placeholder="Escribe para buscar (ej: 'expediente', 'arancel')..."
+              placeholder="Escribe para buscar (ej: 'registro', 'servicio')..."
               onSearch={handleSearch}
               isLoading={isSearching}
               shortcut="/"

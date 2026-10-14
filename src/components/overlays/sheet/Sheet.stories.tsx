@@ -32,9 +32,9 @@ export const Default: Story = {
       </SheetTrigger>
       <SheetContent side="right">
         <SheetHeader>
-          <SheetTitle>Editar Perfil Institucional</SheetTitle>
+          <SheetTitle>Editar Perfil de Usuario</SheetTitle>
           <SheetDescription>
-            Modifique los datos de contacto y roles asignados en el sistema ministerial.
+            Modifique los datos de contacto y roles asignados en el sistema corporativo.
           </SheetDescription>
         </SheetHeader>
         <div className="py-4 space-y-4">
@@ -44,11 +44,11 @@ export const Default: Story = {
           </Field>
           <Field required>
             <FieldLabel>Cargo / Dependencia</FieldLabel>
-            <Input defaultValue="Dirección de Comercio Exterior" />
+            <Input defaultValue="Dirección de Operaciones" />
           </Field>
           <Field>
             <FieldLabel>Correo Electrónico</FieldLabel>
-            <Input type="email" defaultValue="cmendoza@mific.gob.ni" />
+            <Input type="email" defaultValue="cmendoza@empresa.com" />
           </Field>
         </div>
         <SheetFooter>

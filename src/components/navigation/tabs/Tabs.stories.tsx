@@ -60,10 +60,10 @@ export const Default: Story = {
         <TabsContent value="resumen">
           <div className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-5">
             <h3 className="text-base font-bold text-alcspower-foreground mb-2">
-              Resumen del expediente
+              Resumen del registro
             </h3>
             <p className="text-sm text-alcspower-muted-foreground mb-4">
-              El expediente tiene 3 lecturas registradas este mes. Estado actual:{' '}
+              El registro tiene 3 lecturas registradas este mes. Estado actual:{' '}
               <strong className="text-alcspower-foreground font-semibold">En revisión</strong>.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -87,7 +87,7 @@ export const Default: Story = {
           <div className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-5">
             <h3 className="text-base font-bold text-alcspower-foreground mb-2">Detalles completos</h3>
             <p className="text-sm text-alcspower-muted-foreground">
-              Información detallada del trámite incluyendo datos del solicitante, fechas clave y observaciones del revisor.
+              Información detallada de la solicitud incluyendo datos del solicitante, fechas clave y observaciones del revisor.
             </p>
           </div>
         </TabsContent>
@@ -96,7 +96,7 @@ export const Default: Story = {
           <div className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 p-5">
             <h3 className="text-base font-bold text-alcspower-foreground mb-2">Historial de cambios</h3>
             <p className="text-sm text-alcspower-muted-foreground">
-              Se han registrado 3 cambios recientes en el expediente.
+              Se han registrado 3 cambios recientes en el registro.
             </p>
           </div>
         </TabsContent>

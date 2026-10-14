@@ -1,8 +1,8 @@
 # @alcspower/ui — Agent Instructions
 
 ## Identity
-- **Package:** `@alcspower/ui` v1.4.0
-- **Description:** Accessible React component library (59+ components) with semantic design tokens
+- **Package:** `@alcspower/ui` v1.6.2
+- **Description:** Accessible React component library (64 components) with semantic design tokens
 - **Tech Stack:** React 18/19, TypeScript 5.7 (strict), Tailwind CSS v4, Radix UI, CVA
 - **Bundled:** Lucide React, Sonner, cmdk, TanStack Table, Recharts, react-day-picker, date-fns
 - **Distribution:** Self-contained bundle (zero sub-dependencies, only react + react-dom as peers)

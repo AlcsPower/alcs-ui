@@ -54,7 +54,7 @@ Una alerta es un bloque visual destacado que se ubica **dentro del flujo regular
 Se usa comúnmente para:
 - Mensajes de advertencia importantes sobre una sección.
 - Errores críticos de validación que bloquean el guardado de un formulario.
-- Anuncios institucionales o informativos permanentes.
+- Anuncios corporativos o informativos permanentes.
 
 ### Anatomía de una Alert
 

@@ -12,10 +12,10 @@ const frameworksOptions: MultiSelectOption[] = [
   { value: 'astro', label: 'Astro', description: 'Framework orientado a contenido', group: 'Meta-Frameworks' },
 ];
 
-const ministerialPermissions: MultiSelectOption[] = [
-  { value: 'exp_read', label: 'Lectura de Expedientes', icon: <FileText className="w-4 h-4 text-sky-500" />, badge: 'Básico', group: 'Expedientes' },
-  { value: 'exp_write', label: 'Edición y Archivo', icon: <FileText className="w-4 h-4 text-emerald-500" />, badge: 'Operativo', group: 'Expedientes' },
-  { value: 'user_admin', label: 'Gestión de Funcionarios', icon: <Users className="w-4 h-4 text-indigo-500" />, badge: 'Admin', group: 'Seguridad' },
+const corporatePermissions: MultiSelectOption[] = [
+  { value: 'exp_read', label: 'Lectura de Registros', icon: <FileText className="w-4 h-4 text-sky-500" />, badge: 'Básico', group: 'Registros' },
+  { value: 'exp_write', label: 'Edición y Archivo', icon: <FileText className="w-4 h-4 text-emerald-500" />, badge: 'Operativo', group: 'Registros' },
+  { value: 'user_admin', label: 'Gestión de Usuarios', icon: <Users className="w-4 h-4 text-indigo-500" />, badge: 'Admin', group: 'Seguridad' },
   { value: 'sec_audit', label: 'Auditoría Forense', icon: <Shield className="w-4 h-4 text-amber-500" />, badge: 'Seguridad', group: 'Seguridad' },
   { value: 'sys_deploy', label: 'Despliegues en Producción', icon: <Cloud className="w-4 h-4 text-purple-500" />, badge: 'DevOps', group: 'Infraestructura' },
   { value: 'db_backup', label: 'Respaldos de Base de Datos', icon: <Database className="w-4 h-4 text-teal-500" />, badge: 'DBA', group: 'Infraestructura' },
@@ -43,8 +43,8 @@ export const Default: Story = {
 
 export const ConGruposEIconos: Story = {
   args: {
-    placeholder: 'Asignar permisos ministeriales...',
-    options: ministerialPermissions,
+    placeholder: 'Asignar permisos corporativos...',
+    options: corporatePermissions,
     defaultValue: ['exp_read', 'exp_write', 'sec_audit'],
     displayMode: 'hybrid',
     maxCount: 2,
@@ -54,7 +54,7 @@ export const ConGruposEIconos: Story = {
 export const ModoResumenCompacto: Story = {
   args: {
     placeholder: 'Seleccionar roles...',
-    options: ministerialPermissions,
+    options: corporatePermissions,
     defaultValue: ['exp_read', 'exp_write', 'user_admin', 'sec_audit'],
     displayMode: 'summary',
   },
@@ -63,14 +63,14 @@ export const ModoResumenCompacto: Story = {
 export const ConError: Story = {
   args: {
     placeholder: 'Seleccionar al menos un rol...',
-    options: ministerialPermissions,
+    options: corporatePermissions,
     hasError: true,
   },
 };
 
 export const CargandoAsincrono: Story = {
   args: {
-    placeholder: 'Consultando directorio institucional...',
+    placeholder: 'Consultando directorio corporativo...',
     options: [],
     isLoading: true,
   },

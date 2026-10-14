@@ -48,18 +48,26 @@ A continuación puedes ver el recorrido que haremos juntos. Cada estación está
 
 ```mermaid
 flowchart TD
-    M0["🟢 Módulo 00: Introducción Conceptual<br/>Comprende las analogías, qué es React y el stack"]
-    M1["🟢 Módulo 01: Instalación y Configuración<br/>Instala Node.js, pnpm y crea tu primer proyecto con Vite"]
-    M2["🟡 Módulo 02: Primeros Componentes Visuales<br/>Domina Button, Badge, Avatar y la tarjeta Card"]
-    M3["🟡 Módulo 03: Formularios y Estado Interactivo<br/>Aprende useState, Inputs, Selects, Checkbox y Switch"]
-    M4["🔴 Módulo 04: Estructuras y Navegación<br/>Organiza tu pantalla con Tabs, Separators y Modales"]
-    M5["🚀 Módulo 05: Ensamblaje del Proyecto Final<br/>Une todas las piezas en tu Agenda de Contactos lista"]
+    M0["🟢 Módulo 00: Introducción Conceptual<br/>Analogías, qué es React y el stack"]
+    M1["🟢 Módulo 01: Instalación y Configuración<br/>Node.js, pnpm y tu primer proyecto con Vite"]
+    M2["🟡 Módulo 02: Primeros Componentes Visuales<br/>Button, Badge, Avatar y Card"]
+    M3["🟡 Módulo 03: Formularios y Estado Interactivo<br/>useState, Input, Select, Checkbox y Switch"]
+    M4["🟡 Módulo 04: Layout y Tarjetas<br/>Container, Stack, Grid y diseño responsivo"]
+    M5["🟡 Módulo 05: Feedback y Notificaciones<br/>Alerts, Spinners, Toasts y Skeleton"]
+    M6["🔴 Módulo 06: Overlays y Diálogos<br/>Dialog, AlertDialog, Popover y Drawer"]
+    M7["🔴 Módulo 07: Visualización de Datos<br/>Table, DataTable, Pagination y Métricas"]
+    M8["🔴 Módulo 08: Navegación y Estructura<br/>Breadcrumb, Stepper, Tabs y Accordion"]
+    M9["🚀 Módulo 09: Ensamblaje del Proyecto Final<br/>Contact Book Pro completo con persistencia"]
 
     M0 --> M1
     M1 --> M2
     M2 --> M3
     M3 --> M4
     M4 --> M5
+    M5 --> M6
+    M6 --> M7
+    M7 --> M8
+    M8 --> M9
 ```
 
 ---
@@ -72,8 +80,12 @@ flowchart TD
 | **01** | **Instalación y tu Primer Proyecto**<br/>Instalando Node.js, pnpm, creando tu app con Vite y configurando `@alcspower/ui`. | 🟢 Fácil | 30 minutos | [Comenzar Módulo 01 →](01-instalacion.md) |
 | **02** | **Primer Componente: Tarjeta de Perfil**<br/>Aprende a usar Button, Badge, Avatar y Card para crear tarjetas atractivas. | 🟡 Media | 45 minutos | [Comenzar Módulo 02 →](02-primer-componente.md) |
 | **03** | **Interactividad y Formularios**<br/>¿Qué es el estado (`useState`)? Captura datos con Input, Select, Checkbox y Switch. | 🟡 Media | 60 minutos | [Comenzar Módulo 03 →](03-formularios.md) |
-| **04** | **Layouts y Navegación Avanzada**<br/>Organiza tu interfaz con pestañas (Tabs) y separadores elegantes. | 🔴 Intermedia | 50 minutos | *(Próximamente)* |
-| **05** | **Proyecto Final: Agenda de Contactos Completa**<br/>Poniendo todo junto: lista dinámica, filtros, creación de contactos y pulido visual. | 🚀 Proyecto | 90 minutos | *(Próximamente)* |
+| **04** | **Layouts y Tarjetas**<br/>Estructura tus páginas con Container, Stack, Grid y composiciones responsivas de tarjetas. | 🟡 Media | 45 minutos | [Comenzar Módulo 04 →](04-layout-y-cards.md) |
+| **05** | **Feedback y Notificaciones**<br/>Comunícate con el usuario mediante Alert, Spinner, Toasts, Skeleton y EmptyState. | 🟡 Media | 50 minutos | [Comenzar Módulo 05 →](05-feedback.md) |
+| **06** | **Overlays y Diálogos Emergentes**<br/>Ventanas modales accesibles con Dialog, AlertDialog, Popover, Sheet y Tooltip. | 🔴 Avanzada | 60 minutos | [Comenzar Módulo 06 →](06-overlays.md) |
+| **07** | **Visualización de Datos y Tablas**<br/>Tablas profesionales con Table, DataTable integrada con TanStack Table y Pagination. | 🔴 Avanzada | 75 minutos | [Comenzar Módulo 07 →](07-datos.md) |
+| **08** | **Navegación y Flujos de Usuario**<br/>Guía la experiencia con Breadcrumbs, Stepper, Tabs y acordeones expansibles. | 🔴 Avanzada | 50 minutos | [Comenzar Módulo 08 →](08-navegacion.md) |
+| **09** | **Proyecto Final: Contact Book Pro**<br/>Integra todos los módulos en una aplicación real, moderna y accesible lista para producción. | 🚀 Proyecto | 90 minutos | [Comenzar Módulo 09 →](09-proyecto-final.md) |
 
 ---
 

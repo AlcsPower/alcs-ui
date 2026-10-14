@@ -13,7 +13,7 @@ Toda vista o demostración de componente en el catálogo visual debe componerse 
 ┌──────────────────────────────────────────────────────────────────────────┐
 │  BLOQUE 1: HEADER & METADATOS TÉCNICOS                                   │
 │  • Título oficial y alias funcional (ej: Stepper / Wizard)               │
-│  • Badges de versión y arquitectura (ej: ✨ v1.4.0, WAI-ARIA + Compound) │
+│  • Badges de versión y arquitectura (ej: ✨ v1.6.2, WAI-ARIA + Compound) │
 │  • Descripción funcional concisa orientada a casos de uso reales         │
 │  • Ruta del código fuente en monospace                                  │
 ├──────────────────────────────────────────────────────────────────────────┤
@@ -42,7 +42,7 @@ Toda vista o demostración de componente en el catálogo visual debe componerse 
 El encabezado debe incluir:
 1. **Título Principal:** Nombre comercial y alias funcional separado por barra si aplica (`Stepper / Wizard`, `Timeline / ActivityLog`, `Tabs Component`).
 2. **Badges:**
-   - Badge de versión o rediseño: `✨ Nuevo v1.4.0`, `✨ v2.0 Rediseño`, etc.
+   - Badge de versión o rediseño: `✨ Nuevo v1.6.2`, `✨ v2.0 Rediseño`, etc.
    - Badge de tecnología: `Radix UI + CVA`, `WAI-ARIA + Compound`, `Tailwind CSS v4`.
 3. **Descripción Funcional:** 1 o 2 líneas concisas explicando qué problema resuelve y sus capacidades clave.
 4. **Ruta del Componente:** Etiqueta en monospace con la ruta exacta dentro del repositorio:
@@ -65,12 +65,12 @@ Antes de llegar al playground, el usuario debe ver los especímenes visuales est
 
 #### `02. ESCALAS DE TAMAÑO (SM, MD, LG) Y DENSIDAD`
 * Debe presentar una comparativa simultánea de los 3 tamaños oficiales de `@alcspower/ui`:
-  - **`size="lg"`**: Escala grande para encabezados principales, vistas de héroe o trámites prioritarios.
+  - **`size="lg"`**: Escala grande para encabezados principales, vistas de héroe o solicitudes prioritarias.
   - **`size="md"`**: Escala estándar recomendada para el 80% de los formularios e interfaces.
   - **`size="sm"`**: Escala compacta para diálogos, barras laterales o tablas de alta densidad de datos.
 
 #### `03. ESTADOS Y CASOS DE USO DEL MUNDO REAL`
-* Debe aterrizar el componente a escenarios institucionales y B2B reales:
+* Debe aterrizar el componente a escenarios corporativos y B2B reales:
   - **Estados Semánticos:** `completed` / `success` (esmeralda), `active` / `primary` (índigo), `warning` (ámbar), `error` / `destructive` (rojo) y `pending` / `neutral`.
   - **Disposición / Orientación:** Modo horizontal vs vertical, alternado o compacto.
   - **Composición con otros elementos:** Integración con `<Avatar>`, `<StatusBadge>`, badges contextuales, o áreas colapsables con metadatos.
@@ -112,7 +112,7 @@ Renderizado automáticamente mediante el wrapper `ComponentSection` en `src/ui/C
 Al asignar la homologación de un componente existente o la creación de uno nuevo a un agente de IA:
 
 - [ ] **1. Identificar el archivo demo en el Showcase:**  
-  Ubicado en `/home/alcides/alcspower-showcase/src/demos/{Categoria}.tsx`.
+  Ubicado en `src/demos/{Categoria}.tsx`.
 - [ ] **2. Asegurar el orden secuencial estricto:**  
   Header → 01. Variantes de Forma/Estilo → 02. Escalas de Tamaño → 03. Estados y Casos de Uso → 04. Playground Interactivo al final.
 - [ ] **3. Implementar el Playground Interactivo al final:**  

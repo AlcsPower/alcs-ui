@@ -68,8 +68,8 @@ export const Showcase: Story = {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="pwd-lock">Con icono institucional de candado</Label>
-                <PasswordInput id="pwd-lock" showLockIcon placeholder="Contraseña institucional..." />
+                <Label htmlFor="pwd-lock">Con icono corporativo de candado</Label>
+                <PasswordInput id="pwd-lock" showLockIcon placeholder="Contraseña corporativa..." />
               </div>
 
               <div className="space-y-1.5">
@@ -134,7 +134,7 @@ export const Showcase: Story = {
                 onChange={(e) => setPassword(e.target.value)}
                 showStrengthIndicator
                 showLockIcon
-                placeholder="Ej: Mific2026$Seguro"
+                placeholder="Ej: Empresa2026$Seguro"
               />
             </div>
           </div>

@@ -44,7 +44,7 @@ const meta: Meta<typeof Stepper> = {
 export default meta;
 type Story = StoryObj<typeof Stepper>;
 
-const tramitesSteps = [
+const processSteps = [
   {
     title: 'Datos del Solicitante',
     description: 'Identificación y domicilio',
@@ -52,7 +52,7 @@ const tramitesSteps = [
   },
   {
     title: 'Documentos Adjuntos',
-    description: 'Cédula y soporte legal',
+    description: 'Identificación y documentos de soporte',
     icon: <FileText className="h-4 w-4" />,
   },
   {
@@ -70,7 +70,7 @@ const tramitesSteps = [
 export const Default: Story = {
   args: {
     activeStep: 1,
-    steps: tramitesSteps,
+    steps: processSteps,
   },
 };
 
@@ -84,15 +84,15 @@ export const InteractivoControlado: Story = {
           activeStep={currentStep}
           clickable
           onStepClick={setCurrentStep}
-          steps={tramitesSteps}
+          steps={processSteps}
         />
 
         <div className="rounded-xl border border-alcspower-border bg-alcspower-surface p-6 shadow-2xs">
           <h4 className="text-base font-semibold text-alcspower-foreground">
-            {tramitesSteps[currentStep]?.title}
+            {processSteps[currentStep]?.title}
           </h4>
           <p className="mt-1 text-sm text-alcspower-muted-foreground">
-            {tramitesSteps[currentStep]?.description}
+            {processSteps[currentStep]?.description}
           </p>
           <div className="mt-6 flex items-center justify-between">
             <Button
@@ -104,9 +104,9 @@ export const InteractivoControlado: Story = {
             </Button>
             <Button
               variant="primary"
-              disabled={currentStep === tramitesSteps.length - 1}
+              disabled={currentStep === processSteps.length - 1}
               onClick={() =>
-                setCurrentStep((prev) => Math.min(tramitesSteps.length - 1, prev + 1))
+                setCurrentStep((prev) => Math.min(processSteps.length - 1, prev + 1))
               }
             >
               Siguiente Paso
@@ -141,7 +141,7 @@ export const VerticalConContenido: Story = {
           </Step>
           <StepContent>
             <div className="rounded-lg bg-alcspower-surface-muted/60 p-4 border border-alcspower-border-subtle text-xs text-alcspower-muted-foreground">
-              El expediente se encuentra asignado a la Dirección de Registro.
+              La solicitud se encuentra asignada al área de operaciones.
             </div>
           </StepContent>
           <StepSeparator />
@@ -149,7 +149,7 @@ export const VerticalConContenido: Story = {
           <Step step={2} state="pending">
             <StepIndicator />
             <div className="flex flex-col">
-              <StepTitle>Resolución Ministerial</StepTitle>
+              <StepTitle>Resolución Corporativa</StepTitle>
               <StepDescription>Pendiente de aprobación</StepDescription>
             </div>
           </Step>

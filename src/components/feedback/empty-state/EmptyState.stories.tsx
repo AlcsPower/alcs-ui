@@ -24,8 +24,8 @@ type Story = StoryObj<typeof EmptyState>;
 
 export const Default: Story = {
   args: {
-    title: 'No hay trámites registrados',
-    description: 'Actualmente no existen registros asociados a su cuenta institucional.'
+    title: 'No hay solicitudes registradas',
+    description: 'Actualmente no existen registros asociados a su cuenta corporativa.'
   }
 };
 
@@ -34,7 +34,7 @@ export const WithAction: Story = {
     <EmptyState
       icon={<FolderPlus className="h-6 w-6 stroke-[1.5]" />}
       title="Sin solicitudes activas"
-      description="Comience creando una nueva solicitud de trámite institucional para dar seguimiento a sus requerimientos."
+      description="Comience creando una nueva solicitud para dar seguimiento a sus requerimientos."
       action={
         <Button variant="primary">
           Crear nueva solicitud

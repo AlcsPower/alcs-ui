@@ -1,7 +1,7 @@
 {
   "name": "@alcspower/ui",
   "version": "1.6.2",
-  "description": "Biblioteca de componentes React accesibles y reutilizables basada en Radix UI y Tailwind CSS",
+  "description": "Accessible, composable, and production-ready React 19 component library powered by Tailwind CSS v4 and Radix UI",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",
   "repository": {
@@ -14,11 +14,19 @@
   },
   "keywords": [
     "react",
+    "react-19",
     "components",
     "design-system",
     "alcspower",
     "radix-ui",
-    "tailwind"
+    "tailwindcss",
+    "tailwind-v4",
+    "typescript",
+    "ui-library",
+    "accessible",
+    "wcag",
+    "wai-aria",
+    "cva"
   ],
   "sideEffects": [
     "**/*.css",

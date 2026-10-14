@@ -28,8 +28,12 @@ flowchart TD
     A["🟢 Módulo 00: Introducción<br/>¿Qué es la web, React y los componentes?"] --> B["🟢 Módulo 01: Instalación<br/>Node.js, pnpm, Vite y tu primer proyecto"]
     B --> C["🟡 Módulo 02: Primeros Bloques<br/>Botones, Badges, Avatares y Cards"]
     C --> D["🟡 Módulo 03: Formularios y Estado<br/>Inputs, Selects, Checkboxes y useState"]
-    D --> E["🔴 Módulo 04: Componentes Avanzados<br/>Tabs, Modales, Tablas y Navegación"]
-    E --> F["🚀 Proyecto Final<br/>Agenda de Contactos Completa y Despliegue"]
+    D --> E["🟡 Módulo 04: Layout y Tarjetas<br/>Container, Stack, Grid y Cards"]
+    E --> F["🟡 Módulo 05: Feedback<br/>Alerts, Spinners, Toasts y Skeleton"]
+    F --> G["🔴 Módulo 06: Overlays<br/>Dialog, AlertDialog, Popover y Drawer"]
+    G --> H["🔴 Módulo 07: Datos<br/>Table, DataTable, Pagination y Métricas"]
+    H --> I["🔴 Módulo 08: Navegación<br/>Breadcrumb, Stepper, Tabs y Accordion"]
+    I --> J["🚀 Módulo 09: Proyecto Final<br/>Agenda de Contactos Completa y Despliegue"]
 ```
 
 ---
@@ -42,8 +46,12 @@ flowchart TD
 | **01** | **Instalación y Entorno** | Instalación de Node.js, pnpm, creación de proyecto con Vite y configuración del paquete. | 🟢 Fácil | ~30 min | [🇪🇸 Leer](es/01-instalacion.md) \| [🇺🇸 Read](en/01-installation.md) |
 | **02** | **Tus Primeros Componentes** | `Button`, `Badge`, `Avatar` y `Card`. Ensambla tu primera tarjeta de perfil. | 🟡 Medio | ~45 min | [🇪🇸 Leer](es/02-primer-componente.md) \| [🇺🇸 Read](en/02-first-component.md) |
 | **03** | **Interactividad y Formularios** | `Input`, `Label`, `Field`, `Select`, `Checkbox`, `Switch` y el concepto de `useState`. | 🟡 Medio | ~60 min | [🇪🇸 Leer](es/03-formularios.md) \| [🇺🇸 Read](en/03-forms.md) |
-| **04** | **Layouts y Estructuras** | `Tabs`, `Separator`, modales de diálogo y organización de vistas. | 🔴 Avanzado | ~50 min | [🇪🇸 Leer](es/04-layouts.md) \| [🇺🇸 Read](en/04-layouts.md) |
-| **05** | **Proyecto Final: Agenda de Contactos** | Integra todo en una aplicación funcional completa con persistencia local. | 🚀 Proyecto | ~90 min | [🇪🇸 Leer](es/05-proyecto-final.md) \| [🇺🇸 Read](en/05-final-project.md) |
+| **04** | **Layout y Tarjetas** | `Container`, `Stack`, `Grid` y tarjetas con diseño responsivo. | 🟡 Medio | ~45 min | [🇪🇸 Leer](es/04-layout-y-cards.md) \| [🇺🇸 Read](en/04-layout-and-cards.md) |
+| **05** | **Feedback y Notificaciones** | `Alert`, `Spinner`, `Toast` / `Toaster`, `Skeleton`, `EmptyState` y `LoadingOverlay`. | 🟡 Medio | ~50 min | [🇪🇸 Leer](es/05-feedback.md) \| [🇺🇸 Read](en/05-feedback.md) |
+| **06** | **Overlays y Diálogos** | `Dialog`, `AlertDialog`, `Popover`, `Sheet`, `Drawer`, `Tooltip` y `DropdownMenu`. | 🔴 Avanzado | ~60 min | [🇪🇸 Leer](es/06-overlays.md) \| [🇺🇸 Read](en/06-overlays.md) |
+| **07** | **Visualización de Datos** | `Table`, `DataTable` con TanStack Table, `Pagination`, `Sparkline`, `Gauge` y `Chart`. | 🔴 Avanzado | ~75 min | [🇪🇸 Leer](es/07-datos.md) \| [🇺🇸 Read](en/07-data.md) |
+| **08** | **Navegación y Estructura** | `Breadcrumb`, `Stepper`, `Tabs` y `Accordion`. Organización de flujos y vistas. | 🔴 Avanzado | ~50 min | [🇪🇸 Leer](es/08-navegacion.md) \| [🇺🇸 Read](en/08-navigation.md) |
+| **09** | **Proyecto Final: Contact Book Pro** | Integra todo en una aplicación funcional completa con persistencia local y temas. | 🚀 Proyecto | ~90 min | [🇪🇸 Leer](es/09-proyecto-final.md) \| [🇺🇸 Read](en/09-final-project.md) |
 
 ---
 

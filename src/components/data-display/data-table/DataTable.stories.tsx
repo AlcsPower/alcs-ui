@@ -20,7 +20,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-001',
     name: 'Ana Martínez',
-    email: 'ana.martinez@mific.gob.ni',
+    email: 'ana.martinez@empresa.com',
     role: 'Administrador',
     status: 'Activo',
     createdAt: '15/01/2026',
@@ -28,7 +28,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-002',
     name: 'Carlos Gómez',
-    email: 'carlos.gomez@mific.gob.ni',
+    email: 'carlos.gomez@empresa.com',
     role: 'Auditor',
     status: 'Pendiente',
     createdAt: '18/01/2026',
@@ -36,7 +36,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-003',
     name: 'Elena Rostrán',
-    email: 'elena.rostran@mific.gob.ni',
+    email: 'elena.rostran@empresa.com',
     role: 'Especialista',
     status: 'Activo',
     createdAt: '22/01/2026',
@@ -44,7 +44,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-004',
     name: 'David Blandón',
-    email: 'david.blandon@mific.gob.ni',
+    email: 'david.blandon@empresa.com',
     role: 'Operador',
     status: 'Inactivo',
     createdAt: '03/02/2026',
@@ -52,7 +52,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-005',
     name: 'Sofía Morales',
-    email: 'sofia.morales@mific.gob.ni',
+    email: 'sofia.morales@empresa.com',
     role: 'Analista',
     status: 'Activo',
     createdAt: '10/02/2026',
@@ -60,7 +60,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-006',
     name: 'Roberto Flores',
-    email: 'roberto.flores@mific.gob.ni',
+    email: 'roberto.flores@empresa.com',
     role: 'Auditor',
     status: 'Suspendido',
     createdAt: '14/02/2026',
@@ -68,7 +68,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-007',
     name: 'Lucía Méndez',
-    email: 'lucia.mendez@mific.gob.ni',
+    email: 'lucia.mendez@empresa.com',
     role: 'Especialista',
     status: 'Activo',
     createdAt: '20/02/2026',
@@ -76,7 +76,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-008',
     name: 'Javier Castillo',
-    email: 'javier.castillo@mific.gob.ni',
+    email: 'javier.castillo@empresa.com',
     role: 'Operador',
     status: 'Pendiente',
     createdAt: '25/02/2026',
@@ -84,7 +84,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-009',
     name: 'Valeria Ríos',
-    email: 'valeria.rios@mific.gob.ni',
+    email: 'valeria.rios@empresa.com',
     role: 'Analista',
     status: 'Activo',
     createdAt: '01/03/2026',
@@ -92,7 +92,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-010',
     name: 'Gabriel Silva',
-    email: 'gabriel.silva@mific.gob.ni',
+    email: 'gabriel.silva@empresa.com',
     role: 'Especialista',
     status: 'Activo',
     createdAt: '05/03/2026',
@@ -100,7 +100,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-011',
     name: 'Patricia Navarro',
-    email: 'patricia.navarro@mific.gob.ni',
+    email: 'patricia.navarro@empresa.com',
     role: 'Auditor',
     status: 'Inactivo',
     createdAt: '08/03/2026',
@@ -108,7 +108,7 @@ const sampleUsers: UserItem[] = [
   {
     id: 'USR-012',
     name: 'Fernando Vargas',
-    email: 'fernando.vargas@mific.gob.ni',
+    email: 'fernando.vargas@empresa.com',
     role: 'Operador',
     status: 'Activo',
     createdAt: '12/03/2026',

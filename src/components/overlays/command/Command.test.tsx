@@ -79,13 +79,13 @@ describe('Command Component', () => {
         <CommandInput placeholder="Buscar acción..." />
         <CommandList>
           <CommandGroup heading="Acciones">
-            <CommandItem onSelect={handleSelect}>Nuevo Expediente</CommandItem>
+            <CommandItem onSelect={handleSelect}>Nuevo Registro</CommandItem>
           </CommandGroup>
         </CommandList>
       </Command>
     );
 
-    await user.click(screen.getByText('Nuevo Expediente'));
+    await user.click(screen.getByText('Nuevo Registro'));
     expect(handleSelect).toHaveBeenCalled();
   });
 

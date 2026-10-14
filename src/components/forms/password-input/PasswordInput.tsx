@@ -35,11 +35,11 @@ export interface PasswordInputProps extends Omit<InputProps, 'type'> {
   showRequirements?: boolean;
   /** Función personalizada para evaluar la fortaleza de la contraseña */
   calculateStrength?: (password: string) => PasswordStrength;
-  /** Muestra el ícono de candado institucional a la izquierda (por defecto true) */
+  /** Muestra el ícono de candado de seguridad a la izquierda (por defecto true) */
   showLockIcon?: boolean;
 }
 
-/** Evaluador de seguridad institucional de 4 niveles */
+/** Evaluador de fortaleza de contraseña de 4 niveles */
 export function defaultPasswordStrengthCalculator(password: string): PasswordStrength {
   const reqs: PasswordRequirement[] = [
     {
@@ -122,7 +122,7 @@ const STRENGTH_STYLES: Record<
  * PasswordInput
  * Campo de contraseña rediseñado con:
  * - Botón de alternancia (ojo) sin bordes, en gris suave, con cambio de silueta y halo/sombra solo en hover.
- * - Icono de candado izquierdo institucional con halo/glow radial acorde al estado.
+ * - Icono de candado izquierdo de seguridad con halo/glow radial acorde al estado.
  * - Barra medidora animada y lista de requisitos de seguridad visuales.
  */
 export const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>(

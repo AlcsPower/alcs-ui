@@ -134,11 +134,11 @@ export function ContactSummaryCard() {
         </p>
         <p>
           <strong className="text-gray-900 dark:text-white">Phone:</strong>{' '}
-          +505 8888-0001
+          +1 (555) 888-0001
         </p>
         <p>
           <strong className="text-gray-900 dark:text-white">Location:</strong>{' '}
-          Managua, Nicaragua
+          Headquarters
         </p>
       </CardContent>
 

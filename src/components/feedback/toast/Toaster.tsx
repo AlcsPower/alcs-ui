@@ -40,7 +40,7 @@ const defaultIcons = {
 };
 
 /**
- * Componente `Toaster` institucional de `@alcspower/ui`.
+ * Componente `Toaster` de `@alcspower/ui`.
  * Basado en `sonner`, con soporte completo de tema claro/oscuro,
  * iconos contextuales tipo squircle, barra de progreso y tokens semánticos.
  */

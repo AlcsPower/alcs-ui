@@ -39,7 +39,7 @@ export const Default: Story = {
       {[1, 2, 3, 4, 5, 6].map((i) => (
         <Card key={i} className="p-4 flex flex-col justify-center items-center text-center">
           <div className="font-bold text-alcspower-foreground">Módulo {i}</div>
-          <div className="text-xs text-alcspower-muted-foreground mt-1">Servicio Institucional</div>
+          <div className="text-xs text-alcspower-muted-foreground mt-1">Servicio Corporativo</div>
         </Card>
       ))}
     </Grid>

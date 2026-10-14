@@ -39,7 +39,7 @@ export const Default: Story = {
         <div className="grid gap-4 py-4">
           <div className="grid gap-1.5">
             <Label htmlFor="empresa" required>Nombre de la Empresa</Label>
-            <Input id="empresa" placeholder="Ej. Exportaciones de Nicaragua S.A." />
+            <Input id="empresa" placeholder="Ej. Exportaciones del Norte S.A." />
           </div>
           <div className="grid gap-1.5">
             <Label htmlFor="destino" required>País de Destino</Label>

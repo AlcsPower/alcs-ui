@@ -21,7 +21,7 @@ import {
 export function DashboardView() {
   const kpis = [
     {
-      title: 'Expedientes Resueltos',
+      title: 'Solicitudes Resueltas',
       value: '2,845',
       trend: '+12.4%',
       trendUp: true,
@@ -30,7 +30,7 @@ export function DashboardView() {
       color: 'text-indigo-600 bg-indigo-50 dark:bg-indigo-950/40 dark:text-indigo-400',
     },
     {
-      title: 'Trámites en Tránsito',
+      title: 'Solicitudes en Tránsito',
       value: '412',
       trend: '+4.2%',
       trendUp: true,
@@ -81,8 +81,8 @@ export function DashboardView() {
       estado: 'warning' as const,
     },
     {
-      codigo: 'EXP-2026-0869',
-      accion: 'Expediente registrado en ventanilla única',
+      codigo: 'REQ-2026-0869',
+      accion: 'Solicitud registrada en el portal',
       usuario: 'Atención al Usuario',
       tiempo: 'Hace 3 horas',
       estado: 'default' as const,
@@ -95,10 +95,10 @@ export function DashboardView() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Tablero de Control Ministerial
+            Tablero de Control Corporativo
           </h1>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Monitoreo en tiempo real de trámites, tiempos de respuesta e indicadores de servicio.
+            Monitoreo en tiempo real de solicitudes, tiempos de respuesta e indicadores de servicio.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -173,7 +173,7 @@ export function DashboardView() {
 
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-medium">
-                <span className="text-slate-700 dark:text-slate-300">Normas Técnicas (NTON)</span>
+                <span className="text-slate-700 dark:text-slate-300">Normas Técnicas y Estándares</span>
                 <span className="text-slate-500">92%</span>
               </div>
               <Progress value={92} variant="success" />
@@ -181,7 +181,7 @@ export function DashboardView() {
 
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-medium">
-                <span className="text-slate-700 dark:text-slate-300">Ventanilla Única</span>
+                <span className="text-slate-700 dark:text-slate-300">Portal de Autoservicio</span>
                 <span className="text-slate-500">62%</span>
               </div>
               <Progress value={62} variant="warning" />

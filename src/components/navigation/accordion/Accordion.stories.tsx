@@ -76,15 +76,15 @@ export const Default: Story = {
             subtitle="Licencias · Actualizado hace 2 días"
             badge="Info"
           >
-            ¿Cuál es la vigencia de la licencia ministerial?
+            ¿Cuál es la vigencia de la licencia corporativa?
           </AccordionTrigger>
           <AccordionContent>
             <p className="mb-3">
-              La licencia ministerial tiene una vigencia de{' '}
+              La licencia corporativa tiene una vigencia de{' '}
               <strong className="text-alcspower-foreground font-semibold">2 años</strong> a partir de la fecha de emisión. Debés renovarla 30 días antes del vencimiento.
             </p>
             <p>
-              La renovación requiere presentar documentación actualizada y pagar el arancel de renovación. Si dejás vencer la licencia, deberás iniciar un nuevo trámite desde cero.
+              La renovación requiere presentar documentación actualizada y pagar el arancel correspondiente. Si dejás vencer la licencia, deberás iniciar una nueva solicitud.
             </p>
           </AccordionContent>
         </AccordionItem>
@@ -95,15 +95,15 @@ export const Default: Story = {
             subtitle="Soporte · Respuesta inmediata"
             badge="Ayuda"
           >
-            ¿Dónde puedo hacer consultas sobre mi expediente?
+            ¿Dónde puedo hacer consultas sobre mi solicitud?
           </AccordionTrigger>
           <AccordionContent>
             <p className="mb-3">
-              Podés hacer consultas sobre tu expediente a través de los siguientes canales:
+              Podés hacer consultas sobre tu solicitud a través de los siguientes canales:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-alcspower-muted-foreground">
-              <li><strong className="text-alcspower-foreground font-semibold">Mesa de ayuda:</strong> soporte@mific.gob.ni</li>
-              <li><strong className="text-alcspower-foreground font-semibold">Teléfono:</strong> +505 2248-9300 (lun-vie 8am-5pm)</li>
+              <li><strong className="text-alcspower-foreground font-semibold">Mesa de ayuda:</strong> soporte@empresa.com</li>
+              <li><strong className="text-alcspower-foreground font-semibold">Teléfono:</strong> +1 (555) 019-2834 (lun-vie 8am-5pm)</li>
               <li><strong className="text-alcspower-foreground font-semibold">Chat en vivo:</strong> disponible en el portal</li>
             </ul>
           </AccordionContent>

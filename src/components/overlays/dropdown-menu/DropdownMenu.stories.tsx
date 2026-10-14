@@ -26,7 +26,7 @@ export const Default: Story = {
   render: () => (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" aria-label="Acciones de expediente">
+        <Button variant="outline" size="icon" aria-label="Acciones de registro">
           <MoreHorizontal className="h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>
@@ -34,7 +34,7 @@ export const Default: Story = {
         <DropdownMenuLabel>Acciones Disponibles</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <FileText className="mr-2 h-4 w-4" /> Ver Expediente
+          <FileText className="mr-2 h-4 w-4" /> Ver Detalle
           <DropdownMenuShortcut>⌘V</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>

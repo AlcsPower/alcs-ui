@@ -5,9 +5,9 @@ import { axe } from 'vitest-axe';
 import { Combobox } from './Combobox';
 
 const mockOptions = [
-  { value: 'mific-central', label: 'MIFIC Central', group: 'Managua' },
-  { value: 'delegacion-leon', label: 'Delegación León', group: 'Occidente' },
-  { value: 'delegacion-esteli', label: 'Delegación Estelí', group: 'Norte' },
+  { value: 'hq-central', label: 'Sede Central', group: 'Centro' },
+  { value: 'branch-west', label: 'Sucursal Oeste', group: 'Occidente' },
+  { value: 'branch-north', label: 'Sucursal Norte', group: 'Norte' },
 ];
 
 describe('Combobox Component', () => {
@@ -15,22 +15,22 @@ describe('Combobox Component', () => {
     render(
       <Combobox
         options={mockOptions}
-        placeholder="Seleccione delegación..."
+        placeholder="Seleccione sucursal..."
       />
     );
 
-    expect(screen.getByText('Seleccione delegación...')).toBeInTheDocument();
+    expect(screen.getByText('Seleccione sucursal...')).toBeInTheDocument();
   });
 
   it('muestra la etiqueta de la opción seleccionada', () => {
     render(
       <Combobox
         options={mockOptions}
-        value="delegacion-leon"
+        value="branch-west"
       />
     );
 
-    expect(screen.getByText('Delegación León')).toBeInTheDocument();
+    expect(screen.getByText('Sucursal Oeste')).toBeInTheDocument();
   });
 
   it('permite limpiar la selección en modo simple', async () => {
@@ -40,7 +40,7 @@ describe('Combobox Component', () => {
     render(
       <Combobox
         options={mockOptions}
-        value="delegacion-leon"
+        value="branch-west"
         onChange={handleChange}
         clearable={true}
       />
@@ -60,18 +60,18 @@ describe('Combobox Component', () => {
       <Combobox
         multiple={true}
         options={mockOptions}
-        value={['mific-central', 'delegacion-esteli']}
+        value={['hq-central', 'branch-north']}
         onChange={handleChange}
       />
     );
 
-    expect(screen.getByText('MIFIC Central')).toBeInTheDocument();
-    expect(screen.getByText('Delegación Estelí')).toBeInTheDocument();
+    expect(screen.getByText('Sede Central')).toBeInTheDocument();
+    expect(screen.getByText('Sucursal Norte')).toBeInTheDocument();
 
-    const removeBtn = screen.getByRole('button', { name: /eliminar mific central/i });
+    const removeBtn = screen.getByRole('button', { name: /eliminar sede central/i });
     await user.click(removeBtn);
 
-    expect(handleChange).toHaveBeenCalledWith(['delegacion-esteli']);
+    expect(handleChange).toHaveBeenCalledWith(['branch-north']);
   });
 
   it('permite limpiar todas las opciones en modo múltiple', async () => {
@@ -82,7 +82,7 @@ describe('Combobox Component', () => {
       <Combobox
         multiple={true}
         options={mockOptions}
-        value={['mific-central', 'delegacion-leon']}
+        value={['hq-central', 'branch-west']}
         onChange={handleChange}
         clearable={true}
       />
@@ -121,11 +121,11 @@ describe('Combobox Component', () => {
     render(
       <Combobox
         options={mockOptions}
-        defaultValue="delegacion-esteli"
+        defaultValue="branch-north"
       />
     );
 
-    expect(screen.getByText('Delegación Estelí')).toBeInTheDocument();
+    expect(screen.getByText('Sucursal Norte')).toBeInTheDocument();
   });
 
   it('funciona en modo no controlado con defaultValue en selección múltiple', () => {
@@ -133,19 +133,19 @@ describe('Combobox Component', () => {
       <Combobox
         multiple={true}
         options={mockOptions}
-        defaultValue={['mific-central', 'delegacion-leon']}
+        defaultValue={['hq-central', 'branch-west']}
       />
     );
 
-    expect(screen.getByText('MIFIC Central')).toBeInTheDocument();
-    expect(screen.getByText('Delegación León')).toBeInTheDocument();
+    expect(screen.getByText('Sede Central')).toBeInTheDocument();
+    expect(screen.getByText('Sucursal Oeste')).toBeInTheDocument();
   });
 
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <div>
         <label htmlFor="test-combo">Sede</label>
-        <Combobox id="test-combo" options={mockOptions} value="mific-central" />
+        <Combobox id="test-combo" options={mockOptions} value="hq-central" />
       </div>
     );
 

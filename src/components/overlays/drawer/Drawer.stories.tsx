@@ -31,9 +31,9 @@ export const Default: Story = {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Gestión de Expediente Ministerial</DrawerTitle>
+          <DrawerTitle>Gestión de Registro</DrawerTitle>
           <DrawerDescription>
-            Acciones disponibles para el trámite EXP-2026-N09
+            Acciones disponibles para la solicitud REQ-2026-N09
           </DrawerDescription>
         </DrawerHeader>
         <div className="py-2 space-y-2 max-w-sm mx-auto">
@@ -43,7 +43,7 @@ export const Default: Story = {
           </Button>
           <Button variant="outline" className="w-full justify-start gap-3">
             <Share2 className="h-4 w-4 text-alcspower-secondary" />
-            <span>Compartir con Ventanilla Única</span>
+            <span>Compartir con Operaciones</span>
           </Button>
           <Button variant="outline" className="w-full justify-start gap-3">
             <Download className="h-4 w-4 text-alcspower-info" />
@@ -51,7 +51,7 @@ export const Default: Story = {
           </Button>
           <Button variant="destructive" className="w-full justify-start gap-3">
             <Trash2 className="h-4 w-4" />
-            <span>Archivar Expediente</span>
+            <span>Archivar Registro</span>
           </Button>
         </div>
         <DrawerFooter>

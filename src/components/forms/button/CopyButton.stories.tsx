@@ -35,11 +35,11 @@ type Story = StoryObj<typeof CopyButton>;
 
 export const Default: Story = {
   args: {
-    value: 'EXP-2026-MIFIC-9941',
+    value: 'REQ-2026-9941',
   },
   render: (args) => (
     <div className="flex items-center gap-3 p-4 border border-alcspower-border rounded-xl bg-alcspower-surface max-w-sm">
-      <div className="font-mono text-sm text-alcspower-foreground font-semibold">EXP-2026-MIFIC-9941</div>
+      <div className="font-mono text-sm text-alcspower-foreground font-semibold">REQ-2026-9941</div>
       <CopyButton {...args} />
     </div>
   ),
@@ -49,13 +49,13 @@ export const InInput: Story = {
   render: () => (
     <div className="relative max-w-sm">
       <Input
-        value="https://mific.gob.ni/api/v1/tramites/349"
+        value="https://api.empresa.com/v1/solicitudes/349"
         readOnly
         className="pr-10 font-mono text-xs"
       />
       <div className="absolute right-1 top-1/2 -translate-y-1/2">
         <CopyButton
-          value="https://mific.gob.ni/api/v1/tramites/349"
+          value="https://api.empresa.com/v1/solicitudes/349"
           size="icon-sm"
           variant="ghost"
           tooltipText="Copiar URL"

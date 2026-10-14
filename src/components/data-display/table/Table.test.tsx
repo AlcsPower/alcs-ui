@@ -221,19 +221,19 @@ describe('Table Component', () => {
         <TableHeader>
           <TableRow>
             <TableHead scope="col">Nombre</TableHead>
-            <TableHead scope="col">Correo institucional</TableHead>
+            <TableHead scope="col">Correo corporativo</TableHead>
             <TableHead scope="col">Estado</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           <TableRow>
             <TableCell>Ana Martínez</TableCell>
-            <TableCell>ana.martinez@mific.gob.ni</TableCell>
+            <TableCell>ana.martinez@empresa.com</TableCell>
             <TableCell>Activo</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Carlos Gómez</TableCell>
-            <TableCell>carlos.gomez@mific.gob.ni</TableCell>
+            <TableCell>carlos.gomez@empresa.com</TableCell>
             <TableCell>Pendiente</TableCell>
           </TableRow>
         </TableBody>

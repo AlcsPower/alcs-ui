@@ -1,6 +1,6 @@
 # 🚀 Receta: Astro + React Islands + Tailwind CSS v4
 
-[Astro](https://astro.build/) es el framework ideal para portales gubernamentales, sitios web corporativos y documentación institucional que demandan **máxima velocidad de carga**, SEO óptimo y 0 KB de JavaScript en el cliente por defecto, pero que requieren componentes interactivos de alta gama (*React Islands*).
+[Astro](https://astro.build/) es el framework ideal para portales empresariales, sitios web corporativos y documentación técnica que demandan **máxima velocidad de carga**, SEO óptimo y 0 KB de JavaScript en el cliente por defecto, pero que requieren componentes interactivos de alta gama (*React Islands*).
 
 ---
 
@@ -8,9 +8,9 @@
 
 ```bash
 # Crear proyecto Astro con TypeScript
-pnpm create astro@latest portal-institucional --template minimal --typescript strict
+pnpm create astro@latest portal-corporativo --template minimal --typescript strict
 
-cd portal-institucional
+cd portal-corporativo
 ```
 
 ---
@@ -82,23 +82,23 @@ import React, { useState } from 'react';
 import { Button, Input, Badge, Card, CardContent } from '@alcspower/ui';
 import { Search, FileText } from 'lucide-react';
 
-interface Tramite {
+interface RequestItem {
   id: string;
   titulo: string;
   categoria: string;
 }
 
-const TRAMITES_MOCK: Tramite[] = [
-  { id: 'TR-01', titulo: 'Registro de Marcas y Patentes', categoria: 'Propiedad Intelectual' },
-  { id: 'TR-02', titulo: 'Licencia de Importación Comercial', categoria: 'Comercio Exterior' },
-  { id: 'TR-03', titulo: 'Certificado de Origen Digital', categoria: 'Exportaciones' },
-  { id: 'TR-04', titulo: 'Permiso Sanitario de Distribución', categoria: 'Regulación' },
+const REQUESTS_MOCK: RequestItem[] = [
+  { id: 'REQ-01', titulo: 'Registro de Marcas y Patentes', categoria: 'Propiedad Intelectual' },
+  { id: 'REQ-02', titulo: 'Licencia de Operaciones Comerciales', categoria: 'Comercio Exterior' },
+  { id: 'REQ-03', titulo: 'Certificado de Origen Digital', categoria: 'Exportaciones' },
+  { id: 'REQ-04', titulo: 'Permiso de Distribución', categoria: 'Regulación' },
 ];
 
 export function InteractiveSearch() {
   const [query, setQuery] = useState('');
 
-  const filtrados = TRAMITES_MOCK.filter(t =>
+  const filtrados = REQUESTS_MOCK.filter(t =>
     t.titulo.toLowerCase().includes(query.toLowerCase()) ||
     t.categoria.toLowerCase().includes(query.toLowerCase())
   );
@@ -108,7 +108,7 @@ export function InteractiveSearch() {
       <CardContent className="p-6 space-y-4">
         <div className="flex gap-2">
           <Input
-            placeholder="Buscar trámite, licencia o certificación..."
+            placeholder="Buscar solicitud, servicio o certificación..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="flex-1"

@@ -19,7 +19,7 @@ describe('Timeline Component', () => {
   const sampleItems = [
     {
       title: 'Solicitud Recibida',
-      description: 'Ingreso digital por ventanilla única',
+      description: 'Ingreso digital por portal corporativo',
       time: '09:00 AM',
       dateTime: '2026-10-12T09:00:00Z',
       status: 'success' as const,
@@ -33,16 +33,16 @@ describe('Timeline Component', () => {
     },
     {
       title: 'Dictamen Final',
-      description: 'Firma ministerial pendiente',
+      description: 'Firma y aprobación pendiente',
       time: 'En espera',
       status: 'warning' as const,
     },
   ];
 
   it('renderiza correctamente el Timeline de forma data-driven con items prop', () => {
-    render(<Timeline items={sampleItems} ariaLabel="Trazabilidad del trámite" />);
+    render(<Timeline items={sampleItems} ariaLabel="Trazabilidad de la solicitud" />);
 
-    expect(screen.getByRole('list', { name: 'Trazabilidad del trámite' })).toBeInTheDocument();
+    expect(screen.getByRole('list', { name: 'Trazabilidad de la solicitud' })).toBeInTheDocument();
     expect(screen.getByText('Solicitud Recibida')).toBeInTheDocument();
     expect(screen.getByText('Revisión Técnica')).toBeInTheDocument();
     expect(screen.getByText('Dictamen Final')).toBeInTheDocument();

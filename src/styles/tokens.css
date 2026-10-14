@@ -17,7 +17,7 @@
   --alcspower-surface-muted: #f1f5f9;      /* Slate 100 - Contenedores sutiles */
   --alcspower-surface-subtle: #f8fafc;     /* Slate 50 */
 
-  /* Marca Principal Institucional AlcsPower */
+  /* Marca Principal Corporativa AlcsPower */
   --alcspower-primary: #2563eb;            /* Azul Vibrante Moderno (Blue 600) */
   --alcspower-primary-hover: #1d4ed8;      /* Blue 700 hover */
   --alcspower-primary-active: #1e40af;     /* Blue 800 active */
@@ -66,11 +66,11 @@
   --alcspower-border-strong: #94a3b8;      /* Slate 400 - Énfasis en hover/focus */
   --alcspower-overlay: rgba(0, 0, 0, 0.55);/* Fondo semitransparente para modales y sheets */
   --alcspower-input: #e2e8f0;              /* Borde de inputs y selects */
-  --alcspower-ring: #004b87;               /* Anillo de foco institucional */
+  --alcspower-ring: #004b87;               /* Anillo de foco corporativo */
   --alcspower-ring-offset: #ffffff;        /* Desplazamiento de foco sobre blanco */
 
   /* Series Cromáticas para Gráficos (Data Visualization) */
-  --alcspower-chart-1: #004b87;            /* Azul institucional (8.5:1) */
+  --alcspower-chart-1: #004b87;            /* Azul corporativo (8.5:1) */
   --alcspower-chart-2: #0284c7;            /* Sky 600 (3.9:1) */
   --alcspower-chart-3: #059669;            /* Emerald 600 (3.6:1) */
   --alcspower-chart-4: #d97706;            /* Amber 600 (3.0:1) */
@@ -119,7 +119,7 @@
   --alcspower-surface-muted: #1e293b;      /* Slate 800 - Superficie de controles */
   --alcspower-surface-subtle: #1e293b;
 
-  /* Marca Principal Institucional AlcsPower (Modo Oscuro) */
+  /* Marca Principal Corporativa AlcsPower (Modo Oscuro) */
   --alcspower-primary: #38bdf8;            /* Sky 400 - Alta legibilidad en fondo oscuro */
   --alcspower-primary-hover: #0ea5e9;      /* Sky 500 */
   --alcspower-primary-active: #0284c7;     /* Sky 600 */

@@ -132,7 +132,7 @@ export function App() {
         <div>
           <div className="flex items-center gap-3">
             <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Panel de Control Ministerial
+              Panel de Control Corporativo
             </h1>
             <Badge variant="success">En línea</Badge>
           </div>
@@ -145,14 +145,14 @@ export function App() {
           <DialogTrigger asChild>
             <Button variant="primary" className="gap-2">
               <Plus className="h-4 w-4" />
-              Nuevo Expediente
+              Nuevo Registro
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Crear Nuevo Expediente</DialogTitle>
+              <DialogTitle>Crear Nuevo Registro</DialogTitle>
               <DialogDescription>
-                Complete los datos para registrar un trámite institucional en el sistema.
+                Complete los datos para registrar una solicitud en el sistema corporativo.
               </DialogDescription>
             </DialogHeader>
 

@@ -42,7 +42,7 @@ export const Default: Story = {
       <div>
         <h4 className="text-base font-semibold text-alcspower-foreground">Panel de Control</h4>
         <p className="mt-1 text-sm text-alcspower-muted-foreground">
-          Sincronizando la información con los servicios del ministerio.
+          Sincronizando la información con los servicios centrales.
         </p>
       </div>
       <div className="flex gap-2">
@@ -57,8 +57,8 @@ export const OverCard: Story = {
   render: () => (
     <Card className="relative p-6 w-96">
       <CardHeader className="p-0 pb-4">
-        <CardTitle>Expediente Institucional</CardTitle>
-        <CardDescription>Resumen de trámite #EXP-2026-089</CardDescription>
+        <CardTitle>Registro Corporativo</CardTitle>
+        <CardDescription>Resumen de solicitud #REQ-2026-089</CardDescription>
       </CardHeader>
       <CardContent className="p-0 pb-4">
         <p className="text-sm text-alcspower-foreground">
@@ -118,7 +118,7 @@ export const OverTable: Story = {
 export const CustomLabel: Story = {
   render: () => (
     <div className="relative h-64 w-96 border border-alcspower-border rounded-lg p-6 bg-alcspower-surface flex flex-col items-center justify-center">
-      <p className="text-sm text-alcspower-foreground">Formulario de registro institucional</p>
+      <p className="text-sm text-alcspower-foreground">Formulario de registro corporativo</p>
       <LoadingOverlay visible label="Guardando cambios..." spinnerSize="lg" />
     </div>
   )
@@ -130,7 +130,7 @@ export const DarkMode: Story = {
       <Card className="relative p-6 w-96 border-alcspower-border bg-alcspower-surface-card">
         <CardHeader className="p-0 pb-4">
           <CardTitle>Sincronización Nocturna</CardTitle>
-          <CardDescription>Actualizando catálogos ministeriales</CardDescription>
+          <CardDescription>Actualizando catálogos corporativos</CardDescription>
         </CardHeader>
         <CardContent className="p-0 pb-4">
           <p className="text-sm text-alcspower-foreground">

@@ -1,6 +1,6 @@
 # 🚀 Starter Kit Oficial: `@alcspower/vite-react-starter`
 
-Plantilla base oficial y lista para producción para inicializar aplicaciones web empresariales y plataformas institucionales con **React 19**, **Vite**, **Tailwind CSS v4** y el sistema de diseño **`@alcspower/ui`**.
+Plantilla base oficial y lista para producción para inicializar aplicaciones web empresariales y plataformas corporativas con **React 19**, **Vite**, **Tailwind CSS v4** y el sistema de diseño **`@alcspower/ui`**.
 
 ---
 
@@ -15,7 +15,7 @@ Plantilla base oficial y lista para producción para inicializar aplicaciones we
   * Selector de tema (Claro / Oscuro) con persistencia en `localStorage`.
 * 📊 **Vistas de Ejemplo Funcionales:**
   * **Tablero de Control (Dashboard):** Tarjetas de métricas (KPIs), barras de avance (`Progress`), y lista de eventos con `StatusBadge`.
-  * **Bandeja de Expedientes:** Tabla de datos con filtros en tiempo real, estados de color y acciones.
+  * **Bandeja de Registros:** Tabla de datos con filtros en tiempo real, estados de color y acciones.
   * **Modal de Creación:** Formulario accesible con validación, selector (`Select`) y notificaciones flotantes con `toast`.
 
 ---
@@ -83,9 +83,9 @@ La aplicación estará disponible de inmediato en `http://localhost:3000/`.
 
 ---
 
-## 🎨 Personalización de Marca Institucional
+## 🎨 Personalización de Marca Corporativa
 
-Para adaptar los colores primarios a la identidad de tu ministerio o empresa, simplemente edita `src/styles/globals.css`:
+Para adaptar los colores primarios a la identidad de tu empresa u organización, simplemente edita `src/styles/globals.css`:
 
 ```css
 @import "tailwindcss";
@@ -93,7 +93,7 @@ Para adaptar los colores primarios a la identidad de tu ministerio o empresa, si
 
 :root {
   /* Modificar el color de acento principal */
-  --alcspower-primary: #1d4ed8;       /* Azul Institucional */
+  --alcspower-primary: #1d4ed8;       /* Azul Corporativo */
   --alcspower-primary-hover: #1e40af;
 }
 ```

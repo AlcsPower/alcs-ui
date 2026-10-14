@@ -29,7 +29,8 @@ interface HeaderProps {
 export function Header({ currentView, onToggleSidebar }: HeaderProps) {
   const viewTitles: Record<ViewType, string> = {
     dashboard: 'Panel General',
-    expedientes: 'Bandeja de Expedientes',
+    records: 'Bandeja de Registros',
+    expedientes: 'Bandeja de Registros',
   };
 
   return (
@@ -48,7 +49,7 @@ export function Header({ currentView, onToggleSidebar }: HeaderProps) {
         <Breadcrumb className="hidden sm:flex">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="#">Sistema Ministerial</BreadcrumbLink>
+              <BreadcrumbLink href="#">Sistema Corporativo</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>

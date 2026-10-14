@@ -49,16 +49,16 @@ describe('Field Component Primitive', () => {
   it('asocia aria-describedby cuando existe FieldHint', () => {
     render(
       <Field id="email-field">
-        <FieldLabel>Correo institucional</FieldLabel>
+        <FieldLabel>Correo corporativo</FieldLabel>
         <FieldControl asChild>
-          <Input type="email" placeholder="correo@mific.gob.ni" />
+          <Input type="email" placeholder="correo@empresa.com" />
         </FieldControl>
-        <FieldHint>Debe terminar en @mific.gob.ni</FieldHint>
+        <FieldHint>Debe terminar en @empresa.com</FieldHint>
       </Field>
     );
 
-    const input = screen.getByPlaceholderText('correo@mific.gob.ni');
-    const hint = screen.getByText('Debe terminar en @mific.gob.ni');
+    const input = screen.getByPlaceholderText('correo@empresa.com');
+    const hint = screen.getByText('Debe terminar en @empresa.com');
 
     expect(hint.id).toBe('email-field-hint');
     expect(input).toHaveAttribute('aria-describedby', 'email-field-hint');
@@ -167,9 +167,9 @@ describe('Field Component Primitive', () => {
   it('no presenta violaciones de accesibilidad (axe)', async () => {
     const { container } = render(
       <Field id="accessible-field" hasError required>
-        <FieldLabel>Teléfono Institucional</FieldLabel>
+        <FieldLabel>Teléfono Corporativo</FieldLabel>
         <FieldControl asChild>
-          <Input placeholder="+505 2222-0000" />
+          <Input placeholder="+1 555-0100" />
         </FieldControl>
         <FieldHint>Incluya el código de país</FieldHint>
         <FieldError>Número de teléfono incompleto</FieldError>

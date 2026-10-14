@@ -33,7 +33,7 @@ Esta guía explica cómo modernizar aplicaciones existentes en el ecosistema **.
 
 ```html
 <head runat="server">
-    <title>Sistema de Gestión Institucional</title>
+    <title>Sistema de Gestión Corporativo</title>
     <!-- Estilos del Design System @alcspower/ui -->
     <link href="~/Content/alcspower-ui.css" rel="stylesheet" type="text/css" />
 </head>
@@ -57,15 +57,15 @@ Puedes aplicar las clases utilitarias de Tailwind y los tokens semánticos direc
 #### Cajas de Texto (`<asp:TextBox>`)
 ```html
 <div class="space-y-1.5 max-w-md">
-    <label class="block text-sm font-medium text-slate-700">Número de RUC / Cédula</label>
-    <asp:TextBox ID="txtIdentificacion" runat="server" placeholder="001-000000-0000A"
+    <label class="block text-sm font-medium text-slate-700">Número de Identificación Fiscal</label>
+    <asp:TextBox ID="txtIdentificacion" runat="server" placeholder="TAX-001234567"
         CssClass="flex h-10 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors" />
 </div>
 ```
 
 #### Tablas de Datos (`<asp:GridView>`)
 ```html
-<asp:GridView ID="gvExpedientes" runat="server" AutoGenerateColumns="False"
+<asp:GridView ID="gvRequests" runat="server" AutoGenerateColumns="False"
     CssClass="w-full text-sm text-left border-collapse rounded-xl overflow-hidden border border-slate-200"
     HeaderStyle-CssClass="bg-slate-50 text-slate-700 font-semibold text-xs uppercase tracking-wider border-b border-slate-200 px-4 py-3"
     RowStyle-CssClass="border-b border-slate-100 hover:bg-slate-50/50 transition-colors px-4 py-3 text-slate-800">
@@ -133,12 +133,12 @@ import '@alcspower/ui/styles.css';
 
 // Exponer en window para que el Web Form de ASP.NET lo invoque
 (window as any).AlcsPowerWidgets = {
-  renderTramitesTable: (containerId: string, options: { data: any[]; onSelectRow?: (id: string) => void }) => {
+  renderRequestsTable: (containerId: string, options: { data: any[]; onSelectRow?: (id: string) => void }) => {
     const el = document.getElementById(containerId);
     if (!el) return;
 
     const columns = [
-      { accessorKey: 'id', header: 'Expediente' },
+      { accessorKey: 'id', header: 'Registro' },
       { accessorKey: 'nombre', header: 'Titular' },
       {
         accessorKey: 'estado',
@@ -196,18 +196,18 @@ export default defineConfig({
 ### 2.2. Conectar la Isla con VB.NET / C# en el archivo `.aspx`
 
 ```html
-<%@ Page Language="VB" AutoEventWireup="false" CodeFile="ConsultaTramites.aspx.vb" Inherits="ConsultaTramites" MasterPageFile="~/Site.Master" %>
+<%@ Page Language="VB" AutoEventWireup="false" CodeFile="ConsultaSolicitudes.aspx.vb" Inherits="ConsultaSolicitudes" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Campo oculto para recibir el ID seleccionado desde React y enviarlo al PostBack de VB.NET -->
-    <asp:HiddenField ID="hdnTramiteSeleccionado" runat="server" />
+    <asp:HiddenField ID="hdnSolicitudSeleccionada" runat="server" />
     <asp:Button ID="btnProcesarSeleccion" runat="server" style="display:none;" />
 
     <div class="p-6 max-w-6xl mx-auto space-y-4">
-        <h2 class="text-xl font-bold text-slate-900">Bandeja Oficial de Trámites</h2>
+        <h2 class="text-xl font-bold text-slate-900">Bandeja de Solicitudes</h2>
         
         <!-- Contenedor donde se monta el componente interactivo de @alcspower/ui -->
-        <div id="tabla-tramites-container" class="min-h-[400px]"></div>
+        <div id="tabla-solicitudes-container" class="min-h-[400px]"></div>
     </div>
 
     <!-- Script del Widget -->
@@ -215,13 +215,13 @@ export default defineConfig({
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function () {
             // Datos serializados inyectados directamente por VB.NET
-            var datosDesdeServidor = <%= JsonTramites %>;
+            var datosDesdeServidor = <%= JsonRequests %>;
 
-            window.AlcsPowerWidgets.renderTramitesTable("tabla-tramites-container", {
+            window.AlcsPowerWidgets.renderRequestsTable("tabla-solicitudes-container", {
                 data: datosDesdeServidor,
-                onSelectRow: function (tramiteId) {
+                onSelectRow: function (requestId) {
                     // Escribir en el HiddenField de ASP.NET
-                    document.getElementById('<%= hdnTramiteSeleccionado.ClientID %>').value = tramiteId;
+                    document.getElementById('<%= hdnSolicitudSeleccionada.ClientID %>').value = requestId;
                     // Disparar el evento de servidor en VB.NET
                     __doPostBack('<%= btnProcesarSeleccion.UniqueID %>', '');
                 }
@@ -231,31 +231,31 @@ export default defineConfig({
 </asp:Content>
 ```
 
-### 2.3. Serialización en VB.NET (`ConsultaTramites.aspx.vb`)
+### 2.3. Serialización en VB.NET (`ConsultaSolicitudes.aspx.vb`)
 
 ```vb
 Imports Newtonsoft.Json
 
-Partial Class ConsultaTramites
+Partial Class ConsultaSolicitudes
     Inherits System.Web.UI.Page
 
-    Public Property JsonTramites As String = "[]"
+    Public Property JsonRequests As String = "[]"
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
             ' 1. Obtener datos de la base de datos (SQL Server / Oracle)
-            Dim lista = ObtenerTramitesDeBaseDatos()
+            Dim lista = GetRequestsFromDatabase()
             ' 2. Serializar a JSON simple para el componente
-            JsonTramites = JsonConvert.SerializeObject(lista)
+            JsonRequests = JsonConvert.SerializeObject(lista)
         End If
     End Sub
 
     Protected Sub btnProcesarSeleccion_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnProcesarSeleccion.Click
         ' El valor seleccionado desde el componente React de @alcspower/ui llega aquí
-        Dim idSeleccionado As String = hdnTramiteSeleccionado.Value
+        Dim idSeleccionado As String = hdnSolicitudSeleccionada.Value
         
         ' Ejecutar lógica de negocio existente en VB.NET
-        ProcesarTramiteInstitucional(idSeleccionado)
+        ProcessCorporateRequest(idSeleccionado)
     End Sub
 End Class
 ```

@@ -10,7 +10,7 @@ describe('CopyButton Component', () => {
   });
 
   it('renderiza con accesibilidad y aria-label por defecto', () => {
-    render(<CopyButton value="MIFIC-2026-EXP-001" />);
+    render(<CopyButton value="2026-REQ-001" />);
     const button = screen.getByRole('button', { name: /copiar/i });
     expect(button).toBeInTheDocument();
     expect(button).toHaveAttribute('aria-live', 'polite');
@@ -112,8 +112,8 @@ describe('CopyButton Component', () => {
   it('no presenta violaciones de accesibilidad (axe-core)', async () => {
     const { container } = render(
       <div>
-        <label htmlFor="copy-doc">Número de Expediente</label>
-        <CopyButton id="copy-doc" value="DOC-998877" variant="filled" label="Copiar Folio" />
+        <label htmlFor="copy-doc">Número de Registro</label>
+        <CopyButton id="copy-doc" value="DOC-998877" variant="filled" label="Copiar Código" />
       </div>
     );
     const results = await axe(container);

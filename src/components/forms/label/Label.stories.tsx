@@ -33,8 +33,8 @@ export const Requerido: Story = {
 export const VinculadoAInput: Story = {
   render: () => (
     <div className="grid w-80 gap-1.5">
-      <Label htmlFor="ruc-field" required>RUC Institucional</Label>
-      <Input id="ruc-field" placeholder="J0310000000000" />
+      <Label htmlFor="tax-id-field" required>ID Fiscal Corporativo</Label>
+      <Input id="tax-id-field" placeholder="TAX-001234567" />
     </div>
   )
 };

@@ -60,7 +60,7 @@ type Story = StoryObj<typeof Timeline>;
 const sampleEvents = [
   {
     title: 'Registro de Solicitud',
-    description: 'El solicitante ingresó el trámite vía ventanilla virtual con código EXP-2026-904.',
+    description: 'El solicitante ingresó la solicitud vía portal corporativo con código REQ-2026-904.',
     time: '08:15 AM',
     dateTime: '2026-10-12T08:15:00Z',
     status: 'success' as const,
@@ -68,8 +68,8 @@ const sampleEvents = [
     badge: <Badge variant="secondary">Ingresado</Badge>,
   },
   {
-    title: 'Asignación de Inspector Técnico',
-    description: 'Expediente remitido a la Dirección General de Normas y Metrología.',
+    title: 'Asignación de Especialista',
+    description: 'Solicitud remitida al equipo de auditoría y aseguramiento de calidad.',
     time: '10:30 AM',
     dateTime: '2026-10-12T10:30:00Z',
     status: 'primary' as const,
@@ -78,7 +78,7 @@ const sampleEvents = [
   },
   {
     title: 'Inspección en Sitio Requerida',
-    description: 'Se programó visita técnica para verificación de conformidad de pesos y medidas.',
+    description: 'Se programó visita técnica para verificación de conformidad de especificaciones.',
     time: '02:00 PM',
     dateTime: '2026-10-12T14:00:00Z',
     status: 'warning' as const,
@@ -97,8 +97,8 @@ const sampleEvents = [
     ),
   },
   {
-    title: 'Dictamen y Emisión de Resolución',
-    description: 'Conclusión formal del trámite administrativo.',
+    title: 'Dictamen y Aprobación Final',
+    description: 'Conclusión formal del proceso de evaluación.',
     time: 'Por definir',
     status: 'neutral' as const,
     icon: <Clock className="h-4 w-4" />,
@@ -148,7 +148,7 @@ export const DeclarativeComposition: Story = {
               <TimelineTime>08:00 AM</TimelineTime>
             </TimelineHeader>
             <TimelineDescription>
-              Todos los requisitos legales fueron validados conforme ley ministerial.
+              Todos los requisitos legales fueron validados conforme a la normativa corporativa.
             </TimelineDescription>
           </TimelineContent>
         </TimelineItem>
@@ -164,7 +164,7 @@ export const DeclarativeComposition: Story = {
               <TimelineTime>11:45 AM</TimelineTime>
             </TimelineHeader>
             <TimelineDescription>
-              Dictamen favorable emitido por la Asesoría Legal Ministerial.
+              Dictamen favorable emitido por la Asesoría Legal Corporativa.
             </TimelineDescription>
             <TimelineCard>
               <p className="font-semibold text-alcspower-foreground">Dictamen N° DJ-2026-44</p>
@@ -181,11 +181,11 @@ export const DeclarativeComposition: Story = {
           </TimelineSeparator>
           <TimelineContent>
             <TimelineHeader>
-              <TimelineTitle>Firma Ministerial</TimelineTitle>
+              <TimelineTitle>Firma y Aprobación</TimelineTitle>
               <TimelineTime>Pendiente</TimelineTime>
             </TimelineHeader>
             <TimelineDescription>
-              En espera de rúbrica digital y sello oficial.
+              En espera de rúbrica digital y emisión.
             </TimelineDescription>
           </TimelineContent>
         </TimelineItem>

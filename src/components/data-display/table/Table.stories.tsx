@@ -24,10 +24,10 @@ export default meta;
 type Story = StoryObj<typeof Table>;
 
 const sampleUsers = [
-  { name: 'Ana Martínez', status: 'Activo', email: 'ana.martinez@mific.gob.ni' },
-  { name: 'Carlos Gómez', status: 'Pendiente', email: 'carlos.gomez@mific.gob.ni' },
-  { name: 'Elena Rostrán', status: 'Activo', email: 'elena.rostran@mific.gob.ni' },
-  { name: 'David Blandón', status: 'Inactivo', email: 'david.blandon@mific.gob.ni' }
+  { name: 'Ana Martínez', status: 'Activo', email: 'ana.martinez@empresa.com' },
+  { name: 'Carlos Gómez', status: 'Pendiente', email: 'carlos.gomez@empresa.com' },
+  { name: 'Elena Rostrán', status: 'Activo', email: 'elena.rostran@empresa.com' },
+  { name: 'David Blandón', status: 'Inactivo', email: 'david.blandon@empresa.com' }
 ];
 
 export const Default: Story = {

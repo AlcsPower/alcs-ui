@@ -31,7 +31,7 @@ export const Default: Story = {
   },
   render: (args) => (
     <Container {...args} className="bg-alcspower-surface border border-alcspower-border rounded-xl p-6">
-      <h2 className="text-lg font-bold text-alcspower-foreground">Contenedor Institucional</h2>
+      <h2 className="text-lg font-bold text-alcspower-foreground">Contenedor Corporativo</h2>
       <p className="text-sm text-alcspower-muted-foreground mt-2">
         Delimita el ancho del contenido adaptándose a los puntos de quiebre del sistema de diseño.
       </p>
@@ -62,7 +62,7 @@ export const Prose: Story = {
     <Container {...args} className="bg-alcspower-surface border border-alcspower-border rounded-xl p-6 leading-relaxed">
       <h3 className="text-base font-semibold text-alcspower-foreground">Lectura Editorial</h3>
       <p className="text-sm text-alcspower-muted-foreground mt-2">
-        La escala prose limita el ancho a 65 caracteres para optimizar la legibilidad de acuerdos ministeriales, circulares y normativas.
+        La escala prose limita el ancho a 65 caracteres para optimizar la legibilidad de acuerdos corporativos, circulares y normativas.
       </p>
     </Container>
   ),

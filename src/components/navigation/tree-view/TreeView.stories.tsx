@@ -4,10 +4,10 @@ import { Badge } from '../../data-display/badge';
 import { Button } from '../../forms/button';
 import { Download } from 'lucide-react';
 
-const expedientesData: TreeNode[] = [
+const documentTreeData: TreeNode[] = [
   {
-    id: 'mific-central',
-    label: 'Ministerio de Fomento, Industria y Comercio (MIFIC)',
+    id: 'hq-central',
+    label: 'Corporación Global de Servicios',
     children: [
       {
         id: 'dir-comercio-exterior',
@@ -16,10 +16,10 @@ const expedientesData: TreeNode[] = [
         children: [
           {
             id: 'exp-cuotas-omc',
-            label: 'Expediente Cuotas Arancelarias OMC 2026',
+            label: 'Gestión de Operaciones Comerciales 2026',
             badge: 'Prioritario',
             children: [
-              { id: 'doc-resolucion-01', label: 'Resolución Ministerial 04-2026.pdf', badge: 'Firmado' },
+              { id: 'doc-resolucion-01', label: 'Resolución Corporativa 04-2026.pdf', badge: 'Firmado' },
               { id: 'doc-adjudicacion-azucar', label: 'Matriz de Adjudicación Cuota Azúcar.xlsx' },
               { id: 'doc-certificado-origen', label: 'Plantilla Certificado de Origen TLC.docx' },
             ],
@@ -75,15 +75,15 @@ const expedientesData: TreeNode[] = [
   },
   {
     id: 'normativas-nacionales',
-    label: 'Gaceta Diario Oficial y Acuerdos Ministeriales',
+    label: 'Políticas y Acuerdos Corporativos',
     children: [
-      { id: 'ley-marcas', label: 'Ley 380 - Ley de Marcas y Otros Signos Distintivos.pdf' },
-      { id: 'ley-patentes', label: 'Ley 354 - Ley de Patentes de Invención.pdf' },
+      { id: 'ley-marcas', label: 'Normativa de Marcas y Otros Signos Distintivos.pdf' },
+      { id: 'ley-patentes', label: 'Normativa de Patentes e Invenciones.pdf' },
     ],
   },
   {
     id: 'manual-identidad',
-    label: 'Manual de Identidad Visual y Normativa Gráfica Institucional.pdf',
+    label: 'Manual de Identidad Visual y Normativa Gráfica Corporativa.pdf',
     badge: 'v1.4',
   },
 ];
@@ -126,8 +126,8 @@ type Story = StoryObj<typeof TreeView>;
 
 export const Default: Story = {
   args: {
-    data: expedientesData,
-    defaultExpandedIds: ['mific-central', 'dir-comercio-exterior', 'exp-cuotas-omc'],
+    data: documentTreeData,
+    defaultExpandedIds: ['hq-central', 'dir-comercio-exterior', 'exp-cuotas-omc'],
     size: 'md',
     showGuideLines: true,
     showDefaultIcons: true,
@@ -136,10 +136,10 @@ export const Default: Story = {
 
 export const ConCheckboxes: Story = {
   args: {
-    data: expedientesData,
+    data: documentTreeData,
     showCheckboxes: true,
     cascadeCheckboxes: true,
-    defaultExpandedIds: ['mific-central', 'dir-comercio-exterior'],
+    defaultExpandedIds: ['hq-central', 'dir-comercio-exterior'],
     defaultSelectedIds: ['doc-resolucion-01'],
     size: 'md',
     showGuideLines: true,
@@ -154,9 +154,9 @@ export const EscalasMetricas: Story = {
           Compacto (sm — 28px)
         </div>
         <TreeView
-          data={expedientesData}
+          data={documentTreeData}
           size="sm"
-          defaultExpandedIds={['mific-central', 'dir-comercio-exterior']}
+          defaultExpandedIds={['hq-central', 'dir-comercio-exterior']}
         />
       </div>
 
@@ -165,9 +165,9 @@ export const EscalasMetricas: Story = {
           Estándar (md — 34px)
         </div>
         <TreeView
-          data={expedientesData}
+          data={documentTreeData}
           size="md"
-          defaultExpandedIds={['mific-central', 'dir-comercio-exterior']}
+          defaultExpandedIds={['hq-central', 'dir-comercio-exterior']}
         />
       </div>
 
@@ -176,9 +176,9 @@ export const EscalasMetricas: Story = {
           Amplio (lg — 40px)
         </div>
         <TreeView
-          data={expedientesData}
+          data={documentTreeData}
           size="lg"
-          defaultExpandedIds={['mific-central', 'dir-comercio-exterior']}
+          defaultExpandedIds={['hq-central', 'dir-comercio-exterior']}
         />
       </div>
     </div>
@@ -187,9 +187,9 @@ export const EscalasMetricas: Story = {
 
 export const ConBarraDeHerramientas: Story = {
   args: {
-    data: expedientesData,
+    data: documentTreeData,
     showToolbar: true,
-    toolbarTitle: 'Archivo Central MIFIC',
+    toolbarTitle: 'Archivo Central',
     toolbarLayout: 'toggle',
     size: 'md',
     showGuideLines: true,
@@ -199,7 +199,7 @@ export const ConBarraDeHerramientas: Story = {
 
 export const ConBarraDeHerramientasPar: Story = {
   args: {
-    data: expedientesData,
+    data: documentTreeData,
     showToolbar: true,
     toolbarTitle: 'Gestión Documental Jerárquica',
     toolbarLayout: 'pair',
@@ -213,8 +213,8 @@ export const ConAccionesYBadges: Story = {
   render: () => {
     const dataConAcciones: TreeNode[] = [
       {
-        id: 'repo-expedientes',
-        label: 'Expedientes de Comercio Exterior',
+        id: 'repo-documentos',
+        label: 'Documentos de Comercio Exterior',
         children: [
           {
             id: 'doc-export-cafe',
@@ -262,7 +262,7 @@ export const ConAccionesYBadges: Story = {
       <div className="max-w-md p-4 rounded-2xl border border-alcspower-border bg-white dark:bg-slate-900 shadow-xs">
         <TreeView
           data={dataConAcciones}
-          defaultExpandedIds={['repo-expedientes']}
+          defaultExpandedIds={['repo-documentos']}
           size="md"
         />
       </div>

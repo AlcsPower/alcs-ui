@@ -949,7 +949,7 @@ export function AddContactStepper({
         <div>
           <CardTitle className="text-xl">Asistente de Incorporación de Colaboradores</CardTitle>
           <CardDescription>
-            Completa las tres etapas obligatorias para emitir la ficha institucional.
+            Completa las tres etapas obligatorias para emitir la ficha corporativa.
           </CardDescription>
         </div>
 
@@ -1113,7 +1113,7 @@ export function AddContactStepper({
           <DialogHeader>
             <DialogTitle>¿Confirmar alta de colaborador?</DialogTitle>
             <DialogDescription>
-              Se incorporará a <strong>{nombre} {apellido}</strong> al directorio institucional en el área de{' '}
+              Se incorporará a <strong>{nombre} {apellido}</strong> al directorio corporativo en el área de{' '}
               <strong>{categoria}</strong>.
             </DialogDescription>
           </DialogHeader>
@@ -1187,7 +1187,7 @@ export function Layout({
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="#">Portal Institucional</BreadcrumbLink>
+                <BreadcrumbLink href="#">Portal Corporativo</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
@@ -1531,7 +1531,7 @@ export function App() {
           <DialogHeader>
             <DialogTitle className="text-destructive">¿Eliminar contacto de la agenda?</DialogTitle>
             <DialogDescription>
-              Esta acción eliminará definitivamente al colaborador del directorio institucional.
+              Esta acción eliminará definitivamente al colaborador del directorio corporativo.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="gap-2 sm:gap-0 pt-4">

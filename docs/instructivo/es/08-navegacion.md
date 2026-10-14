@@ -42,7 +42,7 @@ En este capítulo aprenderás a usar estos tres componentes para crear experienc
 
 Piensa en cómo viajas en un aeropuerto moderno:
 1. **Letreros en el techo**: Dicen *"Terminal 2 > Sala B > Puerta B14"*. Te dicen exactamente en qué nivel de profundidad estás y qué camino seguiste para llegar ahí. Ese es el rol del **`Breadcrumb`**.
-2. **El proceso de embarque**: No te piden que muestres el pasaporte, peses la maleta, pases por seguridad y elijas tu asiento todo al mismo segundo en una sola ventanilla. El proceso está dividido en etapas secuenciales: *Paso 1: Check-in → Paso 2: Maletas → Paso 3: Seguridad → Paso 4: Sala de abordaje*. Ese es el rol del **`Stepper`**.
+2. **El proceso de embarque**: No te piden que muestres el pasaporte, peses la maleta, pases por seguridad y elijas tu asiento todo al mismo segundo en un solo mostrador. El proceso está dividido en etapas secuenciales: *Paso 1: Check-in → Paso 2: Maletas → Paso 3: Seguridad → Paso 4: Sala de abordaje*. Ese es el rol del **`Stepper`**.
 3. **Folleto de información turística plegable**: Puedes llevarlo cerrado en el bolsillo para que no ocupe espacio, y solo abres el pliegue del museo o del restaurante cuando realmente te interesa leer los detalles. Ese es el rol del **`Accordion`**.
 
 Cuando diseñas tu interfaz pensando en estas tres herramientas, la experiencia de usuario pasa de ser confusa y abrumadora a ser ligera, predecible y placentera.

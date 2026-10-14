@@ -111,7 +111,7 @@ describe('LoadingOverlay Component', () => {
 
   it('no presenta violaciones de accesibilidad cuando se coloca en un contenedor con contenido (axe)', async () => {
     const { container } = render(
-      <div className="relative p-6" role="region" aria-label="Panel de estado institucional">
+      <div className="relative p-6" role="region" aria-label="Panel de estado corporativo">
         <h3>Información general</h3>
         <p>Cuerpo del contenedor con contenido informativo.</p>
         <LoadingOverlay

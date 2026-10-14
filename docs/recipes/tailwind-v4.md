@@ -2,7 +2,7 @@
 
 `@alcspower/ui` está diseñado desde la raíz para **Tailwind CSS v4**, aprovechando las directivas nativas `@theme`, `@layer` y variables CSS semánticas (`CSS Custom Properties`).
 
-Esta guía explica cómo funciona el sistema de tokens y cómo puedes personalizar colores institucionales, bordes y fuentes sin romper la coherencia del diseño *Craft Minimalist*.
+Esta guía explica cómo funciona el sistema de tokens y cómo puedes personalizar colores de marca, bordes y fuentes sin romper la coherencia del diseño *Craft Minimalist*.
 
 ---
 
@@ -39,9 +39,9 @@ Todo el sistema de tokens semánticos queda automáticamente registrado en la ca
 
 ---
 
-## 3. Sobrescribir Colores para una Marca Institucional
+## 3. Sobrescribir Colores para una Marca Corporativa
 
-Si tu institución o empresa requiere una paleta de color diferente (por ejemplo, azul marino institucional o verde esmeralda), puedes sobrescribir las variables en tu CSS global:
+Si tu empresa o producto requiere una paleta de color diferente (por ejemplo, azul corporativo o verde esmeralda), puedes sobrescribir las variables en tu CSS global:
 
 ```css
 @import "tailwindcss";

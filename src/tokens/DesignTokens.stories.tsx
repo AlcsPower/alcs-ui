@@ -16,13 +16,13 @@ export const Colors: Story = {
       <div>
         <h2 className="text-2xl font-bold tracking-tight">Design Tokens - Colores Semánticos</h2>
         <p className="text-sm text-alcspower-muted-foreground mt-1">
-          Variables CSS institucionales con soporte automático y adaptativo para modo claro y oscuro.
+          Variables CSS corporativas con soporte automático y adaptativo para modo claro y oscuro.
         </p>
       </div>
 
       {/* Marca Principal */}
       <section className="space-y-3">
-        <h3 className="text-base font-semibold">Marca Institucional AlcsPower</h3>
+        <h3 className="text-base font-semibold">Marca Corporativa AlcsPower</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-4 rounded-md border border-alcspower-border bg-alcspower-primary text-alcspower-primary-foreground shadow-sm">
             <div className="font-semibold text-sm">Primary</div>
@@ -134,7 +134,7 @@ export const Typography: Story = {
         </div>
         <div className="border-b border-alcspower-border pb-3">
           <div className="text-xs font-mono text-alcspower-muted-foreground mb-1">text-lg font-semibold leading-none (CardTitle, DialogTitle)</div>
-          <h3 className="text-lg font-semibold leading-none">Título de Tarjeta o Modal Institucional</h3>
+          <h3 className="text-lg font-semibold leading-none">Título de Tarjeta o Modal Corporativo</h3>
         </div>
         <div className="border-b border-alcspower-border pb-3">
           <div className="text-xs font-mono text-alcspower-muted-foreground mb-1">text-sm font-semibold (AlertTitle, Subtítulos)</div>
@@ -147,7 +147,7 @@ export const Typography: Story = {
         <div className="border-b border-alcspower-border pb-3">
           <div className="text-xs font-mono text-alcspower-muted-foreground mb-1">text-sm text-alcspower-muted-foreground (Helper text, Descripciones)</div>
           <p className="text-sm text-alcspower-muted-foreground leading-relaxed">
-            Texto explicativo y descriptivo para orientar al ciudadano o usuario institucional en el diligenciamiento de trámites.
+            Texto explicativo y descriptivo para orientar al usuario en el diligenciamiento de formularios y solicitudes.
           </p>
         </div>
         <div>

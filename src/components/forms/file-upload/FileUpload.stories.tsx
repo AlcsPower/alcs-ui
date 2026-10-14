@@ -79,7 +79,7 @@ export const CardVariant: Story = {
         <FileUploadDropzone variant="card" shape="squircle">
           <FileUploadIcon shape="squircle" />
           <FileUploadTitle>Documentación de Soporte</FileUploadTitle>
-          <FileUploadHint>Adjuntá expedientes digitales en formato PDF</FileUploadHint>
+          <FileUploadHint>Adjuntá documentos digitales en formato PDF</FileUploadHint>
           <FileUploadTrigger className="mt-3 px-3 py-1.5 text-xs font-semibold rounded-lg bg-alcspower-primary text-white">
             Examinar archivos
           </FileUploadTrigger>
