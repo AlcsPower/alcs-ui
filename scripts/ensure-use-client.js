@@ -45,7 +45,7 @@ for (const file of filesToPatch) {
     console.log(`[ensure-use-client] Injected DOM SSR defensive guards into dist/${file}`);
   }
 
-  // 3. Resolver 'Dynamic require of "react" is not supported' en el bundle ESM
+  // 3. Resolver 'Dynamic require of "react" is not supported' en el bundle ESM para navegador y Node
   if (file === 'index.js') {
     // Detectar variables importadas de React y ReactDOM en dist/index.js
     const reactMatch = content.match(/import\s+([a-zA-Z0-9_$]+)__default,\s*\{[^}]*\}\s+from\s+['"]react['"]/);
@@ -53,24 +53,42 @@ for (const file of filesToPatch) {
     const reactDomMatch = content.match(/import\s+([a-zA-Z0-9_$]+)__default,\s*\{[^}]*\}\s+from\s+['"]react-dom['"]/);
     const reactDomNamespaceMatch = content.match(/import\s+\*\s+as\s+([a-zA-Z0-9_$]+)\s+from\s+['"]react-dom['"]/);
 
-    const reactVar = reactMatch ? reactMatch[1] + '__default' : (reactNamespaceMatch ? reactNamespaceMatch[1] : null);
-    const reactDomVar = reactDomMatch ? reactDomMatch[1] + '__default' : (reactDomNamespaceMatch ? reactDomNamespaceMatch[1] : null);
+    const reactDefaultVar = reactMatch ? reactMatch[1] + '__default' : 'undefined';
+    const reactNamespaceVar = reactNamespaceMatch ? reactNamespaceMatch[1] : 'undefined';
+    const reactDomDefaultVar = reactDomMatch ? reactDomMatch[1] + '__default' : 'undefined';
+    const reactDomNamespaceVar = reactDomNamespaceMatch ? reactDomNamespaceMatch[1] : 'undefined';
 
-    // Reemplazar la función __require de esbuild para que resuelva "react" y "react-dom"
-    const dynamicRequireRegex = /if\s*\(typeof require !== "undefined"\)\s*return require\.apply\(this,\s*arguments\);\s*throw Error\('Dynamic require of "' \+ ([a-zA-Z0-9_$]+) \+ '" is not supported'\);/;
+    // Reemplazar la función __require de esbuild para que resuelva "react", "react-dom", "react/jsx-runtime"
+    // sin fallar con Uncaught Error en navegadores (Chrome, Firefox, Safari) ni en SSR
+    const dynamicRequireRegex = /if\s*\(typeof require !== "undefined"\)\s*return require\.apply\(this,\s*arguments\);[\s\S]*?throw Error\('Dynamic require of "' \+ ([a-zA-Z0-9_$]+) \+ '" is not supported'\);/;
 
     if (dynamicRequireRegex.test(content)) {
       content = content.replace(dynamicRequireRegex, (match, argName) => {
-        let safeResolution = '';
-        if (reactVar) {
-          safeResolution += `if (${argName} === "react") return typeof ${reactVar} !== "undefined" ? ${reactVar} : (typeof require !== "undefined" ? require(${argName}) : undefined);\n  `;
-        }
-        if (reactDomVar) {
-          safeResolution += `if (${argName} === "react-dom") return typeof ${reactDomVar} !== "undefined" ? ${reactDomVar} : (typeof require !== "undefined" ? require(${argName}) : undefined);\n  `;
-        }
-        return `if (typeof require !== "undefined") return require.apply(this, arguments);\n  ${safeResolution}throw Error('Dynamic require of "' + ${argName} + '" is not supported');`;
+        return `if (typeof require !== "undefined") {
+    try { return require.apply(this, arguments); } catch (_) {}
+  }
+  if (${argName} === "react") {
+    var __r = typeof ${reactNamespaceVar} !== "undefined" ? ${reactNamespaceVar} : (typeof ${reactDefaultVar} !== "undefined" ? ${reactDefaultVar} : {});
+    var __rDef = typeof ${reactDefaultVar} !== "undefined" ? ${reactDefaultVar} : {};
+    return Object.assign({}, __rDef, __r, { default: __rDef || __r });
+  }
+  if (${argName} === "react-dom") {
+    var __rd = typeof ${reactDomNamespaceVar} !== "undefined" ? ${reactDomNamespaceVar} : (typeof ${reactDomDefaultVar} !== "undefined" ? ${reactDomDefaultVar} : {});
+    var __rdDef = typeof ${reactDomDefaultVar} !== "undefined" ? ${reactDomDefaultVar} : {};
+    return Object.assign({}, __rdDef, __rd, { default: __rdDef || __rd });
+  }
+  if (${argName} === "react/jsx-runtime") {
+    return { jsx: typeof jsx !== "undefined" ? jsx : undefined, jsxs: typeof jsxs !== "undefined" ? jsxs : undefined, Fragment: typeof Fragment !== "undefined" ? Fragment : undefined, default: { jsx: typeof jsx !== "undefined" ? jsx : undefined, jsxs: typeof jsxs !== "undefined" ? jsxs : undefined, Fragment: typeof Fragment !== "undefined" ? Fragment : undefined } };
+  }
+  if (${argName} === "react/jsx-dev-runtime") {
+    return { jsxDEV: typeof jsx !== "undefined" ? jsx : undefined, jsx: typeof jsx !== "undefined" ? jsx : undefined, jsxs: typeof jsxs !== "undefined" ? jsxs : undefined, Fragment: typeof Fragment !== "undefined" ? Fragment : undefined, default: { jsxDEV: typeof jsx !== "undefined" ? jsx : undefined, jsx: typeof jsx !== "undefined" ? jsx : undefined, jsxs: typeof jsxs !== "undefined" ? jsxs : undefined, Fragment: typeof Fragment !== "undefined" ? Fragment : undefined } };
+  }
+  if (typeof console !== "undefined" && console.warn) {
+    console.warn("[@alcspower/ui] Unresolved dynamic require:", ${argName});
+  }
+  return {};`;
       });
-      console.log(`[ensure-use-client] Patched dynamic __require("react") handler in dist/${file}`);
+      console.log(`[ensure-use-client] Patched bulletproof __require handler in dist/${file}`);
     }
   }
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Project Overview
 
-`@alcspower/ui` is an accessible React component library (68 components) built on Radix UI, Tailwind CSS v4, and CVA. Version 1.6.4. Self-contained bundle with full SSR compatibility — consumers only need `react` and `react-dom`.
+`@alcspower/ui` is an accessible React component library (68 components) built on Radix UI, Tailwind CSS v4, and CVA. Version 1.6.5. Self-contained bundle with full SSR compatibility — consumers only need `react` and `react-dom`.
 
 ## Build & Development Commands
 

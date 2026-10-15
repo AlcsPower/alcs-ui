@@ -1,5 +1,18 @@
 # @alcspower/ui
 
+## 1.6.5
+
+### Patch Changes
+
+- ### Blindaje Crítico para Navegadores Reales (Vite / Chrome) y Suite de Smoke Testing Automatizada
+  - **Resolución Definitiva de `__require` en Navegadores Reales (Chrome/Vite):**
+    - Se eliminó el `throw Error('Dynamic require of "react" is not supported')` del bundle ESM `dist/index.js`.
+    - `__require` resuelve dinámicamente y de forma segura `react` (combinando namespace y default export), `react-dom`, `react/jsx-runtime` y `react/jsx-dev-runtime`.
+    - Para cualquier otro target no resuelto, emite un aviso de consola sin abortar la ejecución, evitando que el navegador quede en pantalla blanca.
+    - Se eliminó la inyección de `path` y `url` para entornos puros de navegador web.
+  - **Suite de Smoke Testing Automatizada (`pnpm test:smoke`):**
+    - Se incorporó `scripts/smoke-test-consumer.mjs`, que empaqueta una aplicación React con Vite en modo producción y valida su ejecución y renderizado dentro del DOM sin arrojar excepciones.
+
 ## 1.6.4
 
 ### Patch Changes

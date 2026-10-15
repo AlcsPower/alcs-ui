@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "Accessible, composable, and production-ready React 19 component library powered by Tailwind CSS v4 and Radix UI",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",
@@ -84,6 +84,7 @@
     "cli": "node ./bin/cli.js",
     "init-agent": "node ./bin/cli.js init-agent",
     "test": "vitest run",
+    "test:smoke": "node ./scripts/smoke-test-consumer.mjs",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
