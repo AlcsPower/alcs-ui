@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "Accessible, composable, and production-ready React 19 component library powered by Tailwind CSS v4 and Radix UI",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",
@@ -64,6 +64,7 @@
     ".github",
     ".agent",
     "CLAUDE.md",
+    "AGENTS.md",
     "registry.json",
     "llms.txt",
     "llms-small.txt",
@@ -78,7 +79,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "pnpm build:js && pnpm build:css",
-    "build:js": "tsup",
+    "build:js": "tsup && node ./scripts/ensure-use-client.js",
     "build:css": "tailwindcss -i ./src/styles/index.css -o ./dist/styles.css --minify",
     "cli": "node ./bin/cli.js",
     "init-agent": "node ./bin/cli.js init-agent",

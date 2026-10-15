@@ -119,6 +119,13 @@ function runInitAgent() {
     'LLMs Context Reference (llms-small.txt)'
   );
 
+  // 7. OpenCode & Generic Agents (AGENTS.md)
+  copyFileSafe(
+    path.join(packageRoot, 'AGENTS.md'),
+    path.join(targetRoot, 'AGENTS.md'),
+    'OpenCode Instructions (AGENTS.md)'
+  );
+
   console.log(`\n${c.green}${c.bold}✅ ¡Configuración completada con éxito!${c.reset}`);
   console.log(`${c.dim}Recuerda importar los estilos globales en tu aplicación raíz:${c.reset}`);
   console.log(`${c.yellow}import '@alcspower/ui/styles.css';${c.reset}\n`);
@@ -221,7 +228,7 @@ ${c.bold}USO:${c.reset}
   o localmente: alcspower-ui <comando>
 
 ${c.bold}COMANDOS DISPONIBLES:${c.reset}
-  ${c.yellow}init-agent${c.reset}       Configura reglas para Cursor, Claude Code, Copilot, Antigravity y VS Code
+  ${c.yellow}init-agent${c.reset}       Configura reglas para OpenCode, Cursor, Claude Code, Copilot, Antigravity y VS Code
   ${c.yellow}snippets${c.reset}         Instala únicamente los snippets de VS Code (.vscode/alcspower.code-snippets)
   ${c.yellow}list${c.reset}             Lista todos los componentes agrupados por categoría
   ${c.yellow}info <componente>${c.reset} Muestra variantes, tamaños, subcomponentes y ejemplos de un componente

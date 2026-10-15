@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@alcspower/ui.svg?color=6366f1&style=flat-square)](https://www.npmjs.com/package/@alcspower/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-497%2F497%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
+[![Tests](https://img.shields.io/badge/tests-505%2F505%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
 [![React](https://img.shields.io/badge/react-18%20%7C%2019-61dafb.svg?style=flat-square)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg?style=flat-square)](https://www.typescriptlang.org)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4%20ready-38bdf8.svg?style=flat-square)](https://tailwindcss.com)
@@ -31,7 +31,7 @@ Engineered with native support for **React 18** and **React 19**, strict **TypeS
 ## 📌 Context & Project Identity
 
 * **Package Name:** `@alcspower/ui`
-* **Current Version:** `1.6.2`
+* **Current Version:** `1.6.3`
 * **Author / Maintainer:** Alcides Altamirano (`AlcsPower`)
 * **Project Nature:** Independent open-source design system and component library for the React ecosystem.
 * **Distribution Registries:**
@@ -186,7 +186,7 @@ npx @alcspower/ui info DataTable
 npx @alcspower/ui info MultiSelect
 npx @alcspower/ui info Button
 
-# List all 64 components categorized:
+# List all 67 components categorized:
 npx @alcspower/ui list
 
 # Print semantic CSS tokens cheatsheet:
@@ -198,7 +198,7 @@ npx @alcspower/ui snippets
 
 ### 3. Machine-Readable LLM Manifests (`llms.txt` and `registry.json`)
 
-* **`registry.json` (~15 KB):** Structured JSON catalog containing all 64 components, props, variants, and subcomponents. Allows AI agents to accurately write JSX with minimal token overhead.
+* **`registry.json` (~16 KB):** Structured JSON catalog containing all 67 components, props, variants, and subcomponents. Allows AI agents to accurately write JSX with minimal token overhead.
 * **`llms.txt`:** Open specification standard adhering to [llmstxt.org](https://llmstxt.org/).
 * **`llms-small.txt` (~1.5k tokens):** Ultra-condensed ruleset, tokens, and core APIs for direct injection into system prompts.
 * **Direct package exports:**
@@ -319,7 +319,7 @@ Every component is thoroughly tested (**68 test suites / 497 automated tests pas
 
 ### 2. Controls & Basic Data
 * **`Badge`:** Compact indicator for categorization and status with 7 semantic variants.
-* **`StatusBadge`:** Operational status indicator with colored dot indicator and semantic variants.
+* **`StatusBadge`:** Operational health monitoring indicator with colored micro-dot and semantic status states (`online`, `offline`, `warning`, `maintenance`).
 * **`Card`:** Modular container with soft depth (`CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`).
 * **`Avatar`:** Profile image with size scales (`sm`, `md`, `lg`, `xl`) and automatic initials fallback.
 * **`Checkbox`:** Accessible binary control with metric sizing based on `@radix-ui/react-checkbox`.
@@ -386,6 +386,7 @@ Every component is thoroughly tested (**68 test suites / 497 automated tests pas
 
 ### 11. Utilities & Accessibility
 * **`VisuallyHidden`:** Hides elements visually while keeping them accessible to screen readers per WCAG guidelines.
+* **`Security Helpers`:** Zero-dependency sanitization and URL validation utilities (`isSafeUrl`, `escapeHtml`, `stripHtml`) preventing XSS and open-redirect vulnerabilities.
 * **`cn`:** High-performance utility combining `clsx` and `tailwind-merge` respecting semantic classes.
 
 ---
@@ -435,7 +436,7 @@ Every component in `@alcspower/ui` is continuously audited:
 2. **Keyboard Navigation:** Strict compliance with standard keybindings (`Tab`, `Shift+Tab`, `Escape`, `Enter`, `Space`, `Arrow keys`, `Home`, `End`) across interactive controls and overlays.
 3. **Screen Reader Precision:** Verified ARIA attributes (`aria-describedby`, `aria-invalid`, `aria-expanded`, semantic roles) and elimination of duplicate speech announcements.
 4. **Motion Safety (`prefers-reduced-motion`):** Animations (spinners, skeleton pulses, transitions) respect user operating system settings.
-5. **Test Coverage:** **68 test suites and 497 automated tests** passing at 100%.
+5. **Test Coverage:** **69 test suites and 505 automated tests** passing at 100%.
 
 ---
 

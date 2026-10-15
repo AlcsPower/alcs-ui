@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@alcspower/ui.svg?color=6366f1&style=flat-square)](https://www.npmjs.com/package/@alcspower/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-497%2F497%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
+[![Tests](https://img.shields.io/badge/tests-505%2F505%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
 [![React](https://img.shields.io/badge/react-18%20%7C%2019-61dafb.svg?style=flat-square)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg?style=flat-square)](https://www.typescriptlang.org)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4%20ready-38bdf8.svg?style=flat-square)](https://tailwindcss.com)
@@ -31,7 +31,7 @@ Diseñada con soporte nativo para **React 18** y **React 19**, tipado estricto e
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `1.6.2`
+* **Versión Actual:** `1.6.3`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registros de Distribución:**
@@ -192,7 +192,7 @@ npx @alcspower/ui info DataTable
 npx @alcspower/ui info MultiSelect
 npx @alcspower/ui info Button
 
-# Listar todos los 64 componentes agrupados por categoría:
+# Listar todos los 67 componentes agrupados por categoría:
 npx @alcspower/ui list
 
 # Ver la chuleta de tokens semánticos CSS (--alcspower-*):
@@ -204,7 +204,7 @@ npx @alcspower/ui snippets
 
 ### 3. Manifiestos para LLMs y Economía de Tokens (`llms.txt` y `registry.json`)
 
-* **`registry.json` (~15 KB):** Diccionario estructurado en JSON de todos los componentes, variantes, subcomponentes y props. Permite a los agentes inspeccionar la API sin consumir el archivo de tipos compilado (`dist/index.d.ts` de ~129 KB).
+* **`registry.json` (~16 KB):** Diccionario estructurado en JSON de todos los 67 componentes, variantes, subcomponentes y props. Permite a los agentes inspeccionar la API sin consumir el archivo de tipos compilado (`dist/index.d.ts` de ~129 KB).
 * **`llms.txt`:** Especificación estándar para modelos de lenguaje basada en [llmstxt.org](https://llmstxt.org/).
 * **`llms-small.txt` (~1.5k tokens):** Versión ultra-condensada de reglas de diseño, tokens semánticos y componentes clave para inyección directa en system prompts con mínima huella de contexto.
 * **Subpaths exportados en `package.json`:**
@@ -327,7 +327,7 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 
 ### 2. Controles y Datos Básicos (Controls)
 * **`Badge`:** Insignia compacta para categorización y estados con 7 variantes semánticas.
-* **`StatusBadge`:** Insignia especializada para estados operativos con indicador visual tipo punto y variantes semánticas.
+* **`StatusBadge`:** Insignia especializada para monitoreo de salud operativa del sistema (`online`, `offline`, `warning`, `maintenance`) con micro-indicador visual tipo punto y variantes semánticas.
 * **`Card`:** Contenedor modular con elevación tenue y piezas semánticas (`CardHeader`, `CardTitle`, `CardDescription`, `CardContent`, `CardFooter`).
 * **`Avatar`:** Representación de perfil con escala de tamaños (`sm`, `md`, `lg`, `xl`), carga de imagen y fallback automático de iniciales.
 * **`Checkbox`:** Control binario accesible con escala métrica de tamaño (`sm`, `md`, `lg`) basado en `@radix-ui/react-checkbox`.
@@ -394,6 +394,7 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 
 ### 11. Accesibilidad y Utilidades
 * **`VisuallyHidden`:** Oculta visualmente un elemento manteniéndolo audible para lectores de pantalla según WCAG.
+* **`Security Helpers`:** Utilidades de sanitización y validación segura de URLs sin dependencias (`isSafeUrl`, `escapeHtml`, `stripHtml`) para mitigar vulnerabilidades XSS y redirecciones abiertas.
 * **`cn`:** Utilidad optimizada que fusiona `clsx` y `tailwind-merge` respetando la configuración semántica del sistema.
 
 ---
@@ -443,7 +444,7 @@ Para proyectos que utilicen Tailwind CSS v4, `@alcspower/ui` expone tokens listo
 2. **Navegación por Teclado:** Se valida el comportamiento secuencial de teclas (`Tab`, `Shift+Tab`, `Escape`, `Enter`, `Space`, `Arrow keys`, `Home`, `End`) en todos los controles interactivos y modales.
 3. **Anuncios ARIA y Lectores de Pantalla:** Verificación de roles semánticos (`role="alert"`, `role="spinbutton"`, `role="listbox"`, `role="tree"`), propiedades de accesibilidad (`aria-describedby`, `aria-invalid`, `aria-expanded`) y supresión de lecturas duplicadas.
 4. **Respeto a Preferencias del Usuario (`prefers-reduced-motion`):** Las animaciones complejas (como spinners y efectos de pulsación) respetan las preferencias del sistema operativo para evitar mareos o distracciones.
-5. **Cobertura de Pruebas:** **68 suites de pruebas y 497 tests unitarios y de integración** pasando al 100%.
+5. **Cobertura de Pruebas:** **69 suites de pruebas y 505 tests unitarios y de integración** pasando al 100%.
 
 ---
 

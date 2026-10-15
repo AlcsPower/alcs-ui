@@ -1,157 +1,333 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "name": "@alcspower/ui",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "style": "Modern SaaS / Craft Minimalist",
   "css": "@alcspower/ui/styles.css",
   "tokensPrefix": "alcspower-",
   "components": {
     "Button": {
       "category": "forms",
-      "variants": ["primary", "secondary", "outline", "ghost", "destructive", "link"],
-      "sizes": ["sm", "md", "lg", "icon", "icon-sm", "icon-lg"],
-      "props": ["variant", "size", "asChild", "isLoading", "loadingText", "disabled"],
+      "variants": [
+        "primary",
+        "secondary",
+        "outline",
+        "ghost",
+        "destructive",
+        "link"
+      ],
+      "sizes": [
+        "sm",
+        "md",
+        "lg",
+        "icon",
+        "icon-sm",
+        "icon-lg"
+      ],
+      "props": [
+        "variant",
+        "size",
+        "asChild",
+        "isLoading",
+        "loadingText",
+        "disabled"
+      ],
       "example": "<Button variant=\"primary\" size=\"md\">Aceptar</Button>"
     },
     "Input": {
       "category": "forms",
-      "sizes": ["sm", "md", "lg"],
-      "props": ["size", "error", "disabled"],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "props": [
+        "size",
+        "error",
+        "disabled"
+      ],
       "example": "<Input placeholder=\"Nombre de usuario\" />"
     },
     "NumberInput": {
       "category": "forms",
-      "sizes": ["sm", "md", "lg"],
-      "props": ["min", "max", "step", "value", "onChange"],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "props": [
+        "min",
+        "max",
+        "step",
+        "value",
+        "onChange"
+      ],
       "example": "<NumberInput min={0} max={100} defaultValue={1} />"
     },
     "Textarea": {
       "category": "forms",
-      "props": ["rows", "error", "disabled"],
+      "props": [
+        "rows",
+        "error",
+        "disabled"
+      ],
       "example": "<Textarea placeholder=\"Escriba su mensaje...\" rows={4} />"
     },
     "Field": {
       "category": "forms",
-      "subcomponents": ["Field", "Label", "FieldDescription", "FieldError"],
+      "subcomponents": [
+        "Field",
+        "Label",
+        "FieldDescription",
+        "FieldError"
+      ],
       "example": "<Field id=\"email\"><Label>Correo</Label><Input type=\"email\" /><FieldDescription>Correo corporativo</FieldDescription></Field>"
     },
     "Checkbox": {
       "category": "forms",
-      "props": ["checked", "onCheckedChange", "disabled"],
+      "props": [
+        "checked",
+        "onCheckedChange",
+        "disabled"
+      ],
       "example": "<div className=\"flex items-center gap-2\"><Checkbox id=\"terms\" /><Label htmlFor=\"terms\">Acepto los términos</Label></div>"
     },
     "Switch": {
       "category": "forms",
-      "props": ["checked", "onCheckedChange", "disabled"],
+      "props": [
+        "checked",
+        "onCheckedChange",
+        "disabled"
+      ],
       "example": "<div className=\"flex items-center gap-2\"><Switch id=\"mode\" /><Label htmlFor=\"mode\">Modo Oscuro</Label></div>"
     },
     "Select": {
       "category": "forms",
-      "subcomponents": ["Select", "SelectTrigger", "SelectValue", "SelectContent", "SelectItem", "SelectGroup", "SelectLabel"],
+      "subcomponents": [
+        "Select",
+        "SelectTrigger",
+        "SelectValue",
+        "SelectContent",
+        "SelectItem",
+        "SelectGroup",
+        "SelectLabel"
+      ],
       "example": "<Select value={val} onValueChange={setVal}><SelectTrigger><SelectValue placeholder=\"Seleccionar...\" /></SelectTrigger><SelectContent><SelectItem value=\"opt1\">Opción 1</SelectItem></SelectContent></Select>"
     },
     "Combobox": {
       "category": "forms",
-      "props": ["options", "value", "onChange", "placeholder"],
+      "props": [
+        "options",
+        "value",
+        "onChange",
+        "placeholder"
+      ],
       "example": "<Combobox options={[{label: 'Opción 1', value: '1'}]} value={val} onChange={setVal} />"
     },
     "MultiSelect": {
       "category": "forms",
-      "props": ["options", "value", "onChange", "placeholder"],
+      "props": [
+        "options",
+        "value",
+        "onChange",
+        "placeholder"
+      ],
       "example": "<MultiSelect options={options} value={selected} onChange={setSelected} placeholder=\"Seleccionar etiquetas...\" />"
     },
     "RadioGroup": {
       "category": "forms",
-      "subcomponents": ["RadioGroup", "RadioGroupItem"],
+      "subcomponents": [
+        "RadioGroup",
+        "RadioGroupItem"
+      ],
       "example": "<RadioGroup defaultValue=\"opt1\"><div className=\"flex items-center gap-2\"><RadioGroupItem value=\"opt1\" id=\"r1\" /><Label htmlFor=\"r1\">Opción 1</Label></div></RadioGroup>"
     },
     "Slider": {
       "category": "forms",
-      "props": ["value", "onValueChange", "min", "max", "step"],
+      "props": [
+        "value",
+        "onValueChange",
+        "min",
+        "max",
+        "step"
+      ],
       "example": "<Slider defaultValue={[50]} max={100} step={1} />"
     },
     "Toggle": {
       "category": "forms",
-      "variants": ["default", "outline"],
-      "sizes": ["sm", "md", "lg"],
+      "variants": [
+        "default",
+        "outline"
+      ],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "example": "<Toggle aria-label=\"Negrita\"><Bold className=\"h-4 w-4\" /></Toggle>"
     },
     "ToggleGroup": {
       "category": "forms",
-      "subcomponents": ["ToggleGroup", "ToggleGroupItem"],
+      "subcomponents": [
+        "ToggleGroup",
+        "ToggleGroupItem"
+      ],
       "example": "<ToggleGroup type=\"single\"><ToggleGroupItem value=\"left\">Izquierda</ToggleGroupItem><ToggleGroupItem value=\"right\">Derecha</ToggleGroupItem></ToggleGroup>"
     },
     "SearchInput": {
       "category": "forms",
-      "sizes": ["sm", "md", "lg"],
-      "props": ["value", "onChange", "onClear"],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "props": [
+        "value",
+        "onChange",
+        "onClear"
+      ],
       "example": "<SearchInput placeholder=\"Buscar registros...\" />"
     },
     "PasswordInput": {
       "category": "forms",
-      "sizes": ["sm", "md", "lg"],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "example": "<PasswordInput placeholder=\"Contraseña secreta\" />"
     },
     "OTPInput": {
       "category": "forms",
-      "props": ["length", "value", "onChange"],
+      "props": [
+        "length",
+        "value",
+        "onChange"
+      ],
       "example": "<OTPInput length={6} value={otp} onChange={setOtp} />"
     },
     "TagsInput": {
       "category": "forms",
-      "props": ["value", "onChange", "placeholder"],
+      "props": [
+        "value",
+        "onChange",
+        "placeholder"
+      ],
       "example": "<TagsInput value={tags} onChange={setTags} placeholder=\"Añadir tag...\" />"
     },
     "FileUpload": {
       "category": "forms",
-      "props": ["onFilesSelected", "accept", "maxFiles"],
+      "props": [
+        "onFilesSelected",
+        "accept",
+        "maxFiles"
+      ],
       "example": "<FileUpload onFilesSelected={handleUpload} maxFiles={3} />"
     },
     "Badge": {
       "category": "data-display",
-      "variants": ["primary", "secondary", "outline", "destructive", "success", "warning", "info"],
-      "sizes": ["sm", "md", "lg"],
+      "variants": [
+        "primary",
+        "secondary",
+        "outline",
+        "destructive",
+        "success",
+        "warning",
+        "info"
+      ],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "example": "<Badge variant=\"success\">Completado</Badge>"
     },
     "StatusBadge": {
       "category": "data-display",
-      "props": ["status"],
-      "statuses": ["success", "warning", "error", "info", "neutral"],
+      "props": [
+        "status"
+      ],
+      "statuses": [
+        "success",
+        "warning",
+        "error",
+        "info",
+        "neutral"
+      ],
       "example": "<StatusBadge status=\"success\">Operativo</StatusBadge>"
     },
     "Card": {
       "category": "data-display",
-      "subcomponents": ["Card", "CardHeader", "CardTitle", "CardDescription", "CardContent", "CardFooter"],
+      "subcomponents": [
+        "Card",
+        "CardHeader",
+        "CardTitle",
+        "CardDescription",
+        "CardContent",
+        "CardFooter"
+      ],
       "example": "<Card><CardHeader><CardTitle>Título</CardTitle></CardHeader><CardContent><p>Contenido</p></CardContent></Card>"
     },
     "Avatar": {
       "category": "data-display",
-      "subcomponents": ["Avatar", "AvatarImage", "AvatarFallback"],
+      "subcomponents": [
+        "Avatar",
+        "AvatarImage",
+        "AvatarFallback"
+      ],
       "example": "<Avatar><AvatarImage src=\"/user.jpg\" /><AvatarFallback>AA</AvatarFallback></Avatar>"
     },
     "Table": {
       "category": "data-display",
-      "subcomponents": ["Table", "TableHeader", "TableBody", "TableFooter", "TableHead", "TableRow", "TableCell", "TableCaption"],
+      "subcomponents": [
+        "Table",
+        "TableHeader",
+        "TableBody",
+        "TableFooter",
+        "TableHead",
+        "TableRow",
+        "TableCell",
+        "TableCaption"
+      ],
       "example": "<Table><TableHeader><TableRow><TableHead>ID</TableHead></TableRow></TableHeader><TableBody><TableRow><TableCell>1</TableCell></TableRow></TableBody></Table>"
     },
     "DataTable": {
       "category": "data-display",
-      "props": ["columns", "data", "searchKey", "searchPlaceholder", "pageSize"],
+      "props": [
+        "columns",
+        "data",
+        "searchKey",
+        "searchPlaceholder",
+        "pageSize"
+      ],
       "example": "<DataTable columns={columns} data={data} searchKey=\"name\" />"
     },
     "Pagination": {
       "category": "data-display",
-      "props": ["currentPage", "totalPages", "onPageChange"],
+      "props": [
+        "currentPage",
+        "totalPages",
+        "onPageChange"
+      ],
       "example": "<Pagination currentPage={1} totalPages={10} onPageChange={(p) => setPage(p)} />"
     },
     "Separator": {
       "category": "data-display",
-      "props": ["orientation"],
+      "props": [
+        "orientation"
+      ],
       "example": "<Separator orientation=\"horizontal\" className=\"my-4\" />"
     },
     "Timeline": {
       "category": "data-display",
-      "subcomponents": ["Timeline", "TimelineItem", "TimelinePoint", "TimelineContent", "TimelineTime", "TimelineTitle"],
+      "subcomponents": [
+        "Timeline",
+        "TimelineItem",
+        "TimelinePoint",
+        "TimelineContent",
+        "TimelineTime",
+        "TimelineTitle"
+      ],
       "example": "<Timeline><TimelineItem><TimelinePoint /><TimelineContent><TimelineTitle>Creado</TimelineTitle></TimelineContent></TimelineItem></Timeline>"
     },
     "Kbd": {
@@ -160,159 +336,328 @@
     },
     "MetricCard": {
       "category": "data-display",
-      "props": ["title", "value", "delta", "trend", "description"],
+      "props": [
+        "title",
+        "value",
+        "delta",
+        "trend",
+        "description"
+      ],
       "example": "<MetricCard title=\"Ventas\" value=\"$12,400\" delta=\"+15%\" trend=\"positive\" />"
     },
     "StatCard": {
       "category": "data-display",
-      "props": ["title", "value", "icon", "description"],
+      "props": [
+        "title",
+        "value",
+        "icon",
+        "description"
+      ],
       "example": "<StatCard title=\"Usuarios Activos\" value=\"1,250\" icon={<Users />} />"
     },
     "DeltaIndicator": {
       "category": "data-display",
-      "props": ["value", "trend"],
+      "props": [
+        "value",
+        "trend"
+      ],
       "example": "<DeltaIndicator value=\"+5.2%\" trend=\"positive\" />"
     },
     "Chart": {
       "category": "data-display",
-      "subcomponents": ["Chart", "BarChart", "LineChart", "AreaChart", "PieChart"],
+      "subcomponents": [
+        "Chart",
+        "BarChart",
+        "LineChart",
+        "AreaChart",
+        "PieChart"
+      ],
       "example": "<Chart data={data} type=\"bar\" xKey=\"month\" yKey=\"total\" />"
     },
     "Dialog": {
       "category": "overlays",
-      "subcomponents": ["Dialog", "DialogTrigger", "DialogContent", "DialogHeader", "DialogTitle", "DialogDescription", "DialogFooter", "DialogClose"],
+      "subcomponents": [
+        "Dialog",
+        "DialogTrigger",
+        "DialogContent",
+        "DialogHeader",
+        "DialogTitle",
+        "DialogDescription",
+        "DialogFooter",
+        "DialogClose"
+      ],
       "example": "<Dialog><DialogTrigger asChild><Button>Abrir</Button></DialogTrigger><DialogContent><DialogHeader><DialogTitle>Modal</DialogTitle></DialogHeader></DialogContent></Dialog>"
     },
     "AlertDialog": {
       "category": "overlays",
-      "subcomponents": ["AlertDialog", "AlertDialogTrigger", "AlertDialogContent", "AlertDialogHeader", "AlertDialogTitle", "AlertDialogDescription", "AlertDialogFooter", "AlertDialogAction", "AlertDialogCancel"],
+      "subcomponents": [
+        "AlertDialog",
+        "AlertDialogTrigger",
+        "AlertDialogContent",
+        "AlertDialogHeader",
+        "AlertDialogTitle",
+        "AlertDialogDescription",
+        "AlertDialogFooter",
+        "AlertDialogAction",
+        "AlertDialogCancel"
+      ],
       "example": "<AlertDialog><AlertDialogTrigger asChild><Button variant=\"destructive\">Borrar</Button></AlertDialogTrigger><AlertDialogContent><AlertDialogTitle>Confirmar</AlertDialogTitle><AlertDialogFooter><AlertDialogCancel>No</AlertDialogCancel><AlertDialogAction>Sí</AlertDialogAction></AlertDialogFooter></AlertDialogContent></AlertDialog>"
     },
     "ConfirmDialog": {
       "category": "overlays",
-      "props": ["open", "onOpenChange", "title", "description", "onConfirm", "confirmText", "cancelText"],
+      "props": [
+        "open",
+        "onOpenChange",
+        "title",
+        "description",
+        "onConfirm",
+        "confirmText",
+        "cancelText"
+      ],
       "example": "<ConfirmDialog open={open} onOpenChange={setOpen} title=\"¿Eliminar registro?\" onConfirm={handleDelete} />"
     },
     "Sheet": {
       "category": "overlays",
-      "subcomponents": ["Sheet", "SheetTrigger", "SheetContent", "SheetHeader", "SheetTitle", "SheetDescription", "SheetFooter", "SheetClose"],
+      "subcomponents": [
+        "Sheet",
+        "SheetTrigger",
+        "SheetContent",
+        "SheetHeader",
+        "SheetTitle",
+        "SheetDescription",
+        "SheetFooter",
+        "SheetClose"
+      ],
       "example": "<Sheet><SheetTrigger asChild><Button>Filtros</Button></SheetTrigger><SheetContent side=\"right\"><SheetHeader><SheetTitle>Filtros</SheetTitle></SheetHeader></SheetContent></Sheet>"
     },
     "Drawer": {
       "category": "overlays",
-      "subcomponents": ["Drawer", "DrawerTrigger", "DrawerContent", "DrawerHeader", "DrawerTitle", "DrawerDescription", "DrawerFooter"],
+      "subcomponents": [
+        "Drawer",
+        "DrawerTrigger",
+        "DrawerContent",
+        "DrawerHeader",
+        "DrawerTitle",
+        "DrawerDescription",
+        "DrawerFooter"
+      ],
       "example": "<Drawer><DrawerTrigger asChild><Button>Menú</Button></DrawerTrigger><DrawerContent><DrawerHeader><DrawerTitle>Opciones</DrawerTitle></DrawerHeader></DrawerContent></Drawer>"
     },
     "Popover": {
       "category": "overlays",
-      "subcomponents": ["Popover", "PopoverTrigger", "PopoverContent"],
+      "subcomponents": [
+        "Popover",
+        "PopoverTrigger",
+        "PopoverContent"
+      ],
       "example": "<Popover><PopoverTrigger asChild><Button variant=\"outline\">Opciones</Button></PopoverTrigger><PopoverContent>Detalle</PopoverContent></Popover>"
     },
     "Tooltip": {
       "category": "overlays",
-      "subcomponents": ["TooltipProvider", "Tooltip", "TooltipTrigger", "TooltipContent"],
+      "subcomponents": [
+        "TooltipProvider",
+        "Tooltip",
+        "TooltipTrigger",
+        "TooltipContent"
+      ],
       "example": "<TooltipProvider><Tooltip><TooltipTrigger asChild><Button size=\"icon\">?</Button></TooltipTrigger><TooltipContent>Información de ayuda</TooltipContent></Tooltip></TooltipProvider>"
     },
     "DropdownMenu": {
       "category": "overlays",
-      "subcomponents": ["DropdownMenu", "DropdownMenuTrigger", "DropdownMenuContent", "DropdownMenuItem", "DropdownMenuSeparator", "DropdownMenuLabel"],
+      "subcomponents": [
+        "DropdownMenu",
+        "DropdownMenuTrigger",
+        "DropdownMenuContent",
+        "DropdownMenuItem",
+        "DropdownMenuSeparator",
+        "DropdownMenuLabel"
+      ],
       "example": "<DropdownMenu><DropdownMenuTrigger asChild><Button>Acciones</Button></DropdownMenuTrigger><DropdownMenuContent><DropdownMenuItem>Editar</DropdownMenuItem><DropdownMenuItem>Eliminar</DropdownMenuItem></DropdownMenuContent></DropdownMenu>"
     },
     "ContextMenu": {
       "category": "overlays",
-      "subcomponents": ["ContextMenu", "ContextMenuTrigger", "ContextMenuContent", "ContextMenuItem"],
+      "subcomponents": [
+        "ContextMenu",
+        "ContextMenuTrigger",
+        "ContextMenuContent",
+        "ContextMenuItem"
+      ],
       "example": "<ContextMenu><ContextMenuTrigger><div>Click derecho aquí</div></ContextMenuTrigger><ContextMenuContent><ContextMenuItem>Copiar</ContextMenuItem></ContextMenuContent></ContextMenu>"
     },
     "Command": {
       "category": "overlays",
-      "subcomponents": ["Command", "CommandDialog", "CommandInput", "CommandList", "CommandEmpty", "CommandGroup", "CommandItem"],
+      "subcomponents": [
+        "Command",
+        "CommandDialog",
+        "CommandInput",
+        "CommandList",
+        "CommandEmpty",
+        "CommandGroup",
+        "CommandItem"
+      ],
       "example": "<CommandDialog open={open} onOpenChange={setOpen}><CommandInput placeholder=\"Escriba una orden...\" /><CommandList><CommandItem>Inicio</CommandItem></CommandList></CommandDialog>"
     },
     "Alert": {
       "category": "feedback",
-      "variants": ["default", "info", "success", "warning", "destructive"],
-      "subcomponents": ["Alert", "AlertTitle", "AlertDescription"],
+      "variants": [
+        "default",
+        "info",
+        "success",
+        "warning",
+        "destructive"
+      ],
+      "subcomponents": [
+        "Alert",
+        "AlertTitle",
+        "AlertDescription"
+      ],
       "example": "<Alert variant=\"warning\"><AlertTitle>Alerta</AlertTitle><AlertDescription>Revise sus datos.</AlertDescription></Alert>"
     },
     "Toaster": {
       "category": "feedback",
-      "props": ["position", "richColors"],
+      "props": [
+        "position",
+        "richColors"
+      ],
       "example": "<Toaster position=\"bottom-right\" richColors />"
     },
     "Skeleton": {
       "category": "feedback",
-      "props": ["className"],
+      "props": [
+        "className"
+      ],
       "example": "<Skeleton className=\"h-10 w-full rounded-xl\" />"
     },
     "Spinner": {
       "category": "feedback",
-      "sizes": ["sm", "md", "lg"],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "example": "<Spinner size=\"md\" />"
     },
     "LoadingOverlay": {
       "category": "feedback",
-      "props": ["visible", "text"],
+      "props": [
+        "visible",
+        "text"
+      ],
       "example": "<LoadingOverlay visible={loading} text=\"Procesando transacción...\" />"
     },
     "Progress": {
       "category": "feedback",
-      "props": ["value", "max"],
+      "props": [
+        "value",
+        "max"
+      ],
       "example": "<Progress value={65} max={100} />"
     },
     "EmptyState": {
       "category": "feedback",
-      "props": ["title", "description", "icon", "action"],
+      "props": [
+        "title",
+        "description",
+        "icon",
+        "action"
+      ],
       "example": "<EmptyState title=\"Sin datos\" description=\"No se encontraron registros para mostrar.\" />"
     },
     "ErrorState": {
       "category": "feedback",
-      "props": ["title", "description", "onRetry"],
+      "props": [
+        "title",
+        "description",
+        "onRetry"
+      ],
       "example": "<ErrorState title=\"Error de conexión\" description=\"No fue posible cargar los datos.\" onRetry={refetch} />"
     },
     "Tabs": {
       "category": "navigation",
-      "subcomponents": ["Tabs", "TabsList", "TabsTrigger", "TabsContent"],
+      "subcomponents": [
+        "Tabs",
+        "TabsList",
+        "TabsTrigger",
+        "TabsContent"
+      ],
       "example": "<Tabs defaultValue=\"tab1\"><TabsList><TabsTrigger value=\"tab1\">Tab 1</TabsTrigger></TabsList><TabsContent value=\"tab1\">Panel 1</TabsContent></Tabs>"
     },
     "Accordion": {
       "category": "navigation",
-      "subcomponents": ["Accordion", "AccordionItem", "AccordionTrigger", "AccordionContent"],
-      "props": ["type"],
+      "subcomponents": [
+        "Accordion",
+        "AccordionItem",
+        "AccordionTrigger",
+        "AccordionContent"
+      ],
+      "props": [
+        "type"
+      ],
       "example": "<Accordion type=\"single\" collapsible><AccordionItem value=\"i1\"><AccordionTrigger>Pregunta 1</AccordionTrigger><AccordionContent>Respuesta 1</AccordionContent></AccordionItem></Accordion>"
     },
     "Breadcrumb": {
       "category": "navigation",
-      "subcomponents": ["Breadcrumb", "BreadcrumbList", "BreadcrumbItem", "BreadcrumbLink", "BreadcrumbPage", "BreadcrumbSeparator"],
+      "subcomponents": [
+        "Breadcrumb",
+        "BreadcrumbList",
+        "BreadcrumbItem",
+        "BreadcrumbLink",
+        "BreadcrumbPage",
+        "BreadcrumbSeparator"
+      ],
       "example": "<Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbLink href=\"/\">Inicio</BreadcrumbLink></BreadcrumbItem></BreadcrumbList></Breadcrumb>"
     },
     "Collapsible": {
       "category": "navigation",
-      "subcomponents": ["Collapsible", "CollapsibleTrigger", "CollapsibleContent"],
+      "subcomponents": [
+        "Collapsible",
+        "CollapsibleTrigger",
+        "CollapsibleContent"
+      ],
       "example": "<Collapsible><CollapsibleTrigger>Ver más</CollapsibleTrigger><CollapsibleContent>Detalle extra</CollapsibleContent></Collapsible>"
     },
     "Stepper": {
       "category": "navigation",
-      "props": ["steps", "currentStep", "onStepClick"],
+      "props": [
+        "steps",
+        "currentStep",
+        "onStepClick"
+      ],
       "example": "<Stepper steps={['Paso 1', 'Paso 2', 'Paso 3']} currentStep={1} />"
     },
     "TreeView": {
       "category": "navigation",
-      "props": ["data", "onSelect"],
+      "props": [
+        "data",
+        "onSelect"
+      ],
       "example": "<TreeView data={treeData} onSelect={handleSelect} />"
     },
     "Calendar": {
       "category": "time",
-      "props": ["mode", "selected", "onSelect"],
+      "props": [
+        "mode",
+        "selected",
+        "onSelect"
+      ],
       "example": "<Calendar mode=\"single\" selected={date} onSelect={setDate} />"
     },
     "DatePicker": {
       "category": "time",
-      "props": ["date", "onDateChange", "placeholder"],
+      "props": [
+        "date",
+        "onDateChange",
+        "placeholder"
+      ],
       "example": "<DatePicker date={date} onDateChange={setDate} placeholder=\"Seleccione fecha\" />"
     },
     "DateRangePicker": {
       "category": "time",
-      "props": ["dateRange", "onDateRangeChange", "placeholder"],
+      "props": [
+        "dateRange",
+        "onDateRangeChange",
+        "placeholder"
+      ],
       "example": "<DateRangePicker dateRange={range} onDateRangeChange={setRange} />"
     },
     "VisuallyHidden": {
@@ -321,18 +666,93 @@
     },
     "Container": {
       "category": "layout",
-      "props": ["size"],
+      "props": [
+        "size"
+      ],
       "example": "<Container size=\"lg\">Contenido centrado</Container>"
     },
     "Grid": {
       "category": "layout",
-      "props": ["cols", "gap"],
+      "props": [
+        "cols",
+        "gap"
+      ],
       "example": "<Grid cols={3} gap={4}><div>1</div><div>2</div><div>3</div></Grid>"
     },
     "Stack": {
       "category": "layout",
-      "props": ["direction", "gap"],
+      "props": [
+        "direction",
+        "gap"
+      ],
       "example": "<Stack direction=\"row\" gap={3}><Button>1</Button><Button>2</Button></Stack>"
+    },
+    "CopyButton": {
+      "category": "forms",
+      "variants": [
+        "outlined",
+        "filled",
+        "inline"
+      ],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "props": [
+        "value",
+        "variant",
+        "size",
+        "label",
+        "copiedLabel",
+        "timeout",
+        "onCopy",
+        "onError"
+      ],
+      "example": "<CopyButton value=\"npm i @alcspower/ui\" />"
+    },
+    "Sparkline": {
+      "category": "data-display",
+      "variants": [
+        "area",
+        "line",
+        "bar"
+      ],
+      "props": [
+        "data",
+        "type",
+        "color",
+        "width",
+        "height",
+        "curve",
+        "showTooltip"
+      ],
+      "example": "<Sparkline data={[10, 25, 18, 30, 45, 60]} type=\"area\" color=\"primary\" />"
+    },
+    "Gauge": {
+      "category": "data-display",
+      "variants": [
+        "semicircle",
+        "arc",
+        "circle"
+      ],
+      "sizes": [
+        "sm",
+        "md",
+        "lg",
+        "xl"
+      ],
+      "props": [
+        "value",
+        "min",
+        "max",
+        "geometry",
+        "size",
+        "thresholds",
+        "showValue",
+        "label"
+      ],
+      "example": "<Gauge value={78} min={0} max={100} geometry=\"semicircle\" size=\"md\" label=\"SLA Compliance\" />"
     }
   }
 }

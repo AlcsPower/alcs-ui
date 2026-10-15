@@ -1,6 +1,7 @@
 // Utilidades base
 export * from './lib/utils';
 export * from './lib/tw-merge-config';
+export * from './lib/security';
 
 // Accesibilidad
 export * from './components/accessibility';

@@ -16,7 +16,13 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 
 ## 🏁 Hitos Consolidados
 
-### ✅ Versión 1.6.2 (Actual)
+### ✅ Versión 1.6.3 (Actual)
+* **Saneamiento Técnico & Compatibilidad Next.js App Router (RSC):** Inyección forzada de la directiva `'use client'` en la cabecera de los bundles compilados ESM y CJS (`dist/index.js`, `dist/index.cjs`), garantizando que aplicaciones con React Server Components consuman la librería sin errores de ejecución.
+* **Sincronización Total de Manifiestos de IA:** Actualización completa de `registry.json` y `llms-small.txt` incorporando `CopyButton`, `Sparkline` y `Gauge`, consolidando el catálogo en **67 componentes** y **66 historias Storybook**.
+* **Helpers de Seguridad Nativos:** Primitivas de sanitización y validación segura zero-dependency (`isSafeUrl`, `escapeHtml`, `stripHtml`) integradas en `src/lib/security.ts` y exportadas en el core con cobertura de pruebas unitarias al 100%.
+* **Garantía de Calidad:** 69 suites de pruebas, **505/505 pruebas pasando al 100%**, 0 violaciones de accesibilidad `axe-core`, 0 errores TypeScript.
+
+### ✅ Versión 1.6.2
 * **Neutralización Corporativa Total:** Erradicación completa de léxico administrativo territorial en favor de terminología empresarial neutra estándar (`@empresa.com`, `REQ-`, tokens `--alcspower-*`).
 * **CLI Oficial y Soporte Nativo de Agentes de IA (`alcspower-ui`):** Comandos `init-agent`, `info`, `list`, `tokens`, `snippets`, más manifiestos `llms.txt`, `llms-small.txt` y `registry.json`.
 * **Primitivas de Layout y Visualización:** Nuevos componentes `Container`, `Stack`, `Grid` (`GridItem`), `TreeView`, `Gauge`, `Sparkline`, `CopyButton`, `NumberInput`, `Field`.
@@ -39,11 +45,12 @@ Este documento describe la visión de evolución técnica, las prioridades de de
 ## 🚀 Próximas Versiones y Evolución del Ciclo v1.x
 
 ```text
-v1.6.2 (Actual Consolidado ✓)
+v1.6.3 (Actual Consolidado ✓)
   ├─ Stepper, Timeline, FileUpload, Kbd (v1.4.0 ✓)
   ├─ Field, SearchInput, PasswordInput, OTPInput, MultiSelect, TagsInput, NumberInput, Combobox, ConfirmDialog (v1.5.0 ✓)
   ├─ Container, Stack, Grid, TreeView, Sparkline, Gauge, StatusBadge, CopyButton (v1.6.0 ✓)
   ├─ CLI Oficial (init-agent, info, list), llms.txt, registry.json, Neutralización, Docs Bilingües (v1.6.2 ✓)
+  ├─ Saneamiento Técnico: 'use client' en bundles RSC, 67 componentes sincronizados, Security Helpers (v1.6.3 ✓)
   │
   └─► v1.7.0: Showcase Interactivo + ScrollArea + Contenido Rich
         ├─ Storybook Showcase en GitHub Pages (Demo interactiva con máximo pulido)
@@ -102,7 +109,7 @@ v1.6.2 (Actual Consolidado ✓)
 * [x] **`ConfirmDialog` / `AlertDialog`:**
   * Diálogos semánticos de advertencia y confirmación con wrapper `ConfirmDialog` asíncrono y spinner integrado.
 * [x] **`Security Helpers` y Guías de Validación:**
-  * Políticas de sanitización contra XSS/CSRF y checklists documentados en [`SECURITY.md`](SECURITY.md) y [`SECURITY.es.md`](SECURITY.es.md).
+  * Primitivas seguras nativas en código (`isSafeUrl`, `escapeHtml`, `stripHtml`) integradas en `src/lib/security.ts` con 100% de cobertura de pruebas, complementadas por las políticas de sanitización contra XSS/CSRF en [`SECURITY.md`](SECURITY.md) y [`SECURITY.es.md`](SECURITY.es.md).
 * [ ] **`FormProvider` / `useForm` (Abstracción de Contexto):**
   * Abstracción agnóstica de contexto para validación centralizada (actualmente soportado vía estado controlado o React Hook Form).
 
@@ -119,8 +126,8 @@ v1.6.2 (Actual Consolidado ✓)
 * [x] **`Sparkline` & `Gauge`:**
   * `Sparkline`: Micro-gráficos vectoriales en SVG puro (area, line, bar) para tablas y tarjetas KPI sin dependencias extra.
   * `Gauge`: Medidor radial accesible (`role="meter"`) con umbrales semánticos y 3 geometrías (semicircle, arc, circle).
-* [x] **`StatusBadge` / `HealthBadge`:**
-  * Indicador visual de estado operativo con micro-indicador puntual de color y semántica accesible.
+* [x] **`StatusBadge` (Monitoreo de Salud Operativa):**
+  * Indicador visual de estado operativo con micro-indicador puntual de color, estados de salud del sistema (online, offline, warning, maintenance) y semántica accesible.
 * [x] **Componentes de Layout en Starter Kit (`Header` & `Sidebar` colapsable):**
   * Estructura ergonómica de dashboard empresarial con selector Claro/Oscuro y navegación accesible integrada en `templates/vite-react-starter`.
 * [ ] **`ScrollArea` / `Scrollbar`:**
@@ -180,7 +187,7 @@ v1.6.2 (Actual Consolidado ✓)
 Cada nuevo componente debe cumplir antes de entrar al paquete principal:
 
 - [x] TypeScript estricto (0 errores con `tsc --noEmit`)
-- [x] Tests unitarios (68 suites / 497 tests pasando al 100%)
+- [x] Tests unitarios (69 suites / 505 tests pasando al 100%)
 - [x] Tests de accesibilidad (`axe-core` con 0 violaciones WCAG 2.1 AA)
 - [x] Storybook con al menos 3 estados por componente
 - [x] Dark mode (Tokens semánticos bidireccionales `--alcspower-*`)
@@ -267,9 +274,9 @@ La librería debe crecer en amplitud sin convertirse en un framework de negocio.
 ### ✅ Hitos Alcanzados de Ergonomía para IA y Desarrolladores
 * [x] **CLI Oficial Integrado (`alcspower-ui` / `npx @alcspower/ui`):**
   * Herramienta nativa sin dependencias pesadas (<50ms de arranque) registrada en `package.json` (`"bin"`).
-  * Comandos disponibles: `init-agent` (scaffolding automático de reglas), `snippets` (instalación de snippets), `list` (catálogo de 64 componentes por categoría), `info <component>` (API, variantes, props y ejemplo JSX desde `registry.json`) y `tokens` (chuleta CSS de `--alcspower-*`).
+  * Comandos disponibles: `init-agent` (scaffolding automático de reglas), `snippets` (instalación de snippets), `list` (catálogo de 67 componentes por categoría), `info <component>` (API, variantes, props y ejemplo JSX desde `registry.json`) y `tokens` (chuleta CSS de `--alcspower-*`).
 * [x] **Economía de Contexto y Manifiestos Estructurados:**
-  * `registry.json` (~15 KB): Diccionario estructurado en JSON de los 64 componentes, variantes y subcomponentes para evitar consumo de tokens sobre archivos `.d.ts` de gran tamaño.
+  * `registry.json` (~16 KB): Diccionario estructurado en JSON de los 67 componentes, variantes y subcomponentes para evitar consumo de tokens sobre archivos `.d.ts` de gran tamaño.
   * `llms-small.txt` (~1.5k tokens): Resumen ultra-condensado de tokens, directivas y componentes clave para inyección en system prompts.
   * `llms.txt`: Especificación estándar abierta según lineamientos de [llmstxt.org](https://llmstxt.org/).
 * [x] **Snippets Oficiales para VS Code (`snippets/alcspower.code-snippets`):**
@@ -291,10 +298,10 @@ La librería debe crecer en amplitud sin convertirse en un framework de negocio.
 
 > [!IMPORTANT]
 > **Filosofía del Hito de Demostración:**  
-> La demo en vivo es la carta de presentación visual de `@alcspower/ui` ante el mundo. No debe ser un volcado apresurado ni automático: requiere dedicarle el tiempo, diseño y esmero necesarios para que cada una de las 64 historias de componentes refleje a la perfección la estética *Craft Minimalist / Modern SaaS*, soporte bidireccional de tema (Claro / Oscuro), controles interactivos y contraste WCAG impecable. Por esta razón, se programa como un hito dedicado de desarrollo antes de su apertura pública.
+> La demo en vivo es la carta de presentación visual de `@alcspower/ui` ante el mundo. No debe ser un volcado apresurado ni automático: requiere dedicarle el tiempo, diseño y esmero necesarios para que cada una de las 66 historias de componentes refleje a la perfección la estética *Craft Minimalist / Modern SaaS*, soporte bidireccional de tema (Claro / Oscuro), controles interactivos y contraste WCAG impecable. Por esta razón, se programa como un hito dedicado de desarrollo antes de su apertura pública.
 
 ### 1. Demostración Interactiva en Vivo (Storybook Showcase en GitHub Pages)
-* **Objetivo:** Permitir a desarrolladores, diseñadores y evaluadores explorar, probar y copiar código interactivo de los 64 componentes sin necesidad de clonar ni compilar el repositorio.
+* **Objetivo:** Permitir a desarrolladores, diseñadores y evaluadores explorar, probar y copiar código interactivo de los 67 componentes (66 historias) sin necesidad de clonar ni compilar el repositorio.
 * **Criterios de Excelencia Visual y Técnica:**
   * ✅ **Curaduría de Casos de Uso:** Cada componente dispondrá de historias con datos y estados reales (reposo, hover, activo, carga, error, deshabilitado, denso y responsivo).
   * ✅ **Toggle Dinámico de Temas:** Conmutador fluido entre modo claro y modo oscuro verificado con tokens semánticos `--alcspower-*`.
