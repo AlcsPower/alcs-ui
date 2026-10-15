@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@alcspower/ui.svg?color=6366f1&style=flat-square)](https://www.npmjs.com/package/@alcspower/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-505%2F505%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
+[![Tests](https://img.shields.io/badge/tests-512%2F512%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
 [![React](https://img.shields.io/badge/react-18%20%7C%2019-61dafb.svg?style=flat-square)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg?style=flat-square)](https://www.typescriptlang.org)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4%20ready-38bdf8.svg?style=flat-square)](https://tailwindcss.com)
@@ -186,7 +186,7 @@ npx @alcspower/ui info DataTable
 npx @alcspower/ui info MultiSelect
 npx @alcspower/ui info Button
 
-# List all 67 components categorized:
+# List all 68 components categorized:
 npx @alcspower/ui list
 
 # Print semantic CSS tokens cheatsheet:
@@ -198,7 +198,7 @@ npx @alcspower/ui snippets
 
 ### 3. Machine-Readable LLM Manifests (`llms.txt` and `registry.json`)
 
-* **`registry.json` (~16 KB):** Structured JSON catalog containing all 67 components, props, variants, and subcomponents. Allows AI agents to accurately write JSX with minimal token overhead.
+* **`registry.json` (~16 KB):** Structured JSON catalog containing all 68 components, props, variants, and subcomponents. Allows AI agents to accurately write JSX with minimal token overhead.
 * **`llms.txt`:** Open specification standard adhering to [llmstxt.org](https://llmstxt.org/).
 * **`llms-small.txt` (~1.5k tokens):** Ultra-condensed ruleset, tokens, and core APIs for direct injection into system prompts.
 * **Direct package exports:**
@@ -350,6 +350,7 @@ Every component is thoroughly tested (**68 test suites / 497 automated tests pas
 * **`Collapsible`:** Lightweight disclosure primitive based on `@radix-ui/react-collapsible`.
 * **`Stepper`:** Interactive step indicator for multi-step wizards.
 * **`Pagination`:** Accessible pagination controls with interactive ellipsis.
+* **`ScrollArea`:** Accessible custom scroll container based on Radix UI, supporting vertical, horizontal, or bidirectional scrollbars with Craft Minimalist styling and proportional metric sizes.
 * **`Separator`:** Semantic horizontal or vertical divider based on `@radix-ui/react-separator`.
 
 ### 5. Feedback
@@ -436,7 +437,7 @@ Every component in `@alcspower/ui` is continuously audited:
 2. **Keyboard Navigation:** Strict compliance with standard keybindings (`Tab`, `Shift+Tab`, `Escape`, `Enter`, `Space`, `Arrow keys`, `Home`, `End`) across interactive controls and overlays.
 3. **Screen Reader Precision:** Verified ARIA attributes (`aria-describedby`, `aria-invalid`, `aria-expanded`, semantic roles) and elimination of duplicate speech announcements.
 4. **Motion Safety (`prefers-reduced-motion`):** Animations (spinners, skeleton pulses, transitions) respect user operating system settings.
-5. **Test Coverage:** **69 test suites and 505 automated tests** passing at 100%.
+5. **Test Coverage:** **70 test suites and 512 automated tests** passing at 100%.
 
 ---
 

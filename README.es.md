@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@alcspower/ui.svg?color=6366f1&style=flat-square)](https://www.npmjs.com/package/@alcspower/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-505%2F505%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
+[![Tests](https://img.shields.io/badge/tests-512%2F512%20passing-10b981.svg?style=flat-square)](https://github.com/AlcsPower/alcs-ui/actions)
 [![React](https://img.shields.io/badge/react-18%20%7C%2019-61dafb.svg?style=flat-square)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg?style=flat-square)](https://www.typescriptlang.org)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4%20ready-38bdf8.svg?style=flat-square)](https://tailwindcss.com)
@@ -192,7 +192,7 @@ npx @alcspower/ui info DataTable
 npx @alcspower/ui info MultiSelect
 npx @alcspower/ui info Button
 
-# Listar todos los 67 componentes agrupados por categoría:
+# Listar todos los 68 componentes agrupados por categoría:
 npx @alcspower/ui list
 
 # Ver la chuleta de tokens semánticos CSS (--alcspower-*):
@@ -204,7 +204,7 @@ npx @alcspower/ui snippets
 
 ### 3. Manifiestos para LLMs y Economía de Tokens (`llms.txt` y `registry.json`)
 
-* **`registry.json` (~16 KB):** Diccionario estructurado en JSON de todos los 67 componentes, variantes, subcomponentes y props. Permite a los agentes inspeccionar la API sin consumir el archivo de tipos compilado (`dist/index.d.ts` de ~129 KB).
+* **`registry.json` (~16 KB):** Diccionario estructurado en JSON de todos los 68 componentes, variantes, subcomponentes y props. Permite a los agentes inspeccionar la API sin consumir el archivo de tipos compilado (`dist/index.d.ts` de ~129 KB).
 * **`llms.txt`:** Especificación estándar para modelos de lenguaje basada en [llmstxt.org](https://llmstxt.org/).
 * **`llms-small.txt` (~1.5k tokens):** Versión ultra-condensada de reglas de diseño, tokens semánticos y componentes clave para inyección directa en system prompts con mínima huella de contexto.
 * **Subpaths exportados en `package.json`:**
@@ -358,6 +358,7 @@ Todos los componentes han sido verificados mediante pruebas unitarias exhaustiva
 * **`Collapsible`:** Primitiva interactiva ligera basada en `@radix-ui/react-collapsible` para expandir y colapsar secciones, filtros avanzados y detalles.
 * **`Stepper`:** Guía interactiva de pasos para formularios secuenciales (*wizards*) con gestión de estados activo, completado y pendiente.
 * **`Pagination`:** Sistema de paginación accesible con soporte de páginas previas/siguientes y elipsis interactiva.
+* **`ScrollArea`:** Contenedor de desplazamiento accesible basado en Radix UI, con barras estilizadas Craft Minimalist en orientación vertical, horizontal o bidireccional y escalas de tamaño métricas (`sm`, `md`, `lg`).
 * **`Separator`:** Divisor horizontal o vertical semántico basado en `@radix-ui/react-separator`.
 
 ### 5. Retroalimentación (Feedback)
@@ -444,7 +445,7 @@ Para proyectos que utilicen Tailwind CSS v4, `@alcspower/ui` expone tokens listo
 2. **Navegación por Teclado:** Se valida el comportamiento secuencial de teclas (`Tab`, `Shift+Tab`, `Escape`, `Enter`, `Space`, `Arrow keys`, `Home`, `End`) en todos los controles interactivos y modales.
 3. **Anuncios ARIA y Lectores de Pantalla:** Verificación de roles semánticos (`role="alert"`, `role="spinbutton"`, `role="listbox"`, `role="tree"`), propiedades de accesibilidad (`aria-describedby`, `aria-invalid`, `aria-expanded`) y supresión de lecturas duplicadas.
 4. **Respeto a Preferencias del Usuario (`prefers-reduced-motion`):** Las animaciones complejas (como spinners y efectos de pulsación) respetan las preferencias del sistema operativo para evitar mareos o distracciones.
-5. **Cobertura de Pruebas:** **69 suites de pruebas y 505 tests unitarios y de integración** pasando al 100%.
+5. **Cobertura de Pruebas:** **70 suites de pruebas y 512 tests unitarios y de integración** pasando al 100%.
 
 ---
 

@@ -753,6 +753,36 @@
         "label"
       ],
       "example": "<Gauge value={78} min={0} max={100} geometry=\"semicircle\" size=\"md\" label=\"SLA Compliance\" />"
+    },
+    "ScrollArea": {
+      "category": "layout",
+      "variants": [
+        "vertical",
+        "horizontal",
+        "both"
+      ],
+      "sizes": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "subcomponents": [
+        "ScrollArea",
+        "ScrollBar",
+        "ScrollAreaViewport",
+        "ScrollAreaThumb",
+        "ScrollAreaCorner"
+      ],
+      "props": [
+        "orientation",
+        "scrollbarSize",
+        "viewportClassName",
+        "thumbClassName",
+        "viewportRef",
+        "type",
+        "scrollHideDelay"
+      ],
+      "example": "<ScrollArea className=\"h-72 w-full\" orientation=\"vertical\" scrollbarSize=\"md\"><div>Contenido largo...</div></ScrollArea>"
     }
   }
 }

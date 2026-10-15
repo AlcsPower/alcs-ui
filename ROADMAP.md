@@ -53,8 +53,8 @@ v1.6.3 (Actual Consolidado ✓)
   ├─ Saneamiento Técnico: 'use client' en bundles RSC, 67 componentes sincronizados, Security Helpers (v1.6.3 ✓)
   │
   └─► v1.7.0: Showcase Interactivo + ScrollArea + Contenido Rich
+        ├─ ScrollArea / Scrollbar (Radix UI accesible) (Completado ✓)
         ├─ Storybook Showcase en GitHub Pages (Demo interactiva con máximo pulido)
-        ├─ ScrollArea / Scrollbar (Radix UI accesible)
         ├─ Portal Web de Documentación Bilingüe (Astro Starlight)
         ├─ RichTextEditor (módulo independiente)
         └─ CodeBlock, Markdown
@@ -149,12 +149,12 @@ v1.6.3 (Actual Consolidado ✓)
   * Binario ejecutable con `npx @alcspower/ui` con comandos `init-agent`, `info`, `list`, `tokens` y `snippets`.
 * [x] **Manifiestos Nativos para Agentes de IA (Completado ✓):**
   * Diccionario estructurado `registry.json` y estándares abiertos `llms.txt` y `llms-small.txt` empaquetados en npm.
+* [x] **`ScrollArea` / `ScrollBar` (Radix UI accesible) (Completado ✓):**
+  * Contenedor de scroll accesible con barras estilizadas Craft Minimalist, soporte bidireccional (`vertical`, `horizontal`, `both`), 3 escalas de grosor (`sm`, `md`, `lg`), esquinas automáticas y componentes compuestos (`ScrollBar`, `ScrollAreaViewport`, `ScrollAreaThumb`, `ScrollAreaCorner`).
 * [ ] **Demostración Interactiva en Vivo (Storybook Showcase en GitHub Pages):**
-  * Hito dedicado planificado para desplegar las 64 historias interactivas con controles dinámicos, alternancia de temas y accesibilidad auditada.
+  * Hito dedicado planificado para desplegar las 67 historias interactivas con controles dinámicos, alternancia de temas y accesibilidad auditada.
 * [ ] **Portal Web de Documentación Bilingüe (Astro Starlight):**
   * Sitio estático con búsqueda *Pagefind*, instructivo completo y recetas multistack.
-* [ ] **`ScrollArea` / `Scrollbar`:**
-  * Contenedor de scroll accesible con barras estilizadas Craft Minimalist.
 * [ ] **`RichTextEditor` (como módulo independiente):**
   * Editor WYSIWYG evaluando `Lexical` o `TipTap` con sanitización estricta.
 * [ ] **`CodeBlock`, `Markdown`:**
@@ -187,7 +187,7 @@ v1.6.3 (Actual Consolidado ✓)
 Cada nuevo componente debe cumplir antes de entrar al paquete principal:
 
 - [x] TypeScript estricto (0 errores con `tsc --noEmit`)
-- [x] Tests unitarios (69 suites / 505 tests pasando al 100%)
+- [x] Tests unitarios (70 suites / 512 tests pasando al 100%)
 - [x] Tests de accesibilidad (`axe-core` con 0 violaciones WCAG 2.1 AA)
 - [x] Storybook con al menos 3 estados por componente
 - [x] Dark mode (Tokens semánticos bidireccionales `--alcspower-*`)
@@ -205,7 +205,7 @@ Cada nuevo componente debe cumplir antes de entrar al paquete principal:
 |---|---|---|
 | P0 | Formularios y validación | `Field` (✓), `SearchInput` (✓), `PasswordInput` (✓), `OTPInput` (✓), `MultiSelect` (✓), `TagsInput` (✓), `NumberInput` (✓), `FormProvider` (Planificado) |
 | P0 | Overlays | `ConfirmDialog` (✓), `AlertDialog` (✓), `Sheet` (✓), `Drawer` (✓) |
-| P1 | Data & dashboards | `TreeView` (✓), `Sparkline` (✓), `Gauge` (✓), `DataTable` (✓), `ScrollArea` / `Scrollbar` (En progreso), `VirtualList` |
+| P1 | Data & dashboards | `TreeView` (✓), `Sparkline` (✓), `Gauge` (✓), `DataTable` (✓), `ScrollArea` / `Scrollbar` (✓), `VirtualList` |
 | P1 | Navegación | `Tabs` (✓), `Accordion` (✓), `Breadcrumb` (✓), `Stepper` (✓), `Sidebar` & `Header` en Starter (✓) |
 | P1 | Feedback | `StatusBadge` (✓), `Toaster` / `toast` (✓), `LoadingOverlay` (✓), `NotificationCenter` (Planificado) |
 | P2 | Contenido | `CopyButton` (✓), `RichTextEditor` (Planificado), `Markdown` / `CodeBlock` (Planificado) |
@@ -274,9 +274,9 @@ La librería debe crecer en amplitud sin convertirse en un framework de negocio.
 ### ✅ Hitos Alcanzados de Ergonomía para IA y Desarrolladores
 * [x] **CLI Oficial Integrado (`alcspower-ui` / `npx @alcspower/ui`):**
   * Herramienta nativa sin dependencias pesadas (<50ms de arranque) registrada en `package.json` (`"bin"`).
-  * Comandos disponibles: `init-agent` (scaffolding automático de reglas), `snippets` (instalación de snippets), `list` (catálogo de 67 componentes por categoría), `info <component>` (API, variantes, props y ejemplo JSX desde `registry.json`) y `tokens` (chuleta CSS de `--alcspower-*`).
+  * Comandos disponibles: `init-agent` (scaffolding automático de reglas), `snippets` (instalación de snippets), `list` (catálogo de 68 componentes por categoría), `info <component>` (API, variantes, props y ejemplo JSX desde `registry.json`) y `tokens` (chuleta CSS de `--alcspower-*`).
 * [x] **Economía de Contexto y Manifiestos Estructurados:**
-  * `registry.json` (~16 KB): Diccionario estructurado en JSON de los 67 componentes, variantes y subcomponentes para evitar consumo de tokens sobre archivos `.d.ts` de gran tamaño.
+  * `registry.json` (~16 KB): Diccionario estructurado en JSON de los 68 componentes, variantes y subcomponentes para evitar consumo de tokens sobre archivos `.d.ts` de gran tamaño.
   * `llms-small.txt` (~1.5k tokens): Resumen ultra-condensado de tokens, directivas y componentes clave para inyección en system prompts.
   * `llms.txt`: Especificación estándar abierta según lineamientos de [llmstxt.org](https://llmstxt.org/).
 * [x] **Snippets Oficiales para VS Code (`snippets/alcspower.code-snippets`):**
@@ -298,10 +298,10 @@ La librería debe crecer en amplitud sin convertirse en un framework de negocio.
 
 > [!IMPORTANT]
 > **Filosofía del Hito de Demostración:**  
-> La demo en vivo es la carta de presentación visual de `@alcspower/ui` ante el mundo. No debe ser un volcado apresurado ni automático: requiere dedicarle el tiempo, diseño y esmero necesarios para que cada una de las 66 historias de componentes refleje a la perfección la estética *Craft Minimalist / Modern SaaS*, soporte bidireccional de tema (Claro / Oscuro), controles interactivos y contraste WCAG impecable. Por esta razón, se programa como un hito dedicado de desarrollo antes de su apertura pública.
+> La demo en vivo es la carta de presentación visual de `@alcspower/ui` ante el mundo. No debe ser un volcado apresurado ni automático: requiere dedicarle el tiempo, diseño y esmero necesarios para que cada una de las 67 historias de componentes refleje a la perfección la estética *Craft Minimalist / Modern SaaS*, soporte bidireccional de tema (Claro / Oscuro), controles interactivos y contraste WCAG impecable. Por esta razón, se programa como un hito dedicado de desarrollo antes de su apertura pública.
 
 ### 1. Demostración Interactiva en Vivo (Storybook Showcase en GitHub Pages)
-* **Objetivo:** Permitir a desarrolladores, diseñadores y evaluadores explorar, probar y copiar código interactivo de los 67 componentes (66 historias) sin necesidad de clonar ni compilar el repositorio.
+* **Objetivo:** Permitir a desarrolladores, diseñadores y evaluadores explorar, probar y copiar código interactivo de los 68 componentes (67 historias) sin necesidad de clonar ni compilar el repositorio.
 * **Criterios de Excelencia Visual y Técnica:**
   * ✅ **Curaduría de Casos de Uso:** Cada componente dispondrá de historias con datos y estados reales (reposo, hover, activo, carga, error, deshabilitado, denso y responsivo).
   * ✅ **Toggle Dinámico de Temas:** Conmutador fluido entre modo claro y modo oscuro verificado con tokens semánticos `--alcspower-*`.

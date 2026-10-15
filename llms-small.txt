@@ -1,6 +1,6 @@
 # @alcspower/ui — Concise Agent Reference
 
-Accessible React 18/19 component library (67 components) with semantic Tailwind CSS v4 tokens, Radix UI primitives, CVA, and bundled sub-dependencies (zero external runtime dependencies beyond react + react-dom).
+Accessible React 18/19 component library (68 components) with semantic Tailwind CSS v4 tokens, Radix UI primitives, CVA, and bundled sub-dependencies (zero external runtime dependencies beyond react + react-dom).
 
 ## Critical Rules
 1. ALWAYS import from '@alcspower/ui': `import { Button, Card, ... } from '@alcspower/ui'`
@@ -59,5 +59,5 @@ Accessible React 18/19 component library (67 components) with semantic Tailwind 
 - Calendar / DatePicker / DateRangePicker
 
 ### Layout & Accessibility
-- Container / Grid / Stack
+- Container / Grid / Stack / ScrollArea
 - VisuallyHidden
