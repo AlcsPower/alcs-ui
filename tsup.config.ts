@@ -9,6 +9,7 @@ export default defineConfig({
       incremental: false
     }
   },
+  shims: true,
   sourcemap: true,
   clean: true,
   treeshake: true,

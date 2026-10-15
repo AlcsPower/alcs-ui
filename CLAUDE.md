@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with th
 
 ## Project Overview
 
-`@alcspower/ui` is an accessible React component library (64 components) built on Radix UI, Tailwind CSS v4, and CVA. Version 1.6.2. Self-contained bundle — consumers only need `react` and `react-dom`.
+`@alcspower/ui` is an accessible React component library (68 components) built on Radix UI, Tailwind CSS v4, and CVA. Version 1.6.4. Self-contained bundle with full SSR compatibility — consumers only need `react` and `react-dom`.
 
 ## Build & Development Commands
 
@@ -21,11 +21,11 @@ pnpm build-storybook  # Static Storybook
 
 ## Architecture
 
-- **Source:** `src/components/` organized by category (forms, data-display, time, overlays, feedback, navigation, accessibility)
+- **Source:** `src/components/` organized by category (forms, data-display, time, overlays, feedback, navigation, layout, accessibility)
 - **Barrel Export:** `src/index.ts` re-exports all components and utilities
 - **Styling:** CSS custom properties `--alcspower-*` in `src/styles/tokens.css`, encapsulated in `@layer alcspower-tokens` and `@layer alcspower-ui`
 - **Build:** tsup (ESM + CJS + DTS) + Tailwind CLI (CSS)
-- **Bundle:** All dependencies except react/react-dom compiled into the output
+- **Bundle:** Self-contained bundle with built-in DOM guards for Node/SSR and ESM shims
 
 ## Key Conventions
 
@@ -46,8 +46,9 @@ pnpm build-storybook  # Static Storybook
 4. Use `cn()` from `'@alcspower/ui'` for Tailwind class merging
 5. Use compound subcomponents (e.g., `Card` → `CardHeader`, `CardTitle`, `CardContent`, `CardFooter`)
 6. Use `asChild` prop for polymorphic rendering (wraps Radix UI `Slot`)
-7. Place `<Toaster position="bottom-right" richColors />` once in app root
-8. Use `toast.success()`, `.error()`, `.warning()`, `.info()`, `.promise()` for notifications
+7. For `DataTable`, use `createColumnHelper` and `AlcsColumnDef` directly from `'@alcspower/ui'`. Differentiate `accessorFn: (item) => ...` from `cell: ({ row }) => row.original...`
+8. Place `<Toaster position="bottom-right" richColors />` once in app root
+9. Use `toast.success()`, `.error()`, `.warning()`, `.info()`, `.promise()` for notifications
 
 ### Design Tokens (`--alcspower-*`)
 All colors, radii, shadows defined as CSS custom properties in `src/styles/tokens.css`.
@@ -56,14 +57,15 @@ All colors, radii, shadows defined as CSS custom properties in `src/styles/token
 
 Key tokens: `--alcspower-primary`, `--alcspower-foreground`, `--alcspower-background`, `--alcspower-surface`, `--alcspower-destructive`, `--alcspower-success`, `--alcspower-warning`, `--alcspower-info`, `--alcspower-border`, `--alcspower-ring`
 
-### Component Categories
+### Component Categories (68 Components)
 | Category | Key Components |
 |---|---|
-| Forms | Button, Input, NumberInput, Field (compound), Checkbox, Switch, Select, Combobox, MultiSelect, RadioGroup, Slider, Toggle, ToggleGroup, SearchInput, PasswordInput, OTPInput, TagsInput, FileUpload, Textarea, Label |
-| Data Display | Badge, StatusBadge, Card (compound), Avatar, Table, DataTable (TanStack), Pagination, Separator, Timeline, Kbd, Chart (Recharts), MetricCard, StatCard, DeltaIndicator |
-| Overlays | Dialog, AlertDialog, ConfirmDialog, Sheet, Drawer, Popover, Tooltip, DropdownMenu, ContextMenu, Command/CommandDialog |
-| Feedback | Alert, Toaster/toast (Sonner), Skeleton, Spinner, LoadingOverlay, Progress, EmptyState, ErrorState |
-| Navigation | Tabs, Accordion, Breadcrumb, Collapsible, Stepper, TreeView |
-| Time | Calendar, DatePicker, DateRangePicker |
-| Accessibility | VisuallyHidden |
-| Utilities | cn(), customTwMerge |
+| Forms (20) | Button, Input, NumberInput, Field (compound), Checkbox, Switch, Select, Combobox, MultiSelect, RadioGroup, Slider, Toggle, ToggleGroup, SearchInput, PasswordInput, OTPInput, TagsInput, FileUpload, Textarea, Label |
+| Data Display (16) | Badge, StatusBadge, Card (compound), Avatar, Table, DataTable (TanStack), Pagination, Separator, Timeline, Kbd, Chart (Recharts), MetricCard, StatCard, DeltaIndicator, Sparkline, Gauge |
+| Overlays (10) | Dialog, AlertDialog, ConfirmDialog, Sheet, Drawer, Popover, Tooltip, DropdownMenu, ContextMenu, Command/CommandDialog |
+| Feedback (8) | Alert, Toaster/toast (Sonner), Skeleton, Spinner, LoadingOverlay, Progress, EmptyState, ErrorState |
+| Navigation (6) | Tabs, Accordion, Breadcrumb, Collapsible, Stepper, TreeView |
+| Time (3) | Calendar, DatePicker, DateRangePicker |
+| Layout (4) | Container, Grid, Stack, ScrollArea |
+| Accessibility (1) | VisuallyHidden |
+| Utilities | cn(), customTwMerge, isSafeUrl(), escapeHtml(), stripHtml(), createColumnHelper |

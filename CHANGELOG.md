@@ -1,5 +1,32 @@
 # @alcspower/ui
 
+## 1.6.4
+
+### Patch Changes
+
+- ### Robustez de Tipos en TypeScript, Soporte ESM / SSR en Node y Ergonomía de `DataTable`
+  - **Resolución Definitiva de Tipos (`.d.ts` sin subdependencias manuales):**
+    - Se declararon las dependencias de tipos de los primitives y utilidades (`class-variance-authority`, `@radix-ui/*`, `@tanstack/react-table`, `recharts`, `sonner`, `cmdk`, etc.) en `dependencies` de `package.json`.
+    - Elimina de raíz el error `TS2322: Property 'variant' does not exist` en proyectos consumidores limpios. TypeScript resuelve `VariantProps<T>` y todas las props de variantes de forma nativa e inmediata al instalar `@alcspower/ui` sin requerir instalar 28 paquetes auxiliares manualmente.
+  - **Soporte Nativo ESM y SSR para Node.js / Next.js / Remix:**
+    - Se solucionó la excepción `Dynamic require of "react" is not supported` en entornos Node/SSR mediante intercepción y resolución del import de React en tiempo de evaluación de módulos.
+    - Se inyectaron salvaguardas y stubs defensivos de constructores de DOM (`HTMLFormElement`, `HTMLElement`, `HTMLInputElement`) para prevenir fallos `ReferenceError` durante pruebas sin DOM completo o ejecuciones headless en Node.
+  - **Ergonomía y Desacoplamiento de `DataTable`:**
+    - Exportación directa de `createColumnHelper` desde `@alcspower/ui` sin necesidad de que el consumidor instale `@tanstack/react-table`.
+    - Exportación de alias de tipos semánticos (`AlcsColumnDef`, `AlcsSortingState`, `AlcsRowSelectionState`, `AlcsTable`, `AlcsRow`, etc.).
+    - Documentación y ejemplos JSDoc clarificando la distinción entre `accessorFn: (item) => ...` (recibe el objeto de datos crudo) y `cell: ({ row }) => row.original...` (recibe el contexto de celda).
+  - **Sincronización Total de Manifests y Reglas de Agentes:**
+    - Catálogo unificado y actualizado a 68 componentes en `AGENTS.md`, `CLAUDE.md`, `.agent/skills/alcspower-ui/SKILL.md` y `llms.txt`.
+
+## 1.6.3
+
+### Patch Changes
+
+- ### Saneamiento Técnico de Distribución y Utilidades de Seguridad
+  - **Directiva `'use client';` garantizada:** Se implementó `scripts/ensure-use-client.js` para asegurar la directiva `'use client';` en los artefactos `dist/index.js` y `dist/index.cjs`.
+  - **Utilidades de Seguridad Zero-Dependency (`src/lib/security.ts`):** Exportación de helpers `isSafeUrl()`, `escapeHtml()`, y `stripHtml()`.
+  - **Componente `ScrollArea`:** Nuevo componente de scroll accesible basado en `@radix-ui/react-scroll-area` con 4 historias interactivas y 7 pruebas unitarias.
+
 ## 1.6.2
 
 ### Minor Changes

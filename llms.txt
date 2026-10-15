@@ -1,6 +1,6 @@
 # @alcspower/ui
 
-> Accessible, reusable React component library (59+ components) built on Radix UI, Tailwind CSS v4 tokens, and CVA. Self-contained bundle with zero sub-dependencies.
+> Accessible, reusable React component library (68 components) built on Radix UI, Tailwind CSS v4 tokens, and CVA. Self-contained bundle with full SSR compatibility.
 
 - Package: `@alcspower/ui`
 - npm: https://www.npmjs.com/package/@alcspower/ui

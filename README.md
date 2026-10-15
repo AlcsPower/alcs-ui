@@ -31,7 +31,7 @@ Engineered with native support for **React 18** and **React 19**, strict **TypeS
 ## 📌 Context & Project Identity
 
 * **Package Name:** `@alcspower/ui`
-* **Current Version:** `1.6.3`
+* **Current Version:** `1.6.4`
 * **Author / Maintainer:** Alcides Altamirano (`AlcsPower`)
 * **Project Nature:** Independent open-source design system and component library for the React ecosystem.
 * **Distribution Registries:**

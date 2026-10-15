@@ -36,7 +36,24 @@ export interface DataTableProps<TData, TValue = unknown>
   extends React.HTMLAttributes<HTMLDivElement> {
   /** Array de datos para la tabla */
   data: TData[];
-  /** Definiciones de columnas de TanStack Table */
+  /**
+   * Definiciones de columnas de la tabla (`ColumnDef<TData, TValue>[]`).
+   * 
+   * @example
+   * ```tsx
+   * // Diferencia clave entre accessorFn y cell:
+   * const columns: ColumnDef<SessionRecord>[] = [
+   *   {
+   *     id: 'ip',
+   *     header: 'Dirección IP',
+   *     // accessorFn recibe el item/fila crudo: (item: TData) => string
+   *     accessorFn: (item) => item.target_ip ?? '—',
+   *     // cell recibe el contexto de celda: ({ row }) => JSX, donde row.original es TData
+   *     cell: ({ row }) => <span className="font-mono">{row.original.target_ip}</span>,
+   *   }
+   * ];
+   * ```
+   */
   columns: ColumnDef<TData, TValue>[];
 
   // Feature flags

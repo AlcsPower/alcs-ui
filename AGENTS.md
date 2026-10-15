@@ -3,10 +3,10 @@
 This file is automatically loaded by **OpenCode** and other autonomous coding agents to guide interaction with `@alcspower/ui`.
 
 ## Identity
-- **Package:** `@alcspower/ui`
-- **Description:** Accessible React 18/19 component library (64 components) built on Radix UI and Tailwind CSS v4 tokens.
+- **Package:** `@alcspower/ui` (v1.6.4+)
+- **Description:** Accessible React 18/19 component library (68 components) built on Radix UI and Tailwind CSS v4 tokens.
 - **Tech Stack:** React 18/19, TypeScript 5.7 (strict), Tailwind CSS v4, Radix UI, CVA.
-- **Self-Contained Bundle:** All dependencies (Radix UI, Lucide, Sonner, cmdk, TanStack Table, Recharts, date-fns) are pre-bundled internally. Only `react` and `react-dom` are peer dependencies.
+- **Self-Contained & SSR-Ready:** Pre-bundled with zero external runtime requirements beyond `react` and `react-dom`. Full SSR compatibility in Node/Next.js/Remix with built-in DOM constructor guards and ESM shims.
 
 ---
 
@@ -38,9 +38,25 @@ This file is automatically loaded by **OpenCode** and other autonomous coding ag
 
 5. **Compound Subcomponents:** Use compound parts rather than giant monolithic configs (e.g. `Card` → `CardHeader`, `CardTitle`, `CardContent`, `CardFooter`).
 
-6. **Polymorphic Rendering (`asChild`):** Use `asChild` to wrap custom elements or router links (`<Button asChild><Link to="/home">Inicio</Link></Button>`).
+6. **DataTable Conventions:** Use `createColumnHelper` and `AlcsColumnDef` directly from `@alcspower/ui`. Note the difference between raw row and cell context:
+   ```tsx
+   import { DataTable, createColumnHelper, type AlcsColumnDef } from '@alcspower/ui';
 
-7. **Toaster:** Place `<Toaster position="bottom-right" richColors />` once in the app root. Trigger toasts with:
+   const columnHelper = createColumnHelper<MyData>();
+   const columns = [
+     // accessorFn receives the raw data item: (item: MyData) => string
+     columnHelper.accessor('status', {
+       header: 'Estado',
+       accessorFn: (item) => item.status,
+       // cell receives cell context: ({ row }) => JSX where row.original is MyData
+       cell: ({ row }) => <Badge>{row.original.status}</Badge>,
+     }),
+   ];
+   ```
+
+7. **Polymorphic Rendering (`asChild`):** Use `asChild` to wrap custom elements or router links (`<Button asChild><Link to="/home">Inicio</Link></Button>`).
+
+8. **Toaster:** Place `<Toaster position="bottom-right" richColors />` once in the app root. Trigger toasts with:
    ```tsx
    toast.success('Guardado correctamente');
    toast.error('Error al procesar');
@@ -48,18 +64,19 @@ This file is automatically loaded by **OpenCode** and other autonomous coding ag
 
 ---
 
-## Component Catalog Matrix
+## Component Catalog Matrix (68 Components)
 
 | Category | Key Components |
 |:---|:---|
-| **Forms** | `Button`, `Input`, `NumberInput`, `Field` (Compound), `Checkbox`, `Switch`, `Select`, `Combobox`, `MultiSelect`, `RadioGroup`, `Slider`, `Toggle`, `ToggleGroup`, `SearchInput`, `PasswordInput`, `OTPInput`, `TagsInput`, `FileUpload`, `Textarea`, `Label` |
-| **Data Display** | `Badge`, `StatusBadge`, `Card` (Compound), `Avatar`, `Table`, `DataTable` (TanStack), `Pagination`, `Separator`, `Timeline`, `Kbd`, `Chart`, `MetricCard`, `StatCard`, `DeltaIndicator` |
-| **Overlays** | `Dialog`, `AlertDialog`, `ConfirmDialog`, `Sheet`, `Drawer`, `Popover`, `Tooltip`, `DropdownMenu`, `ContextMenu`, `Command` / `CommandDialog` |
-| **Feedback** | `Alert`, `Toaster` / `toast`, `Skeleton`, `Spinner`, `LoadingOverlay`, `Progress`, `EmptyState`, `ErrorState` |
-| **Navigation** | `Tabs`, `Accordion`, `Breadcrumb`, `Collapsible`, `Stepper`, `TreeView` |
-| **Time** | `Calendar`, `DatePicker`, `DateRangePicker` |
-| **Accessibility** | `VisuallyHidden` |
-| **Utilities** | `cn()`, `customTwMerge` |
+| **Forms** (20) | `Button`, `Input`, `NumberInput`, `Field` (Compound), `Checkbox`, `Switch`, `Select`, `Combobox`, `MultiSelect`, `RadioGroup`, `Slider`, `Toggle`, `ToggleGroup`, `SearchInput`, `PasswordInput`, `OTPInput`, `TagsInput`, `FileUpload`, `Textarea`, `Label` |
+| **Data Display** (16) | `Badge`, `StatusBadge`, `Card` (Compound), `Avatar`, `Table`, `DataTable` (TanStack), `Pagination`, `Separator`, `Timeline`, `Kbd`, `Chart`, `MetricCard`, `StatCard`, `DeltaIndicator`, `Sparkline`, `Gauge` |
+| **Overlays** (10) | `Dialog`, `AlertDialog`, `ConfirmDialog`, `Sheet`, `Drawer`, `Popover`, `Tooltip`, `DropdownMenu`, `ContextMenu`, `Command` / `CommandDialog` |
+| **Feedback** (8) | `Alert`, `Toaster` / `toast`, `Skeleton`, `Spinner`, `LoadingOverlay`, `Progress`, `EmptyState`, `ErrorState` |
+| **Navigation** (6) | `Tabs`, `Accordion`, `Breadcrumb`, `Collapsible`, `Stepper`, `TreeView` |
+| **Time** (3) | `Calendar`, `DatePicker`, `DateRangePicker` |
+| **Layout** (4) | `Container`, `Grid`, `Stack`, `ScrollArea` |
+| **Accessibility** (1) | `VisuallyHidden` |
+| **Utilities** | `cn()`, `customTwMerge`, `isSafeUrl()`, `escapeHtml()`, `stripHtml()`, `createColumnHelper` |
 
 ---
 
