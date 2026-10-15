@@ -9,6 +9,8 @@ import {
   DataTableColumnHeader,
   DataTablePagination,
   DataTableToolbar,
+  createColumnHelper,
+  type AlcsColumnDef,
 } from './index';
 import { ErrorState } from '../../feedback/error-state';
 
@@ -425,6 +427,32 @@ describe('DataTable Component', () => {
 
     const emptyCell = emptyContainer.querySelector('tbody td');
     expect(emptyCell).toHaveAttribute('colspan', '2');
+  });
+
+  it('acepta un array heterogéneo tipado como AlcsColumnDef<T>[] usando createColumnHelper sin errores de asignación', () => {
+    const helper = DataTable.name ? createColumnHelper<TestUser>() : createColumnHelper<TestUser>();
+    
+    // Array heterogéneo: accessor de string, accessor de función (number/boolean), y display
+    const heterogeneousColumns: AlcsColumnDef<TestUser>[] = [
+      helper.accessor('name', {
+        header: 'Nombre',
+        cell: (info) => info.getValue(),
+      }),
+      helper.accessor((row) => row.id.length, {
+        id: 'idLength',
+        header: 'Longitud ID',
+        cell: (info) => `Len: ${info.getValue()}`,
+      }),
+      helper.display({
+        id: 'actions',
+        header: 'Acciones',
+        cell: () => <button>Ver</button>,
+      }),
+    ];
+
+    render(<DataTable data={testData} columns={heterogeneousColumns} />);
+    expect(screen.getByText('Carlos Gómez')).toBeInTheDocument();
+    expect(screen.getAllByText('Len: 1').length).toBe(3);
   });
 });
 

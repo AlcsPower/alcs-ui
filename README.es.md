@@ -31,7 +31,7 @@ Diseñada con soporte nativo para **React 18** y **React 19**, tipado estricto e
 ## 📌 Contexto e Identidad
 
 * **Nombre del Paquete:** `@alcspower/ui`
-* **Versión Actual:** `1.6.5`
+* **Versión Actual:** `1.6.6`
 * **Autor / Creador:** Alcides Altamirano (`AlcsPower`)
 * **Naturaleza del Proyecto:** Proyecto de iniciativa personal independiente para el desarrollo de un sistema de diseño modular, accesible y moderno para el ecosistema React.
 * **Registros de Distribución:**

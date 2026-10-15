@@ -1,5 +1,17 @@
 # @alcspower/ui
 
+## 1.6.6
+
+### Patch Changes
+
+- ### Apertura de Genérico en `AlcsColumnDef` y Compatibilidad Heterogénea de Tablas
+  - **Genérico Abierto en `AlcsColumnDef<TData, TValue = any>`:**
+    - Se abrió el segundo parámetro de tipo a `TValue = any` (en lugar de `unknown`) tanto en `AlcsColumnDef` como en `DataTableProps`.
+    - Resuelve el error de tipos `TS2322: Type 'AccessorKeyColumnDef<..., string>' is not assignable to type 'ColumnDef<..., unknown>'`.
+    - Permite que colecciones heterogéneas producidas por `createColumnHelper` (con columnas de tipo `string`, `number`, `boolean`, `display`, etc.) sean asignadas directamente al array `AlcsColumnDef<TData>[]` y a `<DataTable columns={...} />` sin requerir casts (`as`) ni funciones puente en el consumidor.
+  - **Pruebas Automatizadas:**
+    - Incorporación de prueba unitaria en `DataTable.test.tsx` validando la asignación y renderizado de arrays heterogéneos con `createColumnHelper` y `AlcsColumnDef`.
+
 ## 1.6.5
 
 ### Patch Changes

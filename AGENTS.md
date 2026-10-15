@@ -3,7 +3,7 @@
 This file is automatically loaded by **OpenCode** and other autonomous coding agents to guide interaction with `@alcspower/ui`.
 
 ## Identity
-- **Package:** `@alcspower/ui` (v1.6.5+)
+- **Package:** `@alcspower/ui` (v1.6.6+)
 - **Description:** Accessible React 18/19 component library (68 components) built on Radix UI and Tailwind CSS v4 tokens.
 - **Tech Stack:** React 18/19, TypeScript 5.7 (strict), Tailwind CSS v4, Radix UI, CVA.
 - **Self-Contained & SSR-Ready:** Pre-bundled with zero external runtime requirements beyond `react` and `react-dom`. Full SSR compatibility in Node/Next.js/Remix with built-in DOM constructor guards and ESM shims.

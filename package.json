@@ -1,6 +1,6 @@
 {
   "name": "@alcspower/ui",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "description": "Accessible, composable, and production-ready React 19 component library powered by Tailwind CSS v4 and Radix UI",
   "author": "Alcides Altamirano (AlcsPower)",
   "license": "MIT",

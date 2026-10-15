@@ -32,7 +32,7 @@ import { ErrorState } from '../../feedback/error-state';
 import { DataTableToolbar } from './DataTableToolbar';
 import { DataTablePagination } from './DataTablePagination';
 
-export interface DataTableProps<TData, TValue = unknown>
+export interface DataTableProps<TData, TValue = any>
   extends React.HTMLAttributes<HTMLDivElement> {
   /** Array de datos para la tabla */
   data: TData[];
